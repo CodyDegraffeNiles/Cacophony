@@ -25,6 +25,7 @@ class SessionForm extends React.Component{
   }
 
   render(){
+    // Creats a username input if the form is a signup form
     const username = this.props.formType === "signup" ? <label> Username
         <input  
         type = "text"
@@ -34,6 +35,12 @@ class SessionForm extends React.Component{
         </label> 
     : null;
 
+    // Creates a demo login button if the form type is login
+    const demo = this.props.formType === "login" ? <button type ="submit" 
+    onClick= {this.demoLogin()} > Login in As Demo User
+    </button> : null
+
+    // Create link to the opposite form
     const link = this.props.formType === "signup" ? 
     <Link to = "/login">Login</Link> : 
     <Link to ="/signup">Signup</Link>
@@ -59,6 +66,7 @@ class SessionForm extends React.Component{
         </label>
         <br/>
         <button type="submit"> {this.props.formType}</button>
+        {demo}
         </form>
         </div>
     )
