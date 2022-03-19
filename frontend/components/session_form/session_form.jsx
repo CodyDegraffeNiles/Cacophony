@@ -25,12 +25,14 @@ class SessionForm extends React.Component{
   }
 
   render(){
-    const email = this.props.formType === "signup" ? <label> Email <input 
-    type="text"
-    value = {this.state.email}
-    onChange ={this.handleChange('email')}/>
-    </label>
-    : "";
+    const username = this.props.formType === "signup" ? <label> Username
+        <input  
+        type = "text"
+        value = {this.state.username}
+        onChange ={this.handleChange('username')}/>
+        <br/>
+        </label> 
+    : null;
 
     const link = this.props.formType === "signup" ? 
     <Link to = "/login">Login</Link> : 
@@ -41,15 +43,13 @@ class SessionForm extends React.Component{
         {link}
         <h3>{this.props.formType.toUpperCase()} </h3>
         <form onSubmit={this.handleSubmit}>
-        <label> Username
-        <input  
-        type = "text"
-        value = {this.state.username}
-        onChange ={this.handleChange('username')}/>
+        <label> Email <input 
+        type="text"
+        value = {this.state.email}
+        onChange ={this.handleChange('email')}/>
         </label>
         <br/> 
-        {email}
-        <br/> 
+        {username}
         <label> Password
         <input 
         type = "password"

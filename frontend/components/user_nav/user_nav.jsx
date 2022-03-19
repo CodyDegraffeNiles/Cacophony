@@ -11,7 +11,7 @@ class UserNav extends React.Component{
   render(){
     const display = this.props.currentUser ? (
     <div>
-      <h2> {this.props.currentUser.username}#{this.props.currentUser.nameTag}</h2>
+      <h2> {this.props.currentUser.username}#{this.props.currentUser.numberTag}</h2>
       <button onClick={() => this.props.logout()}> LogOut</button>
     </div> ) : (
       <div>

@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     else
     # Log them in and redirect them if we find them
       login(@user)
-      render :show
+      render 'api/users/show';
     end
 
   end
