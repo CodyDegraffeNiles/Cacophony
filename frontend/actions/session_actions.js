@@ -36,7 +36,7 @@ export const login = (user) => (dispatch) => {
   };
 
 export const logout = () => (dispatch) => {
-  return sessionUtil.logout().then(() => (
+  return sessionUtil.deleteSession().then(() => (
     dispatch(logoutCurrentUser())
   ))
 };
