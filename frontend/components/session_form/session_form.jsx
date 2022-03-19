@@ -11,6 +11,7 @@ class SessionForm extends React.Component{
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this)
   }
 
 
@@ -22,6 +23,17 @@ class SessionForm extends React.Component{
 
   handleChange(type){
     return (e) => {this.setState({[type] : e.target.value})}
+  }
+
+  demoLogin(){
+    let demoUser = {
+      email: "KoalaDemo@caveman.com",
+      username: "DemoUser",
+      password: "DropBear"
+    }
+    this.setState({email: demoUser.email})
+    this.setState({password: demoUser.password})
+    console.log(this.state)
   }
 
   render(){
@@ -37,7 +49,7 @@ class SessionForm extends React.Component{
 
     // Creates a demo login button if the form type is login
     const demo = this.props.formType === "login" ? <button type ="submit" 
-    onClick= {this.demoLogin()} > Login in As Demo User
+    onClick= {() => this.demoLogin()} > Demo Login
     </button> : null
 
     // Create link to the opposite form
