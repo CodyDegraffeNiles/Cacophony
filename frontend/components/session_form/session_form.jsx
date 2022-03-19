@@ -33,7 +33,6 @@ class SessionForm extends React.Component{
     }
     this.setState({email: demoUser.email})
     this.setState({password: demoUser.password})
-    console.log(this.state)
   }
 
   render(){
@@ -54,13 +53,28 @@ class SessionForm extends React.Component{
 
     // Create link to the opposite form
     const link = this.props.formType === "signup" ? 
-    <Link to = "/login">Login</Link> : 
-    <Link to ="/signup">Signup</Link>
+    <Link to = "/login">Already have an account?</Link> : 
+    <Link to ="/signup">Register</Link>
+
+    // Creates welecome Message based on formType
+    const welcomeHeader = this.props.formType === "login" ? "Welcome Back!" : 
+    "Create an account"
+
+    const messageHeader = this.props.formType === "login" ? 
+    "We're so excited to see you again!" : null
+
+    // Footer message with redirect to other session from.
+    const footerMessage = this.props.formType === "login" ? <span> Need an account? </span> :
+    null;
+
+    // Button message for each form
+    const buttonMessage = this.props.formType === "login" ? "Login" : 
+    "Continue"
 
     return(
-      <div> 
-        {link}
-        <h3>{this.props.formType.toUpperCase()} </h3>
+      <div id ="login-form"> 
+        <h3>{welcomeHeader} </h3>
+        <p>{messageHeader}</p>
         <form onSubmit={this.handleSubmit}>
         <label> Email <input 
         type="text"
@@ -77,9 +91,10 @@ class SessionForm extends React.Component{
         />
         </label>
         <br/>
-        <button type="submit"> {this.props.formType}</button>
+        <button type="submit"> {buttonMessage} </button>
         {demo}
         </form>
+        {footerMessage} {link}
         </div>
     )
   }

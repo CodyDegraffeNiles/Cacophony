@@ -13,12 +13,8 @@ class UserNav extends React.Component{
     <div>
       <h2> {this.props.currentUser.username}#{this.props.currentUser.numberTag}</h2>
       <button onClick={() => this.props.logout()}> LogOut</button>
-    </div> ) : (
-      <div>
-      <Link to = '/signup'> Signup </Link>
-      <Link to = '/login'> Login </Link>
-    </div>
-    );
+    </div> ) : null
+    ;
 
     return (
       display

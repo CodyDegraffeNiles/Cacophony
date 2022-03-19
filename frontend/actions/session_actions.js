@@ -42,20 +42,5 @@ export const logout = () => (dispatch) => {
     dispatch(logoutCurrentUser())
   ))
 };
-// export const login = (user) => (dispatch) => {
-//     return createSession(user)
-//     .then((modUser) => {dispatch(receiveCurrentUser(modUser))})};
-
-
-// export const logout = () =>  (dispatch) => {
-//     return deleteSession()
-//     .then(() => dispatch(logoutCurrentUser()))
-// };
-
-// export const signup = (user) => (dispatch) => {
-//     return createUser(user)
-//     .then((modUser) => {dispatch(receiveCurrentUser(modUser))})
-// }
-
 
 

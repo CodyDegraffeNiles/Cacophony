@@ -1,3 +1,35 @@
 // Place all the styles related to the Api::Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#login-form {
+  background-color: #36393f;
+  // font-family: Arial, Helvetica, sans-serif;
+}
+
+#login-form h3 {
+  color: white;
+  font-size: 26px;
+  font-weight: bolder;
+  padding-bottom: 8px;
+}
+
+#login-form p {
+  color: lightgrey ;
+  font-family:  
+  font-size 16px;
+}
+
+#login-form span{
+  color: lightgrey ; 
+  font-size: 14px;
+}
+
+#login-form a{
+  font-size: 14px;
+  text-decoration: none;
+  color: #00AFF4;
+}
+
