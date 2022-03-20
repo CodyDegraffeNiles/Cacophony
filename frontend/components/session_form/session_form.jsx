@@ -89,8 +89,8 @@ class SessionForm extends React.Component{
         />
         <button type="submit"> {buttonMessage} </button>
         {demo}
-        </form>
         {footerMessage} {link}
+        </form>
         </div>
       </div>
     )
