@@ -8,7 +8,7 @@ const HomeNav = () => {
   return(
     <div id="home-nav">
     <div id="site-intro">
-    <i class="fa-brands fa-discord fa-xl"/>
+    <i className="fa-brands fa-discord fa-xl"/>
     <span id="site-name"> Cacophony </span>
     </div>
     <div id="home-nav-links"> 

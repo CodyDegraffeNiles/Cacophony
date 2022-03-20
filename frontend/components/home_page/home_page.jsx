@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HomeNav from "../home_nav/home_nav";
+import HomeBody from "../home_body/home_body"
 
 
 class HomePage extends React.Component{
@@ -12,7 +13,7 @@ class HomePage extends React.Component{
     return (
       <div>
         <HomeNav/> 
-        {/* <HomeBody/> */}
+        <HomeBody/>
         {/* <FooterNavContainer/> */}
 
         {/* <Link to ="/login">Login</Link>
