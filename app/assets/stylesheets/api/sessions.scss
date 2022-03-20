@@ -31,7 +31,6 @@
 }
 
 #login-form h5 {
-  color: lightgrey ;
   font-size: 14px;
   padding-bottom: 5px;
   margin-top: 15px;
@@ -83,4 +82,12 @@
 
 #login-form button:hover{
   filter: brightness(90%);
+}
+
+.login-error {
+  color: red;
+}
+
+.login-normal{
+  color:lightgrey;
 }

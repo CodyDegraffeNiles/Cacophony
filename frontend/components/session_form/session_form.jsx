@@ -22,6 +22,7 @@ class SessionForm extends React.Component{
   }
 
   handleChange(type){
+    console.log(this.props.errors)
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
@@ -36,13 +37,12 @@ class SessionForm extends React.Component{
   }
 
   render(){
-    // Creats a username input if the form is a signup form
-    const username = this.props.formType === "signup"? <div><h5> USERNAME </h5>
+    // Creates a username input if the form is a signup form
+    const usernameInput = this.props.formType === "signup"? 
         <input  
         type = "text"
         value = {this.state.username}
         onChange ={this.handleChange('username')}/>
-        </div>
     : null;
 
     // Creates a demo login button if the form type is login
@@ -70,18 +70,36 @@ class SessionForm extends React.Component{
     const buttonMessage = this.props.formType === "login" ? "Login" : 
     "Continue"
 
+
+    // Create Proper Headings for the Form;
+    const email = this.props.errors.length === 0 ? <h5 className="login-normal">
+      EMAIL</h5> : <h5 className ="login-error"> 
+      EMAIL {errorMessage} </h5>
+
+    const password = this.props.errors.length === 0 ? <h5 className="login-normal">
+      PASSWORD</h5> :<h5 className ="login-error">
+      PASSWORD {errorMessage}</h5>
+
+    const username = this.props.errors.length === 0 && this.props.formType ? <h5 className="login-normal"> 
+    USERNAME </h5> : <h5 className ="login-error">
+      USERNAME {errorMessage}</h5>
+
+    // Create Approptie Error Message for Form :
+    const errorMessage = this.props.formType === 'login' ? "INVALID EMAIL/PASSWORD COMBINATION"
+    : "INVALID SIGNUP CREDENTIALS!"
+
     return(
       <div id= "login-background">
       <div id ="login-form"> 
         <h3>{welcomeHeader} </h3>
         <p>{messageHeader}</p>
         <form onSubmit={this.handleSubmit}>
-        <h5>EMAIL</h5>  <input 
+        {email} <input 
         type="text"
         value = {this.state.email}
         onChange ={this.handleChange('email')}/>
         {username}
-        <h5>PASSWORD</h5>
+        {password}
         <input 
         type = "password"
         value = {this.state.password}
