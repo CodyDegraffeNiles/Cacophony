@@ -11,94 +11,56 @@ class SignUpForm extends React.Component{
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoLogin = this.demoLogin.bind(this)
   }
 
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.props.errors);
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
 
   handleChange(type){
-    console.log(this.props.errors)
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
-  demoLogin(){
-    let demoUser = {
-      email: "KoalaDemo@caveman.com",
-      username: "DemoUser",
-      password: "DropBear"
-    }
-    this.setState({email: demoUser.email})
-    this.setState({password: demoUser.password})
-  }
-
   render(){
-    // Creates a username input if the form is a signup form
-    const usernameInput = this.props.formType === "signup"? 
-        <input  
-        type = "text"
-        value = {this.state.username}
-        onChange ={this.handleChange('username')}/>
-    : null;
-
-    // Creates a demo login button if the form type is login
-    const demo = this.props.formType === "login" ? <button type ="submit" 
-    onClick= {() => this.demoLogin()} > Demo Login
-    </button> : null
 
     // Create link to the opposite form
-    const link = this.props.formType === "signup" ? 
-    <Link to = "/login">Already have an account?</Link> : 
-    <Link to ="/signup">Register</Link>
+    const link = <Link to = "/login">Already have an account?</Link>
 
     // Creates welecome Message based on formType
-    const welcomeHeader = this.props.formType === "login" ? "Welcome Back!" : 
-    "Create an account"
-
-    const messageHeader = this.props.formType === "login" ? 
-    "We're so excited to see you again!" : null
-
-    // Footer message with redirect to other session from.
-    const footerMessage = this.props.formType === "login" ? <span> Need an account? </span> :
-    null;
+    const welcomeHeader = "Create an account"
 
     // Button message for each form
-    const buttonMessage = this.props.formType === "login" ? "Login" : 
-    "Continue"
-
+    const buttonMessage = "Continue"
 
     // Create Proper Headings for the Form;
-    const email = this.props.errors.length === 0 ? <h5 className="login-normal">
-      EMAIL</h5> : <h5 className ="login-error"> 
-      EMAIL {errorMessage} </h5>
+    const email = this.props.errors.includes("Email can't be blank") ? <h5 className ="login-error"> 
+      EMAIL - REQUIRED FIELD </h5> : <h5 className="login-normal"> EMAIL</h5> 
 
-    const password = this.props.errors.length === 0 ? <h5 className="login-normal">
-      PASSWORD</h5> :<h5 className ="login-error">
-      PASSWORD {errorMessage}</h5>
+    const password = this.props.errors.includes("Password is too short (minimum is 6 characters)")
+    ? <h5 className ="login-error"> PASSWORD - MUST BE AT LEAST 6 CHARACTERS </h5> : 
+    <h5 className="login-normal"> PASSWORD</h5>
 
-    const username = this.props.errors.length === 0 && this.props.formType ? <h5 className="login-normal"> 
-    USERNAME </h5> : <h5 className ="login-error">
-      USERNAME {errorMessage}</h5>
-
-    // Create Approptie Error Message for Form :
-    const errorMessage = this.props.formType === 'login' ? "INVALID EMAIL/PASSWORD COMBINATION"
-    : "INVALID SIGNUP CREDENTIALS!"
+    const username = this.props.errors.includes("Username can't be blank") ? 
+    <h5 className ="login-error"> USERNAME - REQUIRED FIELD</h5> : 
+    <h5 className="login-normal"> USERNAME </h5>
 
     return(
       <div id= "login-background">
       <div id ="login-form"> 
         <h3>{welcomeHeader} </h3>
-        <p>{messageHeader}</p>
         <form onSubmit={this.handleSubmit}>
         {email} <input 
         type="text"
         value = {this.state.email}
         onChange ={this.handleChange('email')}/>
-        {username}
+        {username} <input  
+        type = "text"
+        value = {this.state.username}
+        onChange ={this.handleChange('username')}/>
         {password}
         <input 
         type = "password"
@@ -106,8 +68,7 @@ class SignUpForm extends React.Component{
         onChange={this.handleChange('password')}
         />
         <button type="submit"> {buttonMessage} </button>
-        {demo}
-        {footerMessage} {link}
+        {link}
         </form>
         </div>
       </div>
