@@ -1,7 +1,7 @@
 import React from  "react";
 import { Link } from "react-router-dom";
 
-class SessionForm extends React.Component{
+class LoginForm extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,6 @@ class SessionForm extends React.Component{
   }
 
   handleChange(type){
-    console.log(this.props.errors)
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
@@ -37,56 +36,35 @@ class SessionForm extends React.Component{
   }
 
   render(){
-    // Creates a username input if the form is a signup form
-    const usernameInput = this.props.formType === "signup"? 
-        <input  
-        type = "text"
-        value = {this.state.username}
-        onChange ={this.handleChange('username')}/>
-    : null;
 
-    // Creates a demo login button if the form type is login
-    const demo = this.props.formType === "login" ? <button type ="submit" 
+
+    // Creates a demo login button 
+    const demo =  <button type ="submit" 
     onClick= {() => this.demoLogin()} > Demo Login
-    </button> : null
+    </button> 
 
     // Create link to the opposite form
-    const link = this.props.formType === "signup" ? 
-    <Link to = "/login">Already have an account?</Link> : 
-    <Link to ="/signup">Register</Link>
+    const link =  <Link to ="/signup">Register</Link>
 
     // Creates welecome Message based on formType
-    const welcomeHeader = this.props.formType === "login" ? "Welcome Back!" : 
-    "Create an account"
+    const welcomeHeader =  "Welcome Back!" 
 
-    const messageHeader = this.props.formType === "login" ? 
-    "We're so excited to see you again!" : null
+    const messageHeader = "We're so excited to see you again!" 
 
     // Footer message with redirect to other session from.
-    const footerMessage = this.props.formType === "login" ? <span> Need an account? </span> :
-    null;
+    const footerMessage = <span> Need an account? </span>
 
     // Button message for each form
-    const buttonMessage = this.props.formType === "login" ? "Login" : 
-    "Continue"
-
+    const buttonMessage = "Login" 
 
     // Create Proper Headings for the Form;
     const email = this.props.errors.length === 0 ? <h5 className="login-normal">
       EMAIL</h5> : <h5 className ="login-error"> 
-      EMAIL {errorMessage} </h5>
+      EMAIL - INVALID EMAIL/PASSWORD  </h5>
 
     const password = this.props.errors.length === 0 ? <h5 className="login-normal">
-      PASSWORD</h5> :<h5 className ="login-error">
-      PASSWORD {errorMessage}</h5>
-
-    const username = this.props.errors.length === 0 && this.props.formType ? <h5 className="login-normal"> 
-    USERNAME </h5> : <h5 className ="login-error">
-      USERNAME {errorMessage}</h5>
-
-    // Create Approptie Error Message for Form :
-    const errorMessage = this.props.formType === 'login' ? "INVALID EMAIL/PASSWORD COMBINATION"
-    : "INVALID SIGNUP CREDENTIALS!"
+      PASSWORD</h5> : <h5 className ="login-error">
+      PASSWORD - INVALID EMAIL/PASSWORD</h5>
 
     return(
       <div id= "login-background">
@@ -98,7 +76,6 @@ class SessionForm extends React.Component{
         type="text"
         value = {this.state.email}
         onChange ={this.handleChange('email')}/>
-        {username}
         {password}
         <input 
         type = "password"
@@ -115,4 +92,4 @@ class SessionForm extends React.Component{
   }
 }
 
-export default SessionForm;
+export default LoginForm;
