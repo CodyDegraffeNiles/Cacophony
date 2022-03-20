@@ -71,6 +71,7 @@ class SessionForm extends React.Component{
     "Continue"
 
     return(
+      <div id= "login-background">
       <div id ="login-form"> 
         <h3>{welcomeHeader} </h3>
         <p>{messageHeader}</p>
@@ -91,6 +92,7 @@ class SessionForm extends React.Component{
         </form>
         {footerMessage} {link}
         </div>
+      </div>
     )
   }
 }
