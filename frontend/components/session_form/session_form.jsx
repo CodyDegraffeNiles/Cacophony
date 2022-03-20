@@ -37,13 +37,12 @@ class SessionForm extends React.Component{
 
   render(){
     // Creats a username input if the form is a signup form
-    const username = this.props.formType === "signup" ? <label> Username
+    const username = this.props.formType === "signup"? <div><h5> USERNAME </h5>
         <input  
         type = "text"
         value = {this.state.username}
         onChange ={this.handleChange('username')}/>
-        <br/>
-        </label> 
+        </div>
     : null;
 
     // Creates a demo login button if the form type is login
@@ -76,21 +75,17 @@ class SessionForm extends React.Component{
         <h3>{welcomeHeader} </h3>
         <p>{messageHeader}</p>
         <form onSubmit={this.handleSubmit}>
-        <label> Email <input 
+        <h5>EMAIL</h5>  <input 
         type="text"
         value = {this.state.email}
         onChange ={this.handleChange('email')}/>
-        </label>
-        <br/> 
         {username}
-        <label> Password
+        <h5>PASSWORD</h5>
         <input 
         type = "password"
         value = {this.state.password}
         onChange={this.handleChange('password')}
         />
-        </label>
-        <br/>
         <button type="submit"> {buttonMessage} </button>
         {demo}
         </form>

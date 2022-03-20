@@ -10,11 +10,11 @@ const App = () => (
   <div>
     <header>
       <h1>Cacophony</h1>
+    </header>
       <Route exact path="/" component={HomePageContainer}/>
       <Route path="/" component={UserContainer} /> 
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} /> 
-    </header>
   </div>
 );
 
