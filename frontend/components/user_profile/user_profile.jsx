@@ -11,6 +11,7 @@ class UserProfile extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     e.stopPropagation();
+    if(this.props.user.id === 12) {return}
     this.props.update(this.state);
   }
 
@@ -18,22 +19,37 @@ class UserProfile extends React.Component{
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
+  // Modify delete button to do nothing if demo-user is loged in"
+
+
   render(){
+    const deleteButton = this.props.user.id === 12 ? <button id ="delete-user"> 
+      Delete Account(Disabled)</button> : 
+    <button id ="delete-user" onClick={() => this.props.delete(this.props.user.id)}>Delete Account</button>
+  
     return(
       <div>
-      <Link id="return-home" to="/">x</Link> 
-      <form id="User-Update" onSubmit={this.handleSubmit}> 
-        Email <input 
-        type="text"
-        value = {this.state.email}
-        onChange ={this.handleChange('email')}/>
-        Username <input  
+      <div id="user-top"> 
+      <h3> My Account</h3>
+      <div id="esacpe"> 
+      <Link id="home-link" to="/"><i class="fa-solid fa-xmark"/></Link> 
+      <p>ESC</p>
+      </div>
+      </div>
+      <form id="user-update" onSubmit={this.handleSubmit}> 
+      <p>Username </p>  
+        <input  
         type = "text"
         value = {this.state.username}
         onChange ={this.handleChange('username')}/>
-      <button type="submit" id="update-user">Update User</button>
+      <p> Email </p>
+        <input 
+        type="text"
+        value = {this.state.email}
+        onChange ={this.handleChange('email')}/>
+      <button type="submit" id="update-user-button">Update User</button>
       </form>
-      <button id ="delete-user" onClick={() => this.props.delete(this.props.user.id)}>Delete Account</button>
+      {deleteButton}
       <button onClick={() => this.props.logout()}> LogOut</button>
         </div>
 

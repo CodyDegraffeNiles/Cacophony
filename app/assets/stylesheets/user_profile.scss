@@ -1,0 +1,68 @@
+
+
+#user-top{
+  background-color: rgb(56, 57, 62) ;
+  display: flex;
+  justify-content: space-between;
+}
+
+#home-link{
+  border: 1px solid lightgrey;
+  border-radius: 50%;
+  text-align: right;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+#user-top h3{
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+#escape p{
+  color: lightgrey;
+  font-size: 14px;
+}
+
+
+#user-update { 
+  background-color: rgb(47, 49, 54);
+  border: 0.75px solid rgb(47, 49, 54);
+  border-radius: 3px;
+  color: lightgray;
+  width: 50%;
+  padding: 10px;
+}
+
+#user-update input {
+  color: white;
+  background-color: transparent;
+  width: 80%
+}
+
+#update-user-button {
+  text-align: center;
+  width: 80%;
+  background-color: #5865F2;
+  border: 0.75px solid #5865F2;
+  border-radius: 3px;
+  color: white;
+  height: 40px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+#update-user-button:hover{
+  filter: brightness(85%);
+}
+
+
+#delete-user{
+  background-color: transparent;
+  color: red;
+  border: 1px solid red;
+  cursor: pointer;
+}
