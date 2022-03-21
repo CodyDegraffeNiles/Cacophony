@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
   demoUser = User.create(
-      email: "KoalaDemo@caveman.com",
+      email: "KoalaDemo2@caveman.com",
       username: "DemoUser",
       password: "DropBear")
 
-  testServer = Server.create(
-    name: "Sleepy Koalas",
-    owner_id: 1, 
-    public: false)
+  # testServer = Server.create(
+  #   name: "Sleepy Koalas",
+  #   owner_id: 1, 
+  #   public: false)

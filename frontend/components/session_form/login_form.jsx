@@ -27,7 +27,7 @@ class LoginForm extends React.Component{
 
   demoLogin(){
     let demoUser = {
-      email: "KoalaDemo@caveman.com",
+      email: "KoalaDemo2@caveman.com",
       username: "DemoUser",
       password: "DropBear"
     }
