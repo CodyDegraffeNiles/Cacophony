@@ -6,14 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-  demoUser = User.create({
+  demoUser = User.create(
       email: "KoalaDemo@caveman.com",
       username: "DemoUser",
-      password: "DropBear"
-  })
+      password: "DropBear")
 
-  testServer = Server.create({
+  testServer = Server.create(
     name: "Sleepy Koalas",
-    owner_id: 12, 
-    public: false
-})
+    owner_id: 1, 
+    public: false)
