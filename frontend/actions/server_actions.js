@@ -34,17 +34,16 @@ const receiveErrors = (errors) => {
 }
 
 
-
-export const fetchServers = () => {
-  return serverUtil.fetchServers()
-  .then((servers) => {dispatch(receiveServers(servers))},
-  (err) => {dispatch(receiveErrors(err.responseJSON))} )
+export const fetchServers = () => (dispatch) => {
+    return serverUtil.fetchServers()
+    .then((servers) => {dispatch(receiveServers(servers))},
+    (err) => {dispatch(receiveErrors(err.responseJSON))} )
 }
 
-export const fetchServer = (serverId) => {
-  return serverUtil.fetchServer(serverId)
-  .then((server) => {dispatch(receiveServer(server))},
-  (err) => {dispatch(receiveErrors(err.responseJSON))} )
+export const fetchServer = (serverId) => (dispatch) => {
+    return serverUtil.fetchServer(serverId)
+    .then((server) => {dispatch(receiveServer(server))},
+    (err) => {dispatch(receiveErrors(err.responseJSON))} )
 }
 
 
@@ -61,8 +60,8 @@ export const updateServer = (server) => (dispatch) => {
 }
 
 export const deleteServer = (serverId) => (dispatch)  => {
-  return serverUtil.deleteServer(serverId)
-  .then(() => {dispatch(removeServer(serverId))})
+    return serverUtil.deleteServer(serverId)
+    .then(() => {dispatch(removeServer(serverId))})
 }
 
 

@@ -9,15 +9,15 @@ import { AuthRoute, ProtectedRoute} from "../util/route_utils";
 
 const App = () => (
   <div>
-      <AuthRoute exact path="/" component={HomePageContainer}/>
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} /> 
-      
-      {/* Switch Route to determine whether or not to render UserNav */}
+
+     {/* Switch Route to determine whether or not to render UserNav */}
       <Switch> 
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path ="/" component = {UserNavContainer}/>
       </Switch>
+      <AuthRoute exact path="/" component={HomePageContainer}/>
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" component={SignupFormContainer} /> 
       {/* <ProectedRoute path="/servers" component={ServersContainer} /> */}
   </div>
 );
