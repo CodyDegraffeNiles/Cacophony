@@ -1,5 +1,10 @@
 class Api::ServersController < ApplicationController
 
+  def index
+    @servers = Servers.all;
+    render :index
+  end
+  
   def create
     @server = Server.new(server_params)
     if @server.save
