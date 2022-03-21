@@ -11,7 +11,7 @@ class UserProfile extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     e.stopPropagation();
-    if(this.props.user.id === 12) {return}
+    if(this.props.user.email === "KoalaDemo@caveman.com") {return}
     this.props.update(this.state);
   }
 
@@ -23,7 +23,8 @@ class UserProfile extends React.Component{
 
 
   render(){
-    const deleteButton = this.props.user.id === 12 ? <button id ="delete-user"> 
+   // Modify delete button to do nothing if demo-user is loged in"
+    const deleteButton = this.props.user.email === "KoalaDemo@caveman.com" ? <button id ="delete-user"> 
       Delete Account(Disabled)</button> : 
     <button id ="delete-user" onClick={() => this.props.delete(this.props.user.id)}>Delete Account</button>
   
