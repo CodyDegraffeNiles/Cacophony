@@ -10,8 +10,3 @@
       email: "KoalaDemo2@caveman.com",
       username: "DemoUser",
       password: "DropBear")
-
-  # testServer = Server.create(
-  #   name: "Sleepy Koalas",
-  #   owner_id: 1, 
-  #   public: false)
