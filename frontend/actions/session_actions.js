@@ -8,10 +8,10 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const REMOVE_CURRENT_USER = "REMOVE_CURRENT_USER"
 
 const receiveCurrentUser = (user) => {
-  return{ 
-  type: RECEIVE_CURRENT_USER,
-  user
-  }
+    return{ 
+    type: RECEIVE_CURRENT_USER,
+    user
+    }
 };
 const logoutCurrentUser = () => {
     return ({
@@ -43,25 +43,28 @@ export const login = (user) => (dispatch) => {
     return sessionUtil.createSession(user)
     .then((modUser) => {dispatch(receiveCurrentUser(modUser))}
     ,(err) => {dispatch(receiveErrors(err.responseJSON)) })
-  };
+    };
 
 export const logout = () => (dispatch) => {
-  return sessionUtil.deleteSession().then(() => (
-    dispatch(logoutCurrentUser())
-  ))
+    return sessionUtil.deleteSession().then(() => (
+        dispatch(logoutCurrentUser())
+    ))
 };
 
 export const updateUser = (user) => (dispatch) => {
-    return userUtil.updateUser(user)
+    return sessionUtil.updateUser(user)
     .then((modUser) => {dispatch(receiveCurrentUser(modUser))}
     , (err) => {dispatch(receiveErrors(err.responseJSON)) })
 }
 
 
 export const elminateCurrentUser = (userId) => (dispatch) => {
-    return userUtil.deleteUser(userId)
-    .then(() => {dispatch(removeCurrentUser(userId))}
-    , (err) => {dispatch(receiveErrors(err.responseJSON)) })
+    return sessionUtil.deleteUser(userId)
+    .then(function(){
+        dispatch(logoutCurrentUser());
+        dispatch(removeCurrentUser(userId));
+    }
+    ,(err) => {dispatch(receiveErrors(err.responseJSON))})
 }
 
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UserProfileContainer from "../user_profile/user_profile_container";
 
 
 
@@ -20,7 +21,7 @@ class UserNav extends React.Component{
       <div id="setting-icons">
         <i className="fa-solid fa-microphone"> </i>
         <i className="fa-solid fa-headphones"> </i>
-        <Link to={"/login"}> <i className="fa-solid fa-gear"/></Link>
+        <Link to={`/users/${this.props.currentUser.id}`}> <i className="fa-solid fa-gear"/></Link>
       </div>
       </div>
       <button onClick={() => this.props.logout()}> LogOut</button>

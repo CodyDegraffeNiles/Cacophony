@@ -1,20 +1,22 @@
-// import { connect } from "react-redux";
-// import UserProfile from "./user_profile";
-// // import {update} from '../../actions/session_actions'
+import { connect } from "react-redux";
+import UserProfile from "./user_profile";
+import {elminateCurrentUser, logout, updateUser} from '../../actions/session_actions'
 
 
-// const mapStateToProps = (state) => {
-//   return{
-//     currentUser: state.entities.users[state.session.id]
-//   }
-// }
+const mapStateToProps = (state, ownProps) => {
+  return{
+    user: state.entities.users[ownProps.match.params.userId]
+  }
+}
 
-// const mapDispatchToProps = (dispatch) => {
-//   return{
-//     update : () => {dispatch(update())}
+const mapDispatchToProps = (dispatch) => {
+  return{
+    update : (user) => {dispatch(updateUser(user))},
+    delete : (userId) => {dispatch(elminateCurrentUser(userId))},
+    logout : () => {dispatch(logout())}
 
-//   }
-// }
+  }
+}
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

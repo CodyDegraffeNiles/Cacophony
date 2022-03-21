@@ -1,6 +1,6 @@
 import React from "react";
-import { Route } from 'react-router-dom';
-import UserContainer from "./user_nav/user_nav_container"; 
+import { Switch } from "react-router";
+import UserNavContainer from "./user_nav/user_nav_container"; 
 import SignupFormContainer from "./session_form/signup_form_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import HomePageContainer from "./home_page/home_page_container";
@@ -12,8 +12,12 @@ const App = () => (
       <AuthRoute exact path="/" component={HomePageContainer}/>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} /> 
-      <ProtectedRoute exact path="/" component={UserContainer} /> 
-      {/* <ProtectedRoute path="/users/userId" component={UserProfileContainer}/> */}
+      
+      {/* Switch Route to determine whether or not to render UserNav */}
+      <Switch> 
+      <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
+      <ProtectedRoute path ="/" component = {UserNavContainer}/>
+      </Switch>
       {/* <ProectedRoute path="/servers" component={ServersContainer} /> */}
   </div>
 );
