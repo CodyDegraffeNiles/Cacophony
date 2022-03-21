@@ -9,15 +9,22 @@ class UserNav extends React.Component{
   }
 
   render(){
-    const display = this.props.currentUser ? (
-    <div>
-      <h2> {this.props.currentUser.username}#{this.props.currentUser.numberTag}</h2>
-      <button onClick={() => this.props.logout()}> LogOut</button>
-    </div> ) : null
-    ;
 
     return (
-      display
+      <div> 
+      <div id = "user-nav">
+      <div id ="username">
+      <h2>{this.props.currentUser.username}</h2>
+      <p>#{this.props.currentUser.numberTag}</p>
+      </div>
+      <div id="setting-icons">
+        <i className="fa-solid fa-microphone"> </i>
+        <i className="fa-solid fa-headphones"> </i>
+        <Link to={/users/edit}> <i className="fa-solid fa-gear"/></Link>
+      </div>
+      </div>
+      <button onClick={() => this.props.logout()}> LogOut</button>
+      </div>
     )
   }
 }
