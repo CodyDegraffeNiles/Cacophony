@@ -11,8 +11,7 @@ class UserNav extends React.Component{
 
   render(){
 
-    return (
-      <div> 
+    return ( 
       <div id = "user-nav">
       <div id ="username">
       <h2>{this.props.currentUser.username}</h2>
@@ -23,8 +22,6 @@ class UserNav extends React.Component{
         <i className="fa-solid fa-headphones"> </i>
         <Link to={`/users/${this.props.currentUser.id}`}> <i className="fa-solid fa-gear"/></Link>
       </div>
-      </div>
-      <button onClick={() => this.props.logout()}> LogOut</button>
       </div>
     )
   }
