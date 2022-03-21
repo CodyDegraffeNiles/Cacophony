@@ -13,7 +13,7 @@ const HomeNav = () => {
     </div>
     <div id="home-nav-links"> 
     <a className = "link" href="https://github.com/CodyDegraffeNiles"  target="_blank"> Github </a>
-    <a  className = "link" href="#" target="_blank">LinkedIn</a>
+    <a  className = "link" href="https://www.linkedin.com/in/cody-degraffe-niles-366310235" target="_blank">LinkedIn</a>
     </div>
     <div id = "login">
     <Link to ="/login">Login</Link>
