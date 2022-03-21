@@ -61,7 +61,7 @@ export const updateServer = (server) => (dispatch) => {
 }
 
 export const deleteServer = (serverId) => (dispatch)  => {
-  return serverUtil.deleteSever(serverId)
+  return serverUtil.deleteServer(serverId)
   .then(() => {dispatch(removeServer(serverId))})
 }
 

@@ -1,7 +1,7 @@
 class Api::ServersController < ApplicationController
 
   def index
-    @servers = Servers.all;
+    @servers = Server.all;
     render :index
   end
   
@@ -15,7 +15,7 @@ class Api::ServersController < ApplicationController
   end
 
   def show
-    @server = Server.find_by[id: params[:id]]
+    @server = Server.find_by(id: params[:id])
     render :show
   end
 
@@ -36,6 +36,6 @@ class Api::ServersController < ApplicationController
 
   private
   def server_params
-    params.require(:sevrver).permit(:owner_id, :name, :public)
+    params.require(:server).permit(:owner_id, :name, :public)
   end
 end
