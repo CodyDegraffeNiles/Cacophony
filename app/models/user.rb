@@ -12,6 +12,8 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  ## Validations
+
   validates :email, :session_token, presence: true, uniqueness: true
   validates :username, :number_tag, :password_digest, presence: true
   validates :password, length: {minimum:6, allow_nil: true}
@@ -20,6 +22,12 @@ class User < ApplicationRecord
   after_initialize :ensure_number_tag
 
   attr_reader :password
+
+  ## Associations
+
+  has_many :servers,
+    foreign_key: :owner_id,
+    class_name: :Server;
 
   #SPIRE
 
