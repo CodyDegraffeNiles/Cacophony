@@ -11,7 +11,7 @@
 #
 class Server < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :owner_id}
-  validates :public, presence: true, inclusion: {in:[true, false]}
+  validates :public, inclusion: {in:[true, false]}
 
   belongs_to :owner, 
     foreign_key: :owner_id, 
