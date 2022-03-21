@@ -5,6 +5,7 @@ import * as sessionUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const REMOVE_CURRENT_USER = "REMOVE_CURRENT_USER"
 
 const receiveCurrentUser = (user) => {
   return{ 
@@ -15,6 +16,13 @@ const receiveCurrentUser = (user) => {
 const logoutCurrentUser = () => {
     return ({
         type: LOGOUT_CURRENT_USER
+    })
+}
+
+const removeCurrentUser = (userId) => {
+    return ({
+        type: REMOVE_CURRENT_USER,
+        userId
     })
 }
 
@@ -42,5 +50,18 @@ export const logout = () => (dispatch) => {
     dispatch(logoutCurrentUser())
   ))
 };
+
+export const updateUser = (user) => (dispatch) => {
+    return userUtil.updateUser(user)
+    .then((modUser) => {dispatch(receiveCurrentUser(modUser))}
+    , (err) => {dispatch(receiveErrors(err.responseJSON)) })
+}
+
+
+export const elminateCurrentUser = (userId) => (dispatch) => {
+    return userUtil.deleteUser(userId)
+    .then(() => {dispatch(removeCurrentUser(userId))}
+    , (err) => {dispatch(receiveErrors(err.responseJSON)) })
+}
 
 

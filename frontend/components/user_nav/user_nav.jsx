@@ -20,7 +20,7 @@ class UserNav extends React.Component{
       <div id="setting-icons">
         <i className="fa-solid fa-microphone"> </i>
         <i className="fa-solid fa-headphones"> </i>
-        <Link to={/users/edit}> <i className="fa-solid fa-gear"/></Link>
+        <Link to={"/login"}> <i className="fa-solid fa-gear"/></Link>
       </div>
       </div>
       <button onClick={() => this.props.logout()}> LogOut</button>

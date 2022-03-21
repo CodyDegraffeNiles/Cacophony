@@ -9,10 +9,16 @@
   padding: 5px;
 }
 
-.fa-microphone, .fa-headphones, .fa-gear{
+.fa-microphone, .fa-headphones{
   color: lightgrey;
   padding: 8px;
   padding-top: 10px;
+}
+
+.fa-gear{
+  color: lightgrey;
+  padding-top: 10px;
+  padding: 6px;
 }
 
 #username h2{
@@ -24,4 +30,13 @@
 #username p{
   font-size: 10px;
   color: lightgrey; 
+}
+
+#setting-icons a{
+  text-decoration: none;
+  width: 16px;
+}
+
+#setting-icons a:hover{
+  filter: brightness(85%);
 }
