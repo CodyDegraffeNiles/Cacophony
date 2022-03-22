@@ -1,8 +1,6 @@
 import React from "react";
 
-
-
-class ServerForm extends React.Component{
+class EditServerForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -35,22 +33,18 @@ class ServerForm extends React.Component{
 
   render(){
     return (
-    <div id="session-form"> 
+    <div id="edit-session-form"> 
       <form onSubmit={this.handleSubmit}>
-        <label> Server Name
+        <label> Edit Server Name
           <input 
           type="text"
           value={this.state.name}
           onChange={this.handleName("name")}
           />
-          <div id="public-info"> 
-          <button onClick={this.handlePublic(false, "public")} > For Me and My Friends</button>
-          <button onClick={this.handlePublic(true, "public")}> For A Club or Community </button>
-          </div>
-
-          <button type="submit">Create</button>
+          <button type="submit">Update Server</button>
         </label>
       </form>
+      <button onClick={() => this.props.deleteServer()}>Delete Server</button>
     </div>
     )
   }
@@ -58,4 +52,4 @@ class ServerForm extends React.Component{
 }
 
 
-export default ServerForm;
+export default EditServerForm;
