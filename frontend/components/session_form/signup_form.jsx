@@ -14,15 +14,22 @@ class SignUpForm extends React.Component{
   }
 
 
+  // Handle change and submit events.
+
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(this.state)
   }
 
   handleChange(type){
     return (e) => {this.setState({[type] : e.target.value})}
   }
+
+  // Clear Out Session Errors Upon redirection
+  
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }  
 
   render(){
 

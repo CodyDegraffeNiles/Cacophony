@@ -14,6 +14,7 @@ class LoginForm extends React.Component{
     this.demoLogin = this.demoLogin.bind(this)
   }
 
+  // Handle events
 
   handleSubmit(e) {
     e.preventDefault();
@@ -25,6 +26,14 @@ class LoginForm extends React.Component{
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
+  // Clear Session Errors upon redirection
+
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }  
+
+
+  // Demo User Login
   demoLogin(){
     let demoUser = {
       email: "KoalaDemo2@caveman.com",
@@ -36,7 +45,6 @@ class LoginForm extends React.Component{
   }
 
   render(){
-
 
     // Creates a demo login button 
     const demo =  <button type ="submit" 
