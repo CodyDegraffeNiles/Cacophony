@@ -16,7 +16,11 @@ const App = () => (
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       </Switch>
-      <ProtectedRoute path ="/servers/:serverId" component={EditServerFormContainer}></ProtectedRoute>
+
+      {/* Commented out - will add back in once ServerContainer is fleshed out
+       <ProtectedRoute path ="/servers/:serverId" component={EditServerFormContainer}/> */}
+
+
       <AuthRoute exact path="/" component={HomePageContainer}/>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} /> 
