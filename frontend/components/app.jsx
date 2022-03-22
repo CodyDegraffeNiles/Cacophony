@@ -5,6 +5,7 @@ import SignupFormContainer from "./session_form/signup_form_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import HomePageContainer from "./home_page/home_page_container";
 import UserProfileContainer from "./user_profile/user_profile_container.jsx"
+import EditServerFormContainer from "./server_from/edit_server_form_container";
 import { AuthRoute, ProtectedRoute} from "../util/route_utils";
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path ="/" component = {UserNavContainer}/>
       </Switch>
+      <ProtectedRoute path ="/servers/:serverId" component={EditServerFormContainer}></ProtectedRoute>
       <AuthRoute exact path="/" component={HomePageContainer}/>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} /> 
