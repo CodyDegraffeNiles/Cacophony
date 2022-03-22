@@ -6,9 +6,6 @@ const serversReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state)
   switch (action.type) {
-    case RECEIVE_CURRENT_USER: 
-      newState = action.user.servers;
-      return newState;
     case RECEIVE_SERVERS:
       return action.servers;
     case RECEIVE_SERVER:

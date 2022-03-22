@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    fetchServers : () => {dispatch(fetchServers())}
+    fetchUsersServers : (userId) => {dispatch(fetchServers(userId))},
+    fetchAllServers : () => {dispatch(fetchServers())}
   }
 }
 
