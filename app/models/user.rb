@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   ## Associations
 
-  has_many :servers,
+  has_many :ownedServers,
     foreign_key: :owner_id,
     class_name: :Server;
 

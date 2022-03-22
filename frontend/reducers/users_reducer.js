@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from "../actions/session_actions";
+import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from "../actions/session_actions";
 
 
 
@@ -10,6 +10,8 @@ const usersReducer = (state = {}, action) => {
         [action.user.id]: action.user
       });
     case REMOVE_CURRENT_USER:
+      return {};
+    case LOGOUT_CURRENT_USER:
       return {};
     default:
       return state;

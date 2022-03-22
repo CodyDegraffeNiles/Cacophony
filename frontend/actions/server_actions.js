@@ -48,7 +48,6 @@ export const fetchServer = (serverId) => (dispatch) => {
 
 
 export const createServer = (server) => (dispatch) => {
-    debugger;
     return serverUtil.createServer(server)
     .then((server) => {dispatch(receiveServer(server))}
     , (err) => {dispatch(receiveErrors(err.responseJSON)) })
