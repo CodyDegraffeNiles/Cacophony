@@ -28,7 +28,14 @@ class User < ApplicationRecord
   has_many :ownedServers,
     foreign_key: :owner_id,
     class_name: :Server;
-    
+
+  has_many :server_memberships,
+    foreign_key: :member_id, 
+    class_name: :ServerMembership
+
+  has_many :servers,
+    through: :server_memberships, 
+    source: :server
   #SPIRE
 
   def self.find_by_credentials(email, password)

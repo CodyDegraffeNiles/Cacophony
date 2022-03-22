@@ -10,10 +10,22 @@
 #  updated_at :datetime         not null
 #
 class Server < ApplicationRecord
+
+  ## Validations
   validates :name, presence: true, uniqueness: { scope: :owner_id}
   validates :public, inclusion: {in:[true, false]}
 
+
+  ## Asociations
   belongs_to :owner, 
     foreign_key: :owner_id, 
     class_name: :User
+
+  has_many :server_memberships,
+    foreign_key: :sever_id, 
+    class_name: :User
+
+  has_many :members,
+    through: :server_memberships, 
+    source: :member
 end
