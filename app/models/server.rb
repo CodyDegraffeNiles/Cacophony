@@ -22,8 +22,8 @@ class Server < ApplicationRecord
     class_name: :User
 
   has_many :server_memberships,
-    foreign_key: :sever_id, 
-    class_name: :User
+    foreign_key: :server_id, 
+    class_name: :ServerMembership
 
   has_many :members,
     through: :server_memberships, 
