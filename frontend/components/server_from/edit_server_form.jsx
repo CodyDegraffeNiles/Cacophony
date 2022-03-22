@@ -4,7 +4,8 @@ class EditServerForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      owner_id: this.props.currentUser.id,
+      id: this.props.server.id,
+      owner_id: this.props.server.id,
       name: this.props.server.name,
       public: this.props.server.public,
     }
@@ -32,6 +33,7 @@ class EditServerForm extends React.Component{
   }
 
   render(){
+    console.log(this.state)
     return (
     <div id="edit-session-form"> 
       <form onSubmit={this.handleSubmit}>

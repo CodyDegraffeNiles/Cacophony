@@ -51,7 +51,6 @@ class ServerForm extends React.Component{
           <button type="submit">Create</button>
         </label>
       </form>
-      <Link to={`/servers/${5}`} >Edit Test</Link>
     </div>
     )
   }

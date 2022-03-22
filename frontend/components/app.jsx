@@ -14,7 +14,7 @@ const App = () => (
      {/* Switch Route to determine whether or not to render UserNav */}
       <Switch> 
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
-      <ProtectedRoute path ="/" component = {UserNavContainer}/>
+      <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       </Switch>
       <ProtectedRoute path ="/servers/:serverId" component={EditServerFormContainer}></ProtectedRoute>
       <AuthRoute exact path="/" component={HomePageContainer}/>

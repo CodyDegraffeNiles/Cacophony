@@ -1,10 +1,9 @@
 import { connect } from "react-redux";
-import { updateServer,deleteServer, removeErrors } from "../../actions/server_actions";
+import { updateServer,deleteServer} from "../../actions/server_actions";
 import EditServerForm from "./edit_server_form";
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   return{
     currentUser: state.entities.users[state.session.id],
     server: state.entities.servers[ownProps.match.params.serverId],

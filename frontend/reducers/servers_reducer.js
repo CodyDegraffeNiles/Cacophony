@@ -7,14 +7,15 @@ const serversReducer = (state = {}, action) => {
   let newState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CURRENT_USER: 
-      return Object.assign({}, action.user.ownedServers, state)
+      newState = action.user.servers;
+      return newState;
     case RECEIVE_SERVERS:
       return action.servers;
     case RECEIVE_SERVER:
       newState[action.server.id] = action.server
       return newState
     case REMOVE_SERVER:
-      delete newState[action.server.id]
+      delete newState[action.serverId]
       return newState;
     case LOGOUT_CURRENT_USER:
       return {};
