@@ -35,8 +35,8 @@ class ServerSearch extends React.Component{
     // console.log(this.props.servers)
     if (this.props.show){
       return(
-      <div id="server search">
-        <ul> 
+      <div id="server-search">
+        <ul id ="searched-servers"> 
           {serverArray.map((server) => {
             return (<li
             key = {server.id}

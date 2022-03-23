@@ -20,5 +20,43 @@
 
 #server-nav-list li{
   padding: 5px;
+}
 
+// CSS for Modals to Search and Create a Server
+
+#server-form, #server-search {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(calc(50vw - 150px), calc(50vh - 150px));
+  width: 300px;
+  height: 300px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#searched-servers li {
+  color: black;
+  font-size: 14px;
+}
+
+#searched-servers li button{
+  color: black;
+  font-size: 14px;
+}
+
+#searched-servers button{
+  text-align: center;
+  width: 50px;
+  background-color: #5865F2;
+  border: 0.75px solid #5865F2;
+  border-radius: 3px;
+  color: lightgrey;
+  height: 20px;
+  cursor: pointer;
+}
+
+#searched-servers button:hover{
+  filter: brightness(90%);
 }

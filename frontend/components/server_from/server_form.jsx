@@ -36,7 +36,7 @@ class ServerForm extends React.Component{
     // Conditionally show of the Server Form modal
     if (this.props.show){
     return (
-    <div id="session-form"> 
+    <div id="server-form"> 
       <form onSubmit={this.handleSubmit}>
         <label> Server Name
           <input 
