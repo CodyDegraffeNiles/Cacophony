@@ -11,16 +11,12 @@ import ServerNavContainer from "./server_nav/server_nav_container";
 
 const App = () => (
   <div>
-
-     {/* Switch Route to determine whether or not to render UserNav */}
-      <Switch> 
-      <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
-      <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
-      </Switch>
-
       {/* Commented out - will add back in once ServerContainer is fleshed out
        <ProtectedRoute path ="/servers/:serverId" component={EditServerFormContainer}/> */}
+      <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path="/servers" component={ServerNavContainer} />
+      <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
+
 
       {/* Auth Routes */}
       <AuthRoute exact path="/" component={HomePageContainer}/>
