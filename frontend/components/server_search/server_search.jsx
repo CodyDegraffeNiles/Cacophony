@@ -4,7 +4,7 @@ class ServerSearch extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      servers: "placeholder",
+      servers: "",
     }
   }
 
@@ -22,7 +22,17 @@ class ServerSearch extends React.Component{
 
   render(){
     // Conditional show for Server Search Modal
-    let serverArray = (Object.values(this.state.servers))
+    let initalServerArray = (Object.values(this.state.servers))
+    let serverIds = this.props.servers.map((server)=> {return server.id})
+    // Filter correct server data(Hotfix - should probably fitler data in the backend rather than the front
+    // Do to scalling issues.)
+
+    // No duplications from the Users already joined/owned servers
+    let serverArray = initalServerArray.filter((server) => !serverIds.includes(server.id))
+    // Only private servers.
+    serverArray = serverArray.filter((server) => server.public)
+
+    // console.log(this.props.servers)
     if (this.props.show){
       return(
       <div id="server search">
