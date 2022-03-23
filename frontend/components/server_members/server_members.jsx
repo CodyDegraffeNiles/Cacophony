@@ -4,18 +4,18 @@ import React from 'react'
 class ServerMembers extends React.Component{
   
   render(){
+    console.log(this.props.members);
     return (<div id="server-member-show"> 
     <ul>
-      Testingasdfja;lskdjf asdjkf alskjdf alksdjfkla jsdflkaj skldf
-      {/* {this.props.members.map((member) => {
-        <li
+      Users - {this.props.members.length}
+      {this.props.members.map((member) => {
+        return ( <li
         key={member.id}
         >
-          <h5> {member.name} </h5>
-        </li>
+          <h5> {member.username} </h5>
+        </li>)
       })
-        
-      } */}
+      }
     </ul>
     </div>)
   }

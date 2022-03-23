@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import { fetchServers } from "../../util/server_utils";
+import {fetchServers } from "../../util/server_utils";
 import ServerSearch from "./server_search"
 import {createServerMembership} from "../../actions/server_membership_actions"
 

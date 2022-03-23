@@ -37,7 +37,10 @@ class ServerNav extends React.Component{
         {this.props.servers.map((server) => {
           return (
           <li key={server.id}>
-          <Link key={server.id} to={`/servers/${server.id}`}>{server.name}</Link>
+          <Link key={server.id}
+          to={`/servers/${server.id}`} 
+          onClick={() => this.props.fetchServer(server.id)}
+          >{server.name}</Link>
           </li>
           )
         })}

@@ -6,17 +6,12 @@ import ServerMembers from "./server_members";
 
 const mapStateToProps = (state) => {
   return{
-    // memebers: state.entities.users
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return{
-    
+    members: Object.values(state.entities.users)
   }
 }
 
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerMembers);
+
+export default connect(mapStateToProps, null)(ServerMembers);
