@@ -20,13 +20,13 @@ const removeMembership = (membershipId) => {
   }
 }
 
-export const createServerMembership = (membership) => {
+export const createServerMembership = (membership) => (dispatch) => {
   return severMembershipUtil.createServerMembership(membership)
   .then((membership) => {dispatch(receiveMembership(membership))})
 }
 
 
-export const deleteMembership = (memebershipId) => {
+export const deleteMembership = (memebershipId) => (dispatch) => {
   return severMembershipUtil.deleteServerMembership(memebershipId)
   .then(() => {dispatch(removeMembership(memebershipId))})
 }

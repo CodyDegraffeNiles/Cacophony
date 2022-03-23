@@ -19,10 +19,6 @@ class UserNav extends React.Component{
         <i className="fa-solid fa-microphone"> </i>
         <i className="fa-solid fa-headphones"> </i>
         <Link to={`/users/${this.props.currentUser.id}`}> <i className="fa-solid fa-gear"/></Link>
-        
-        <br/>
-        <br/>
-        <CreateServerForm/>
       </div>
       </div>
     )

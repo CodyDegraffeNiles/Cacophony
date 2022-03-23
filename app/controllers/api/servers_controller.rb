@@ -2,6 +2,8 @@ class Api::ServersController < ApplicationController
 
   def index
     @servers = Server.all;
+    @current_user = userid ? current_user : false;
+    @servers = @current_user.servers + @current_user.ownedServers if (@current_user)
     render :index
   end
   
@@ -33,9 +35,12 @@ class Api::ServersController < ApplicationController
     @server.destroy; 
   end
 
-
   private
   def server_params
     params.require(:server).permit(:owner_id, :name, :public)
+  end
+
+  def userid
+    params[:user]
   end
 end

@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
 
-
 class ServerForm extends React.Component{
   constructor(props){
     super(props)
@@ -34,6 +33,8 @@ class ServerForm extends React.Component{
   }
 
   render(){
+    // Conditionally show of the Server Form modal
+    if (this.props.show){
     return (
     <div id="session-form"> 
       <form onSubmit={this.handleSubmit}>
@@ -53,6 +54,10 @@ class ServerForm extends React.Component{
       </form>
     </div>
     )
+    // Render nothing if modal does not need to be displayed
+    } else{
+      return null;
+    }
   }
 
 }
