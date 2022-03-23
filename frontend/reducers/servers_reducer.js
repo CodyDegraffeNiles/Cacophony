@@ -1,5 +1,6 @@
 import { RECEIVE_SERVER, RECEIVE_SERVERS, REMOVE_SERVER } from "../actions/server_actions";
 import { LOGOUT_CURRENT_USER} from "../actions/session_actions";
+import { RECEIVE_MEMBERSHIP } from "../actions/server_membership_actions";
 
 
 const serversReducer = (state = {}, action) => {
@@ -10,7 +11,11 @@ const serversReducer = (state = {}, action) => {
       return action.servers;
     case RECEIVE_SERVER:
       newState[action.server.server.id] = action.server.server
-      return newState
+      return newState;
+    case RECEIVE_MEMBERSHIP:
+      console.log(action.membership.server)
+      newState[action.membership.server.id] = action.membership.server;
+      return newState;
     case REMOVE_SERVER:
       delete newState[action.serverId]
       return newState;
