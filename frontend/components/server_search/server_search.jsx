@@ -4,14 +4,13 @@ class ServerSearch extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      servers: "placeholder"
+      servers: "placeholder",
     }
   }
 
   componentDidMount(){
-    console.log(this.state)
     let that = this;
-    // Grab all the Servers from the Data base and attach them to the state
+    // Grab all the Servers from the database and attach them to the state
     // of the react component, not to muddy the waters of the servers in the 
     // overall state.
     this.props.fetchAllServers().then( 
@@ -32,7 +31,12 @@ class ServerSearch extends React.Component{
             return (<li
             key = {server.id}
             >
-            <p>{server.name}</p>
+            <span>{server.name}</span>
+            <button onClick={() => this.props.createServerMembership({
+              server_id: server.id,
+              member_id: this.props.currentUser.id
+            })}>
+              Join</button>
             </li>)
           })}
         </ul>

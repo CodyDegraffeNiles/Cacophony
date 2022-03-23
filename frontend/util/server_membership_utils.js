@@ -3,8 +3,8 @@
 export const createServerMembership = (membership) => {
   return $.ajax({
     method: "POST",
-    url: "/server_memberships",
-    data: {membership: membership}
+    url: "/api/server_memberships",
+    data: {server_membership: membership}
   })
 }
 
@@ -13,6 +13,6 @@ export const createServerMembership = (membership) => {
 export const deleteServerMembership = (membershipId) => {
   return $.ajax({
     method: "DELETE",
-    url: `/server_memberships/${membershipId}`
+    url: `/api/server_memberships/${membershipId}`
   })
 }
