@@ -20,6 +20,14 @@ class ServerSearch extends React.Component{
     )
   }
 
+  handleJoin(serverId){
+    this.props.createServerMembership({
+              server_id: serverId,
+              member_id: this.props.currentUser.id
+            });
+    this.props.history.push(`/servers/${serverId}`)
+  }
+
   render(){
     // Conditional show for Server Search Modal
     let initalServerArray = (Object.values(this.state.servers))
@@ -43,10 +51,7 @@ class ServerSearch extends React.Component{
             key = {server.id}
             >
             <span>{server.name}</span>
-            <button onClick={() => this.props.createServerMembership({
-              server_id: server.id,
-              member_id: this.props.currentUser.id
-            })}>
+            <button onClick={() => this.handleJoin(server.id)}>
               Join</button>
             </li>)
           })}

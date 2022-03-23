@@ -4,7 +4,6 @@ import React from 'react'
 class ServerMembers extends React.Component{
   
   render(){
-    console.log(this.props.members);
     return (<div id="server-member-show"> 
     <ul>
       Users - {this.props.members.length}
