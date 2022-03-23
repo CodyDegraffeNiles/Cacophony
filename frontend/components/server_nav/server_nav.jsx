@@ -33,7 +33,7 @@ class ServerNav extends React.Component{
           </li>
           )
         })}
-      <li>  <button id="create-servers" onClick={this.toggleForm("create")}> Create Server(placeholder) </button></li>
+      <li>  <button id="create-servers" onClick={this.toggleForm("create")}> Create Server</button></li>
       <li> <button id="search-servers" onClick={this.toggleForm("search")}> Search Servers</button></li>
       </ul>
       <CreateServerFormContainer show= {this.state.create}/> 

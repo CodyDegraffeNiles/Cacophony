@@ -1,0 +1,24 @@
+
+
+#server-nav{
+  height: 100vh;
+  width: 75px;
+  background-color:rgb(32, 34, 37);
+  color: white;
+  position: absolute;
+}
+
+#server-nav a{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+#server-nav a:hover{
+  color: red;
+}
+
+#server-nav-list li{
+  padding: 5px;
+
+}
