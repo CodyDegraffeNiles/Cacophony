@@ -34,11 +34,59 @@
   background: white;
   border: 1px solid black;
   border-radius: 5px;
+  color: black; 
 }
 
+#server-form{
+  text-align: center;
+}
+
+#server-form h4{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#server-form p{
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#public-info button{
+  height: 40px;
+  width: 280px;
+  margin: 10px;
+  margin-top: none;
+  background-color: white;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
+}
+
+#server-form input {
+  text-align: center;
+  border: 1px solid rgb(230, 230, 230);
+  width: 280px;
+}
+
+#create-server{
+  text-align: center;
+  margin: 10px;
+  width: 280px;
+  background-color: #5865F2;
+  border: 0.75px solid #5865F2;
+  border-radius: 3px;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+}
+
+// Server Searching Interface CSS
+
+#server-search h5 {
+  text-align: center;
+}
 #searched-servers li {
-  color: black;
-  font-size: 14px;
+  font-size: 20px;
+  padding: 10px;
 }
 
 #searched-servers li button{
@@ -57,6 +105,15 @@
   cursor: pointer;
 }
 
-#searched-servers button:hover{
+#searched-servers span {
+  margin-right: 20px;
+}
+
+
+// Create a hover effect for my buttons in the create server and 
+// Search server forms
+#searched-servers button:hover, #create-server:hover, 
+#public-info button:hover {
   filter: brightness(90%);
 }
+
