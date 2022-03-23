@@ -11,20 +11,28 @@ class ServerNav extends React.Component{
       create : false,
       search : false,
     }
+
+    this.toggleForm = this.toggleForm.bind(this) 
   }
 
   componentDidMount(){
     this.props.fetchUsersServers(this.props.currentUser.id);
   }
 
-  // Toggle forms on and off
-  toggleForm(formType){
-    return (e) => {this.setState({[formType]: !this.state[formType]})}
+  // Toggle forms on and off as well as turns off the other form
+  toggleForm(active, deactive){
+    let that = this;
+    return function(e){ 
+      that.setState({[active]: !that.state[active]})
+      that.setState({[deactive]: false})
+    }
   }
 
   render(){
     return(
       <div id="server-nav"> 
+      <CreateServerFormContainer show = {this.state.create}/> 
+      <ServerSearchContainer show={this.state.search}/> 
       <ul id = "server-nav-list">
         {this.props.servers.map((server) => {
           return (
@@ -33,11 +41,9 @@ class ServerNav extends React.Component{
           </li>
           )
         })}
-      <li>  <button id="create-servers" onClick={this.toggleForm("create")}> Create Server(placeholder) </button></li>
-      <li> <button id="search-servers" onClick={this.toggleForm("search")}> Search Servers</button></li>
+      <li>  <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button></li>
+      <li> <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button></li>
       </ul>
-      <CreateServerFormContainer show= {this.state.create}/> 
-      <ServerSearchContainer show={this.state.search}/> 
       </div>
     )
   }
