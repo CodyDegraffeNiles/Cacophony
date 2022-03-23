@@ -20,6 +20,14 @@ class ServerSearch extends React.Component{
     )
   }
 
+  handleJoin(serverId){
+    this.props.createServerMembership({
+              server_id: serverId,
+              member_id: this.props.currentUser.id
+            });
+    this.props.history.push(`/servers/${serverId}`)
+  }
+
   render(){
     // Conditional show for Server Search Modal
     let initalServerArray = (Object.values(this.state.servers))
@@ -36,17 +44,14 @@ class ServerSearch extends React.Component{
     if (this.props.show){
       return(
       <div id="server-search">
-        <h5> Public Servers Avaliable for you to Join!</h5>
+        <h5> Public Servers Avaliable for You to Join!</h5>
         <ul id ="searched-servers"> 
           {serverArray.map((server) => {
             return (<li
             key = {server.id}
             >
             <span>{server.name}</span>
-            <button onClick={() => this.props.createServerMembership({
-              server_id: server.id,
-              member_id: this.props.currentUser.id
-            })}>
+            <button onClick={() => this.handleJoin(server.id)}>
               Join</button>
             </li>)
           })}

@@ -1,7 +1,8 @@
 import {connect} from "react-redux";
-import { fetchServers } from "../../util/server_utils";
+import {fetchServers } from "../../util/server_utils";
 import ServerSearch from "./server_search"
 import {createServerMembership} from "../../actions/server_membership_actions"
+import { withRouter } from "react-router";
 
 
 const mapStateToProps = (state) => {
@@ -19,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerSearch);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServerSearch));

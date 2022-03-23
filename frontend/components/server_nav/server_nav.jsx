@@ -34,16 +34,19 @@ class ServerNav extends React.Component{
       <CreateServerFormContainer show = {this.state.create}/> 
       <ServerSearchContainer show={this.state.search}/> 
       <ul id = "server-nav-list">
-        {this.props.servers.map((server) => {
+        {this.props.servers.map((server, index) => {
           return (
-          <li key={server.id}>
-          <Link key={server.id} to={`/servers/${server.id}`}>{server.name}</Link>
+          <li key={index}>
+          <Link 
+          to={`/servers/${server.id}`} 
+          onClick={() => this.props.fetchServer(server.id)}
+          >{server.name}</Link>
           </li>
           )
         })}
-      <li>  <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button></li>
-      <li> <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button></li>
       </ul>
+      <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button>
+      <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button>
       </div>
     )
   }
