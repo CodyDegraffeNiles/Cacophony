@@ -45,8 +45,8 @@ class ServerNav extends React.Component{
           )
         })}
       </ul>
-      {/* <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button>
-      <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button> */}
+      <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button>
+      <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button>
       </div>
     )
   }

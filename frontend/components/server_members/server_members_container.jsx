@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import ServerMembers from "./server_members";
+import {fetchServer } from "../../actions/server_actions";
 
 
 const mapStateToProps = (state) => {
@@ -8,4 +9,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(ServerMembers);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return{
+    fetchServer: () => {dispatch(fetchServer(ownProps.match.params.serverId))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ServerMembers);

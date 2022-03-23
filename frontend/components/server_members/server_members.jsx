@@ -2,6 +2,11 @@ import React from 'react'
 
 
 class ServerMembers extends React.Component{
+
+  componentDidMount(){
+    // Fetchs Specific Server on Mount to correctly populate server members;
+    this.props.fetchServer();
+  }
   
   render(){
     return (<div id="server-member-show"> 
