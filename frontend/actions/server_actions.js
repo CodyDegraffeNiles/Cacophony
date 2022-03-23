@@ -33,7 +33,6 @@ const receiveErrors = (errors) => {
     })
 }
 
-
 export const fetchServers = (user) => (dispatch) => {
     return serverUtil.fetchServers(user)
     .then((servers) => {dispatch(receiveServers(servers))},
