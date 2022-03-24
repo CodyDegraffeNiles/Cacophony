@@ -22,12 +22,9 @@ class ChannelNav extends React.Component{
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
       serverOptions = <EditServerFormContainer/>
     } else if(this.props.server) {
-      serverOptions = <button onClick={() => {console.log(hi)}}>Leave Server</button>
-      console.log(this.props.currentUserId)
-      console.log(this.props.server.ownerId)
+      serverOptions = <button onClick={() => {}}>Leave Server</button>
     };
-    console.log(serverOptions)
-
+    
     return (
     <div id="channel-nav"> 
     <div id="channel-nav-server-name">

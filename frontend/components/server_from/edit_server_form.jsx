@@ -5,13 +5,17 @@ class EditServerForm extends React.Component{
     super(props)
     this.state = {
       id: this.props.server.id,
-      owner_id: this.props.server.id,
+      owner_id: this.props.server.owner_id,
       name: this.props.server.name,
       public: this.props.server.public,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePublic = this.handlePublic.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.fetchServer();
   }
 
   handleSubmit(e){

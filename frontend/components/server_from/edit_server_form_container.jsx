@@ -5,7 +5,6 @@ import { withRouter } from "react-router";
 
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
   return{
     currentUser: state.entities.users[state.session.id],
     server: state.entities.servers[ownProps.match.params.serverId],
@@ -16,6 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return{
     action: (server) => {dispatch(updateServer(server))},
     deleteServer: () => {dispatch(deleteServer([ownProps.match.params.serverId]))},
+    fetchServer: () => {dispatch(fetchServer([ownProps.match.params.serverId]))}
   }
 }
 
