@@ -40,18 +40,17 @@ class EditServerForm extends React.Component{
     // Owner
     if (this.props.type === "owner"){ 
     return (
-    <div id="edit-session-form"> 
+    <div id="edit-server-form"> 
       <form onSubmit={this.handleSubmit}>
-        <label> Edit Server Name
           <input 
+          id= "edit-server-name"
           type="text"
           value={this.state.name}
           onChange={this.handleName("name")}
           />
-          <button type="submit">Update Server</button>
-        </label>
+          <button id="update-server-name"type="submit">Update Server Name</button>
       </form>
-      <button onClick={() => this.props.deleteServer()}>Delete Server</button>
+      <button id="delete-server"onClick={() => this.props.deleteServer()}>Delete Server</button>
     </div>
     )
     } //Member
@@ -61,8 +60,8 @@ class EditServerForm extends React.Component{
         server_id: this.props.server.id
       }
       return(
-      <div id="edit-session-form"> 
-      <button onClick={ () => this.props.deleteMembership(membership)}>Leave Server</button>
+      <div id="edit-server-form"> 
+      <button  id="leave-server" onClick={ () => this.props.deleteMembership(membership)}>Leave Server</button>
     </div>
       )
     }
