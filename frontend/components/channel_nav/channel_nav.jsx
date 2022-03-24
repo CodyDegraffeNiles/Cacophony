@@ -6,6 +6,11 @@ import EditServerFormContainer from '../server_from/edit_server_form_container';
 class ChannelNav extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      noShow: true
+    }
+
+    this.toggleServerEdits = this.toggleServerEdits.bind(this);
 
   }
   // componentDidMount(){
@@ -13,6 +18,14 @@ class ChannelNav extends React.Component{
   //   this.props.fetchChannels();
   // }
 
+  // Toggle edit bar on and off
+
+  toggleServerEdits(type){
+    let that = this;
+    return function(e){
+      that.setState({[type]: !that.state[type]})
+    }
+  }
 
   render(){
     // Fail Safe to allow Page to load properly
@@ -22,9 +35,9 @@ class ChannelNav extends React.Component{
     // safe when loading the page.
     let serverOptions = null;
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
-      serverOptions = <EditServerFormContainer type = "owner"/>
+      serverOptions = <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
     } else if(this.props.server) {
-      serverOptions = <EditServerFormContainer type = "member"/>
+      serverOptions = <EditServerFormContainer noShow = {this.state.noShow} type = "member"/>
     };
 
     
@@ -34,7 +47,7 @@ class ChannelNav extends React.Component{
       <h5>{serverName}</h5> 
       <button id="server-edit">
       <i className="fa-solid fa-chevron-down"
-      onClick={() => this.showServerEdits("show")}
+      onClick={this.toggleServerEdits("noShow")}
       />
         </button>
       {serverOptions}

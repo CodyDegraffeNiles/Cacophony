@@ -36,6 +36,11 @@ class EditServerForm extends React.Component{
   }
 
   render(){
+    // Only render when user clicks the drop down menu next to server name
+    if (this.props.noShow) {
+      return null
+    }
+
     // Create different edit forms for the owner and a member
     // Owner
     if (this.props.type === "owner"){ 
