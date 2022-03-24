@@ -6,11 +6,13 @@ import EditServerFormContainer from '../server_from/edit_server_form_container';
 class ChannelNav extends React.Component{
   constructor(props){
     super(props)
+
   }
-  // componentdidRender(){
+  // componentDidMount(){
   //   // Will have a serverId hardcoded to get only a servers channels
   //   this.props.fetchChannels();
   // }
+
 
   render(){
     // Fail Safe to allow Page to load properly
@@ -20,16 +22,21 @@ class ChannelNav extends React.Component{
     // safe when loading the page.
     let serverOptions = null;
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
-      serverOptions = <EditServerFormContainer/>
+      serverOptions = <EditServerFormContainer type = "owner"/>
     } else if(this.props.server) {
-      serverOptions = <button onClick={() => {}}>Leave Server</button>
+      serverOptions = <EditServerFormContainer type = "member"/>
     };
+
     
     return (
     <div id="channel-nav"> 
     <div id="channel-nav-server-name">
       <h5>{serverName}</h5> 
-      <i className="fa-solid fa-chevron-down"/>
+      <button id="server-edit">
+      <i className="fa-solid fa-chevron-down"
+      onClick={() => this.showServerEdits("show")}
+      />
+        </button>
       {serverOptions}
     </div>
 

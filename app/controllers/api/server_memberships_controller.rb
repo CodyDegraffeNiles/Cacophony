@@ -12,8 +12,9 @@ class Api::ServerMembershipsController < ApplicationController
 
   def destroy
     @server_membership = ServerMembership.find_by(server_membership_parmas)
+    @server = Server.find_by(id: @server_membership.server_id)
     @server_membership.destroy if @server_membersip.user_id === curent_user.id
-    render 'api/users/show'
+    render 'api/servers/show'
   end
 
 
