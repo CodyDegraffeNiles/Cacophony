@@ -14,4 +14,4 @@ class ChannelMessages extends React.Component{
   }
 }
 
-export default ChannelMessages;
+export default ChannelMessages

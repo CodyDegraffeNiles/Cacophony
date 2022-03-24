@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
 import { updateServer,deleteServer} from "../../actions/server_actions";
 import EditServerForm from "./edit_server_form";
+import { withRouter } from "react-router";
 
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
   return{
     currentUser: state.entities.users[state.session.id],
     server: state.entities.servers[ownProps.match.params.serverId],
@@ -17,4 +19,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditServerForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
+(EditServerForm));

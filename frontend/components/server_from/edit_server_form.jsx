@@ -33,7 +33,6 @@ class EditServerForm extends React.Component{
   }
 
   render(){
-    console.log(this.state)
     return (
     <div id="edit-session-form"> 
       <form onSubmit={this.handleSubmit}>

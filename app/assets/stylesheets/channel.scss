@@ -13,7 +13,7 @@
 
 #channel-nav h5{
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bolder;
   text-align: center;
 }
@@ -26,4 +26,17 @@
   height: 100vh;
   transform: translate(305px, 0px);
   background-color: rgb(55, 57, 62);
+}
+
+#channel-nav-server-name{
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+}
+
+.fa-chevron-down{
+  color:white;
+  padding-top: 5px;
+  padding-right: 10px;
+  font-size: 15px;
 }
