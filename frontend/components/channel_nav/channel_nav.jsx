@@ -1,41 +1,39 @@
 import React from 'react'
 import EditServerFormContainer from '../server_from/edit_server_form_container';
-
+import { Link} from "react-router-dom";
 
 class ChannelNav extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      noShow: true
+      noShow: true,
+      channelCreate: false,
+      channelEdit: false,
     }
 
-    this.toggleServerEdits = this.toggleServerEdits.bind(this);
+    this.toggleEdits = this.toggleEdits.bind(this);
     this.closeForm = this.closeForm.bind(this);
 
   }
-  // componentDidMount(){
-  //   // Will have a serverId hardcoded to get only a servers channels
-  //   this.props.fetchChannels();
-  // }
 
   // Toggle edit bar on and off
 
-  toggleServerEdits(type){
+  toggleEdits(type){
     let that = this;
     return function(e){
       that.setState({[type]: !that.state[type]})
     }
   }
 
-  closeForm(){
-    this.setState({noShow: true})
+  closeForm(type){
+    this.setState({[type]: !that.state[type]})
   }
 
   renderServerEdits(){
     if(!this.state.noShow && this.props.currentUserId === this.props.server.ownerId){
       return (
       <div> 
-      <div id="double-modal-container" onClick={() => this.closeForm()}> </div>
+      <div id="double-modal-container" onClick={() => this.closeForm("noShow")}> </div>
       <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
       </div>)
     } else if (this.state.noShow){
@@ -43,7 +41,7 @@ class ChannelNav extends React.Component{
     } else {
       return (
       <div> 
-      <div id="double-modal-container" onClick={() => this.closeForm()}> </div>
+      <div id="double-modal-container" onClick={() => this.closeForm("noShow")}> </div>
       <EditServerFormContainer noShow = {this.state.noShow} type = "member"/>
       </div>)
     }
@@ -59,25 +57,29 @@ class ChannelNav extends React.Component{
       <div id="channel-nav-server-name">
         <h5>{serverName}</h5> 
         <i className="fa-solid fa-chevron-down"
-        onClick={this.toggleServerEdits("noShow")}
+        onClick={this.toggleEdits("noShow")}
         />
       </div>
         {this.renderServerEdits()}
 
-    {/* <ul id="channel-nav-list"> 
+    <br/>
+    <br/> 
+    <div id="channel-list-header"> 
+    <h6>Channels</h6>
+    {this.renderChannelCreate()}
+    </div>
+    <ul id="channel-nav-list"> 
         {this.props.channels.map((channel) => {
           return (
           <li key={channel.id}>
           <Link 
-          to={`/${this.props.server.id}/${channel.id}`} 
-          onClick={() => this.props.fetchChannel(server.id)}
-          >#{channel.name}</Link>
+          to={`/servers/${this.props.server.id}/${channel.id}`} 
+          // onClick={() => this.props.fetchChannel(server.id)}
+          ><i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}</Link>
           </li>
           )
         })}
-      </ul> */}
-      <br/>
-      <p> List of Channels.</p>
+      </ul>
       </div>
       )
     }

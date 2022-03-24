@@ -40,7 +40,6 @@ class ServerSearch extends React.Component{
     // Only private servers.
     serverArray = serverArray.filter((server) => server.public)
 
-    // console.log(this.props.servers)
     if (this.props.show){
       return(
       <div id="server-search">

@@ -14,8 +14,9 @@ const channelReducer = (state = {}, action) => {
       delete newState[action.channel.id]
       return newState;
     case RECEIVE_SERVER:
-      console.log(action.server.channels)
-      return action.server.channels;
+      // Fails Safe if a server has no channels()
+      if (action.server.channels){return action.server.channels}
+      return {};
     case REMOVE_SERVER:
       return {}
     case REMOVE_MEMBERSHIP:
