@@ -3,7 +3,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     @channel.server_id = params[:server_id]
     if @channel.save
-      render "api/servers/show"
+      render :show
     else  
       flash[:errors] = @channel.errors.full_messages
     end
@@ -12,14 +12,14 @@ class Api::ChannelsController < ApplicationController
   def delete
     @channel = Channel.find_by(id: params[:id])
     @channel.destroy
-    render "api/servers/show"
+    render :show
   end
 
   def update
     ## Questionable like ServerMembership BeCareful!!!
     @channel = Channel.find_by(id: params[:id])
     if @channel.update(channel_params)
-      render "api/servers/show"
+      render :show
     else  
       render json: @channel.errors.full_messages, status: 400
     end

@@ -1,8 +1,9 @@
 import {RECEIVE_SERVER, REMOVE_SERVER} from "../actions/server_actions";
-import {RECEIVE_CHANNEL, REMOVE_CHANNEL} from "../actions/channel_actions"
+import {RECEIVE_CHANNEL, REMOVE_CHANNEL} from "../actions/channel_actions";
+import { REMOVE_MEMBERSHIP } from "../actions/server_membership_actions";
 
 
-const channelReducer = (state = {}. action) => {
+const channelReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state)
   switch (action.type) {
@@ -13,6 +14,7 @@ const channelReducer = (state = {}. action) => {
       delete newState[action.channel.id]
       return newState;
     case RECEIVE_SERVER:
+      console.log(action.server.channels)
       return action.server.channels;
     case REMOVE_SERVER:
       return {}

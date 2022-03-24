@@ -20,10 +20,10 @@ const removeChannel = (payload) => {
 }
 
 const receiveErrors = (errors) => {
-    return({
+    return{
         type: RECEIVE_SESSION_ERRORS, 
         errors
-    })
+    }
 }
 
 export const createChannel = (channel) => (dispatch) => {
