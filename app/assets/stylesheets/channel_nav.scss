@@ -43,7 +43,8 @@
 
 #edit-server-form {
   position: absolute;
-  transform: translate(0, 40px);
+  transform: translate(0px, 10px);
+  z-index: 10;
 }
 
 #delete-server, #leave-server, #update-server-name{

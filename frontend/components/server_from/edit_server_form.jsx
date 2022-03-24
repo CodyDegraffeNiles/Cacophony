@@ -11,6 +11,7 @@ class EditServerForm extends React.Component{
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount(){
@@ -26,13 +27,29 @@ class EditServerForm extends React.Component{
     }
   }
 
+  // Handle Submission of the from for name edit
+
   handleSubmit(e){
     e.preventDefault();
     this.props.action(this.state);
   }
 
+  // Handle changes in the name state
+
   handleName(type){
     return (e) => {this.setState({[type]: e.currentTarget.value})}
+  }
+
+  // handle proper redirect after deletion of a server
+  handleDelete(){
+    this.props.deleteServer();
+    this.props.history.push(`/servers`)
+  }
+
+  // Handles Leaving a server
+  handleLeave(membership){
+    this.props.deleteMembership(membership);
+    this.props.history.push('/servers');
   }
 
   render(){
@@ -55,7 +72,7 @@ class EditServerForm extends React.Component{
           />
           <button id="update-server-name"type="submit">Update Server Name</button>
       </form>
-      <button id="delete-server"onClick={() => this.props.deleteServer()}>Delete Server</button>
+      <button id="delete-server"onClick={() => this.handleDelete()}>Delete Server</button>
     </div>
     )
     } //Member
@@ -66,7 +83,7 @@ class EditServerForm extends React.Component{
       }
       return(
       <div id="edit-server-form"> 
-      <button  id="leave-server" onClick={ () => this.props.deleteMembership(membership)}>Leave Server</button>
+      <button  id="leave-server" onClick={ () => this.handleLeave(membership)}>Leave Server</button>
     </div>
       )
     }

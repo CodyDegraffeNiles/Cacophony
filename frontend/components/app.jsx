@@ -11,7 +11,6 @@ import ServerNavContainer from "./server_nav/server_nav_container";
 import ServerMemeberContainer from "./server_members/server_members_container";
 import ChannelNavContainer from "./channel_nav/channel_nav_container";
 import ChannelMessagContainer from "./channel_messages/channel_message_container";
-import PlaceHolder from "./channel_messages/place_holder";
 
 const App = () => (
   <div>
@@ -22,7 +21,6 @@ const App = () => (
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
       <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
-      <ProtectedRoute exact path="/servers" component={PlaceHolder} />
       <ProtectedRoute path="/servers/:serverId/:channelId"
       component= {ChannelMessagContainer}/>
 

@@ -2,7 +2,6 @@ import React from 'react'
 import EditServerFormContainer from '../server_from/edit_server_form_container';
 
 
-
 class ChannelNav extends React.Component{
   constructor(props){
     super(props)
@@ -11,6 +10,7 @@ class ChannelNav extends React.Component{
     }
 
     this.toggleServerEdits = this.toggleServerEdits.bind(this);
+    this.closeForm = this.closeForm.bind(this);
 
   }
   // componentDidMount(){
@@ -27,29 +27,42 @@ class ChannelNav extends React.Component{
     }
   }
 
+  closeForm(){
+    this.setState({noShow: true})
+  }
+
+  renderServerEdits(){
+    if(!this.state.noShow && this.props.currentUserId === this.props.server.ownerId){
+      return (
+      <div> 
+      <div id="double-modal-container" onClick={() => this.closeForm()}> </div>
+      <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
+      </div>)
+    } else if (this.state.noShow){
+      return null;
+    } else {
+      return (
+      <div> 
+      <div id="double-modal-container" onClick={() => this.closeForm()}> </div>
+      <EditServerFormContainer noShow = {this.state.noShow} type = "member"/>
+      </div>)
+    }
+  }
+
   render(){
     // Fail Safe to allow Page to load properly
     let serverName;
     this.props.server ? serverName = this.props.server.name : null;
-    // Display proper server opitions depnding on who is logged in  and include fail
-    // safe when loading the page.
-    let serverOptions = null;
-    if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
-      serverOptions = <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
-    } else if(this.props.server) {
-      serverOptions = <EditServerFormContainer noShow = {this.state.noShow} type = "member"/>
-    };
-
     
     return (
-    <div id="channel-nav"> 
-    <div id="channel-nav-server-name">
-      <h5>{serverName}</h5> 
-      <i className="fa-solid fa-chevron-down"
-      onClick={this.toggleServerEdits("noShow")}
-      />
-      {serverOptions}
-    </div>
+      <div id="channel-nav"> 
+      <div id="channel-nav-server-name">
+        <h5>{serverName}</h5> 
+        <i className="fa-solid fa-chevron-down"
+        onClick={this.toggleServerEdits("noShow")}
+        />
+      </div>
+        {this.renderServerEdits()}
 
     {/* <ul id="channel-nav-list"> 
         {this.props.channels.map((channel) => {

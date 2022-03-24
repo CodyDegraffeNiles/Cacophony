@@ -13,6 +13,7 @@ class ServerNav extends React.Component{
     }
 
     this.toggleForm = this.toggleForm.bind(this) 
+    this.closeForm = this.closeForm.bind(this)
   }
 
   componentDidMount(){
@@ -28,11 +29,37 @@ class ServerNav extends React.Component{
     }
   }
 
+  closeForm(){
+    this.setState({create: false})
+    this.setState({search: false})
+  }
+
+  renderCreate(){
+    if (this.state.create){
+      return (
+      <div> 
+      <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
+      <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+      <CreateServerFormContainer show={true}/>
+      </div>
+      </div>)
+    }
+  }
+
+  renderSearch(){
+    if (this.state.search){
+      return (
+      <div> 
+      <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+      <ServerSearchContainer show={true}/>
+      </div>
+      )
+    }
+  }
+
   render(){
     return(
       <div id="server-nav"> 
-      <CreateServerFormContainer show = {this.state.create}/> 
-      <ServerSearchContainer show={this.state.search}/> 
       <ul id = "server-nav-list">
         {this.props.servers.map((server, index) => {
           return (
@@ -47,6 +74,8 @@ class ServerNav extends React.Component{
       </ul>
       <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button>
       <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button>
+      {this.renderCreate()}
+      {this.renderSearch()}
       </div>
     )
   }
