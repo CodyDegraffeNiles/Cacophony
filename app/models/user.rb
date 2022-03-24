@@ -27,11 +27,13 @@ class User < ApplicationRecord
 
   has_many :ownedServers,
     foreign_key: :owner_id,
-    class_name: :Server
+    class_name: :Server,
+    dependent: :destroy
 
   has_many :server_memberships,
     foreign_key: :member_id, 
-    class_name: :ServerMembership
+    class_name: :ServerMembership,
+    dependent: :destroy
 
   has_many :servers,
     through: :server_memberships, 

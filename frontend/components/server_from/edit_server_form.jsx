@@ -5,17 +5,25 @@ class EditServerForm extends React.Component{
     super(props)
     this.state = {
       id: this.props.server.id,
-      owner_id: this.props.server.owner_id,
       name: this.props.server.name,
-      public: this.props.server.public,
+      owner_id: this.props.server.owner_id,
+      public: this.props.server.public
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handlePublic = this.handlePublic.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchServer();
+  }
+
+  componentDidUpdate(prevProps){
+    if (prevProps !== this.props){
+      this.setState({["name"]: this.props.server.name})
+      this.setState({["id"]: this.props.server.id})
+      this.setState({["owner_id"]: this.props.server.owner_id})
+      this.setState({["public"]: this.props.server.public})
+    }
   }
 
   handleSubmit(e){
@@ -27,34 +35,42 @@ class EditServerForm extends React.Component{
     return (e) => {this.setState({[type]: e.currentTarget.value})}
   }
 
-  handlePublic(value, type){
-    let that = this;
-    return function(e){
-      e.preventDefault();
-      that.setState({[type]: value}
-      )
-    }
-  }
-
   render(){
+    // Only render when user clicks the drop down menu next to server name
+    if (this.props.noShow) {
+      return null
+    }
+
+    // Create different edit forms for the owner and a member
+    // Owner
+    if (this.props.type === "owner"){ 
     return (
-    <div id="edit-session-form"> 
+    <div id="edit-server-form"> 
       <form onSubmit={this.handleSubmit}>
-        <label> Edit Server Name
           <input 
+          id= "edit-server-name"
           type="text"
           value={this.state.name}
           onChange={this.handleName("name")}
           />
-          <button type="submit">Update Server</button>
-        </label>
+          <button id="update-server-name"type="submit">Update Server Name</button>
       </form>
-      <button onClick={() => this.props.deleteServer()}>Delete Server</button>
+      <button id="delete-server"onClick={() => this.props.deleteServer()}>Delete Server</button>
     </div>
     )
+    } //Member
+    else {
+      let membership = {
+        member_id: this.props.currentUser.id,
+        server_id: this.props.server.id
+      }
+      return(
+      <div id="edit-server-form"> 
+      <button  id="leave-server" onClick={ () => this.props.deleteMembership(membership)}>Leave Server</button>
+    </div>
+      )
+    }
   }
-
 }
-
 
 export default EditServerForm;

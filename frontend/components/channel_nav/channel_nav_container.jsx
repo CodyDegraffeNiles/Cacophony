@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
-    // fetchServer: () => {dispatch(fetchServer(ownProps.match.params.serverId))}
+    fetchServer: () => {dispatch(fetchServer(ownProps.match.params.serverId))}
   }
 }
 
-export default connect(mapStateToProps, null)(ChannelNav);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelNav);

@@ -17,7 +17,8 @@ const serversReducer = (state = {}, action) => {
       newState[action.membership.server.id] = action.membership.server;
       return newState;
     case REMOVE_MEMBERSHIP: 
-      delete newState[action.membership.server.id]
+      delete newState[action.payload.server.id]
+      return newState;
     case REMOVE_SERVER:
       delete newState[action.serverId]
       return newState;
