@@ -18,7 +18,6 @@ class EditServerForm extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    console.log(this.state);
     if (prevProps !== this.props){
       this.setState({["name"]: this.props.server.name})
       this.setState({["id"]: this.props.server.id})
@@ -38,9 +37,7 @@ class EditServerForm extends React.Component{
 
   render(){
     // Create different edit forms for the owner and a member
-    // Ownere
-    console.log(this.state.name)
-    console.log(this.props.server)
+    // Owner
     if (this.props.type === "owner"){ 
     return (
     <div id="edit-session-form"> 
@@ -65,7 +62,7 @@ class EditServerForm extends React.Component{
       }
       return(
       <div id="edit-session-form"> 
-      <button onClick={() => this.props.deleteMembership()}>Leave Server</button>
+      <button onClick={ () => this.props.deleteMembership(membership)}>Leave Server</button>
     </div>
       )
     }

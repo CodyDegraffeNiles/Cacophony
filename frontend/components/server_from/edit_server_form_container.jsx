@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     action: (server) => {dispatch(updateServer(server))},
     deleteServer: () => {dispatch(deleteServer([ownProps.match.params.serverId]))},
     fetchServer: () => {dispatch(fetchServer([ownProps.match.params.serverId]))},
-    deleteMembership: (membershipId) => {dispatch(deleteMembership(membershipId))}
+    deleteMembership: (membership) => {dispatch(deleteMembership(767, membership))}
   }
 }
 
