@@ -30,7 +30,6 @@ class ServerNav extends React.Component{
   }
 
   closeForm(){
-    console.log(this.state)
     this.setState({create: false})
     this.setState({search: false})
   }
