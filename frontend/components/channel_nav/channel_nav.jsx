@@ -45,11 +45,9 @@ class ChannelNav extends React.Component{
     <div id="channel-nav"> 
     <div id="channel-nav-server-name">
       <h5>{serverName}</h5> 
-      <button id="server-edit">
       <i className="fa-solid fa-chevron-down"
       onClick={this.toggleServerEdits("noShow")}
       />
-        </button>
       {serverOptions}
     </div>
 
@@ -65,7 +63,8 @@ class ChannelNav extends React.Component{
           )
         })}
       </ul> */}
-    
+      <br/>
+      <p> List of Channels.</p>
       </div>
       )
     }
