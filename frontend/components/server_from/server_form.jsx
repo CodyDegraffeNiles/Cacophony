@@ -46,11 +46,12 @@ class ServerForm extends React.Component{
           <button onClick={this.handlePublic(false, "public")} > For Me and My Friends</button>
           <button onClick={this.handlePublic(true, "public")}> For A Club or Community </button>
           </div>
-          <h5> Server Name: </h5>
+          <h5 id="create-server-name"> Server Name</h5>
           <input 
           type="text"
           value={this.state.name}
-          onChange={this.handleName("name")}/>
+          onChange={this.handleName("name")}
+          />
 
           <button id='create-server' type="submit">Create</button>
       </form>
