@@ -38,6 +38,11 @@ class User < ApplicationRecord
   has_many :servers,
     through: :server_memberships, 
     source: :server
+
+  has_many :messages,
+    foreign_key: :author_id,
+    class_name: :Message,
+    dependent: :destroy
   #SPIRE
 
   def self.find_by_credentials(email, password)
