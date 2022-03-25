@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :servers, only: [:show, :create, :update, :destroy, :index] 
     resources :channels, only: [:create, :destroy, :update]
     resources :server_memberships, only: [:create, :destroy]
+    resources :messages, only: [:create, :destroy, :update]
   end
 end

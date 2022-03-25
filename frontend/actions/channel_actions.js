@@ -1,6 +1,5 @@
 import * as channelUtil from "../util/channel_utils"
 
-
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 

@@ -8,13 +8,13 @@ const channelReducer = (state = {}, action) => {
   let newState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      newState[action.payload.id] = action.payload
+      newState[action.payload.channel.id] = action.payload.channel
       return newState;
     case REMOVE_CHANNEL:
       delete newState[action.payload]
       return newState;
     case RECEIVE_SERVER:
-      // Fails Safe if a server has no channels()
+      // Fail Safe if a server has no channels()
       if (action.server.channels){return action.server.channels}
       return {};
     case REMOVE_SERVER:
