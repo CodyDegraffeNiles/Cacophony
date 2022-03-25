@@ -1,7 +1,6 @@
 class Api::ChannelsController < ApplicationController
   def create
     @channel = Channel.new(channel_params)
-    @channel.server_id = params[:server_id]
     if @channel.save
       render :show
     else  
@@ -9,7 +8,7 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @channel = Channel.find_by(id: params[:id])
     @channel.destroy
     render :show

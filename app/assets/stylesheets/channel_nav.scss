@@ -24,8 +24,10 @@
   position: absolute;
   width: calc(100vw - 530px);
   height: 100vh;
-  transform: translate(305px, 0px);
+  transform: translate(310px, 0px);
   background-color: rgb(55, 57, 62);
+  // z-index down due some weird error handling
+  z-index: -1;
 }
 
 #channel-nav-server-name{
@@ -156,7 +158,120 @@
   padding-bottom: 0px;
 }
 
-.fa-hashtag {
+#channel-nav-list .fa-hashtag{
   padding-left: 10px; 
   padding-right: 10px;
+}
+
+// Modals for Channel Edit
+
+.channel-edit-modal{
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(10, 10, 10, .9);
+  transform: translate(-75px, 0px)
+}
+
+// Channel Edit Form
+#channel-form{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(calc(50vw - 200px), calc(40vh - 100px));
+  width: 400px;
+  height: 300px;
+  background: rgb(55,57,62);
+  border: 1px solid rgb(55,57,62);
+  border-radius: 5px;
+  color: black; 
+  z-index: 10;
+}
+
+// Channel Edit Form Components
+#channel-form-header h5{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#channel-form-header p{
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 15px;
+  color: rgb(180,180,180)
+}
+
+#channel-form-name  {
+  font-size: 14px;
+  color: rgb(200,200, 200);
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#channel-form-name-input{
+    color: rgb(225, 225, 225);
+    background-color: transparent;
+    height: 20px;
+    font-size: 15px;
+    outline: none;
+    color: rgb(225, 225, 225);
+    width: 90%;
+}
+
+#channel-form-name-input-container{
+  border: 0.75px solid black;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgb(49, 51, 56);
+  height: 30px;
+  font-size: 15px;
+  color: rgb(225, 225, 225);
+  border-radius: 3px;
+  margin-left: 18px;
+  width: 90%;
+}
+
+
+#channel-delete-button{
+  margin-left: 20px;
+  width: 90%;
+  background-color: transparent;
+  color: rgb(238, 65, 65);
+  outline: none;
+  border: 1px solid black ;
+  border-radius: 3px;
+  height: 30px;
+  width: 380px;
+  margin: 10px;
+	background:none;
+  cursor:pointer;
+}
+
+#channel-delete-button:hover{
+  color: white;
+  background-color: rgb(238, 65, 65);
+}
+
+#channel-edit-submit:hover {
+  filter: brightness(80%);
+}
+
+#channel-edit-submit{
+  text-align: center;
+  margin: 10px;
+  width: 380px;
+  background-color: #5865F2;
+  border: 0.75px solid #5865F2;
+  border-radius: 3px;
+  color: white;
+  height: 30px;
+  cursor: pointer;
 }

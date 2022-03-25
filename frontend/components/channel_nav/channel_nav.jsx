@@ -1,5 +1,7 @@
 import React from 'react'
 import EditServerFormContainer from '../server_from/edit_server_form_container';
+import CreateChannelFormContainer from '../channel_forms/create_channel_form_container';
+import EditChannelFormContainer from '../channel_forms/edit_channel_form_container'
 import { Link} from "react-router-dom";
 
 class ChannelNav extends React.Component{
@@ -9,6 +11,8 @@ class ChannelNav extends React.Component{
       noShow: true,
       channelCreate: false,
       channelEdit: false,
+      // State to keep track of which channel Edit Form to render
+      channelId: null,
     }
 
     this.toggleEdits = this.toggleEdits.bind(this);
@@ -48,10 +52,11 @@ class ChannelNav extends React.Component{
     }
   }
   // Render Channel button
-  renderChannelCreate(){
+  renderChannelCreateButton(){
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
       return(
-      <i className="fa-solid fa-plus"></i>
+      <i className="fa-solid fa-plus" 
+      onClick={this.toggleEdits("channelCreate")}></i>
       )
     } else {
       return(
@@ -60,16 +65,60 @@ class ChannelNav extends React.Component{
     }
   };
 
-  renderChannelEdit(){
+  // Render Channel Create Form()
+  renderChannelCreateForm(){
+    if(this.state.channelCreate){
+      return (<div>
+      <div id="double-modal-container" onSubmit = {() => this.closeForm("channelCreate")}> 
+      <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
+      (<CreateChannelFormContainer
+      channelName = {""} 
+      serverId = {this.props.server.id}
+      serverName = {this.props.server.name}/>)
+      </div>
+      </div>)
+    }
+    else {
+      return null;
+    }
+  }
+
+  // Set Channel Id
+  setChannelId(channelId, channelName){
+    this.setState({["channelId"]: channelId})
+    this.setState({["channelName"]: channelName})
+  }
+
+  // Render Channel Edit Button
+
+  renderChannelEditButton(channel){
       if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
         return(
-        <i className="fa-solid fa-gear fa-2xs"></i>
+        <i className="fa-solid fa-gear fa-2xs"
+        onClick ={this.toggleEdits("channelEdit")}
+        ></i>
         )
-    }  else {
-        return(
-        null
+    }  else {return(null)}
+  }
+
+  renderChannelEditForm(){
+    if(this.state.channelEdit){
+      return (
+      <div>
+      <div id="double-modal-container" onSubmit = {() => this.closeForm("channelEdit")}> 
+      <div className="channel-edit-modal" onClick={() => this.closeForm("channelEdit")}> </div> 
+      <EditChannelFormContainer 
+      channelId = {this.state.channelId}
+      channelName = {this.state.channelName}
+      serverId = {this.props.server.id}
+      serverName = {this.props.server.name}
+      />
+      </div>
+      </div>
       )
+
     }
+    else { return null}
   }
 
   render(){
@@ -91,23 +140,30 @@ class ChannelNav extends React.Component{
     <br/> 
     <div id="channel-list-header"> 
     <h6>Channels</h6>
-    {this.renderChannelCreate()}
+    {this.renderChannelCreateButton()}
     </div>
     <ul id="channel-nav-list"> 
         {this.props.channels.map((channel) => {
           return (
-          <li key={channel.id} className="channel-nav-item">
+          <li 
+          onClick={ () => this.setChannelId(channel.id, channel.name)}
+          key={channel.id} 
+          className="channel-nav-item">
           <div>
           <Link 
           to={`/servers/${this.props.server.id}/${channel.id}`} 
           // onClick={() => this.props.fetchChannel(server.id)}
           ><i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}</Link>
           </div>
-          {this.renderChannelEdit()}
+          {this.renderChannelEditButton()}
+          {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
           </li>
           )
         })}
       </ul>
+      {/* Can Render Create Channel Form out here as you do not need any channel params */}
+      {this.renderChannelCreateForm()}
+      {this.renderChannelEditForm()}
       </div>
       )
     }
