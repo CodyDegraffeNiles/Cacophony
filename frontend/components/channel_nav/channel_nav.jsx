@@ -1,5 +1,7 @@
 import React from 'react'
 import EditServerFormContainer from '../server_from/edit_server_form_container';
+import CreateChannelFormContainer from '../channel_forms/create_channel_form_container';
+import EditChannelFormContainer from '../channel_forms/edit_channel_form_container'
 import { Link} from "react-router-dom";
 
 class ChannelNav extends React.Component{
@@ -48,7 +50,7 @@ class ChannelNav extends React.Component{
     }
   }
   // Render Channel button
-  renderChannelCreate(){
+  renderChannelCreateButton(){
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
       return(
       <i className="fa-solid fa-plus"></i>
@@ -60,16 +62,33 @@ class ChannelNav extends React.Component{
     }
   };
 
-  renderChannelEdit(){
+  // Render Channel Create Form()
+  renderChannelCreateForm(){
+    if(this.state.channelCreate){
+      return <CreateChannelFormContainer/>
+    }
+    else {
+      return null;
+    }
+  }
+
+
+
+  // Render Channel Edit Button
+
+  renderChannelEditButton(){
       if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
         return(
         <i className="fa-solid fa-gear fa-2xs"></i>
         )
-    }  else {
-        return(
-        null
-      )
+    }  else {return(null)}
+  }
+
+  renderChannelEditForm(){
+    if(this.state.channelEdit){
+      return <EditChannelFormContainer/>;
     }
+    else { return null}
   }
 
   render(){
@@ -91,7 +110,7 @@ class ChannelNav extends React.Component{
     <br/> 
     <div id="channel-list-header"> 
     <h6>Channels</h6>
-    {this.renderChannelCreate()}
+    {this.renderChannelCreateButton()}
     </div>
     <ul id="channel-nav-list"> 
         {this.props.channels.map((channel) => {
@@ -103,11 +122,13 @@ class ChannelNav extends React.Component{
           // onClick={() => this.props.fetchChannel(server.id)}
           ><i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}</Link>
           </div>
-          {this.renderChannelEdit()}
+          {this.renderChannelEditButton()}
           </li>
           )
         })}
       </ul>
+      {this.renderChannelEditForm()}
+      {this.renderChannelEditButton()}
       </div>
       )
     }
