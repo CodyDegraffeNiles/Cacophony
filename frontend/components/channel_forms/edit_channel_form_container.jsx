@@ -5,7 +5,6 @@ import { updateChannel } from "../../actions/channel_actions";
 const mapStateToProps = (ownProps) => {
   return{
     channel: {
-      server_id: ownProps.match.params.serverId,
       name: ownProps.match.params.channelId
     },
     formType: "Update Channel"

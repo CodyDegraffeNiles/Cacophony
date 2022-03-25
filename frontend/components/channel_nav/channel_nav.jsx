@@ -53,7 +53,8 @@ class ChannelNav extends React.Component{
   renderChannelCreateButton(){
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
       return(
-      <i className="fa-solid fa-plus"></i>
+      <i className="fa-solid fa-plus" 
+      onClick={this.toggleEdits("channelCreate")}></i>
       )
     } else {
       return(
@@ -65,7 +66,7 @@ class ChannelNav extends React.Component{
   // Render Channel Create Form()
   renderChannelCreateForm(){
     if(this.state.channelCreate){
-      return <CreateChannelFormContainer/>
+      return <CreateChannelFormContainer serverId = {this.props.server.id}/>
     }
     else {
       return null;
@@ -79,14 +80,15 @@ class ChannelNav extends React.Component{
   renderChannelEditButton(){
       if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
         return(
-        <i className="fa-solid fa-gear fa-2xs"></i>
+        <i className="fa-solid fa-gear fa-2xs"
+        ></i>
         )
     }  else {return(null)}
   }
 
   renderChannelEditForm(){
     if(this.state.channelEdit){
-      return <EditChannelFormContainer/>;
+      return <EditChannelFormContainer serverId = {this.props.server.id}/>;
     }
     else { return null}
   }
@@ -128,7 +130,7 @@ class ChannelNav extends React.Component{
         })}
       </ul>
       {this.renderChannelEditForm()}
-      {this.renderChannelEditButton()}
+      {this.renderChannelCreateForm()}
       </div>
       )
     }

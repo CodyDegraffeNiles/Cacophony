@@ -5,7 +5,7 @@ class ChannelForm extends React.Component{
     super(props)
     this.state = {
       name: this.props.channel.name,
-      server_id: this.props.channel.serverId,
+      server_id: this.props.serverId,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +23,7 @@ class ChannelForm extends React.Component{
 
   render(){
     let formMessage = this.props.formType === "Update Channel" ? <p>
-      Create Channel </p> : <p>Edit Channel</p>
+      Edit Channel </p> : <p>Create Channel</p>
     let test = "Form.type"
     return (
     <div id="channel-form"> 
@@ -35,7 +35,7 @@ class ChannelForm extends React.Component{
           value={this.state.name}
           onChange={this.handleName("name")}
           />
-          <button id='create-server' type="submit">{this.props.formType}</button>
+          <button id='create-server' type="submit">{this.props.formType }</button>
       </form>
     </div>)
   }

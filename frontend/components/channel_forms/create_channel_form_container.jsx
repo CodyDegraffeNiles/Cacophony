@@ -2,11 +2,9 @@ import { connect } from "react-redux";
 import ChannelForm from "./channel_form";
 import { createChannel } from "../../actions/channel_actions";
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps.match.params.serverId)
+const mapStateToProps = () => {
   return{
     channel: {
-      server_id: ownProps.match.params.serverId,
       name: "",
     },
     formType: "Create Channel"

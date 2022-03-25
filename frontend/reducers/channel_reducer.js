@@ -8,7 +8,7 @@ const channelReducer = (state = {}, action) => {
   let newState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      newState[action.channel.id] = action.channel
+      newState[action.payload.id] = action.payload
       return newState;
     case REMOVE_CHANNEL:
       delete newState[action.channel.id]
