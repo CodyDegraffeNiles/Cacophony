@@ -3,7 +3,10 @@ import React from 'react'
 
 
 class ChannelMessages extends React.Component{
-  
+
+  componentDidMount(){
+    this.props.fetchChannel();
+  }
 
   render(){
     return(
