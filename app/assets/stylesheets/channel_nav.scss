@@ -32,6 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: right;
+  padding-left: 5px;
 }
 
 .fa-chevron-down{
@@ -98,3 +99,64 @@
   background-color: rgb(238, 65, 65);
 }
 
+#channel-list-header {
+  display: flex;
+  text-align: left;
+  color: lightgrey; 
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+
+  justify-content: space-between;
+}
+
+.channel-nav-item {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
+#edit-modal-container{
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100vh);
+  width: calc(100vw);
+  background-color: transparent;
+  transform: translate(-75px, 0px)
+}
+
+.channel-nav-item{
+  border: 1px solid rgb(48,49,54);
+  border-radius: 5px;
+}
+
+.channel-nav-item:hover{
+  background-color: rgb(58, 60, 67);
+}
+
+.channel-nav-item a{
+  border-radius: 5px;
+  text-decoration: none;
+  color: rgb(145,145,145);
+}
+
+
+
+// Padding for Font Asweome Icons
+.fa-plus { 
+  padding-top: 2px;
+}
+.channel-nav-item .fa-gear{
+  padding-top: 10px;
+  padding-right: 6px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+}
+
+.fa-hashtag {
+  padding-left: 10px; 
+  padding-right: 10px;
+}

@@ -16,7 +16,7 @@ class Server < ApplicationRecord
   validates :public, inclusion: {in:[true, false]}
 
 
-  ## Asociations
+  ## Assocations
   belongs_to :owner, 
     foreign_key: :owner_id, 
     class_name: :User
@@ -29,4 +29,9 @@ class Server < ApplicationRecord
   has_many :members,
     through: :server_memberships, 
     source: :member
+
+  has_many :channels, 
+    foreign_key: :server_id,
+    class_name: :Channel
+
 end

@@ -13,7 +13,6 @@ const serversReducer = (state = {}, action) => {
       newState[action.server.server.id] = action.server.server
       return newState;
     case RECEIVE_MEMBERSHIP:
-      console.log(action.membership.server)
       newState[action.membership.server.id] = action.membership.server;
       return newState;
     case REMOVE_MEMBERSHIP: 
