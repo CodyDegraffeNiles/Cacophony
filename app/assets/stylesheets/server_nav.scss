@@ -131,7 +131,7 @@
 
 #modal-container{
   z-index: 2;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
@@ -139,10 +139,9 @@
   background-color: rgba(10, 10, 10, .9);
 }
 
-
 #double-modal-container{
   z-index: 3;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
