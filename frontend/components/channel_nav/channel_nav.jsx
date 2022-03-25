@@ -70,10 +70,11 @@ class ChannelNav extends React.Component{
     if(this.state.channelCreate){
       return (<div>
       <div id="double-modal-container" onSubmit = {() => this.closeForm("channelCreate")}> 
-      <div class="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
+      <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
       (<CreateChannelFormContainer
       channelName = {""} 
-      serverId = {this.props.server.id}/>)
+      serverId = {this.props.server.id}
+      serverName = {this.props.server.name}/>)
       </div>
       </div>)
     }
@@ -104,12 +105,15 @@ class ChannelNav extends React.Component{
     if(this.state.channelEdit){
       return (
       <div>
-      <div class="channel-edit-modal" onClick={() => this.closeForm("channelEdit")}> </div> 
+      <div id="double-modal-container" onSubmit = {() => this.closeForm("channelEdit")}> 
+      <div className="channel-edit-modal" onClick={() => this.closeForm("channelEdit")}> </div> 
       <EditChannelFormContainer 
       channelId = {this.state.channelId}
       channelName = {this.state.channelName}
       serverId = {this.props.server.id}
+      serverName = {this.props.server.name}
       />
+      </div>
       </div>
       )
 

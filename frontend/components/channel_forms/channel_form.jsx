@@ -27,25 +27,42 @@ class ChannelForm extends React.Component{
   }
 
   render(){
+    // Placeholder based on form
+    const placeholder = this.props.formType === "Update Channel" ? 
+    this.props.name : "new-channel"
     // Form Message Based on Create or Editing Channel
-    const formMessage = this.props.formType === "Update Channel" ? <p>
-      Edit Channel </p> : <p>Create Channel</p>
+    const formMessage = this.props.formType === "Update Channel" ? 
+      <div id ="channel-form-header"> 
+        <h5>Edit Channel</h5>
+        <p> In {this.props.serverName}</p>
+      </div>
+      : 
+      <div id ="channel-form-header"> 
+      <h5>Create A Channel</h5>
+      <p> In {this.props.serverName}</p>
+      </div>
     // Delete Button if Create Channel"
-    const deleteButton = this.props.formType === "Update Channel" ? 
-    <button type="submit" onClick={() => this.props.deleteChannel(this.props.channelId)}>
-      Delete Channel</button>
+    const deleteButton = this.props.formType === "Update Channel" ?
+    <form onSubmit={() => this.props.deleteChannel(this.props.channelId)}>
+      <button id="channel-delete-button" type="submit"> Delete Channel</button>
+      </form>
     : null;
     return (
     <div id="channel-form"> 
       <form onSubmit={this.handleSubmit}>
         {formMessage}
-          <h5 id="channel-form-name"> Channel Name</h5>
+          <p id="channel-form-name"> CHANNEL NAME</p>
+          <div id ="channel-form-name-input-container">
+          <i className="fa-solid fa-hashtag fa-sm"></i>
           <input 
           type="text"
           value={this.state.name}
           onChange={this.handleName("name")}
+          id ="channel-form-name-input"
+          placeholder={placeholder}
           />
-          <button id='create-server' type="submit">{this.props.formType }</button>
+          </div>
+          <button id='channel-edit-submit' type="submit">{this.props.formType }</button>
       </form>
       {deleteButton}
     </div>)
