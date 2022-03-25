@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import ChannelNav from './channel_nav'
 
+
 const mapStateToProps = (state, ownProps) => {
   return{
     currentUserId : state.session.id,
@@ -9,10 +10,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return{
-    fetchServer: () => {dispatch(fetchServer(ownProps.match.params.serverId))}
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelNav);
+export default connect(mapStateToProps, null)(ChannelNav);

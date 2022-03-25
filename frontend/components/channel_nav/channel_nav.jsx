@@ -123,13 +123,11 @@ class ChannelNav extends React.Component{
 
   render(){
     // Fail Safe to allow Page to load properly
-    let serverName;
-    this.props.server ? serverName = this.props.server.name : null;
-    
+    if (this.props.server) {
     return (
       <div id="channel-nav"> 
       <div id="channel-nav-server-name">
-        <h5>{serverName}</h5> 
+        <h5>{this.props.server.name}</h5> 
         <i className="fa-solid fa-chevron-down"
         onClick={this.toggleEdits("noShow")}
         />
@@ -152,7 +150,7 @@ class ChannelNav extends React.Component{
           <div>
           <Link 
           to={`/servers/${this.props.server.id}/${channel.id}`} 
-          // onClick={() => this.props.fetchChannel(server.id)}
+          onClick={() => this.props.fetchChannel(channel.id)}
           ><i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}</Link>
           </div>
           {this.renderChannelEditButton()}
@@ -166,7 +164,10 @@ class ChannelNav extends React.Component{
       {this.renderChannelEditForm()}
       </div>
       )
+    } else {
+      return null;
     }
   }
+}
 
   export default ChannelNav;
