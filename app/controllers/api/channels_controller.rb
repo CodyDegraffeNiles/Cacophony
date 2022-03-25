@@ -8,7 +8,7 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @channel = Channel.find_by(id: params[:id])
     @channel.destroy
     render :show

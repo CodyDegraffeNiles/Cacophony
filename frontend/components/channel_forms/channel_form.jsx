@@ -4,15 +4,21 @@ class ChannelForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      name: this.props.channel.name,
+      name: this.props.channelName,
       server_id: this.props.serverId,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // Set Proper State for Edit Form
+  componentDidMount(){
+    if(this.props.formType === "Update Channel"){this.setState({['id']: this.props.channelId})}
+  }
+
   handleSubmit(e){
     e.preventDefault();
+    console.log(this.state)
     this.props.action(this.state);
   }
 
@@ -22,9 +28,14 @@ class ChannelForm extends React.Component{
   }
 
   render(){
-    let formMessage = this.props.formType === "Update Channel" ? <p>
+    // Form Message Based on Create or Editing Channel
+    const formMessage = this.props.formType === "Update Channel" ? <p>
       Edit Channel </p> : <p>Create Channel</p>
-    let test = "Form.type"
+    // Delete Button if Create Channel"
+    const deleteButton = this.props.formType === "Update Channel" ? 
+    <button onClick={() => this.props.deleteChannel(this.props.channelId)}>
+      Delete Channel</button>
+    : null;
     return (
     <div id="channel-form"> 
       <form onSubmit={this.handleSubmit}>
@@ -37,6 +48,7 @@ class ChannelForm extends React.Component{
           />
           <button id='create-server' type="submit">{this.props.formType }</button>
       </form>
+      {deleteButton}
     </div>)
   }
 }

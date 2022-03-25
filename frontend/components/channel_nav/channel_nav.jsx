@@ -11,6 +11,8 @@ class ChannelNav extends React.Component{
       noShow: true,
       channelCreate: false,
       channelEdit: false,
+      // State to keep track of which channel Edit Form to render
+      channelId: null,
     }
 
     this.toggleEdits = this.toggleEdits.bind(this);
@@ -66,21 +68,28 @@ class ChannelNav extends React.Component{
   // Render Channel Create Form()
   renderChannelCreateForm(){
     if(this.state.channelCreate){
-      return <CreateChannelFormContainer serverId = {this.props.server.id}/>
+      return (<CreateChannelFormContainer
+      channelName = {""} 
+      serverId = {this.props.server.id}/>)
     }
     else {
       return null;
     }
   }
 
-
+  // Set Channel Id
+  setChannelId(channelId, channelName){
+    this.setState({["channelId"]: channelId})
+    this.setState({["channelName"]: channelName})
+  }
 
   // Render Channel Edit Button
 
-  renderChannelEditButton(){
+  renderChannelEditButton(channel){
       if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
         return(
         <i className="fa-solid fa-gear fa-2xs"
+        onClick ={this.toggleEdits("channelEdit")}
         ></i>
         )
     }  else {return(null)}
@@ -88,7 +97,11 @@ class ChannelNav extends React.Component{
 
   renderChannelEditForm(){
     if(this.state.channelEdit){
-      return <EditChannelFormContainer serverId = {this.props.server.id}/>;
+      return (<EditChannelFormContainer 
+      channelId = {this.state.channelId}
+      channelName = {this.state.channelName}
+      serverId = {this.props.server.id}
+      />)
     }
     else { return null}
   }
@@ -117,7 +130,10 @@ class ChannelNav extends React.Component{
     <ul id="channel-nav-list"> 
         {this.props.channels.map((channel) => {
           return (
-          <li key={channel.id} className="channel-nav-item">
+          <li 
+          onClick={ () => this.setChannelId(channel.id, channel.name)}
+          key={channel.id} 
+          className="channel-nav-item">
           <div>
           <Link 
           to={`/servers/${this.props.server.id}/${channel.id}`} 
@@ -125,12 +141,14 @@ class ChannelNav extends React.Component{
           ><i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}</Link>
           </div>
           {this.renderChannelEditButton()}
+          {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
           </li>
           )
         })}
       </ul>
-      {this.renderChannelEditForm()}
+      {/* Can Render Create Channel Form out here as you do not need any channel params */}
       {this.renderChannelCreateForm()}
+      {this.renderChannelEditForm()}
       </div>
       )
     }
