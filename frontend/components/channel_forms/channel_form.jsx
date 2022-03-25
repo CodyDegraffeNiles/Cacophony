@@ -18,7 +18,6 @@ class ChannelForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.state)
     this.props.action(this.state);
   }
 
@@ -33,7 +32,7 @@ class ChannelForm extends React.Component{
       Edit Channel </p> : <p>Create Channel</p>
     // Delete Button if Create Channel"
     const deleteButton = this.props.formType === "Update Channel" ? 
-    <button onClick={() => this.props.deleteChannel(this.props.channelId)}>
+    <button type="submit" onClick={() => this.props.deleteChannel(this.props.channelId)}>
       Delete Channel</button>
     : null;
     return (
