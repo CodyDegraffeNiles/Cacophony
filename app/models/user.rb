@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   ## Associations
 
+  ## Belongs to/Has Many
   has_many :ownedServers,
     foreign_key: :owner_id,
     class_name: :Server,
@@ -35,14 +36,24 @@ class User < ApplicationRecord
     class_name: :ServerMembership,
     dependent: :destroy
 
-  has_many :servers,
-    through: :server_memberships, 
-    source: :server
-
   has_many :messages,
     foreign_key: :author_id,
     class_name: :Message,
     dependent: :destroy
+
+  ## Has many through
+  has_many :servers,
+    through: :server_memberships, 
+    source: :server
+
+  has_many :channels, 
+    through: :servers, 
+    source: :channels
+
+  has_many :owned_channels, 
+    through: :ownedServers,
+    source: :channels
+
   #SPIRE
 
   def self.find_by_credentials(email, password)
