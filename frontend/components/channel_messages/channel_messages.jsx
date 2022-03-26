@@ -56,16 +56,19 @@ class ChannelMessages extends React.Component{
         })}
         
         </ul>
-        <form onSubmit={this.handleSubmit}> 
-
-        <br/>
+        <div id = "channel-message-footer-bar">
+        <form autocomplete="off" id= "server-message-form" onSubmit={this.handleSubmit}> 
+        <text id="sever-message-input-padding">"</text>
         <input
         type = "text"
         value = {this.state.body}
         onChange={this.handleChange('body')}
+        id="server-message-input"
+        placeholder={`Message #${this.props.channelName}`}
         />
-        <button type="submit" >Post</button>
+        <button id="server-message-submit-button"type="submit" > <i className="fa-solid fa-paper-plane fa-xl"/></button>
         </form>
+        </div>
       </div>
     )
   }

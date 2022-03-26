@@ -22,10 +22,67 @@
   top: 0px;
   left: 0px;
   position: absolute;
-  width: calc(100vw - 530px);
+  width: calc(100vw - 534px);
   height: 100vh;
   transform: translate(310px, 0px);
   background-color: rgb(55, 57, 62);
   // z-index down due some bug with it override modals
   z-index: -1;
+}
+
+
+#channel-message-footer-bar{
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+  transform: translate(0px, calc(100vh - 65px));
+  height: 65px;
+}
+
+// Padding to simulate the input having internal padding
+#sever-message-input-padding{
+  width: 20px;
+  color: transparent
+}
+
+#server-message-form{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100vw - 554px);
+  background-color: rgb(64,68,75);
+}
+
+
+#server-message-input{
+  width: calc(100vw - 604px);
+  color: rgb(220,220,220);
+  height: 45px;
+  font-size: 16px;
+}
+
+#server-message-input:focus{
+  outline: none;
+}
+
+#server-message-submit-button{
+  outline: none;
+  background-color: transparent;
+  width: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+// Styling for paper plane submit button
+
+.fa-paper-plane{
+  color: rgb(147, 156,247)
+}
+
+.fa-paper-plane:hover{
+  filter: brightness(90%);
 }
