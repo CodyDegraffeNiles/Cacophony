@@ -6,10 +6,19 @@ import {createMessage} from "../../actions/message_actions";
 
 
 const mapStateToProps = (state, ownProps) => {
+  let channelName = null;
+  // Fail Safe Check
+  if (state.entities.channels[ownProps.match.params.channelId]){
+    channelName = state.entities.channels[ownProps.match.params.channelId].name
+  }
+
   return{
-    body : "",
-    authorId: state.session.id,
-    channelId: ownProps.match.params.channelId,
+    message: {
+      body: "",
+      author_id: state.session.id,
+      channel_id: ownProps.match.params.channelId
+    },
+    channelName: channelName,
     messages: Object.values(state.entities.messages)
   }
 }

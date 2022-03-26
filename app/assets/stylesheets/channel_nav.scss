@@ -18,17 +18,6 @@
   text-align: center;
 }
 
-#channel-messages {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  width: calc(100vw - 530px);
-  height: 100vh;
-  transform: translate(310px, 0px);
-  background-color: rgb(55, 57, 62);
-  // z-index down due some weird error handling
-  z-index: -1;
-}
 
 #channel-nav-server-name{
   display: flex;

@@ -1,8 +1,19 @@
 .message-author{
-  color: red;
+  color: white
 }
 
-
 .message-body{
-  color: green
+  color: rgb(215, 215,215)
+}
+
+.server-message {
+  padding-left: 25px; 
+  margin-top: 10px;
+  width: 100%;
+  font-size:16px;
+}
+
+.server-message:hover{
+  filter:brightness(90%);
+  background-color: rgb(52,53,58);
 }

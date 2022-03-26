@@ -6,11 +6,7 @@ import Message from './message'
 class ChannelMessages extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      body: this.props.body,
-      author_id: this.props.authorId,
-      channel_id: this.props.channelId,
-    }
+    this.state = this.props.message
 
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -46,7 +42,10 @@ class ChannelMessages extends React.Component{
   render(){
     return(
       <div id="channel-messages">
-        <p>Channel Messages go Here</p>
+        <div id="channel-header"> 
+        <i className="fa-solid fa-hashtag fa-lg" id="channel-message-hashtag"></i>
+        <h5 id="channel-name">{this.props.channelName}</h5>
+        </div>
         <ul> 
         {this.props.messages.map( (message) => {
           return(
