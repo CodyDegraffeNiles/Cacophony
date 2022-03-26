@@ -1,7 +1,7 @@
 class Api::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
-    # @channel = Serverchannel.find_by(id: @message[:channel_id])
+    @channel = Channel.find_by(id: @message[:channel_id])
     if @message.save
       # Serverchannel.broadcast_to(@channel, @message)
       render :show

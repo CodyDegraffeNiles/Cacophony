@@ -50,8 +50,9 @@ class ChannelMessages extends React.Component{
       modMessage.body = e.target.value;
       that.setState({["newMessage"] : modMessage})
     }
-    return (e) => {this.setState({["newMessage"[type]] : e.target.value})}
   }
+
+  
 
   
 

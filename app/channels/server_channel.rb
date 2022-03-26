@@ -1,7 +1,7 @@
-class ServerchannelChannel < ApplicationCable::Channel
+class ServerChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    server_channel = Serverchannel.find(params[:id])
+    server_channel = Channel.find_by(id: params[:id])
     stream_for server_channel
   end
 
