@@ -19,9 +19,23 @@ class ChannelMessages extends React.Component{
     this.props.fetchChannel();
   }
 
+  componentDidUpdate(prevProps){
+    // Update if props receive a new message or channel changes
+    if (prevProps.messages.length !== this.props.messages.length)
+      { this.props.fetchChannel()};
+    // Update if channel changes
+    if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+      this.setState({["body"] : ""})
+      this.setState({["channel_id"] : this.props.match.params.channelId})
+    }
+
+  }
+
   handleSubmit(e){
     e.preventDefault();
-    this.props.action(this.state)
+    this.props.action(this.state);
+    // Clear Input after Submission
+    this.setState({["body"] : ""})
   }
 
   handleChange(type){

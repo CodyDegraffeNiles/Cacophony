@@ -14,7 +14,9 @@ const messageReducer = (state = {}, action) => {
       delete newState[action.payload.id];
       return newState
     case RECEIVE_CHANNEL:
-      // Fail Safe in case channel has no messages
+    // Clear Messages so that if you receive a new Channel, messages do not persit
+    newState = {}
+     // Fail Safe in case channel has no messages
     if(action.payload.messages){newState = action.payload.messages}
       return newState;
     case REMOVE_CHANNEL:
