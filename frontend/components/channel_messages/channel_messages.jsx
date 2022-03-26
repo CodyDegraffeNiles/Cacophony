@@ -1,13 +1,16 @@
 import React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Message from './message'
-
-
+import { createConsumer } from "@rails/actioncable"
+import {useParams} from "react-router"
 
 class ChannelMessages extends React.Component{
   constructor(props){
     super(props);
-    this.state = this.props.message
-
+    this.state = {
+      newMessage: this.props.message, 
+      messages : []
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -21,23 +24,36 @@ class ChannelMessages extends React.Component{
       { this.props.fetchChannel()};
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
-      this.setState({["body"] : ""})
-      this.setState({["channel_id"] : this.props.match.params.channelId})
+      let clearMessage = {
+        body: "",
+        author_id: this.state.newMessage.author_id,
+        channel_id: this.props.match.params.channelId
+      }
+      this.setState({["newMessage"] : clearMessage})
     }
 
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.action(this.state["newMessage"]);
     // Clear Input after Submission
-    this.setState({["body"] : ""})
+    let clearMessage = this.state["newMessage"];
+    clearMessage.body = "";
+    this.setState({ ["newMessage"] : clearMessage})
   }
 
   handleChange(type){
-    return (e) => {this.setState({[type] : e.target.value})}
+    let that = this 
+    return function(e){
+      let modMessage = that.state.newMessage;
+      modMessage.body = e.target.value;
+      that.setState({["newMessage"] : modMessage})
+    }
+    return (e) => {this.setState({["newMessage"[type]] : e.target.value})}
   }
 
+  
 
   render(){
     return(

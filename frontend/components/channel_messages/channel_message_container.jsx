@@ -33,3 +33,33 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelMessages)
+
+
+
+// useEffect(() => {
+//   cable = createConsumer("wsL//localhost:3000/cable")
+//   const paramsToSend = {
+//     channel: "ServerchannelChannel",
+//     id: this.props.message.channel_id
+//   }
+//   const handlers = {
+//     received(data){
+//       setMessages([...messages], data)
+//     },
+
+//     connected(){
+//       console.log("connected")
+//     },
+
+//     disconnected(){
+//       console.log("disconnected")
+//     }
+//   }
+
+//   const subscription = cable.subscriptions.create(paramsToSend, handlers)
+
+//   return function cleanup(){
+//     console.log("unsubbing from ", params.id)
+//     subscription.unsubscribe()
+//     }
+//   }, [params.id, messages])
