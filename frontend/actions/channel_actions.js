@@ -25,6 +25,16 @@ const receiveErrors = (errors) => {
     }
 }
 
+
+
+export const fetchChannel = (channelId) => (dispatch) => {
+  return channelUtil.fetchChannel(channelId)
+  .then((payload) => {dispatch(recieveChannel(payload))}
+  , (err) => {dispatch(receiveErrors(err.responseJSON))}
+  )
+}
+
+
 export const createChannel = (channel) => (dispatch) => {
     return channelUtil.createChannel(channel)
     .then((payload) => {dispatch(recieveChannel(payload))}

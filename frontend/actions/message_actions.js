@@ -38,7 +38,7 @@ export const deleteMessage = (messageId) => (dispatch) => {
 }
 
 export const updateMessage = (message) => (dispatch) => {
-  return messageUtil.updaetMessage(message)
+  return messageUtil.updateMessage(message)
   .then((payload) => {dispatch(receiveMessage(payload))}
   , (err) => {dispatch(receiveErrors(err.responseJson))})
 }

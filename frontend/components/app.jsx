@@ -20,9 +20,9 @@ const App = () => (
       <ProtectedRoute path="/servers" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
-      <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
       <ProtectedRoute path="/servers/:serverId/:channelId"
       component= {ChannelMessagContainer}/>
+      <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
 
 
       {/* Auth Routes */}
