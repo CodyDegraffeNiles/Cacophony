@@ -1,14 +1,13 @@
 import React from 'react'
 import Message from './message'
 import { createConsumer } from "@rails/actioncable"
-import {useParams} from "react-router"
 
 class ChannelMessages extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       newMessage: this.props.message, 
-      messages : this.props.messages
+      messages : []
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
@@ -38,7 +37,7 @@ class ChannelMessages extends React.Component{
     this.subscription.unsubscribe()
   }
 
-  componentDidUpdate(prevProps, prevState){
+  componentDidUpdate(prevProps){
     // Update if props receive a new message or channel changes
     if (prevProps.messages.length !== this.props.messages.length)
       { 
@@ -61,6 +60,7 @@ class ChannelMessages extends React.Component{
     // Clear Input after Submission
     let clearMessage = this.state["newMessage"];
     clearMessage.body = "";
+    console.log(clearMessage)
     this.setState({ ["newMessage"] : clearMessage})
   }
 
