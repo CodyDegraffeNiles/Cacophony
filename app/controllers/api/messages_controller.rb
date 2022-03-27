@@ -3,7 +3,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(message_params)
     @channel = Channel.find_by(id: @message[:channel_id])
     if @message.save
-      # Serverchannel.broadcast_to(@channel, @message)
+      ServerChannel.broadcast_to(@channel, @message)
       render :show
     else  
       render json: @message.errors.full_messages, status: 400

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useEffect, useRef, useState } from 'react'
 import Message from './message'
 import { createConsumer } from "@rails/actioncable"
 import {useParams} from "react-router"
@@ -9,19 +8,42 @@ class ChannelMessages extends React.Component{
     super(props);
     this.state = {
       newMessage: this.props.message, 
-      messages : []
+      messages : this.props.messages
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.subscription = ""
   }
 
   componentDidMount(){
     this.props.fetchChannel();
+
+    // Set Up listening post/subscription once user mounts
+    let that = this;
+    const handlers = {
+      received(data){
+        console.log(that.state.messages)
+        that.setState({["messages"] : that.state.messages.concat([data])})
+      }
+    }
+    const cable = createConsumer("ws://localhost:3000/cable")
+    const ParamsToSend = {
+      channel: "ServerChannel",
+      id: this.props.message.channel_id
+    }
+    this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
   }
 
-  componentDidUpdate(prevProps){
+  componentWillUnmount(){
+    // Remove listening post/subscription
+    this.subscription.unsubscribe()
+  }
+
+  componentDidUpdate(prevProps, prevState){
     // Update if props receive a new message or channel changes
     if (prevProps.messages.length !== this.props.messages.length)
-      { this.props.fetchChannel()};
+      { 
+        this.props.fetchChannel()
+      };
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
       let clearMessage = {
@@ -31,7 +53,6 @@ class ChannelMessages extends React.Component{
       }
       this.setState({["newMessage"] : clearMessage})
     }
-
   }
 
   handleSubmit(e){
@@ -52,11 +73,12 @@ class ChannelMessages extends React.Component{
     }
   }
 
-  
+
 
   
 
   render(){
+    let fullMessages = this.props.messages.concat(this.state.messages)
     return(
       <div id="channel-messages">
         <div id="channel-header"> 
@@ -64,7 +86,7 @@ class ChannelMessages extends React.Component{
         <h5 id="channel-name">{this.props.channelName}</h5>
         </div>
         <ul> 
-        {this.props.messages.map( (message) => {
+        {fullMessages.map( (message) => {
           return(
             <Message 
             key = {message.id}
