@@ -20,7 +20,6 @@ class ChannelMessages extends React.Component{
     let that = this;
     const handlers = {
       received(data){
-        console.log(that.state.messages)
         that.setState({["messages"] : that.state.messages.concat([data])})
       }
     }
@@ -45,12 +44,10 @@ class ChannelMessages extends React.Component{
       };
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
-      let clearMessage = {
-        body: "",
-        author_id: this.state.newMessage.author_id,
-        channel_id: this.props.match.params.channelId
-      }
-      this.setState({["newMessage"] : clearMessage})
+      let newMessage = this.state.newMessage
+      newMessage.body = ""
+      newMessage.channelId = this.props.match.params.channelId
+      this.setState({newMessage})
     }
   }
 
@@ -58,10 +55,10 @@ class ChannelMessages extends React.Component{
     e.preventDefault();
     this.props.action(this.state["newMessage"]);
     // Clear Input after Submission
-    let clearMessage = this.state["newMessage"];
-    clearMessage.body = "";
-    console.log(clearMessage)
-    this.setState({ ["newMessage"] : clearMessage})
+    let newMessage = this.state.newMessage;
+    newMessage.body = "";
+    console.log(newMessage);
+    this.setState({["newMessage"]: newMessage})
   }
 
   handleChange(type){
@@ -100,7 +97,7 @@ class ChannelMessages extends React.Component{
         <span id="sever-message-input-padding">"</span>
         <input
         type = "text"
-        value = {this.state.body}
+        value = {this.state.newMessage.body}
         onChange={this.handleChange('body')}
         id="server-message-input"
         placeholder={`Message #${this.props.channelName}`}

@@ -11,14 +11,14 @@ class Api::ChannelsController < ApplicationController
     if @channel.save
       render :show
     else  
-      flash[:errors] = @channel.errors.full_messages
+      render json: @channel.errors.full_messages, status: 400
     end
   end
 
   def destroy
     @channel = Channel.find_by(id: params[:id])
     @channel.destroy
-    render :show
+    render "/api/servers/show"
   end
 
   def update
