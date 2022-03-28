@@ -20,14 +20,31 @@ class ChannelMessages extends React.Component{
     let that = this;
     const handlers = {
       received(data){
-        // Find Author name to add to Message
+        
+        // If data coming in is a message object itself 
+        if (Object.values(data).length > 1) 
+        { 
+          console.log(data);
+         // Find Author name to add to Message
         data.authorName = that.props.members[data.author_id].username;
         // Mutate time stamp to match time stamps from backend
         let timestamp = new Date(data.created_at)
         let time = timestamp.toLocaleTimeString();
         let date = timestamp.toLocaleDateString();
-        data.createdAt = date + " " + time 
+        data.createdAt = date + " " + time ;
+        // remodify so that edit pencil will appear
+        data.authorId = data.author_id;
         that.setState({["messages"] : that.state.messages.concat([data])})
+  
+        } // If data is just a message Id, delete Message.
+        else {
+          // Fillter Messages so that message is elminated.
+          let messages = that.state.messages
+          console.log(messages)
+          let filteredMessages = messages.filter(message => message.id !== data)
+          console.log(filteredMessages);
+          that.setState({["messages"] : filteredMessages})
+        }
       }
     }
     const cable = createConsumer("ws://localhost:3000/cable")

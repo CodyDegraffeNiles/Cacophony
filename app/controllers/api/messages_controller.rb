@@ -12,7 +12,9 @@ class Api::MessagesController < ApplicationController
 
   def destroy
     @message = Message.find_by(id: params[:id])
+    @channel = Channel.find_by(id: @message[:channel_id])
     @message.destroy
+    ServerChannel.broadcast_to(@channel, @message.id)
     render :show
   end
 
