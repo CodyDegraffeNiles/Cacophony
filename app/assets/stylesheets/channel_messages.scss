@@ -81,13 +81,14 @@
   margin-right: 10px;
   width: calc(100vw - 554px);
   background-color: rgb(64,68,75);
+  border-radius: 10px;
 }
 
 
 .server-message-input{
   width: calc(100vw - 604px);
   color: rgb(220,220,220);
-  height: 45px;
+  height: 30px;
   font-size: 16px;
 }
 
@@ -103,7 +104,6 @@
   cursor: pointer;
 }
 
-
 // Styling for paper plane submit button
 
 .fa-paper-plane{
@@ -113,3 +113,5 @@
 .fa-paper-plane:hover{
   filter: brightness(90%);
 }
+
+

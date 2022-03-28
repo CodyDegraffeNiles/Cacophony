@@ -10,20 +10,22 @@ class Message extends React.Component{
       message: this.props.message,
       showEdit: false,
     }
-    this.toggelEdits = this.toggelEdits.bind(this)
+    this.toggleEdits = this.toggleEdits.bind(this)
   }
 
-  toggelEdits(type){
+  toggleEdits(type){
     let that = this;
     return function(e){
       that.setState({[type]: !that.state[type]})
     }
   }
 
+
+
   renderMessageEdit(){
     if(this.state.showEdit){
       return (
-      <div id ="message-edit">
+      <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
       <MessageEditContainer
         message = {this.props.message}
       />
@@ -33,7 +35,7 @@ class Message extends React.Component{
 
   render(){
     let editIcon = this.props.currentUserId === this.props.message.authorId ? 
-    <i className="fa-solid fa-pencil fa-xs" onClick={this.toggelEdits("showEdit")}/> : null;
+    <i className="fa-solid fa-pencil fa-xs" onClick={this.toggleEdits("showEdit")}/> : null;
 
     return(
     <li className="server-message">

@@ -14,8 +14,7 @@ class MessageEdit extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    e.stopPropagation();
-    this.props.action(this.state)
+    this.props.action(this.state);
   }
 
   render(){
@@ -30,9 +29,9 @@ class MessageEdit extends React.Component{
         className="server-message-input"
         placeholder={`${this.state.body}`}
         />
-        <button className="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
+        <button type="submit" className="server-message-submit-button"> <i className="fa-solid fa-paper-plane fa-xl edit-paper-plane"/></button>
         </form>
-      <button onClick={() => (this.props.deleteMessage(this.props.message.id))}> Delete Message </button>
+      <button className="delete-message" onClick={() => (this.props.deleteMessage(this.props.message.id))}> Delete Message </button>
     </div>
     )
   }
