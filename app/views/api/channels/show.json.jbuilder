@@ -9,7 +9,7 @@ json.messages do
       # Handle utc conversion issues to get actual EST
       est = est + 4.hours
       json.author_name message.author.username
-      json.created_at est.strftime("%m/%d/%Y %I:%M:%S %p")
+      json.created_at est.strftime("%-m/%-d/%Y %-I:%M:%S %p")
       json.extract! message, :id, :channel_id, :author_id, :body
     end
   end

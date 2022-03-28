@@ -1,7 +1,9 @@
 class Api::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
+    @channel = Channel.find_by(id: @message[:channel_id])
     if @message.save
+      ServerChannel.broadcast_to(@channel, @message)
       render :show
     else  
       render json: @message.errors.full_messages, status: 400

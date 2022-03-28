@@ -16,10 +16,11 @@ const mapStateToProps = (state, ownProps) => {
     message: {
       body: "",
       author_id: state.session.id,
-      channel_id: ownProps.match.params.channelId
+      channel_id: ownProps.match.params.channelId,
     },
     channelName: channelName,
-    messages: Object.values(state.entities.messages)
+    messages: Object.values(state.entities.messages),
+    members: state.entities.users
   }
 }
 
@@ -33,3 +34,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelMessages)
+
+
+

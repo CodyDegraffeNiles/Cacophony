@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: "static_pages#root"
   
+  mount ActionCable.server => "/cable"
+
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :destroy, :update, :show]
     resource :session, only: [:create, :destroy]
@@ -11,4 +13,5 @@ Rails.application.routes.draw do
     resources :server_memberships, only: [:create, :destroy]
     resources :messages, only: [:create, :destroy, :update]
   end
+  
 end
