@@ -7,7 +7,7 @@ class ChannelMessages extends React.Component{
     super(props);
     this.state = {
       newMessage: this.props.message, 
-      messages : []
+      messages : this.props.messages
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
@@ -45,10 +45,11 @@ class ChannelMessages extends React.Component{
 
   componentDidUpdate(prevProps){
     // Update if props receive a new message or channel changes
-    // if (prevProps.messages.length !== this.props.messages.length)
-    //   { 
-    //     this.props.fetchChannel()
-    //   };
+    if (prevProps.messages.length !== this.props.messages.length)
+      { 
+        let messages = this.props.messages;
+        this.setState({messages});
+      };
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
       let newMessage = this.state.newMessage
@@ -78,7 +79,6 @@ class ChannelMessages extends React.Component{
 
 
   render(){
-    let fullMessages = this.props.messages.concat(this.state.messages)
     return(
       <div id="channel-messages">
         <div id="channel-header"> 
@@ -86,7 +86,7 @@ class ChannelMessages extends React.Component{
         <h5 id="channel-name">{this.props.channelName}</h5>
         </div>
         <ul id="channel-actual-messages"> 
-        {fullMessages.map( (message) => {
+        {this.state.messages.map( (message) => {
           return(
             <Message 
             key = {message.id}
