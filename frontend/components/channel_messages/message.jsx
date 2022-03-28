@@ -1,12 +1,39 @@
-import React from 'react'
+import React from 'react';
+import MessageEditContainer from "./message_edit_contianer"
 
 
 
 class Message extends React.Component{  
+  constructor(props){
+    super(props)
+    this.state = {
+      message: this.props.message,
+      showEdit: false,
+    }
+    this.toggelEdits = this.toggelEdits.bind(this)
+  }
+
+  toggelEdits(type){
+    let that = this;
+    return function(e){
+      that.setState({[type]: !that.state[type]})
+    }
+  }
+
+  renderMessageEdit(){
+    if(this.state.showEdit){
+      return (
+      <div id ="message-edit">
+      <MessageEditContainer
+        message = {this.props.message}
+      />
+      </div>)
+    }
+  }
 
   render(){
     let editIcon = this.props.currentUserId === this.props.message.authorId ? 
-    <i className="fa-solid fa-pencil fa-xs"/> : null;
+    <i className="fa-solid fa-pencil fa-xs" onClick={this.toggelEdits("showEdit")}/> : null;
 
     return(
     <li className="server-message">
@@ -16,6 +43,7 @@ class Message extends React.Component{
       <div className="message-body">
       <span>{this.props.message.body} </span>
       {editIcon}
+      {this.renderMessageEdit()}
       </div>
 
     </li>

@@ -67,7 +67,7 @@
 }
 
 // Padding to simulate the input having internal padding
-#sever-message-input-padding{
+.server-message-input-padding{
   width: 20px;
   color: transparent
 }
@@ -84,18 +84,18 @@
 }
 
 
-#server-message-input{
+.server-message-input{
   width: calc(100vw - 604px);
   color: rgb(220,220,220);
   height: 45px;
   font-size: 16px;
 }
 
-#server-message-input:focus{
+.server-message-input:focus{
   outline: none;
 }
 
-#server-message-submit-button{
+.server-message-submit-button{
   outline: none;
   background-color: transparent;
   width: 20px;

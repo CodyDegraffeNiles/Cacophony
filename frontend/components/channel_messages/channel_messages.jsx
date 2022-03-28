@@ -61,6 +61,7 @@ class ChannelMessages extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    e.stopPropagation();
     this.props.action(this.state["newMessage"]);
     // Clear Input after Submission
     let newMessage = this.state.newMessage;
@@ -99,15 +100,15 @@ class ChannelMessages extends React.Component{
         </ul>
         <div id = "channel-message-footer-bar">
         <form autoComplete="off" id= "server-message-form" onSubmit={this.handleSubmit}> 
-        <span id="sever-message-input-padding">"</span>
+        <span className="server-message-input-padding">"</span>
         <input
         type = "text"
         value = {this.state.newMessage.body}
         onChange={this.handleChange('body')}
-        id="server-message-input"
+        className="server-message-input"
         placeholder={`Message #${this.props.channelName}`}
         />
-        <button id="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
+        <button className="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
         </form>
         </div>
       </div>
