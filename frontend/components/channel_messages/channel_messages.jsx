@@ -28,6 +28,7 @@ class ChannelMessages extends React.Component{
         {  
           // Update the message if message is already in the state.
           if(that.state.messageIds.includes(data.id.toString())){
+            console.log("edit")
             let messages = that.state.messages;
             let modMessages = [];
             messages.forEach(function(message){
@@ -41,6 +42,8 @@ class ChannelMessages extends React.Component{
             // Update State
             that.setState({["messages"] : modMessages})
           } else {
+
+            console.log("create")
           // Create a new message for the state
          // Find Author name in the channel's users
           data.authorName = that.props.members[data.author_id].username;
@@ -52,6 +55,8 @@ class ChannelMessages extends React.Component{
           // remodify so that edit pencil will appear
           data.authorId = data.author_id;
           that.setState({["messages"] : that.state.messages.concat([data])})
+          // add Message id to messagesId array
+          that.setState({["messageIds"]: that.state.messageIds.concat(data.id.toString())})
           }
         } // If data is just a message Id, delete the Message.
         else {
