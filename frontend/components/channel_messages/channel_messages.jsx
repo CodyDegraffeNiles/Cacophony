@@ -20,6 +20,13 @@ class ChannelMessages extends React.Component{
     let that = this;
     const handlers = {
       received(data){
+        // Find Author name to add to Message
+        data.authorName = that.props.members[data.author_id].username;
+        // Mutate time stamp to match time stamps from backend
+        let timestamp = new Date(data.created_at)
+        let time = timestamp.toLocaleTimeString();
+        let date = timestamp.toLocaleDateString();
+        data.createdAt = date + " " + time 
         that.setState({["messages"] : that.state.messages.concat([data])})
       }
     }
@@ -57,7 +64,6 @@ class ChannelMessages extends React.Component{
     // Clear Input after Submission
     let newMessage = this.state.newMessage;
     newMessage.body = "";
-    console.log(newMessage);
     this.setState({["newMessage"]: newMessage})
   }
 
@@ -70,9 +76,6 @@ class ChannelMessages extends React.Component{
     }
   }
 
-
-
-  
 
   render(){
     let fullMessages = this.props.messages.concat(this.state.messages)
