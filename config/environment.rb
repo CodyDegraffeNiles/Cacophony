@@ -8,3 +8,5 @@ Rails.application.initialize!
 
 Jbuilder.key_format camelize: :lower
 
+
+
