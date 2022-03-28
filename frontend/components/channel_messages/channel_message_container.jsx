@@ -21,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
     channelName: channelName,
     messages: Object.values(state.entities.messages),
     members: state.entities.users,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    messageIds: Object.keys(state.entities.messages)
   }
 }
 

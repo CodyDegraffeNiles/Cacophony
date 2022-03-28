@@ -1,4 +1,4 @@
-import * as severMembershipUtil from "../util/server_membership_utils"
+import * as serverMembership from "../util/server_membership_utils"
 
 
 export const RECEIVE_MEMBERSHIP = "RECEIVE_MEMBERSHIP"
@@ -21,13 +21,13 @@ const removeMembership = (payload) => {
 }
 
 export const createServerMembership = (membership) => (dispatch) => {
-  return severMembershipUtil.createServerMembership(membership)
+  return serverMembership.createServerMembership(membership)
   .then((membership) => {dispatch(receiveMembership(membership))})
 }
 
 
 export const deleteMembership = (memebershipId, membership) => (dispatch) => {
-  return severMembershipUtil.deleteServerMembership(memebershipId, membership)
+  return serverMembership.deleteServerMembership(memebershipId, membership)
   .then((payload) => {dispatch(removeMembership(payload))})
 }
 

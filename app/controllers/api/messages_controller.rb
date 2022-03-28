@@ -12,13 +12,17 @@ class Api::MessagesController < ApplicationController
 
   def destroy
     @message = Message.find_by(id: params[:id])
+    @channel = Channel.find_by(id: @message[:channel_id])
     @message.destroy
+    ServerChannel.broadcast_to(@channel, @message.id)
     render :show
   end
 
   def update
     @message = Message.find_by(id: params[:id])
+    @channel = Channel.find_by(id: @message[:channel_id])
     if @message.update(message_params)
+      ServerChannel.broadcast_to(@channel, @message)
       render :show
     else  
       render json: @message.errors.full_messages, status: 400

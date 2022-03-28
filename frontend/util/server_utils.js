@@ -29,9 +29,9 @@ export const updateServer = (server) => {
   })
 }
 
-export const deleteServer = (severId) => {
+export const deleteServer = (serverId) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/servers/${severId}`,
+    url: `/api/servers/${serverId}`,
   })
 }

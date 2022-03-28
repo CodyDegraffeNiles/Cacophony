@@ -3,7 +3,11 @@
 }
 
 .message-body{
-  color: rgb(215, 215,215)
+  color: rgb(215, 215,215);
+}
+
+.fa-pencil{
+  padding-left: 10px;
 }
 
 .server-message {
@@ -22,4 +26,61 @@
   padding-left: 10px;
   font-size: 12px;
   color: rgb(114,118,125)
+}
+
+// Message Edit form
+#server-message-edit-form{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100vw - 554px);
+  background-color: rgb(64,68,75);
+  border-radius: 10px;
+  transform: translate(-25px, -25px);
+  height: 30px;
+  font-size: 16px;
+}
+
+
+// Div Locks the edit text box in place
+#message-edit{
+  position: relative;
+}
+
+
+
+.delete-message{
+  color: rgb(238, 65, 65);
+  border-top: .15px solid lightgray
+}
+
+.delete-message:hover{
+  color: white;
+  background-color: rgb(238, 65, 65);
+}
+
+.delete-message{
+  position: aboslute;
+  background-color: rgb(30, 30, 30);
+  width: 115px;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-left: 5px;
+  text-align: left;
+  font-size: 10px;
+  height: 15px;
+  border-style: none;
+  cursor: pointer;
+  transform: translate(-25px, 0px);
+}
+
+.edit-message-submit-button{
+  outline: none;
+  background-color: transparent;
+  width: 20px;
+  border: none;
+  cursor: pointer;
 }
