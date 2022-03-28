@@ -90,7 +90,9 @@ class ChannelMessages extends React.Component{
           return(
             <Message 
             key = {message.id}
-            message = {message}/>
+            message = {message}
+            currentUserId = {this.props.currentUserId}
+            />
           )
         })}
         
