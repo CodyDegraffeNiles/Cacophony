@@ -15,6 +15,8 @@ class Server < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :owner_id}
   validates :public, inclusion: {in:[true, false]}
 
+  after_create :create_general
+
 
   ## Assocations
   belongs_to :owner, 
@@ -39,4 +41,8 @@ class Server < ApplicationRecord
     through: :channels, 
     source: :messages
 
+  # Ensure server has basic channel
+  def create_general 
+    Channel.create(server_id: self.id, name: "general")
+  end
 end
