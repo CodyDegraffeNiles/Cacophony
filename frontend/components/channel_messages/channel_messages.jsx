@@ -28,7 +28,6 @@ class ChannelMessages extends React.Component{
         {  
           // Update the message if message is already in the state.
           if(that.state.messageIds.includes(data.id.toString())){
-            console.log("edit")
             let messages = that.state.messages;
             let modMessages = [];
             messages.forEach(function(message){
@@ -37,13 +36,10 @@ class ChannelMessages extends React.Component{
               // push all messages back into the state array
               modMessages.push(message)
             })
-            console.log(messages);
-            console.log(modMessages);
             // Update State
             that.setState({["messages"] : modMessages})
           } else {
 
-            console.log("create")
           // Create a new message for the state
          // Find Author name in the channel's users
           data.authorName = that.props.members[data.author_id].username;
@@ -91,10 +87,17 @@ class ChannelMessages extends React.Component{
       };
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+      // Reset Message
       let newMessage = this.state.newMessage
       newMessage.body = ""
       newMessage.channelId = this.props.match.params.channelId
       this.setState({newMessage})
+      // Reset Messages
+      console.log(this.props.messages)
+      let messages = this.props.messages;
+      let messageIds = this.props.messageIds;
+      this.setState({messages});
+      // this.setState({messageIds});
     }
   }
 
@@ -108,7 +111,7 @@ class ChannelMessages extends React.Component{
     this.setState({["newMessage"]: newMessage})
   }
 
-  handleChange(type){
+  handleChange(){
     let that = this 
     return function(e){
       let modMessage = that.state.newMessage;
