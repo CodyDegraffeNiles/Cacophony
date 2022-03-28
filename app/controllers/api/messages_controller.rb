@@ -20,7 +20,9 @@ class Api::MessagesController < ApplicationController
 
   def update
     @message = Message.find_by(id: params[:id])
+    @channel = Channel.find_by(id: @message[:channel_id])
     if @message.update(message_params)
+      ServerChannel.broadcast_to(@channel, @message)
       render :show
     else  
       render json: @message.errors.full_messages, status: 400

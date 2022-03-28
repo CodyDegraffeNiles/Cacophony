@@ -7,7 +7,8 @@ class ChannelMessages extends React.Component{
     super(props);
     this.state = {
       newMessage: this.props.message, 
-      messages : this.props.messages
+      messages : this.props.messages,
+      messageIds : this.props.messageIds
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
@@ -21,28 +22,42 @@ class ChannelMessages extends React.Component{
     const handlers = {
       received(data){
         
-        // If data coming in is a message object itself 
+        // If data coming in as message object itself, i.e., edit or update
+        // Do the approriate actions.
         if (Object.values(data).length > 1) 
-        { 
-          console.log(data);
-         // Find Author name to add to Message
-        data.authorName = that.props.members[data.author_id].username;
-        // Mutate time stamp to match time stamps from backend
-        let timestamp = new Date(data.created_at)
-        let time = timestamp.toLocaleTimeString();
-        let date = timestamp.toLocaleDateString();
-        data.createdAt = date + " " + time ;
-        // remodify so that edit pencil will appear
-        data.authorId = data.author_id;
-        that.setState({["messages"] : that.state.messages.concat([data])})
-  
-        } // If data is just a message Id, delete Message.
+        {  
+          // Update the message if message is already in the state.
+          if(that.state.messageIds.includes(data.id.toString())){
+            let messages = that.state.messages;
+            let modMessages = [];
+            messages.forEach(function(message){
+              // Update target message
+              if(message.id === data.id){message.body = data.body;}
+              // push all messages back into the state array
+              modMessages.push(message)
+            })
+            console.log(messages);
+            console.log(modMessages);
+            // Update State
+            that.setState({["messages"] : modMessages})
+          } else {
+          // Create a new message for the state
+         // Find Author name in the channel's users
+          data.authorName = that.props.members[data.author_id].username;
+          // Mutate time stamp to match time stamps from backend
+          let timestamp = new Date(data.created_at)
+          let time = timestamp.toLocaleTimeString();
+          let date = timestamp.toLocaleDateString();
+          data.createdAt = date + " " + time ;
+          // remodify so that edit pencil will appear
+          data.authorId = data.author_id;
+          that.setState({["messages"] : that.state.messages.concat([data])})
+          }
+        } // If data is just a message Id, delete the Message.
         else {
-          // Fillter Messages so that message is elminated.
+          // Filter Messages so that message is elminated.
           let messages = that.state.messages
-          console.log(messages)
           let filteredMessages = messages.filter(message => message.id !== data)
-          console.log(filteredMessages);
           that.setState({["messages"] : filteredMessages})
         }
       }
@@ -61,11 +76,13 @@ class ChannelMessages extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    // Update if props receive a new message or channel changes
+    // Update props if they reiceve a new message or channel changes
     if (prevProps.messages.length !== this.props.messages.length)
       { 
         let messages = this.props.messages;
+        let messageIds = this.props.messageIds;
         this.setState({messages});
+        this.setState({messageIds})
       };
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
