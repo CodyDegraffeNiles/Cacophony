@@ -12,6 +12,33 @@
   font-size: 18px
 }
 
+
+#channel-actual-messages{
+  height: calc(100vh - 120px);
+  display: block;
+  width: calc(100vw - 534px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+// Scroll Bar for Channel Messages
+#channel-actual-messages::-webkit-scrollbar{
+  width: 10px;
+}
+
+#channel-actual-messages::-webkit-scrollbar-thumb{
+  background: rgb(30,35,40);
+  border-radius: 5px;
+}
+
+#channel-actual-messages::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgb(40,45,50);
+}
+
+
+
+
 #channel-name{
   color: white;
   font-size: 16px; 

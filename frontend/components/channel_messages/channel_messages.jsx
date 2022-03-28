@@ -45,10 +45,10 @@ class ChannelMessages extends React.Component{
 
   componentDidUpdate(prevProps){
     // Update if props receive a new message or channel changes
-    if (prevProps.messages.length !== this.props.messages.length)
-      { 
-        this.props.fetchChannel()
-      };
+    // if (prevProps.messages.length !== this.props.messages.length)
+    //   { 
+    //     this.props.fetchChannel()
+    //   };
     // Update if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
       let newMessage = this.state.newMessage
@@ -85,7 +85,7 @@ class ChannelMessages extends React.Component{
         <i className="fa-solid fa-hashtag fa-lg" id="channel-message-hashtag"></i>
         <h5 id="channel-name">{this.props.channelName}</h5>
         </div>
-        <ul> 
+        <ul id="channel-actual-messages"> 
         {fullMessages.map( (message) => {
           return(
             <Message 
