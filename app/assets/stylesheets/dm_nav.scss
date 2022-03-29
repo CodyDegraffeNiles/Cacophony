@@ -1,0 +1,17 @@
+
+
+#dm-nav{
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  height: calc(100vh - 50px);
+  background-color: rgb(47, 49, 54);
+  width: 225px;
+  padding-left: 5px;
+  padding-right: 5px;
+  transform: translate(75px, 0px)
+}
+
+#dm-list-header{
+  color: red;
+}
