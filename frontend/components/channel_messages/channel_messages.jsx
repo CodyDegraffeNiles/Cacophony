@@ -63,7 +63,12 @@ class ChannelMessages extends React.Component{
         }
       }
     }
-    const cable = createConsumer("wss://localhost:3000/cable")
+    // Production Websocket
+    const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
+
+    // Development Websocket: 
+    
+    // const cable = createConsumer("wss://localhost:3000/cable")
     const ParamsToSend = {
       channel: "ServerChannel",
       id: this.props.message.channel_id
