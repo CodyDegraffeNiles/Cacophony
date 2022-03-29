@@ -19,7 +19,7 @@ class ServerNav extends React.Component{
   componentDidMount(){
     this.props.fetchUsersServers(this.props.currentUser.id);
   }
-
+  
   // Toggle forms on and off as well as turns off the other form
   toggleForm(active, deactive){
     let that = this;
