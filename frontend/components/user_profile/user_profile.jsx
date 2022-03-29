@@ -33,7 +33,7 @@ class UserProfile extends React.Component{
       <div id="user-top"> 
       <h3> My Account</h3>
       <div id="esacpe"> 
-      <Link id="home-link" to="/"><i className="fa-solid fa-xmark"/></Link> 
+      <Link id="home-link" to="/servers/@"><i className="fa-solid fa-xmark"/></Link> 
       <p>ESC</p>
       </div>
       </div>

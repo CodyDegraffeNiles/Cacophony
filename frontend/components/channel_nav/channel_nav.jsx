@@ -79,10 +79,12 @@ class ChannelNav extends React.Component{
       return (<div>
       <div id="double-modal-container" onSubmit = {() => this.closeForm("channelCreate")}> 
       <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
+      <div> </div>
       (<CreateChannelFormContainer
       channelName = {""} 
       serverId = {this.props.server.id}
       serverName = {this.props.server.name}/>)
+      <button id="channel-exit-x" onClick={() => this.closeForm("channelCreate")}><i className="fa-solid fa-xmark"/></button>
       </div>
       </div>)
     }
