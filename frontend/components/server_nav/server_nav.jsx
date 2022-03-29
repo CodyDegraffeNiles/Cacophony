@@ -64,13 +64,14 @@ class ServerNav extends React.Component{
     return(
       <div id="server-nav"> 
       <ul id = "server-nav-list">
+        <li key="home-bubble"> <Link to={`/servers/@me`}> <i className="fa-brands fa-discord home-bubble"/></Link> </li>
         {this.props.servers.map((server, index) => {
           return (
           <li key={index}>
           <Link 
           to={`/servers/${server.id}/${server.firstChannelId}`} 
           onClick={() => this.props.fetchServer(server.id)}
-          >{server.name}</Link>
+          > <p className="server-inital"> {server.name.charAt(0)} </p> </Link>
           </li>
           )
         })}
