@@ -64,18 +64,19 @@ class ServerNav extends React.Component{
     return(
       <div id="server-nav"> 
       <ul id = "server-nav-list">
+        <li key="home-bubble"> <Link to={`/servers/@me`}> <i className="fa-brands fa-discord home-bubble"/></Link> </li>
         {this.props.servers.map((server, index) => {
           return (
           <li key={index}>
           <Link 
           to={`/servers/${server.id}/${server.firstChannelId}`} 
           onClick={() => this.props.fetchServer(server.id)}
-          >{server.name}</Link>
+          > <p className="server-inital"> {server.name.charAt(0)} </p> </Link>
           </li>
           )
         })}
-        <li key="createServer"> <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button></li>
-        <li key="searchServer"> <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button></li>
+        <li key="createServer"> <button id="create-servers" onClick={this.toggleForm("create", "search")}><i className="fa-solid fa-plus"/> </button></li>
+        <li key="searchServer"> <button id="search-servers" onClick={this.toggleForm("search","create")}> <i className="fa-solid fa-compass"/> </button></li>
       </ul>
       {this.renderCreate()}
       {this.renderSearch()}
