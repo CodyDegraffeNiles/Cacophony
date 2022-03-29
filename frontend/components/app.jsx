@@ -20,17 +20,20 @@ const App = () => (
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path="/servers" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
-      <ProtectedRoute path="/servers/:serverId/:channelId"
-      component= {ChannelMessagContainer}/>
-      
       {/* Switches so that either DM Components comes up or Server Component  */}
       <Switch>
-      <ProtectedRoute exact path="/servers/@me" component={DmNavContainer}/>
+      <ProtectedRoute path="/servers/@me" component={DmNavContainer}/>
       <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
       </Switch>
       <Switch> 
-        <ProtectedRoute path="/servers/@me" component={DmMessagesContainer}/>
+          {/* Rerender the least intenstive Component */}
+        <ProtectedRoute path ="/servers/@me" component = {UserNavContainer}/>
         <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
+      </Switch>
+      <Switch>
+        <ProtectedRoute path="/servers/@me" component={DmMessagesContainer}/>
+        <ProtectedRoute path="/servers/:serverId/:channelId"
+        component= {ChannelMessagContainer}/>
       </Switch>
 
       <ProtectedRoute path="/servers" component={LineAcrossTop}/>
