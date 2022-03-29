@@ -20,10 +20,17 @@ const App = () => (
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path="/servers" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
-      <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
       <ProtectedRoute path="/servers/:serverId/:channelId"
       component= {ChannelMessagContainer}/>
+      <Switch>
+      {/* <ProtectedRoute exact path="/servers/@me" component={UserDmNavContainer}/> */}
       <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
+      </Switch>
+      <Switch> 
+        {/* <ProtectedRoute exact path="/servers/@me" component={UserDmsContianer}/> */}
+        <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
+      </Switch>
+
       <ProtectedRoute path="/servers" component={LineAcrossTop}/>
 
 
