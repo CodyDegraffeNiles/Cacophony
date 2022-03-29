@@ -65,7 +65,7 @@ class ServerNav extends React.Component{
           return (
           <li key={index}>
           <Link 
-          to={`/servers/${server.id}`} 
+          to={`/servers/${server.id}/${server.firstChannelId}`} 
           onClick={() => this.props.fetchServer(server.id)}
           >{server.name}</Link>
           </li>

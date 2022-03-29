@@ -27,6 +27,10 @@ class ChannelNav extends React.Component{
       that.setState({[type]: !that.state[type]})
     }
   }
+  
+  componentDidMount(){
+    // Push to top channel
+  }
 
   closeForm(type){
     let that = this;
