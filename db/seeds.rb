@@ -350,10 +350,10 @@
   Message.create(channel_id: projects.id, author_id: mikey.id, body: "That was it! Thanks!")
   Message.create(channel_id: projects.id, author_id: nick.id, body: "No Problem! Good Luck with the rest of your Project.")
 
-  Message.create(channel_id: announcements.id, author_id: jwong.id, body: "Remember guys - Check in is at 9:00 AM, 1:30PM, and 4:00 PM")
+  Message.create(channel_id: announcements.id, author_id: jwong.id, body: "Remember guys - Check in is at 9:00 AM, 1:30PM, and 4:00 PM.")
   Message.create(channel_id: announcements.id, author_id: demo_user.id, body: "The Ta's said to focus on studying today instead of doing homework.")
   
-  Message.create(channel_id: tribunal.id, author_id: demo_user.id, body: "This channel is for roasting our friends")
+  Message.create(channel_id: tribunal.id, author_id: demo_user.id, body: "This channel is for roasting our friends.")
   Message.create(channel_id: league.id, author_id:derek.id, body: "Whose wants to play an ARAM?")
   Message.create(channel_id: league.id, author_id:paul.id, body: "I am if sammy is.")
   Message.create(channel_id: league.id, author_id:sammy.id, body: "You know I, RichGameBuddy - the master of ARAM, is am always down for an ARAM.")
