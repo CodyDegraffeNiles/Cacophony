@@ -92,6 +92,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
+  # Mount Action Cable outside main process or domain
+  # config.action_cable.mount_path = nil
+  # config.action_cable.url = 'wss://example.com/cable'
+  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+
   #Configure Action Cable's Production URI
 
   config.action_cable.url  = "wss://cacophony-1.herokuapp.com/cable" 
@@ -99,6 +105,6 @@ Rails.application.configure do
   #Allow Request Origins
   config.action_cable.allowed_request_origins = [
     'https://cacophony-1.herokuapp.com', 
-  'http://cacophony-1.herokuapp.com']
+  /http:\/\/cacophony-1.herokuapp.*/]
 
 end
