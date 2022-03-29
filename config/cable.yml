@@ -10,6 +10,7 @@ test:
 #   adapter: redis
 #   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
 #   channel_prefix: Cacophony_production
+# Keep trying lol
 
 # Heroku Production
   production:
