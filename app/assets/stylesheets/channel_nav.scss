@@ -49,6 +49,10 @@
   cursor: pointer;
 }
 
+#leave-server{
+  transform: translate(80px, 25px);
+}
+
 #delete-server, #update-server-name{
   border-top: .15px solid lightgray
 }

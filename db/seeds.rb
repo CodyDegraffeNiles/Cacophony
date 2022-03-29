@@ -213,7 +213,7 @@
 
   williams = Server.create(
     owner_id: sammy.id,
-    name: "The Darkest Williams College",
+    name: "Darkest Williams College",
     public: true
   )
 
@@ -418,6 +418,6 @@
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Sheed Ranko")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Silonius")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am YOU!")
+  Message.create(channel_id: public4.channels.first.id, author_id: demo_user.id, body: "I am YOU!")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "But truley, I am Alpharius!")
 
