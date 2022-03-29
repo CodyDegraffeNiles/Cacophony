@@ -14,12 +14,31 @@
   cursor: pointer;
 }
 
+#server-nav-list{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 #server-nav a:hover{
   color: red;
 }
 
 #server-nav-list li{
   padding: 5px;
+}
+
+#server-nav-list::-webkit-scrollbar{
+  width: 5px;
+}
+
+#server-nav-list::-webkit-scrollbar-thumb{
+  background: rgb(30,35,40);
+  border-radius: 5px;
+}
+
+#server-nav-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgb(40,45,50);
 }
 
 // CSS for Modals to Search and Create a Server
