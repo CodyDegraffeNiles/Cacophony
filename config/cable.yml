@@ -2,7 +2,7 @@ development:
   adapter: async
 
 test:
-#   adapter: async
+  adapter: async
 
 
 # # Local Host Production
@@ -14,4 +14,4 @@ test:
 # Heroku Production
   production:
     adapter: redis
-    url: redis://redistogo:63caf45797d40cfe10a6d8ed2ff5728d@sole.redistogo.com:10602/
+    url:  redis://redistogo:63caf45797d40cfe10a6d8ed2ff5728d@sole.redistogo.com:10602/
