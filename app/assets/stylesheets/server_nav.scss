@@ -1,5 +1,3 @@
-
-
 #server-nav{
   height: 100vh;
   width: 75px;
@@ -14,12 +12,32 @@
   cursor: pointer;
 }
 
+#server-nav-list{
+  height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 #server-nav a:hover{
   color: red;
 }
 
 #server-nav-list li{
   padding: 5px;
+}
+
+#server-nav-list::-webkit-scrollbar{
+  width: 5px;
+}
+
+#server-nav-list::-webkit-scrollbar-thumb{
+  background: rgb(30,35,40);
+  border-radius: 5px;
+}
+
+#server-nav-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgb(40,45,50);
 }
 
 // CSS for Modals to Search and Create a Server
@@ -51,6 +69,10 @@
   font-size: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#server-form span{
+  font-style: italic;
 }
 
 #public-info button{
@@ -91,8 +113,23 @@
   color: rgb(78, 78, 78);
 }
 
+#server-exit-x{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(calc(50vw - 150px + 377px), calc(40vh - 150px));
+  z-index: 12;
+  border: none;
+  font-size: 20px;
+  background-color: transparent;
+}
+
 // Server Searching Interface CSS
 
+#server-search{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 #server-search h5 {
   text-align: center;
 }
@@ -105,6 +142,8 @@
   color: black;
   font-size: 14px;
 }
+
+
 
 #searched-servers button{
   text-align: center;
@@ -120,6 +159,7 @@
 #searched-servers span {
   margin-right: 20px;
 }
+
 
 
 // Create a hover effect for my buttons in the create server and 
@@ -149,3 +189,14 @@
   background-color: transparent;
 }
 
+// Line Across top of the screen
+
+#line-across-top-of-screen{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 1.5px;
+  width: calc(100vw - 75px);
+  background-color: rgb(35,36,40);
+  transform: translate(75px, 50px);
+}

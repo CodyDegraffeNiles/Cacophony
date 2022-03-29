@@ -1,6 +1,6 @@
 import {REMOVE_SERVER} from "../actions/server_actions";
 import {RECEIVE_CHANNEL, REMOVE_CHANNEL} from "../actions/channel_actions";
-import {REMOVE_MEMBERSHIP} from "../actions/server_membership_actions";
+import {REMOVE_MEMBERSHIP, RECEIVE_MEMBERSHIP} from "../actions/server_membership_actions";
 import {RECEIVE_MESSAGE, REMOVE_MESSAGE} from "../actions/message_actions"
 
 const messageReducer = (state = {}, action) => {
@@ -24,6 +24,9 @@ const messageReducer = (state = {}, action) => {
       return {};
     case REMOVE_SERVER:
       return {}
+    case RECEIVE_MEMBERSHIP:
+      newState = action.membership.messages
+      return newState;
     case REMOVE_MEMBERSHIP:
       return {}
     default:

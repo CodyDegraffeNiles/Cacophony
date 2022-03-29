@@ -35,21 +35,22 @@
 
 #edit-server-form {
   position: absolute;
-  transform: translate(0px, 10px);
+  transform: translate(0px, 50px);
   z-index: 10;
 }
 
 #delete-server, #leave-server, #update-server-name{
   background-color: rgb(30, 30, 30);
   width: 195px;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding-left: 5px;
   text-align: left;
   font-size: 15px;
   height: 30px;
   border-style: none;
   cursor: pointer;
+}
+
+#leave-server{
+  transform: translate(80px, 25px);
 }
 
 #delete-server, #update-server-name{
@@ -59,7 +60,6 @@
 #edit-server-name{
   background-color: rgb(30,30,30);
   width: 190px;
-  margin-left: 15px;
   padding-left: 5px;
   // Padding to override style sheet.
   padding-top: 0.1px;
@@ -155,7 +155,6 @@
 // Modals for Channel Edit
 
 .channel-edit-modal{
-  z-index: 4;
   position: absolute;
   top: 0;
   left: 0;
@@ -263,4 +262,15 @@
   color: white;
   height: 30px;
   cursor: pointer;
+}
+
+#channel-exit-x{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(calc(50vw + 180px), calc(40vh - 100px));
+  z-index: 12;
+  border: none;
+  font-size: 20px;
+  background-color: transparent;
 }

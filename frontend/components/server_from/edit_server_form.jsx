@@ -40,18 +40,18 @@ class EditServerForm extends React.Component{
     return (e) => {this.setState({[type]: e.currentTarget.value})}
   }
 
-  // handle proper redirect after deletion of a server
+  // handle proper redirect after deletion of a server - Push to user homepage
   handleDelete(){
     this.props.deleteServer();
-    this.props.history.push(`/servers`)
+    this.props.history.push(`/servers/@me`)
   }
 
   // Handles Leaving a server
   handleLeave(membership){
     this.props.deleteMembership(membership);
-    this.props.history.push('/servers');
+    this.props.history.push('/servers/@me');
   }
-
+  
   render(){
     // Only render when user clicks the drop down menu next to server name
     if (this.props.noShow) {

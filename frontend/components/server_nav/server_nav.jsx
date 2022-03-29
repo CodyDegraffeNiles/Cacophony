@@ -39,8 +39,10 @@ class ServerNav extends React.Component{
       return (
       <div> 
       <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
-      <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+      <div id = "modal-container" onClick={() => this.closeForm()}> 
+      </div>
       <CreateServerFormContainer show={true}/>
+      <button id="server-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
       </div>
       </div>)
     }
@@ -52,6 +54,7 @@ class ServerNav extends React.Component{
       <div> 
       <div id = "modal-container" onClick={() => this.closeForm()}> </div>
       <ServerSearchContainer show={true}/>
+      <button id="server-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
       </div>
       )
     }
@@ -65,15 +68,15 @@ class ServerNav extends React.Component{
           return (
           <li key={index}>
           <Link 
-          to={`/servers/${server.id}`} 
+          to={`/servers/${server.id}/${server.firstChannelId}`} 
           onClick={() => this.props.fetchServer(server.id)}
           >{server.name}</Link>
           </li>
           )
         })}
+        <li key="createServer"> <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button></li>
+        <li key="searchServer"> <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button></li>
       </ul>
-      <button id="create-servers" onClick={this.toggleForm("create", "search")}> Create Server</button>
-      <button id="search-servers" onClick={this.toggleForm("search","create")}> Search Servers</button>
       {this.renderCreate()}
       {this.renderSearch()}
       </div>

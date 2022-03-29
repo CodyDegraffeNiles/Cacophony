@@ -213,7 +213,7 @@
 
   williams = Server.create(
     owner_id: sammy.id,
-    name: "The Darkest Williams College",
+    name: "Darkest Williams College",
     public: true
   )
 
@@ -395,7 +395,7 @@
   Message.create(channel_id: cohort.channels.first.id, author_id: brandon.id, body: "Anyone want to order laptops?")
   Message.create(channel_id: cohort.channels.first.id, author_id: jwong.id, body: "Bro who let this man in?")
 
-  Message.create(channel_id: williams.channels.first.id, author_id: sammy.id, body: "Welecome to the darkest of Williams College Servers")
+  Message.create(channel_id: williams.channels.first.id, author_id: sammy.id, body: "Welcome to the darkest of Williams College Servers")
   Message.create(channel_id: williams.channels.first.id, author_id: paul.id, body: "Williams College is the best!")
   Message.create(channel_id: williams.channels.first.id, author_id: derek.id, body: "Jesup for life.")
   Message.create(channel_id: williams.channels.first.id, author_id: demo_user.id, body: "Purple Valley forever.")
@@ -418,6 +418,6 @@
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Sheed Ranko")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Silonius")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am YOU!")
+  Message.create(channel_id: public4.channels.first.id, author_id: demo_user.id, body: "I am YOU!")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "But truley, I am Alpharius!")
 

@@ -8,7 +8,8 @@ import {deleteMembership} from "../../actions/server_membership_actions";
 const mapStateToProps = (state, ownProps) => {
   return{
     currentUser: state.entities.users[state.session.id],
-    server: state.entities.servers[ownProps.match.params.serverId]
+    server: state.entities.servers[ownProps.match.params.serverId],
+    servers: state.entities.server
   }
 }
 
