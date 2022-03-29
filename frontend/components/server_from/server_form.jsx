@@ -13,7 +13,7 @@ class ServerForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePublic = this.handlePublic.bind(this);
   }
-
+  
   handleSubmit(e){
     e.preventDefault();
     // Create new Server and then push to the new server's first/general channel
