@@ -112,6 +112,10 @@
 
 // Server Searching Interface CSS
 
+#server-search{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 #server-search h5 {
   text-align: center;
 }
@@ -124,6 +128,8 @@
   color: black;
   font-size: 14px;
 }
+
+
 
 #searched-servers button{
   text-align: center;
@@ -139,6 +145,7 @@
 #searched-servers span {
   margin-right: 20px;
 }
+
 
 
 // Create a hover effect for my buttons in the create server and 
