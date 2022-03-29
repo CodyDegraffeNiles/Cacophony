@@ -25,34 +25,41 @@ class UserProfile extends React.Component{
   render(){
    // Modify delete button to do nothing if demo-user is loged in"
     const deleteButton = this.props.user.email === "KoalaDemo2@caveman.com" ? <button id ="delete-user"> 
-      Delete Account(Disabled)</button> : 
+      Delete Account(Disabled for Demo)</button> : 
     <button id ="delete-user" onClick={() => this.props.delete(this.props.user.id)}>Delete Account</button>
   
+    // modify message on button for demo-user i
+    const updateMessage = this.props.user.email === "KoalaDemo2@caveman.com" ? 
+    "Update Button(Disabled for Demo)" : "Update User"
     return(
-      <div>
-      <div id="user-top"> 
-      <h3> My Account</h3>
-      <div id="esacpe"> 
-      <Link id="home-link" to="/servers/@"><i className="fa-solid fa-xmark"/></Link> 
-      <p>ESC</p>
-      </div>
-      </div>
-      <form id="user-update" onSubmit={this.handleSubmit}> 
-      <p>Username </p>  
-        <input  
-        type = "text"
-        value = {this.state.username}
-        onChange ={this.handleChange('username')}/>
-      <p> Email </p>
-        <input 
-        type="text"
-        value = {this.state.email}
-        onChange ={this.handleChange('email')}/>
-      <button type="submit" id="update-user-button">Update User</button>
-      </form>
-      {deleteButton}
-      <button onClick={() => this.props.logout()}> LogOut</button>
+      <div id = "user-profile">
+        <div id = "user-profile-content">
+          <div id="user-top"> 
+          <h3> My Account</h3>
+            <div id="esacpe"> 
+              <Link id="home-link" to="/servers/@"><i className="fa-solid fa-xmark"/></Link> 
+              <p>ESC</p>
+            </div>
+          </div>
+          <form id="user-update" onSubmit={this.handleSubmit}> 
+            <p>Username </p>  
+            <input  
+            type = "text"
+            value = {this.state.username}
+            onChange ={this.handleChange('username')}/>
+            <p> Email </p>
+            <input 
+            type="text"
+            value = {this.state.email}
+            onChange ={this.handleChange('email')}/>
+            <button type="submit" id="update-user-button">{updateMessage}</button>
+        </form>
+        <div id = "leave-buttons">
+        {deleteButton}
+        <button onClick={() => this.props.logout()}> LogOut</button>
         </div>
+        </div>
+      </div>
 
     )
   }

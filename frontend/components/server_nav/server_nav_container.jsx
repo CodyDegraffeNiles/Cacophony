@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import { fetchServers, fetchServer } from "../../actions/server_actions";
 import ServerNav from "./server_nav";
+import { withRouter } from "react-router";
 
 
 const mapStateToProps = (state) => {
@@ -20,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerNav);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServerNav));

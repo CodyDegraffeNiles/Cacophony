@@ -1,9 +1,14 @@
-
+#user-profile{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(56, 57, 62);
+}
 
 #user-top{
   background-color: rgb(56, 57, 62) ;
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
 }
 
 #home-link{
@@ -21,19 +26,28 @@
   color: white;
 }
 
+#escape{
+  padding-top: 5px;
+}
+
 #escape p{
   color: lightgrey;
   font-size: 14px;
 }
 
 
-#user-update { 
+#user-profile-content { 
   background-color: rgb(47, 49, 54);
   border: 0.75px solid rgb(47, 49, 54);
   border-radius: 3px;
   color: lightgray;
-  width: 50%;
+  width: 400px;
+  height: 300px;
   padding: 10px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: translate(30vw, 30vh);
 }
 
 #user-update input {
@@ -44,7 +58,7 @@
 
 #update-user-button {
   text-align: center;
-  width: 80%;
+  width: 100%;
   background-color: #5865F2;
   border: 0.75px solid #5865F2;
   border-radius: 3px;
@@ -65,4 +79,9 @@
   color: red;
   border: 1px solid red;
   cursor: pointer;
+}
+
+#leave-buttons{
+  display: flex;
+  justify-content: space-between;
 }
