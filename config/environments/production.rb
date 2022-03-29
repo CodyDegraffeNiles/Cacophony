@@ -100,11 +100,11 @@ Rails.application.configure do
 
   # Configure Action Cable's Production URI
 
-  # config.action_cable.url  = "wss://cacophony-1.herokuapp.com/cable" 
+  config.action_cable.url  = "wss://cacophony-1.herokuapp.com/cable" 
 
-  # # Allow Request Origins
-  # config.action_cable.allowed_request_origins = [
-  #   'https://cacophony-1.herokuapp.com', 
-  # "http:cacophony-1.herokuapp.com/"]
+  # Allow Request Origins
+  config.action_cable.allowed_request_origins = [
+    'https://cacophony-1.herokuapp.com', 
+  /http:/\/\cacophony-1.herokuapp.com.*/]
 
 end
