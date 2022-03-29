@@ -16,7 +16,12 @@ class ServerForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.action(this.state);
+    // Create new Server and then push to the new server's first/general channel
+    let that = this;
+    this.props.action(this.state).then(function(action){
+      let server  = action.server.server
+      return that.props.history.push(`/servers/${server.id}/${server.firstChannelId}`);
+    });
   }
 
   handleName(type){
@@ -47,8 +52,8 @@ class ServerForm extends React.Component{
         <p> In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>
           <div id="public-info"> 
-          <button onClick={this.handlePublic(false, "public")} > For Me and My Friends</button>
-          <button onClick={this.handlePublic(true, "public")}> For A Club or Community </button>
+          <div onClick={this.handlePublic(false, "public")} > For Me and My Friends</div>
+          <div onClick={this.handlePublic(true, "public")}> For A Club or Community </div>
           </div>
           <h5 id="create-server-name"> Server Name</h5>
           <input 

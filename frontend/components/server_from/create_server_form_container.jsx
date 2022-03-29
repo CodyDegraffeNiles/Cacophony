@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    action: (server) => {dispatch(createServer(server))},
+    action: function(server){return dispatch(createServer(server))},
   }
 }
 

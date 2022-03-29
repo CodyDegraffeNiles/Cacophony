@@ -19,17 +19,7 @@ class ServerNav extends React.Component{
   componentDidMount(){
     this.props.fetchUsersServers(this.props.currentUser.id);
   }
-
-  componentDidUpdate(prevProps){
-    // // Push to new servers first channel
-    // if(prevProps.servers && this.props.servers){ 
-    //   if(prevProps.servers.length < this.props.servers.length){
-    //     let newServer = this.props.servers[this.props.servers.length - 1];
-    //     this.props.history.push(`/servers/${newServer.id}/${newServer.firstChannelId}`)
-    //   }
-    // }
-  }
-
+  
   // Toggle forms on and off as well as turns off the other form
   toggleForm(active, deactive){
     let that = this;
