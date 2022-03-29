@@ -20,12 +20,12 @@ class ServerSearch extends React.Component{
     )
   }
 
-  handleJoin(serverId){
+  handleJoin(serverId, firstChannelId){
     this.props.createServerMembership({
               server_id: serverId,
               member_id: this.props.currentUser.id
             });
-    this.props.history.push(`/servers/${serverId}`)
+    this.props.history.push(`/servers/${serverId}/${firstChannelId}`)
   }
 
   render(){
@@ -50,7 +50,7 @@ class ServerSearch extends React.Component{
             key = {server.id}
             >
             <span>{server.name}</span>
-            <button onClick={() => this.handleJoin(server.id)}>
+            <button onClick={() => this.handleJoin(server.id, server.firstChannelId)}>
               Join</button>
             </li>)
           })}
