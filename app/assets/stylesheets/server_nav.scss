@@ -149,3 +149,15 @@
   background-color: transparent;
 }
 
+// Line Across top of the screen
+
+#line-across-top-of-screen{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 1.5px;
+  width: calc(100vw - 75px);
+  background-color: rgb(35,36,40);
+  transform: translate(75px, 50px);
+
+}
