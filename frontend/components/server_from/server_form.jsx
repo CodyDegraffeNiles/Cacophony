@@ -52,8 +52,8 @@ class ServerForm extends React.Component{
         <p> In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>
           <div id="public-info"> 
-          <div onClick={this.handlePublic(false, "public")} > For Me and My Friends</div>
-          <div onClick={this.handlePublic(true, "public")}> For A Club or Community </div>
+          <div onClick={this.handlePublic(false, "public")} > <p className='public-info-p'>For Me and My Friends</p></div>
+          <div onClick={this.handlePublic(true, "public")}>  <p className='public-info-p'> For A Club or Community </p></div>
           </div>
           <h5 id="create-server-name"> Server Name</h5>
           <input 

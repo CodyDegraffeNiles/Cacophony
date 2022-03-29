@@ -75,7 +75,7 @@
   font-style: italic;
 }
 
-#public-info button{
+#public-info div{
   height: 60px;
   width: 380px;
   margin: 10px;
@@ -83,6 +83,10 @@
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   border-radius: 5px;
+}
+
+.public-info-p {
+  padding-top: 10px;
 }
 
 #server-form input {
@@ -165,7 +169,7 @@
 // Create a hover effect for my buttons in the create server and 
 // Search server forms
 #searched-servers button:hover, #create-server:hover, 
-#public-info button:hover {
+#public-info div:hover {
   filter: brightness(90%);
 }
 
