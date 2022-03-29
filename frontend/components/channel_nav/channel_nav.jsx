@@ -42,16 +42,20 @@ class ChannelNav extends React.Component{
     if(!this.state.noShow && this.props.currentUserId === this.props.server.ownerId){
       return (
       <div>
+      <div id="edit-modal-container-submit" onSubmit={() => this.closeForm("noShow")}>
       <div id="edit-modal-container" onClick={() => this.closeForm("noShow")}> </div>
       <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
+      </div> 
       </div>)
     } else if (this.state.noShow){
       return null;
     } else {
       return (
       <div> 
+      <div id="edit-modal-container" onSubmit={() => this.closeForm("noShow")}>
       <div id="edit-modal-container" onClick={() => this.closeForm("noShow")}> </div>
       <EditServerFormContainer noShow = {this.state.noShow} type = "member"/>
+      </div>
       </div>)
     }
   }
