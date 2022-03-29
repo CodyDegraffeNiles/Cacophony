@@ -75,8 +75,8 @@ class ServerNav extends React.Component{
           </li>
           )
         })}
-        <li key="createServer"> <button id="create-servers" onClick={this.toggleForm("create", "search")}><i class="fa-solid fa-plus"/> </button></li>
-        <li key="searchServer"> <button id="search-servers" onClick={this.toggleForm("search","create")}> <i class="fa-solid fa-compass"/> </button></li>
+        <li key="createServer"> <button id="create-servers" onClick={this.toggleForm("create", "search")}><i className="fa-solid fa-plus"/> </button></li>
+        <li key="searchServer"> <button id="search-servers" onClick={this.toggleForm("search","create")}> <i className="fa-solid fa-compass"/> </button></li>
       </ul>
       {this.renderCreate()}
       {this.renderSearch()}

@@ -72,7 +72,7 @@ class EditServerForm extends React.Component{
           />
           <button id="update-server-name"type="submit">Update Server Name</button>
       </form>
-      <button id="delete-server"onClick={() => this.handleDelete()}>Delete Server</button>
+      <button id="delete-server" onClick={() => this.handleDelete()}>Delete Server</button>
     </div>
     )
     } //Member
