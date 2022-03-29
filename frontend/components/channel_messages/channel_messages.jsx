@@ -63,7 +63,7 @@ class ChannelMessages extends React.Component{
         }
       }
     }
-    const cable = createConsumer("ws://localhost:3000/cable")
+    const cable = createConsumer("wss://localhost:3000/cable")
     const ParamsToSend = {
       channel: "ServerChannel",
       id: this.props.message.channel_id
