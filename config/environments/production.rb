@@ -94,7 +94,7 @@ Rails.application.configure do
 
   #Configure Action Cable's Production URI
 
-  config.web_socket_server_url = "wss://cacophony-1.herokuapp.com/cable" 
+  config.action_cable.url  = "wss://cacophony-1.herokuapp.com/cable" 
 
   #Allow Request Origins
   config.action_cable.allowed_request_origins = [
