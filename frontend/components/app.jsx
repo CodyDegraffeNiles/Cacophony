@@ -12,23 +12,28 @@ import ServerMemeberContainer from "./server_members/server_members_container";
 import ChannelNavContainer from "./channel_nav/channel_nav_container";
 import ChannelMessagContainer from "./channel_messages/channel_message_container";
 import LineAcrossTop from "./line_across/line_across_top";
+import DmMessagesContainer from "./dm_messages/dm_messages_container";
+import DmNavContainer from "./dm_nav/dm_nav_container";
 
 const App = () => (
   <div>
-      {/* Commented out - will add back in once ServerContainer is fleshed out
-       <ProtectedRoute path ="/servers/:serverId" component={EditServerFormContainer}/> */}
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
       <ProtectedRoute path="/servers" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
-      <ProtectedRoute path="/servers/:serverId/:channelId"
-      component= {ChannelMessagContainer}/>
+      {/* Switches so that either DM Components comes up or Server Component  */}
       <Switch>
-      {/* <ProtectedRoute exact path="/servers/@me" component={UserDmNavContainer}/> */}
+      <ProtectedRoute path="/servers/@me" component={DmNavContainer}/>
       <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
       </Switch>
       <Switch> 
-        {/* <ProtectedRoute exact path="/servers/@me" component={UserDmsContianer}/> */}
+          {/* Rerender the least intenstive Component */}
+        <ProtectedRoute path ="/servers/@me" component = {UserNavContainer}/>
         <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
+      </Switch>
+      <Switch>
+        <ProtectedRoute path="/servers/@me" component={DmMessagesContainer}/>
+        <ProtectedRoute path="/servers/:serverId/:channelId"
+        component= {ChannelMessagContainer}/>
       </Switch>
 
       <ProtectedRoute path="/servers" component={LineAcrossTop}/>

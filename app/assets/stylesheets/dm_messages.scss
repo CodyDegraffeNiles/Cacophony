@@ -1,0 +1,18 @@
+
+#dm-messages {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  width: calc(100vw - 309px);
+  height: 100vh;
+  transform: translate(310px, 0px);
+  background-color: rgb(55, 57, 62);
+}
+
+// #dm-actual-messages{
+//   height: calc(100vh - 140px);
+//   display: block;
+//   width: calc(100vw - 309px);
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// }
