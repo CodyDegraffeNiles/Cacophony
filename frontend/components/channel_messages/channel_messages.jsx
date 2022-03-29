@@ -130,6 +130,7 @@ class ChannelMessages extends React.Component{
         <i className="fa-solid fa-hashtag fa-lg" id="channel-message-hashtag"></i>
         <h5 id="channel-name">{this.props.channelName}</h5>
         </div>
+        <br/>
         <ul id="channel-actual-messages"> 
         {this.state.messages.map( (message) => {
           return(

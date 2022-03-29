@@ -141,8 +141,6 @@ class ChannelNav extends React.Component{
         />
       </div>
         {this.renderServerEdits()}
-
-    <br/>
     <br/> 
     <div id="channel-list-header"> 
     <h6>Channels</h6>

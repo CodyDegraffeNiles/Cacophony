@@ -10,8 +10,11 @@ class ServerMembers extends React.Component{
   
   render(){
     return (<div id="server-member-show"> 
+    <div id= "mimic-nav-bar"> 
+    </div>
     <ul>
-      Users - {this.props.members.length}
+      <br/> 
+      Members - {this.props.members.length}
       {this.props.members.map((member) => {
         return ( <li
         key={member.id}
