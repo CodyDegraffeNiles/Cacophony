@@ -1,9 +1,9 @@
 
-export const createDm = (message) => {
+export const createDm = (dm) => {
   return $.ajax({
     method: "POST",
     url: "/api/dm_messages",
-    data: {message}
+    data: {dm}
   })
 }
 
@@ -14,10 +14,10 @@ export const deleteDm = (messageId) => {
   })
 }
 
-export const updateDm = (message) => {
+export const updateDm = (dm) => {
   return $.ajax({
     method: "PATCH",
     url: `/api/dm_messages/${message.id}`,
-    data: {message}
+    data: {dm}
   })
 }

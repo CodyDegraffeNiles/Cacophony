@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
     fetchDmServer : () => {dispatch(fetchDmServer(ownProps.match.params.dmServerId))},
-    action: (message) => {dispatch(createDmMessage(message))}
+    action: (dm) => {dispatch(createDmMessage(dm))}
 
   }
 }

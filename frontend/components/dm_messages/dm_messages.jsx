@@ -11,7 +11,7 @@ class DmMessages extends React.Component{
       dmMessages : this.props.dmMessages,
       dmMessagesIds : this.props.dmMessagesIds
     }
-    // this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
   }
 
@@ -79,7 +79,7 @@ class DmMessages extends React.Component{
             type = "text"
             value = {this.state.newMessage.body}
             onChange={this.handleChange('body')}
-            className="dm-message-input"
+            className="server-message-input"
             placeholder={`Message @${otherUsername}`}
           />
           <button className="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
