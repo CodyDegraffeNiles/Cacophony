@@ -82,12 +82,14 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom::urlsafe_base64
   end
 
+  # Ensure number tag and color id when user is created. 
+
   def ensure_number_tag
     self.number_tag ||= rand(1000..10000).to_s
   end
 
   def ensure_color_id 
-    self.color_id ||= rand(1..10).to_s
+    self.color_id ||= rand(1..5).to_s
   end
 
 end
