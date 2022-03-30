@@ -4,15 +4,6 @@ class Api::DmServersController < ApplicationController
     @dm_servers = DmServer.all;
     @current_user = userid ? current_user : false;
     @dm_servers = @current_user.dm_servers if (@current_user)
-    @users = [];
-    # Filter out all users to send to the json and reducers
-    @dm_servers.each do |dm_server|
-      dm_server.members.each do |user|
-        if user.id != @current_user.id
-          @users.push(user)
-        end
-      end
-    end
     render :index
   end
 

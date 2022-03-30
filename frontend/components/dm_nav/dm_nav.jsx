@@ -29,7 +29,7 @@ class DmNav extends React.Component{
         {this.props.dmUsers.map((user) => {
           if (user.id !== this.props.currentUser.id)
           return(
-            <p key="monkey"> {user.id}</p>
+            <p key="monkey"> {user.dmId}</p>
           )
         })}
       </ul>
