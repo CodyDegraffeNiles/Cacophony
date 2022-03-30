@@ -23,7 +23,7 @@ class Api::DmMessagesController < ApplicationController
   def update
     @dm = DmMessage.find_by(id: params[:id])
     # @channel = Channel.find_by(id: @message[:channel_id])
-    if @message.update(message_params)
+    if @dm.update(dm_params)
       # ServerChannel.broadcast_to(@channel, @message)
       render :show
     else  
