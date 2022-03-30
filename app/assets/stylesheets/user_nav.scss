@@ -22,10 +22,18 @@
   padding: 6px;
 }
 
+#username{
+  display: flex;
+}
+
 #username h2{
   color: white;
   font-size: 12px;
   font-weight: bold
+}
+
+#user-text{
+  padding-left: 10px;
 }
 
 #username p{

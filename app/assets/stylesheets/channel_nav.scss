@@ -105,6 +105,8 @@
   text-align: left;
   justify-content: space-between;
   padding-right: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 #edit-modal-container{
@@ -194,7 +196,7 @@
   color: rgb(180,180,180)
 }
 
-#channel-form-name  {
+#channel-form-name{
   font-size: 14px;
   color: rgb(200,200, 200);
   text-align: left;
