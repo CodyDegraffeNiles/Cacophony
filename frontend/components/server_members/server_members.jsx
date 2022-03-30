@@ -12,14 +12,16 @@ class ServerMembers extends React.Component{
     return (<div id="server-member-show"> 
     <div id= "mimic-nav-bar"> 
     </div>
-    <ul>
+    <ul id = "server-members-list">
       <br/> 
-      Members - {this.props.members.length}
+      <p id="member-title"> Members - {this.props.members.length}</p>
       {this.props.members.map((member) => {
         return ( <li
         key={member.id}
+        className="server-member-item"
         >
-          <h5> {member.username} </h5>
+          <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
+          <h5 className='member-username'> {member.username} </h5>
         </li>)
       })
       }

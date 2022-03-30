@@ -15,3 +15,32 @@
   height: 50px;
   background-color: rgb(56,57,62);
 }
+
+#member-title{
+  padding-left: 15px;
+}
+
+.server-member-item {
+  display: flex;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.user-icon{
+  font-size: 18px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.user-icon i{
+  padding-top: 6px;
+  padding-left: 3.5px;
+  color: white;
+}
+
+.member-username{
+  padding-left: 10px;
+}
+
+
