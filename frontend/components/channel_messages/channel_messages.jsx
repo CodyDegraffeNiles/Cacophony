@@ -124,7 +124,6 @@ class ChannelMessages extends React.Component{
     let newMessage = this.state.newMessage;
     newMessage.body = "";
     this.setState({["newMessage"]: newMessage})
-    console.log(this.subscription);
   }
 
   handleChange(){

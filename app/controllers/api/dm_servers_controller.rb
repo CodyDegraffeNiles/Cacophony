@@ -18,6 +18,7 @@ class Api::DmServersController < ApplicationController
 
   def show
     @dm_server = DmServer.find_by(id: params[:id])
+    @current_user = current_user
     render :show
   end
 

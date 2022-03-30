@@ -18,7 +18,7 @@ json.dms do
       est = est + 4.hours
       json.author_name dm.author.username
       json.created_at est.strftime("%-m/%-d/%Y %-I:%M:%S %p")
-      json.extract! dm, :id, :server_id, :author_id, :body
+      json.extract! dm, :id, :dm_server_id, :author_id, :body
     end
   end
 end

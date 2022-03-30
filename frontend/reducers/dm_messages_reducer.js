@@ -17,7 +17,7 @@ const dmMessageReducer = (state = {}, action) => {
     // Clear Messages so that if you receive a new dm_server, messages do not persit
     newState = {}
     // Fail Safe in case dm_server has no messages
-    if(action.payload.dms){newState = action.payload.dms}
+    if(action.dmServer.dms){newState = action.dmServer.dms}
       return newState;
     case REMOVE_DM_SERVER:
       return {};

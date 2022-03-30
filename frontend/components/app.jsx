@@ -5,7 +5,6 @@ import SignupFormContainer from "./session_form/signup_form_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import HomePageContainer from "./home_page/home_page_container";
 import UserProfileContainer from "./user_profile/user_profile_container.jsx"
-import EditServerFormContainer from "./server_from/edit_server_form_container";
 import { AuthRoute, ProtectedRoute} from "../util/route_utils";
 import ServerNavContainer from "./server_nav/server_nav_container";
 import ServerMemeberContainer from "./server_members/server_members_container";
@@ -35,7 +34,7 @@ const App = () => (
       <Switch> 
         <ProtectedRoute exact path="/servers/:serverId/:channelId"
         component= {ChannelMessageContainer}/>
-        <ProtectedRoute path="/servers/@me/:userId/:dmServerId" component={DmMessagesContainer}/>
+        <ProtectedRoute path="/servers/@me/:otherUserId/:dmServerId" component={DmMessagesContainer}/>
         <ProtectedRoute path="/servers/@me" component={emptyDmMessages}/>
       </Switch>
 
