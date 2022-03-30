@@ -1,4 +1,5 @@
 import React from 'react';
+import DmEditContainer from './dm_edit_container';
 import MessageEditContainer from "./message_edit_contianer"
 
 
@@ -9,6 +10,7 @@ class Message extends React.Component{
     this.state = {
       message: this.props.message,
       showEdit: false,
+      dM: this.props.dm
     }
     this.toggleEdits = this.toggleEdits.bind(this)
   }
@@ -23,13 +25,24 @@ class Message extends React.Component{
 
 
   renderMessageEdit(){
-    if(this.state.showEdit){
+    // Return Dm Edit
+    if(this.state.showEdit && this.state.dM){
       return (
       <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
-      <MessageEditContainer
+      <DmEditContainer
         message = {this.props.message}
       />
       </div>)
+    }
+    // Return Message Edit
+    if(this.state.showEdit){
+      return(
+        <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
+        <MessageEditContainer
+          message = {this.props.message}
+        />
+        </div>
+      )
     }
   }
 

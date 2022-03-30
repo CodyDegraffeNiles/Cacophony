@@ -151,6 +151,7 @@ class ChannelMessages extends React.Component{
             key = {message.id}
             message = {message}
             currentUserId = {this.props.currentUserId}
+            dM = {false}
             />
           )
         })}
