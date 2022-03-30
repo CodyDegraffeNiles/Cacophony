@@ -15,3 +15,19 @@
 #dm-list-header{
   color: red;
 }
+
+#simiulate-nav-bar{
+  height: 50px;
+  width: 225px;
+}
+
+#dm-list-header {
+  display: flex;
+  text-align: left;
+  color: lightgrey; 
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+
+  justify-content: space-between
+}

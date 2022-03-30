@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 
 
@@ -8,18 +9,29 @@ class DmNav extends React.Component{
     super(props)
   }
 
-  componentDidUpdate(){
-    this.props.fetchUsersServers(this.props.currentUser.id);
+  componentDidMount(){
+    this.props.fetchUserDmServers(this.props.currentUser.id);
   }
 
   render(){
     return(
       <div id="dm-nav">
+      <div id="simiulate-nav-bar"> 
 
-      <h6 id="dm-list-header">Direct Messages</h6>
-
+      </div>
+      <br/> 
+      <div className="list-header">
+      <h6> Direct Messages</h6>
+      <i className="fa-solid fa-plus" ></i>
+      </div>
+      
       <ul id="dm-nav-list"> 
-        Placeholder 
+        {this.props.dmUsers.map((user) => {
+          if (user.id !== this.props.currentUser.id)
+          return(
+            <p key="monkey"> {user.id}</p>
+          )
+        })}
       </ul>
 
       </div>

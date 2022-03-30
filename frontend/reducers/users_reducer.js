@@ -1,5 +1,6 @@
 import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_SERVER } from "../actions/server_actions";
+import { RECEIVE_DM_SERVERS } from "../actions/dm_server_actions";
 
 
 const usersReducer = (state = {}, action) => {
@@ -15,6 +16,9 @@ const usersReducer = (state = {}, action) => {
       return {};
     case RECEIVE_SERVER: 
       return action.server.users
+    case RECEIVE_DM_SERVERS:
+      console.log(action);
+      return action.dmServers.users;
     default:
       return state;
   }

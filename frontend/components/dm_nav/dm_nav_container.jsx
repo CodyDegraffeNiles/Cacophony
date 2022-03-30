@@ -8,13 +8,13 @@ import DmNav from "./dm_nav";
 const mapStateToProps = (state) => {
   return{
     currentUser: state.entities.users[state.session.id],
-    dmServers: Object.values(state.entities.dmServers)
+    dmUsers: Object.values(state.entities.users)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    fetchUserDmServers: (userId) => fetchDmServers(userId)
+    fetchUserDmServers: (userId) => dispatch(fetchDmServers(userId))
   }
 }
 

@@ -1,6 +1,6 @@
 json.users do 
   @dm_server.members.each do |member|
-    if member.id !== @current_user.id
+    if member.id != @current_user.id
       json.set! member.id do
         json.dmId @dm_server.id
         json.extract! member, :id, :username, :email, :number_tag, :color_id
