@@ -79,10 +79,10 @@ class DmMessages extends React.Component{
             type = "text"
             value = {this.state.newMessage.body}
             onChange={this.handleChange('body')}
-            className="server-message-input"
+            className="dm-message-input"
             placeholder={`Message @${otherUsername}`}
           />
-          <button className="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
+          <button className="dm-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
           </form>
         </div>
       </div>
