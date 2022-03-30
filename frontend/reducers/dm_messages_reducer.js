@@ -22,7 +22,7 @@ const dmMessageReducer = (state = {}, action) => {
     case REMOVE_DM_SERVER:
       return {};
     case RECEIVE_DM_MEMBERSHIP:
-      newState = action.membership.dms
+      newState = action.payload.dms
       return newState;
     case REMOVE_DM_MEMBERSHIP:
       return {}
