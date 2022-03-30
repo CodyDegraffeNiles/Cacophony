@@ -13,7 +13,7 @@ export const fetchDmServer = (dmServerId) => {
   })
 }
 
-export const createServer = (dmServer) => {
+export const createDmServer = (dmServer) => {
   return $.ajax({
     method: "POST",
     url: "/api/dm_servers",
@@ -21,15 +21,7 @@ export const createServer = (dmServer) => {
   })
 }
 
-export const updateServer = (dmServer) => {
-  return $.ajax({
-    method: "PATCH",
-    url: `/api/dm_servers/${dmServer.id}`,
-    data: {dmServer: dmServer}
-  })
-}
-
-export const deleteServer = (serverId) => {
+export const deleteDmServer = (serverId) => {
   return $.ajax({
     method: "DELETE",
     url: `/api/servers/${serverId}`,
