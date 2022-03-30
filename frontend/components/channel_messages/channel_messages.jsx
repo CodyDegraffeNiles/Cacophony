@@ -100,10 +100,11 @@ class ChannelMessages extends React.Component{
     }
       // Update new Message if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+      console.log("hi")
       // Reset Message
       let newMessage = this.state.newMessage
       newMessage.body = ""
-      newMessage.channelId = this.props.match.params.channelId
+      newMessage.channel_id = this.props.match.params.channelId
       this.setState({newMessage})
     } 
   }
@@ -116,6 +117,7 @@ class ChannelMessages extends React.Component{
     let newMessage = this.state.newMessage;
     newMessage.body = "";
     this.setState({["newMessage"]: newMessage})
+    console.log(this.state.newMessage)
   }
 
   handleChange(){
