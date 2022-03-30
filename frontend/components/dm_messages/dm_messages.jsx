@@ -11,7 +11,7 @@ class DmMessages extends React.Component{
       messages : this.props.messages,
       messageIds : this.props.messageIds
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
   }
 

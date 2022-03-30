@@ -7,7 +7,8 @@
   color:rgb(150, 150, 150);
   top: 0px;
   left: 0px;
-  transform: translate(calc(100vw - 225px), 0px)
+  transform: translate(calc(100vw - 225px), 0px);
+  z-index: -1;
 }
 
 #mimic-nav-bar{

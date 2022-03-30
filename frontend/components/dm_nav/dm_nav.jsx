@@ -31,10 +31,10 @@ class DmNav extends React.Component{
           return(
             <Link
             key={member.id}
-            to={`/servers/@me/${member.dmId}`}
+            to={`/servers/@me/${this.props.currentUser.id}/${member.dmId}`}
             > 
             <li
-              className="dm-member-item"
+              className="dm-member-item -item"
             >
               <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
               <h5 className='member-username'> {member.username} </h5>

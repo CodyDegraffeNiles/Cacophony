@@ -32,9 +32,9 @@ const App = () => (
         <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
       </Switch>
       <Switch>
-        <ProtectedRoute path="/servers/:serverId/:channelId"
+        <ProtectedRoute exact path="/servers/:serverId/:channelId"
         component= {ChannelMessageContainer}/>
-        <ProtectedRoute path="/servers/@me/:dmServerId" component={DmMessagesContainer}/>
+        <ProtectedRoute path="/servers/@me/:userId/:dmServerId" component={DmMessagesContainer}/>
         <ProtectedRoute path="/servers/@me" component={emptyDmMessages}/>
       </Switch>
 
