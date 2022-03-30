@@ -28,6 +28,24 @@
   padding-left: 5px;
   padding-bottom: 10px;
   padding-right: 10px;
-
   justify-content: space-between
+}
+
+// Styling for Links to Dm Servers 
+
+#dm-nav-list a {
+  border-radius: 5px;
+  text-decoration: none;
+  color: rgb(145,145,145);
+}
+
+.dm-member-item {
+  display: flex;
+  padding-top: 7.5px;
+  padding-left: 15px;
+  padding-bottom: 7.5px;
+}
+
+.dm-member-item:hover{
+  background-color: rgb(58, 60, 67);
 }
