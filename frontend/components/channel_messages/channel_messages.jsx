@@ -12,11 +12,20 @@ class ChannelMessages extends React.Component{
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
+    this.subscribe = this.subscribe.bind(this)
   }
 
   componentDidMount(){
     this.props.fetchChannel();
+    this.subscribe()
+  }
 
+  componentWillUnmount(){
+    // Remove listening post/subscription
+    this.subscription.unsubscribe()
+  }
+
+  subscribe(){
     // Set Up listening post/subscription once user mounts
     let that = this;
     const handlers = {
@@ -76,11 +85,6 @@ class ChannelMessages extends React.Component{
     this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
   }
 
-  componentWillUnmount(){
-    // Remove listening post/subscription
-    this.subscription.unsubscribe()
-  }
-
   componentDidUpdate(prevProps){
     // Update props if they reiceve a new message or channel changes with different message length
     if (prevProps.messages.length !== this.props.messages.length)
@@ -94,10 +98,11 @@ class ChannelMessages extends React.Component{
     if (prevProps.messages.length > 0 && this.props.messages.length > 0){
       if(prevProps.messages[0].id !== this.props.messages[0].id)
       this.props.fetchChannel();
+      this.subscription.unsubscribe();
+      this.subscribe();
     }
       // Update new Message if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
-      console.log("hi")
       // Reset Message
       let newMessage = this.state.newMessage
       newMessage.body = ""
@@ -114,7 +119,7 @@ class ChannelMessages extends React.Component{
     let newMessage = this.state.newMessage;
     newMessage.body = "";
     this.setState({["newMessage"]: newMessage})
-    console.log(this.state.newMessage)
+    console.log(this.subscription);
   }
 
   handleChange(){
