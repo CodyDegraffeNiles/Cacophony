@@ -10,6 +10,7 @@
 #  password_digest :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  color_id        :integer          not null
 #
 class User < ApplicationRecord
   ## Validations
@@ -55,6 +56,23 @@ class User < ApplicationRecord
     through: :ownedServers,
     source: :channels
 
+  has_many :owned_dms,
+    foreign_key: :owner_id,
+    class_name: :DmServer
+
+  has_many :dm_memberships,
+    foreign_key: :member_id,
+    class_name: :DmMembership,
+    dependent: :destroy
+
+  has_many :dm_messages,
+    foreign_key: :author_id, 
+    class_name: :DmMessage,
+    dependent: :destroy
+
+  has_many :dm_servers,
+    through: :dm_memberships, 
+    source: :dm_server
   #SPIRE
 
   def self.find_by_credentials(email, password)
