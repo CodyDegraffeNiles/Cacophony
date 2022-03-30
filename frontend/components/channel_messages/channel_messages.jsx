@@ -124,7 +124,6 @@ class ChannelMessages extends React.Component{
     let newMessage = this.state.newMessage;
     newMessage.body = "";
     this.setState({["newMessage"]: newMessage})
-    console.log(this.subscription);
   }
 
   handleChange(){
@@ -152,6 +151,7 @@ class ChannelMessages extends React.Component{
             key = {message.id}
             message = {message}
             currentUserId = {this.props.currentUserId}
+            dM = {false}
             />
           )
         })}

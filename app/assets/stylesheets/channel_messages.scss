@@ -68,31 +68,43 @@
   color: transparent
 }
 
-#server-message-form{
+#server-message-form, #dm-message-form{
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 0;
   margin-left: 10px;
   margin-right: 10px;
-  width: calc(100vw - 554px);
   background-color: rgb(64,68,75);
   border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#server-message-form{
+  width: calc(100vw - 554px);
 }
 
 
-.server-message-input{
-  width: calc(100vw - 604px);
+.server-message-input, .dm-message-input{
   color: rgb(220,220,220);
   height: 30px;
   font-size: 16px;
 }
 
-.server-message-input:focus{
+.server-message-input{
+  width: calc(100vw - 604px);
+}
+
+.dm-message-input{
+  width: calc(100vw - 540px);
+}
+
+.server-message-input:focus, .dm-message-input:focus{
   outline: none;
 }
 
-.server-message-submit-button{
+.server-message-submit-button, .dm-message-submit-button{
   outline: none;
   background-color: transparent;
   width: 20px;

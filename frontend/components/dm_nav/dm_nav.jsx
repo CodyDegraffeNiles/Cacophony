@@ -31,7 +31,7 @@ class DmNav extends React.Component{
           return(
             <Link
             key={member.id}
-            to={`/servers/@me/${this.props.currentUser.id}/${member.dmId}`}
+            to={`/servers/@me/${member.id}/${member.dmId}`}
             > 
             <li
               className="dm-member-item -item"

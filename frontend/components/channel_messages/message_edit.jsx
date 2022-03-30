@@ -31,7 +31,7 @@ class MessageEdit extends React.Component{
         />
         <button type="submit" className="server-message-submit-button"> <i className="fa-solid fa-paper-plane fa-xl edit-paper-plane"/></button>
         </form>
-      <button className="delete-message" onClick={() => (this.props.deleteMessage(this.props.message.id))}> Delete Message </button>
+      <button className="delete-message" onClick={() => (this.props.delete(this.props.message.id))}> Delete Message </button>
     </div>
     )
   }

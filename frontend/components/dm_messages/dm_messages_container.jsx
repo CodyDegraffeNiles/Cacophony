@@ -10,17 +10,18 @@ const mapStateToProps = (state, ownProps) => {
     message: {
       body: "",
       author_id: state.session.id,
-      channel_id: ownProps.match.params.dmServerId,
+      dm_server_id: ownProps.match.params.dmServerId,
     },
-    messages: state.entities.messages,
+    dmMessages: state.entities.dmMessages,
     currentUserId: state.session.id,
-    messageIds: Object.keys(state.entities.messages)
+    dmMessagesIds: Object.keys(state.entities.dmMessages),
+    otherUser: state.entities.users[ownProps.match.params.otherUserId]
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
-    fetchDmServer : () => dispatch(fetchDmServer(ownProps.match.params.dmServerId)),
-    action: (message) => {dispatch(createDmMessage(message))}
+    fetchDmServer : () => {dispatch(fetchDmServer(ownProps.match.params.dmServerId))},
+    action: (dm) => {dispatch(createDmMessage(dm))}
 
   }
 }

@@ -8,10 +8,10 @@ class DmMessages extends React.Component{
     super(props);
     this.state = {
       newMessage: this.props.message, 
-      messages : this.props.messages,
-      messageIds : this.props.messageIds
+      dmMessages : this.props.dmMessages,
+      dmMessagesIds : this.props.dmMessagesIds
     }
-    // this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
   }
 
@@ -19,31 +19,55 @@ class DmMessages extends React.Component{
     this.props.fetchDmServer();
   }
 
-  // handleChange(){
-  //   let that = this 
-  //   return function(e){
-  //     let modMessage = that.state.newMessage;
-  //     modMessage.body = e.target.value;
-  //     that.setState({["newMessage"] : modMessage})
-  //   }
-  // }
+  componentDidUpdate(prevProps){
+  if (prevProps.dmMessagesIds.length !== this.props.dmMessagesIds.length)
+    {
+      let dmMessages = this.props.dmMessages;
+      let dmMessagesIds = this.props.dmMessagesIds;
+      this.setState({dmMessages})
+      this.setState({dmMessagesIds})
+    }
+  }
+  
+  handleChange(){
+    let that = this 
+    return function(e){
+      let modMessage = that.state.newMessage;
+      modMessage.body = e.target.value;
+      that.setState({["newMessage"] : modMessage})
+    }
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.action(this.state["newMessage"]);
+    // Clear Input after Submission
+    let newMessage = this.state.newMessage;
+    newMessage.body = "";
+    this.setState({["newMessage"]: newMessage})
+  }
 
 
   render(){
+    let otherUsername = this.props.otherUser ? this.props.otherUser.username: null;
+    let messages = Object.values(this.state.dmMessages)
     return(
       <div id="dm-messages">
         <div id="dm-header"> 
           <i className="fa-solid fa-at" id="dm-message-at"></i>
-          {/* <h5 id="channel-name">{this.props.otherUser} </h5> */}
+          <h5 id="channel-name">{otherUsername} </h5>
         </div>
         <br/> 
         <ul id="dm-actual-messages"> 
-          {this.state.messages.map( (message) => {
+          {messages.map( (message) => {
             return (
               <Message
                 key = {message.id}
                 message = {message}
-                currentUserId = {this.props.currentUserId}/>
+                currentUserId = {this.props.currentUserId}
+                dm={true}
+                />
                 )
             })
           }
@@ -54,12 +78,12 @@ class DmMessages extends React.Component{
             <span className="server-message-input-padding">"</span>
             <input
             type = "text"
-            // value = {this.state.newMessage.body}
-            // onChange={this.handleChange('body')}
+            value = {this.state.newMessage.body}
+            onChange={this.handleChange('body')}
             className="dm-message-input"
-            // placeholder={`Message #${this.props.otherUser}`}
+            placeholder={`Message @${otherUsername}`}
           />
-          <button className="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
+          <button className="dm-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
           </form>
         </div>
       </div>
