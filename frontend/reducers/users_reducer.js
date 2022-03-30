@@ -17,7 +17,6 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_SERVER: 
       return action.server.users
     case RECEIVE_DM_SERVERS:
-      console.log(action);
       return action.dmServers.users;
     default:
       return state;

@@ -16,24 +16,35 @@ class DmNav extends React.Component{
   render(){
     return(
       <div id="dm-nav">
-      <div id="simiulate-nav-bar"> 
+        <div id="simiulate-nav-bar"> 
 
-      </div>
-      <br/> 
-      <div className="list-header">
-      <h6> Direct Messages</h6>
-      <i className="fa-solid fa-plus" ></i>
-      </div>
+        </div>
+        <br/> 
+        <div className="list-header">
+          <h6> Direct Messages</h6>
+          <i className="fa-solid fa-plus" ></i>
+        </div>
       
-      <ul id="dm-nav-list"> 
-        {this.props.dmUsers.map((user) => {
-          if (user.id !== this.props.currentUser.id)
+        <ul id="dm-nav-list"> 
+          {this.props.dmUsers.map((member) => {
+          if (member.id !== this.props.currentUser.id)
           return(
-            <p key="monkey"> {user.dmId}</p>
-          )
-        })}
-      </ul>
-
+            <Link
+            key={member.id}
+            to={`/servers/@me/${member.dmId}`}
+            > 
+            <li
+              className="server-member-item"
+            >
+              <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
+              <h5 className='member-username'> {member.username} </h5>
+            </li>
+            </Link>
+                )
+              }
+            )
+          }
+        </ul>
       </div>
     )
   }
