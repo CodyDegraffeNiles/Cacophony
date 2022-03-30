@@ -18,7 +18,6 @@ class Api::ChannelsController < ApplicationController
   def destroy
     @channel = Channel.find_by(id: params[:id])
     @channel.destroy
-    render "/api/servers/show"
   end
 
   def update
