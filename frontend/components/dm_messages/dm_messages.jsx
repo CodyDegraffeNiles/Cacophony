@@ -13,11 +13,45 @@ class DmMessages extends React.Component{
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
+    // this.subscribe = this.subscribe.bind(this)
   }
 
   componentDidMount(){
     this.props.fetchDmServer();
+    // this.subscribe()
   }
+
+  componentWillUnmount(){
+    // this.subscription.unsubscribe()
+  }
+
+  // subscribe(){
+  //   let that = this;
+  //   const handlers = {
+  //     received(data){
+  //       // If data coming is as a message object itself, it must be edited or added
+  //       if (Object.values(data).length > 1){
+  //         let modMessages 
+  //         modMessages.data_id = data
+  //         console.log(modMessages)
+  //         that.setState({["dmMessages"] : modMessages})
+  //       }
+  //     }
+  //   }
+
+    // Production Websocket:
+    // const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
+
+    // Development Websocket: 
+  //   const cable = createConsumer("ws://localhost:3000/cable")
+
+  //   const ParamsToSend = {
+  //     channel: "DmChannel",
+  //     id: this.props.message.dm_server_id,
+  //   }
+
+  //   this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
+  // }
 
   componentDidUpdate(prevProps){
   if (prevProps.dmMessagesIds.length !== this.props.dmMessagesIds.length)
@@ -50,8 +84,8 @@ class DmMessages extends React.Component{
 
 
   render(){
+    console.log(this.state.dmMessages)
     let otherUsername = this.props.otherUser ? this.props.otherUser.username: null;
-    let messages = Object.values(this.state.dmMessages)
     return(
       <div id="dm-messages">
         <div id="dm-header"> 
@@ -60,7 +94,7 @@ class DmMessages extends React.Component{
         </div>
         <br/> 
         <ul id="dm-actual-messages"> 
-          {messages.map( (message) => {
+          {this.state.dmMessages.map( (message) => {
             return (
               <Message
                 key = {message.id}
