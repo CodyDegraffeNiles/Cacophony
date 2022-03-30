@@ -1,0 +1,1 @@
+json.extract! @dm_membership :id, :member_id, :server_id

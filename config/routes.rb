@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :channels, only: [:create, :destroy, :update, :show]
     resources :server_memberships, only: [:create, :destroy]
     resources :messages, only: [:create, :destroy, :update]
+    resources :dm_servers, only: [:create, :destroy, :index, :show]
+    resources :dm_server_memberships, only: [:create, :destroy]
+    resources :dm_messages, only: [:create, :destroy, :update]
   end
 
   mount ActionCable.server => '/cable'
