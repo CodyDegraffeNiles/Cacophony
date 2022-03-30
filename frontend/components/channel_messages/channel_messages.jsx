@@ -90,13 +90,10 @@ class ChannelMessages extends React.Component{
         this.setState({messages});
         this.setState({messageIds})
       };
-    // Update Messages if channel changes and messages are the same length
+    // If channel changes or messages length changes, refetch channel
     if (prevProps.messages.length > 0 && this.props.messages.length > 0){
       if(prevProps.messages[0].id !== this.props.messages[0].id)
-      {let messages = this.props.messages;
-      let messageIds = this.props.messageIds;
-      this.setState({messages});
-      this.setState({messageIds})}
+      this.props.fetchChannel();
     }
       // Update new Message if channel changes
     if (prevProps.match.params.channelId !== this.props.match.params.channelId){
