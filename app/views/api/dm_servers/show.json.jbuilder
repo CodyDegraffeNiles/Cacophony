@@ -1,12 +1,10 @@
-
-json.dm_server do 
-  json.extract! @dm_server, :id
-end
-
 json.users do 
   @dm_server.members.each do |member|
-    json.set! member.id do
-      json.extract! member, :id, :username, :email, :number_tag, :color_id
+    if member.id !== @current_user.id
+      json.set! member.id do
+        json.dmId @dm_server.id
+        json.extract! member, :id, :username, :email, :number_tag, :color_id
+      end
     end
   end
 end

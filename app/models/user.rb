@@ -73,6 +73,10 @@ class User < ApplicationRecord
   has_many :dm_servers,
     through: :dm_memberships, 
     source: :dm_server
+
+  has_many :dm_partners, 
+    through: :dm_servers, 
+    source: :members
   #SPIRE
 
   def self.find_by_credentials(email, password)

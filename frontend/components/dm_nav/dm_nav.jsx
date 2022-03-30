@@ -8,6 +8,9 @@ class DmNav extends React.Component{
     super(props)
   }
 
+  componentDidUpdate(){
+    this.props.fetchUsersServers(this.props.currentUser.id);
+  }
 
   render(){
     return(

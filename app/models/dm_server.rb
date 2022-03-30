@@ -10,8 +10,8 @@
 class DmServer < ApplicationRecord
 
   has_many :messages,
-    foreign_key: :channel_id, 
-    class_name: :Message,
+    foreign_key: :dm_server_id, 
+    class_name: :DmMessage,
     dependent: :destroy
 
   belongs_to :owner,
@@ -21,7 +21,7 @@ class DmServer < ApplicationRecord
 
   has_many :dm_memberships, 
     foreign_key: :dm_server_id, 
-    class_name: :DmServer
+    class_name: :DmMembership
 
   has_many :members,
     through: :dm_memberships, 
