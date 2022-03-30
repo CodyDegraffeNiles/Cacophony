@@ -34,7 +34,7 @@ class DmNav extends React.Component{
             to={`/servers/@me/${member.dmId}`}
             > 
             <li
-              className="server-member-item"
+              className="dm-member-item"
             >
               <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
               <h5 className='member-username'> {member.username} </h5>

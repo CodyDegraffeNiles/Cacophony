@@ -14,7 +14,7 @@ class ServerMembers extends React.Component{
       <div id= "mimic-nav-bar"> 
       </div>
       <ul id = "server-members-list">
-      <br/> 
+        <br/> 
         <p id="member-title"> Members - {this.props.members.length}</p>
         {this.props.members.map((member) => {
           return ( 
@@ -22,15 +22,15 @@ class ServerMembers extends React.Component{
           key={member.id}
           className="server-member-item"
         >
-        <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
-        <h5 className='member-username'> {member.username} </h5>
+          <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
+          <h5 className='member-username'> {member.username} </h5>
         </li>
+            )
+          }
         )
       }
-      )
-      }
     </ul>
-    </div>)
+  </div>)
   }
 }
 
