@@ -90,6 +90,17 @@ class DmMessages extends React.Component{
       this.setState({dmMessages})
       this.setState({dmMessagesIds})
     }
+    if (prevProps.dmMessagesIds.length > 0 && this.props.dmMessagesIds.length > 0){
+      if(prevProps.dmMessages[0].id !== this.props.dmMessages[0].id) {
+        this.props.fetchDmServer();
+        this.subscription.unsubscribe();
+        this.subscribe();
+        let dmMessages = this.props.dmMessages;
+        let dmMessagesIds = this.props.dmMessagesIds;
+        this.setState({dmMessages})
+        this.setState({dmMessagesIds})
+      }
+    }
   }
   
   handleChange(){

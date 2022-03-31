@@ -20,14 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
 } else {
   store = configureStore();
 }
-  // Window commands - Just for TESTING!
-  window.getState = store.getState;
-  window.fetchServer = fetchServer;
-  window.fetchServers = fetchServers;
-  window.deleteServer = deleteServer; 
-  window.createServer = createServer;
-  window.updateServer = updateServer;
-  window.login = login;
-  // Testing only
   ReactDOM.render(<Root store ={store}/>, root);
 });
