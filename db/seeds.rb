@@ -12,13 +12,19 @@
   Message.destroy_all
   ServerMembership.destroy_all
   Channel.destroy_all
+  DmServer.destroy_all
+  DmMembership.destroy_all
+  DmMessage.destroy_all
 
 #Rest the ids of all databases
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('servers')
   ApplicationRecord.connection.reset_pk_sequence!('messages')
-  ApplicationRecord.connection.reset_pk_sequence!('sever_memberships')
+  ApplicationRecord.connection.reset_pk_sequence!('server_memberships')
   ApplicationRecord.connection.reset_pk_sequence!('channels')
+  ApplicationRecord.connection.reset_pk_sequence!('dm_servers')
+  ApplicationRecord.connection.reset_pk_sequence!('dm_memberships')
+  ApplicationRecord.connection.reset_pk_sequence!('dm_messages')
 
 # Demo user
   demo_user = User.create(
@@ -95,8 +101,8 @@
     password: "python master"
   )
   spencer = User.create(
-      email: "lasicone.com",
-      username: "Lasicone",
+      email: "Iascone.com",
+      username: "Iascone",
       password: "great TA"
   )
 
@@ -170,7 +176,7 @@
 
   jian = User.create(
     email: "googlemoney@check.com",
-    username: "Poker Genius",
+    username: "Jian",
     password: "checker651"
   )
 
@@ -310,7 +316,7 @@
   data = Channel.create(server_id: public2.id, name:"data managment help")
   algos =Channel.create(server_id: public3.id, name:"algorithms" )
 
-  #Messages (Don' need to save as variables like server memberships)
+  #Messages (Do not need to save as variables)
 
   Message.create(channel_id: assualt.id, author_id:kestros.id, body: "Good battlecrys?")
   Message.create(channel_id: assualt.id, author_id: dorn.id, body: "Fortify!")
@@ -420,4 +426,68 @@
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius")
   Message.create(channel_id: public4.channels.first.id, author_id: demo_user.id, body: "I am YOU!")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "But truley, I am Alpharius!")
+
+
+  # DmServers
+  demo_dm_1 = DmServer.create()
+  demo_dm_2 = DmServer.create()
+  demo_dm_3 = DmServer.create()
+  demo_dm_4 = DmServer.create()
+  demo_dm_5 = DmServer.create()
+
+
+  #DemoUsers DmMemberships (Do not need to save as variables)
+
+  DmMembership.create(dm_server_id: demo_dm_1.id, member_id: demo_user.id)
+  DmMembership.create(dm_server_id: demo_dm_2.id, member_id: demo_user.id)
+  DmMembership.create(dm_server_id: demo_dm_3.id, member_id: demo_user.id)
+  DmMembership.create(dm_server_id: demo_dm_4.id, member_id: demo_user.id)
+  DmMembership.create(dm_server_id: demo_dm_5.id, member_id: demo_user.id)
+
+  #Users DmMemberships with the Demo User (Do not need to save as variables)
+
+  DmMembership.create(dm_server_id:  demo_dm_1.id, member_id: jian.id)
+  DmMembership.create(dm_server_id:  demo_dm_2.id, member_id: spencer.id)
+  DmMembership.create(dm_server_id:  demo_dm_3.id, member_id: kestros.id)
+  DmMembership.create(dm_server_id:  demo_dm_4.id, member_id: dorn.id)
+  DmMembership.create(dm_server_id:  demo_dm_5.id, member_id: perturabo.id)
+
+  #DmMessages (Do not need to save as variables)
+
+
+  #Dm with Jian
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: jian.id, body:"You Should Apply to App Academy. You would be a great Software engineer." )
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: demo_user.id, body:"Will do Thanks for the advice and motivation." )
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: demo_user.id, body:"Just Wanted to update you. I have finished App Academy. It was hard, but fun. Thanks for all the support man." )
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: jian.id, body:"Congrats!" )
+
+  #Dm wtih Spencer 
+  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body:"Remember to study hard this weekend/" )
+  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: demo_user.id, body:"But I have a free fail haha" )
+  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body: "This is the most imporant material of the course." )
+  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body: "Time to put the foot on the Gas." )
+
+  #Dm with Kestros
+  DmMessage.create(dm_server_id: demo_dm_3.id, author_id: demo_user.id, body:"What is your name, Sergant." )
+  DmMessage.create(dm_server_id: demo_dm_3.id, author_id: kestros.id, body: "It is Kestros." )
+  DmMessage.create(dm_server_id: demo_dm_3.id, author_id: demo_user.id, body: "I am Demo. Nice to meet you!")
+  DmMessage.create(dm_server_id: demo_dm_3.id, author_id: kestros.id, body: "Likewise ")
+
+  #Dm with Dorn
+  DmMessage.create(dm_server_id: demo_dm_4.id, author_id: demo_user.id, body:"Hey Dorn. How are you?" )
+  DmMessage.create(dm_server_id: demo_dm_4.id, author_id: dorn.id, body: "Pretty good. Have you had a chance to watch the video I sent you" )
+  DmMessage.create(dm_server_id: demo_dm_4.id, author_id: demo_user.id, body: "No not yet. I will get to it after I finish seeding my data." )
+  DmMessage.create(dm_server_id: demo_dm_4.id, author_id: dorn.id, body:"No stress - just tell me what you think." )
+
+  #DM with Perturabo
+  DmMessage.create(dm_server_id: demo_dm_5.id, author_id: perturabo.id , body: "IRON WITHIN!")
+  DmMessage.create(dm_server_id: demo_dm_5.id, author_id: perturabo.id , body: "IRON WITHOUT!")
+  DmMessage.create(dm_server_id: demo_dm_5.id, author_id: demo_user.id, body: "You got to stop with the recruting slogans haha" )
+  DmMessage.create(dm_server_id: demo_dm_5.id, author_id: perturabo.id , body: "From Iron cometh Strength!
+                                                From Strength cometh Will! 
+                                                From Will cometh Faith! 
+                                                From Faith cometh Honor!
+                                                From Honor cometh Iron!")
+
+
 

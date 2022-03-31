@@ -3,9 +3,9 @@ class Api::DmMessagesController < ApplicationController
   # Commented out material for live - messaging when ready.
   def create
     @dm = DmMessage.new(dm_params)
-    # @server = Server.find_by(id: @message[:server_id])
+    @dm_server = DmServer.find_by(id: @dm[:dm_server_id])
     if @dm.save
-      # ServerChannel.broadcast_to(@channel, @message)
+      DmChannel.broadcast_to(@dm_server, @dm)
       render :show
     else  
       render json: @dm.errors.full_messages, status: 400
@@ -14,17 +14,17 @@ class Api::DmMessagesController < ApplicationController
 
   def destroy
     @dm = DmMessage.find_by(id: params[:id])
-    # @channel = Channel.find_by(id: @message[:channel_id])
+    @dm_server = DmServer.find_by(id: @dm[:dm_server_id])
     @dm.destroy
-    # ServerChannel.broadcast_to(@channel, @message.id)
+      DmChannel.broadcast_to(@dm_server, @dm.id)
     render :show
   end
 
   def update
     @dm = DmMessage.find_by(id: params[:id])
-    # @channel = Channel.find_by(id: @message[:channel_id])
+    @dm_server = DmServer.find_by(id: @dm[:dm_server_id])
     if @dm.update(dm_params)
-      # ServerChannel.broadcast_to(@channel, @message)
+      DmChannel.broadcast_to(@dm_server, @dm)
       render :show
     else  
       render json: @dm.errors.full_messages, status: 400

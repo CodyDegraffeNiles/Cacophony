@@ -48,23 +48,22 @@ class ChannelMessages extends React.Component{
             // Update State
             that.setState({["messages"] : modMessages})
           } else {
-
-          // Create a new message for the state
-         // Find Author name in the channel's users
-          data.authorName = that.props.members[data.author_id].username;
-          // Mutate time stamp to match time stamps from backend
-          let timestamp = new Date(data.created_at)
-          let time = timestamp.toLocaleTimeString();
-          let date = timestamp.toLocaleDateString();
-          data.createdAt = date + " " + time ;
-          // remodify so that edit pencil will appear
-          data.authorId = data.author_id;
-          that.setState({["messages"] : that.state.messages.concat([data])})
-          // add Message id to messagesId array
-          that.setState({["messageIds"]: that.state.messageIds.concat(data.id.toString())})
+            // Create a new message for the state
+            // Find Author name in the channel's users
+            data.authorName = that.props.members[data.author_id].username;
+            // Mutate time stamp to match time stamps from backend
+            let timestamp = new Date(data.created_at)
+            let time = timestamp.toLocaleTimeString();
+            let date = timestamp.toLocaleDateString();
+            data.createdAt = date + " " + time ;
+            // rename so that edit pencil will appear
+            data.authorId = data.author_id;
+            that.setState({["messages"] : that.state.messages.concat([data])})
+            // add Message id to messagesId array
+            that.setState({["messageIds"]: that.state.messageIds.concat(data.id.toString())})
           }
-        } // If data is just a message Id, delete the Message.
-        else {
+        } else // If data is just a message Id, delete the Message.
+          {
           // Filter Messages so that message is elminated.
           let messages = that.state.messages
           let filteredMessages = messages.filter(message => message.id !== data)
@@ -97,13 +96,13 @@ class ChannelMessages extends React.Component{
     // If channel changes or messages length changes, refetch channel
     if (prevProps.messages.length > 0 && this.props.messages.length > 0){
       if(prevProps.messages[0].id !== this.props.messages[0].id) {
-      this.props.fetchChannel();
-      this.subscription.unsubscribe();
-      this.subscribe();
-      let messages = this.props.messages;
-      let messageIds = this.props.messageIds;
-      this.setState({messages});
-      this.setState({messageIds})
+        this.props.fetchChannel();
+        this.subscription.unsubscribe();
+        this.subscribe();
+        let messages = this.props.messages;
+        let messageIds = this.props.messageIds;
+        this.setState({messages});
+        this.setState({messageIds})
       }
     }
       // Update new Message if channel changes

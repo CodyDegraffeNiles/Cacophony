@@ -9,6 +9,19 @@
   background-color: rgb(55, 57, 62);
 }
 
+#dm-header{
+  display: flex;
+  padding: 10px;
+  justify-content: left;
+  align-items: center;
+}
+
+#dm-header .fa-at{
+  color: grey;
+  padding-right: 10px;
+}
+
+
 #dm-actual-messages{
   height: calc(100vh - 140px);
   display: block;

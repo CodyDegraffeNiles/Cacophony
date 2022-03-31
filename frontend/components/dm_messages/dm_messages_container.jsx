@@ -12,10 +12,11 @@ const mapStateToProps = (state, ownProps) => {
       author_id: state.session.id,
       dm_server_id: ownProps.match.params.dmServerId,
     },
-    dmMessages: state.entities.dmMessages,
+    dmMessages: Object.values(state.entities.dmMessages),
     currentUserId: state.session.id,
     dmMessagesIds: Object.keys(state.entities.dmMessages),
-    otherUser: state.entities.users[ownProps.match.params.otherUserId]
+    otherUser: state.entities.users[ownProps.match.params.otherUserId],
+    possibleAuthors: state.entities.users
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

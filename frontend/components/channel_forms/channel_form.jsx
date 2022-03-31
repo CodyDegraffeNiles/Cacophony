@@ -17,8 +17,19 @@ class ChannelForm extends React.Component{
   }
 
   handleSubmit(e){
+    let that = this;
     e.preventDefault();
-    this.props.action(this.state);
+    // Push to New Channel
+    if(this.props.formType === "Create Channel"){
+    this.props.action(this.state).then(function(action){
+      let channel = action.payload.channel
+      return that.props.history.push(`/servers/${that.state.server_id}/${channel.id}`)
+      })
+    } else {
+      // Stay at current location for simply updating a channel.
+      this.props.action(this.state);
+    }
+    ;
   }
 
 
