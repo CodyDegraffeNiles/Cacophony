@@ -29,6 +29,17 @@ class Api::UsersController < ApplicationController
     render :show;
   end
 
+  # Used to show associated users who are not in a dm with you already, so 
+  # Uses Current User Id to filter.
+  def index 
+    server_fellows = current_user.server_fellows
+    server_owners = current_user.server_owners
+    server_followers = current_user.server_followers
+    server_peers = server_fellows + server_owners + server_followers
+    dm_partners = current_user.dm_partners
+    @users = server_peers.reject {|fellow| dm_partners.include?(fellow)}
+    render :index;
+  end
   
   private 
   def user_params

@@ -36,3 +36,13 @@ export const deleteUser = (userId) => {
     url: `/api/users/${userId}`
   })
 }
+
+// Used to find all the users associated with a current_user, but not in a dm
+// Already 
+
+export const fetchUsers = () => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/users`,
+  })
+}

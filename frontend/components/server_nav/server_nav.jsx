@@ -39,12 +39,13 @@ class ServerNav extends React.Component{
       return (
       <div> 
       <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
-      <div id = "modal-container" onClick={() => this.closeForm()}> 
+          <div id = "modal-container" onClick={() => this.closeForm()}> 
+          </div>
+          <CreateServerFormContainer show={true}/>
+          <button id="server-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
+        </div>
       </div>
-      <CreateServerFormContainer show={true}/>
-      <button id="server-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
-      </div>
-      </div>)
+      )
     }
   }
 
