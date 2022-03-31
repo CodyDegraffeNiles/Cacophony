@@ -118,6 +118,8 @@ class ChannelNav extends React.Component{
       channelName = {this.state.channelName}
       serverId = {this.props.server.id}
       serverName = {this.props.server.name}
+      firstChannelId= {this.props.server.firstChannelId}
+      currentChannelId = {this.props.currentChannelId}
       />
       </div>
       </div>

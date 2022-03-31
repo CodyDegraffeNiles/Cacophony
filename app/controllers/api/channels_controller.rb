@@ -18,6 +18,7 @@ class Api::ChannelsController < ApplicationController
   def destroy
     @channel = Channel.find_by(id: params[:id])
     @channel.destroy
+    render :delete
   end
 
   def update
