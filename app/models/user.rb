@@ -28,7 +28,7 @@ class User < ApplicationRecord
   ## Associations
 
   ## Belongs to/Has Many
-  has_many :ownedServers,
+  has_many :owned_servers,
     foreign_key: :owner_id,
     class_name: :Server,
     dependent: :destroy
@@ -53,7 +53,7 @@ class User < ApplicationRecord
     source: :channels
 
   has_many :owned_channels, 
-    through: :ownedServers,
+    through: :owned_servers,
     source: :channels
 
   has_many :owned_dms,
@@ -85,7 +85,7 @@ class User < ApplicationRecord
   
   # those in owned servers
   has_many :server_followers,
-    through: :ownedServers,
+    through: :owned_servers,
     source: :members
 
   # owners of serers you are in
