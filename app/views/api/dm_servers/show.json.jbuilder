@@ -1,3 +1,4 @@
+#Users
 json.users do 
   @dm_server.members.each do |member|
     if member.id != @current_user.id

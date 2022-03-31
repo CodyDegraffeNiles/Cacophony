@@ -1,9 +1,10 @@
 class Api::DmMembershipsController < ApplicationController
   def create
     @dm_membership = DmMembership.new(dm_membership_params)
-    @server = DmServer.find_by(id: @dm_membership.dm_server_id)
+    @dm_server = DmServer.find_by(id: @dm_membership.dm_server_id)
+    @current_user = current_user
     if @dm_membership.save
-      render "api/dm_servers/show"
+      render :show
     else    
       render json: @dm_membership.errors.full_messages, status: 400
     end
