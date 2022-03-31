@@ -11,7 +11,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    action: (channel) => {dispatch(updateChannel(channel))},
+    action: (channel) => dispatch(updateChannel(channel)),
     deleteChannel: (channelId) => {dispatch(deleteChannel(channelId))}
   }
 }
