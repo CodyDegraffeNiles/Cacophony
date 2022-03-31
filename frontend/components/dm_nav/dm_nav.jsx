@@ -30,7 +30,7 @@ class DmNav extends React.Component{
     if (this.state.search){
       return(
       <div> 
-        <div id="double-modal-container" onClick = {() => this.closeSearch()}> 
+        <div id="edit-modal-container" onClick = {() => this.closeSearch()}> 
           <UserSearchContainer/>
           <button id="user-search-exit-x" onClick={() => this.closeSearch()}><i className="fa-solid fa-xmark"/></button>
         </div>
