@@ -31,6 +31,7 @@ class DmMessages extends React.Component{
       received(data){
         // If data coming is as a message object itself, it must be edited or added
         if (Object.values(data).length > 1){
+          console.log(data)
           //update the message is it is already in the state.
           if(that.state.dmMessagesIds.includes(data.id.toString())){
             let dmMessages = that.state.dmMessages;
@@ -58,6 +59,7 @@ class DmMessages extends React.Component{
             that.setState({["dmMessagesIds"]: that.state.dmMessagesIds.concat(data.id.toString())})
         }
         } else  {
+          console.log("bye");
           //If data is just a message Id delete the Message
           // Filter Messages so that message is elminated.
           let dmMessages = that.state.dmMessages
