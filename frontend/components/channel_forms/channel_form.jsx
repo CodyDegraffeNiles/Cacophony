@@ -9,6 +9,7 @@ class ChannelForm extends React.Component{
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   // Set Proper State for Edit Form
@@ -37,6 +38,23 @@ class ChannelForm extends React.Component{
     return (e) => {this.setState({[type]: e.currentTarget.value})}
   }
 
+  handleDelete(channelId){
+    let that = this;
+    this.props.deleteChannel(channelId).then(
+      function(response){
+        // Reroute to general channel and fetch if you are currently in deleted channel
+        if(response.payload.toString() === that.props.currentChannelId){
+          that.props.history.push(`/servers/${that.props.serverId}/${that.props.firstChannelId}`)
+          that.props.fetchChannel(that.props.firstChannelId)
+        }
+        // Else fetch current channel
+        else {
+          that.props.fetchChannel(that.props.currentChannelId)
+        }
+      }
+    )
+  }
+
   render(){
     // Placeholder based on form
     const placeholder = this.props.formType === "Update Channel" ? 
@@ -54,7 +72,7 @@ class ChannelForm extends React.Component{
       </div>
     // Delete Button if Create Channel"
     const deleteButton = this.props.formType === "Update Channel" ?
-    <form onSubmit={() => this.props.deleteChannel(this.props.channelId)}>
+    <form onSubmit={() => this.handleDelete(this.props.channelId)}>
       <button id="channel-delete-button" type="submit"> Delete Channel</button>
       </form>
     : null;

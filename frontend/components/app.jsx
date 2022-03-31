@@ -23,7 +23,7 @@ const App = () => (
       {/* Render either dm Nav or channel nav up */}
       <Switch>
       <ProtectedRoute path="/servers/@me" component={DmNavContainer}/>
-      <ProtectedRoute path="/servers/:serverId" component={ChannelNavContainer}/>
+      <ProtectedRoute path="/servers/:serverId/:channelId" component={ChannelNavContainer}/>
       </Switch>
       <Switch> 
           {/* Rerender the least intenstive Component as a check */}

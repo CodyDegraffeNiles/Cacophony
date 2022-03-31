@@ -26,6 +26,16 @@
   ApplicationRecord.connection.reset_pk_sequence!('dm_memberships')
   ApplicationRecord.connection.reset_pk_sequence!('dm_messages')
 
+
+#Discord_Bot
+  discord_bot2 = User.create(
+    id: 776,
+    email: "discordbot@discord.com",
+    username: "Cacophony Bot",
+    password: "AdminOnly", 
+    color_id: 1,
+  )
+
 # Demo user
   demo_user = User.create(
       email: "KoalaDemo2@caveman.com",

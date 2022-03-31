@@ -13,6 +13,8 @@ class Channel < ApplicationRecord
   validates :server_id, :name, presence: true
   validates :name, length: {minimum: 1}
 
+  after_create :create_welecome_post
+
   ## Assocations
   belongs_to :server,
     foreign_key: :server_id,
@@ -23,4 +25,8 @@ class Channel < ApplicationRecord
     class_name: :Message,
     dependent: :destroy
 
+  def create_welecome_post
+    Message.create(channel_id: self.id, author_id: 776, 
+    body: "Welcome to ##{self.name} channel!")
+  end
 end
