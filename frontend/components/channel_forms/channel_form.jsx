@@ -42,8 +42,14 @@ class ChannelForm extends React.Component{
     let that = this;
     this.props.deleteChannel(channelId).then(
       function(response){
+        // Reroute to general channel and fetch if you are currently in deleted channel
         if(response.payload.toString() === that.props.currentChannelId){
           that.props.history.push(`/servers/${that.props.serverId}/${that.props.firstChannelId}`)
+          that.props.fetchChannel(that.props.firstChannelId)
+        }
+        // Else fetch current channel
+        else {
+          that.props.fetchChannel(that.props.currentChannelId)
         }
       }
     )
