@@ -22,13 +22,13 @@ class UserSearch extends React.Component{
 
   handleDmCreation(userId){
     let that = this;
-    console.log("hi")
+    // console.log("hi")
     this.props.createDmServer().then(
       function(response){
-        console.log(response);
-        // that.props.createDmMembership({dm_server_id: response.id, member_id: userId})
-        // that.props.createDmMembership({dm_server_id: response.id, member_id: that.props.currentUser.id})
-        // that.props.history.push(`/servers/@/${userId}/${response.id}`)
+        let dmServerId = response.dmServer.id
+        that.props.createDmMembership({dm_server_id: dmServerId, member_id: userId})
+        that.props.createDmMembership({dm_server_id: dmServerId, member_id: that.props.currentUser.id})
+        that.props.history.push(`/servers/@me/${userId}/${dmServerId}`)
       }
       
     )

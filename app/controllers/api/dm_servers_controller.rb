@@ -11,7 +11,7 @@ class Api::DmServersController < ApplicationController
     @dm_server = DmServer.new()
     @current_user = current_user
     if @dm_server.save
-      render :new
+      render :create
     else  
       render json: @dm_server.errors.full_messages, status: 400
     end
@@ -24,7 +24,7 @@ class Api::DmServersController < ApplicationController
   end
 
   def destroy
-    @dm_server = Server.find_by(id: params[:id])
+    @dm_server = DmServer.find_by(id: params[:id])
     @current_user = current_user
     @dm_server.destroy
   end

@@ -9,7 +9,7 @@ json.users do
   end
 end
 
-  # Messages of the first channel
+#Messages
 json.dms do 
   @dm_server.messages.each do |dm|
     json.set! dm.id do

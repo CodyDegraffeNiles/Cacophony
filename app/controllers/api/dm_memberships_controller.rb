@@ -1,7 +1,7 @@
 class Api::DmMembershipsController < ApplicationController
   def create
     @dm_membership = DmMembership.new(dm_membership_params)
-    @server = Server.find_by(id: @dm_membership.server_id)
+    @server = DmServer.find_by(id: @dm_membership.dm_server_id)
     if @dm_membership.save
       render "api/dm_servers/show"
     else    
