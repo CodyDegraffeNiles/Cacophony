@@ -32,7 +32,7 @@ class DmNav extends React.Component{
       <div> 
         <div id="double-modal-container" onClick = {() => this.closeSearch()}> 
           <UserSearchContainer/>
-          <button id="server-exit-x" onClick={() => this.closeSearch()}><i className="fa-solid fa-xmark"/></button>
+          <button id="user-search-exit-x" onClick={() => this.closeSearch()}><i className="fa-solid fa-xmark"/></button>
         </div>
       </div>
       )
@@ -50,9 +50,8 @@ class DmNav extends React.Component{
           <i className="fa-solid fa-plus" 
           onClick={this.toggleSearch}
           ></i>
-          {this.renderSearch()}
         </div>
-      
+        {this.renderSearch()}
         <ul id="dm-nav-list"> 
           {this.props.dmUsers.map((member) => {
           if (member.id !== this.props.currentUser.id)
@@ -62,7 +61,7 @@ class DmNav extends React.Component{
             to={`/servers/@me/${member.id}/${member.dmId}`}
             > 
             <li
-              className="dm-member-item -item"
+              className="dm-member-item"
             >
               <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
               <h5 className='member-username'> {member.username} </h5>

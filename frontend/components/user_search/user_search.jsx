@@ -22,7 +22,6 @@ class UserSearch extends React.Component{
 
   handleDmCreation(userId){
     let that = this;
-    // console.log("hi")
     this.props.createDmServer().then(
       function(response){
         let dmServerId = response.dmServer.id
@@ -38,15 +37,20 @@ class UserSearch extends React.Component{
   render(){
     return(
       <div id= "user-search">
-        <h5> Select User from a shared server and start a DM with them!</h5>
-        <ul id="user-search"> 
+        <h5 id="user-search-header"> Select a User and Start a DM With Them!</h5>
+        <ul id="user-search-list"> 
           {this.state.users.map((user) => {
             return( <li 
               key = {user.id}
+              className="user-list-item"
             >
-              <span>{user.username}</span>
-              <button onClick={() => this.handleDmCreation(user.id)}> 
-              CreateDm
+              <div id="user-info"> 
+              <div className={`user-icon color-${user.colorId}`}><i className="fa-brands fa-discord"/></div>
+              <h5 className='dm-search-username'> {user.username} </h5>
+              <p className='user-name-with-tag'>{user.username}#{user.numberTag}</p>
+              </div>
+              <button className= "createDm" onClick={() => this.handleDmCreation(user.id)}> 
+              Create Dm
               </button>
             </li>
             )
