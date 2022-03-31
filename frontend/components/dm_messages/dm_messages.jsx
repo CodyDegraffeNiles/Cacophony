@@ -13,45 +13,72 @@ class DmMessages extends React.Component{
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
-    // this.subscribe = this.subscribe.bind(this)
+    this.subscribe = this.subscribe.bind(this)
   }
 
   componentDidMount(){
     this.props.fetchDmServer();
-    // this.subscribe()
+    this.subscribe()
   }
 
   componentWillUnmount(){
-    // this.subscription.unsubscribe()
+    this.subscription.unsubscribe()
   }
 
-  // subscribe(){
-  //   let that = this;
-  //   const handlers = {
-  //     received(data){
-  //       // If data coming is as a message object itself, it must be edited or added
-  //       if (Object.values(data).length > 1){
-  //         let modMessages 
-  //         modMessages.data_id = data
-  //         console.log(modMessages)
-  //         that.setState({["dmMessages"] : modMessages})
-  //       }
-  //     }
-  //   }
-
+  subscribe(){
+    let that = this;
+    const handlers = {
+      received(data){
+        // If data coming is as a message object itself, it must be edited or added
+        if (Object.values(data).length > 1){
+          //update the message is it is already in the state.
+          if(that.state.dmMessagesIds.includes(data.id.toString())){
+            let dmMessages = that.state.dmMessages;
+            let modMessages = [];
+            dmMessages.forEach(function(message){
+              // Update target message
+              if(message.id === data.id){message.body = data.body;}
+              // push all messages back into the state array
+              modMessages.push(message)
+            })
+            // Update State
+            that.setState({["messages"] : modMessages})
+          } else {
+            // Create a new message for the state
+            // Get Authors' name in the state's users
+            data.authorName = that.props.possibleAuthors[data.author_id].username
+            // rename so that edit pencil will appear
+            data.authorId  = data.author_id
+            // Mutate time stamp to match time stamps from backend
+            let timestamp = new Date(data.created_at)
+            let time = timestamp.toLocaleTimeString();
+            let date = timestamp.toLocaleDateString();
+            data.createdAt = date + " " + time ;
+            that.setState({["dmMessages"] : that.state.dmMessages.concat([data])})
+            that.setState({["dmMessagesIds"]: that.state.dmMessagesIds.concat(data.id.toString())})
+        }
+        } else  {
+          //If data is just a message Id delete the Message
+          // Filter Messages so that message is elminated.
+          let dmMessages = that.state.dmMessages
+          let filteredMessages = dmMessages.filter(dm => dm.id !== data)
+          that.setState({["dmMessages"] : filteredMessages})
+        }
+      }
+    }
     // Production Websocket:
     // const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
 
     // Development Websocket: 
-  //   const cable = createConsumer("ws://localhost:3000/cable")
+    const cable = createConsumer("ws://localhost:3000/cable")
 
-  //   const ParamsToSend = {
-  //     channel: "DmChannel",
-  //     id: this.props.message.dm_server_id,
-  //   }
+    const ParamsToSend = {
+      channel: "DmChannel",
+      id: this.props.message.dm_server_id,
+    }
 
-  //   this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
-  // }
+    this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
+  }
 
   componentDidUpdate(prevProps){
   if (prevProps.dmMessagesIds.length !== this.props.dmMessagesIds.length)
@@ -84,7 +111,6 @@ class DmMessages extends React.Component{
 
 
   render(){
-    console.log(this.state.dmMessages)
     let otherUsername = this.props.otherUser ? this.props.otherUser.username: null;
     return(
       <div id="dm-messages">

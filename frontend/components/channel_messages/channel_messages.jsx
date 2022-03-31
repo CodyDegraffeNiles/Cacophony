@@ -48,23 +48,22 @@ class ChannelMessages extends React.Component{
             // Update State
             that.setState({["messages"] : modMessages})
           } else {
-
-          // Create a new message for the state
-         // Find Author name in the channel's users
-          data.authorName = that.props.members[data.author_id].username;
-          // Mutate time stamp to match time stamps from backend
-          let timestamp = new Date(data.created_at)
-          let time = timestamp.toLocaleTimeString();
-          let date = timestamp.toLocaleDateString();
-          data.createdAt = date + " " + time ;
-          // remodify so that edit pencil will appear
-          data.authorId = data.author_id;
-          that.setState({["messages"] : that.state.messages.concat([data])})
-          // add Message id to messagesId array
-          that.setState({["messageIds"]: that.state.messageIds.concat(data.id.toString())})
+            // Create a new message for the state
+            // Find Author name in the channel's users
+            data.authorName = that.props.members[data.author_id].username;
+            // Mutate time stamp to match time stamps from backend
+            let timestamp = new Date(data.created_at)
+            let time = timestamp.toLocaleTimeString();
+            let date = timestamp.toLocaleDateString();
+            data.createdAt = date + " " + time ;
+            // rename so that edit pencil will appear
+            data.authorId = data.author_id;
+            that.setState({["messages"] : that.state.messages.concat([data])})
+            // add Message id to messagesId array
+            that.setState({["messageIds"]: that.state.messageIds.concat(data.id.toString())})
           }
-        } // If data is just a message Id, delete the Message.
-        else {
+        } else // If data is just a message Id, delete the Message.
+          {
           // Filter Messages so that message is elminated.
           let messages = that.state.messages
           let filteredMessages = messages.filter(message => message.id !== data)
