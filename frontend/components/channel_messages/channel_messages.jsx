@@ -13,6 +13,7 @@ class ChannelMessages extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
     this.subscribe = this.subscribe.bind(this)
+    this.unsubscribe = this.unsubscribe.bind(this)
   }
 
   componentDidMount(){
@@ -22,15 +23,20 @@ class ChannelMessages extends React.Component{
 
   componentWillUnmount(){
     // Remove listening post/subscription
-    this.subscription.unsubscribe()
+    this.unsubscribe()
   }
 
+  unsubscribe(){
+    console.log('bye')
+    this.subscription.unsubscribe()
+  }
   subscribe(){
     // Set Up listening post/subscription once user mounts
+    console.log("up")
     let that = this;
     const handlers = {
       received(data){
-        
+        console.log(that.state.messages)
         // If data coming in as message object itself, i.e., edit or update
         // Do the approriate actions.
         if (Object.values(data).length > 1) 
@@ -97,7 +103,7 @@ class ChannelMessages extends React.Component{
     if (prevProps.messages.length > 0 && this.props.messages.length > 0){
       if(prevProps.messages[0].id !== this.props.messages[0].id) {
         this.props.fetchChannel();
-        this.subscription.unsubscribe();
+        this.unsubscribe();
         this.subscribe();
         let messages = this.props.messages;
         let messageIds = this.props.messageIds;
@@ -112,6 +118,15 @@ class ChannelMessages extends React.Component{
       newMessage.body = ""
       newMessage.channel_id = this.props.match.params.channelId
       this.setState({newMessage})
+      // Reset subscription 
+      this.props.fetchChannel();
+      this.unsubscribe();
+      this.subscribe();
+      let messages = this.props.messages;
+      let messageIds = this.props.messageIds;
+      this.setState({messages});
+      this.setState({messageIds})
+    
     } 
   }
 
