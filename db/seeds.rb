@@ -12,13 +12,19 @@
   Message.destroy_all
   ServerMembership.destroy_all
   Channel.destroy_all
+  DmServer.destroy_all
+  DmMembership.destroy_all
+  DmMessage.destroy_all
 
 #Rest the ids of all databases
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('servers')
   ApplicationRecord.connection.reset_pk_sequence!('messages')
-  ApplicationRecord.connection.reset_pk_sequence!('sever_memberships')
+  ApplicationRecord.connection.reset_pk_sequence!('server_memberships')
   ApplicationRecord.connection.reset_pk_sequence!('channels')
+  ApplicationRecord.connection.reset_pk_sequence!('dm_servers')
+  ApplicationRecord.connection.reset_pk_sequence!('dm_memberships')
+  ApplicationRecord.connection.reset_pk_sequence!('dm_messages')
 
 # Demo user
   demo_user = User.create(
@@ -170,7 +176,7 @@
 
   jian = User.create(
     email: "googlemoney@check.com",
-    username: "Poker Genius",
+    username: "Jian",
     password: "checker651"
   )
 

@@ -31,7 +31,6 @@ class DmMessages extends React.Component{
       received(data){
         // If data coming is as a message object itself, it must be edited or added
         if (Object.values(data).length > 1){
-          console.log(data)
           //update the message is it is already in the state.
           if(that.state.dmMessagesIds.includes(data.id.toString())){
             let dmMessages = that.state.dmMessages;
@@ -59,7 +58,6 @@ class DmMessages extends React.Component{
             that.setState({["dmMessagesIds"]: that.state.dmMessagesIds.concat(data.id.toString())})
         }
         } else  {
-          console.log("bye");
           //If data is just a message Id delete the Message
           // Filter Messages so that message is elminated.
           let dmMessages = that.state.dmMessages
@@ -83,6 +81,7 @@ class DmMessages extends React.Component{
   }
 
   componentDidUpdate(prevProps){
+    // Update props if the receive a new message or dmServer changes with different message length
   if (prevProps.dmMessagesIds.length !== this.props.dmMessagesIds.length)
     {
       let dmMessages = this.props.dmMessages;
@@ -90,6 +89,7 @@ class DmMessages extends React.Component{
       this.setState({dmMessages})
       this.setState({dmMessagesIds})
     }
+    // If Dm server changes with same amount of messages, refect channel 
     if (prevProps.dmMessagesIds.length > 0 && this.props.dmMessagesIds.length > 0){
       if(prevProps.dmMessages[0].id !== this.props.dmMessages[0].id) {
         this.props.fetchDmServer();
@@ -100,6 +100,16 @@ class DmMessages extends React.Component{
         this.setState({dmMessages})
         this.setState({dmMessagesIds})
       }
+    }
+
+    // Update new Message if channel changes
+    if(prevProps.match.params.dmServerId !== this.props.match.params.dmServerId)
+    {// Reset Message
+      let newMessage = this.state.newMessage
+      newMessage.body = ""
+      newMessage.dm_server_id = this.props.match.params.dmServerId
+      this.setState({newMessage})
+      this.props.fetchDmServer();
     }
   }
   
