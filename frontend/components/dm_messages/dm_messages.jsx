@@ -117,7 +117,7 @@ class DmMessages extends React.Component{
     return(
       <div id="dm-messages">
         <div id="dm-header"> 
-          <i className="fa-solid fa-at" id="dm-message-at"></i>
+          <i className="fa-solid fa-at fa-lg" id="dm-message-at"></i>
           <h5 id="channel-name">{otherUsername} </h5>
         </div>
         <br/> 
