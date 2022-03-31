@@ -14,6 +14,8 @@ class DmMessages extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
     this.subscription = ""
     this.subscribe = this.subscribe.bind(this)
+    this.unsubscribe = this.unsubscribe.bind(this)
+
   }
 
   componentDidMount(){
@@ -21,10 +23,17 @@ class DmMessages extends React.Component{
     this.subscribe()
   }
 
+  // Remove listening post/subscription
   componentWillUnmount(){
-    this.subscription.unsubscribe()
+    this.unsubscribe()
   }
 
+  // Remove listening post/subscription
+  unsubscribe(){
+    this.subscription.unsubscribe()
+  }
+  
+  // Set Up listening post/subscription 
   subscribe(){
     let that = this;
     const handlers = {
@@ -110,6 +119,8 @@ class DmMessages extends React.Component{
       newMessage.dm_server_id = this.props.match.params.dmServerId
       this.setState({newMessage})
       this.props.fetchDmServer();
+      this.unsubscribe();
+      this.subscribe();
     }
   }
   

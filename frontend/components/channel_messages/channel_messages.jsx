@@ -21,16 +21,18 @@ class ChannelMessages extends React.Component{
     this.subscribe()
   }
 
+  // Remove listening post/subscription
   componentWillUnmount(){
-    // Remove listening post/subscription
     this.unsubscribe()
   }
 
+  // Remove listening post/subscription
   unsubscribe(){
     this.subscription.unsubscribe()
   }
+
+  // Set Up listening post/subscription 
   subscribe(){
-    // Set Up listening post/subscription once user mounts
     let that = this;
     const handlers = {
       received(data){
