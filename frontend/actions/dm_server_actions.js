@@ -45,7 +45,6 @@ export const fetchDmServer = (dmServerId) => (dispatch) => {
     (err) => {dispatch(receiveErrors(err.responseJSON))} )
 }
 
-
 export const createDmServer = (dmServer) => (dispatch) => {
     return dmServerUtil.createDmServer(dmServer)
     .then(function(dmServer){return dispatch(receiveDmServer(dmServer))}

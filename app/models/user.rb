@@ -28,7 +28,7 @@ class User < ApplicationRecord
   ## Associations
 
   ## Belongs to/Has Many
-  has_many :ownedServers,
+  has_many :owned_servers,
     foreign_key: :owner_id,
     class_name: :Server,
     dependent: :destroy
@@ -53,7 +53,7 @@ class User < ApplicationRecord
     source: :channels
 
   has_many :owned_channels, 
-    through: :ownedServers,
+    through: :owned_servers,
     source: :channels
 
   has_many :owned_dms,
@@ -77,6 +77,21 @@ class User < ApplicationRecord
   has_many :dm_partners, 
     through: :dm_servers, 
     source: :members
+
+  # those in shared servers
+  has_many :server_fellows, 
+    through: :servers, 
+    source: :members
+  
+  # those in owned servers
+  has_many :server_followers,
+    through: :owned_servers,
+    source: :members
+
+  # owners of serers you are in
+  has_many :server_owners,
+    through: :servers, 
+    source: :owner
   #SPIRE
 
   def self.find_by_credentials(email, password)
@@ -113,5 +128,6 @@ class User < ApplicationRecord
   def ensure_color_id 
     self.color_id ||= rand(1..5).to_s
   end
+
 
 end

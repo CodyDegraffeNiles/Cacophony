@@ -7,6 +7,7 @@
   height: 100vh;
   transform: translate(310px, 0px);
   background-color: rgb(55, 57, 62);
+  z-index: -1;
 }
 
 #dm-header{
@@ -21,12 +22,11 @@
   padding-right: 10px;
 }
 
-
 #dm-actual-messages{
   height: calc(100vh - 140px);
   display: block;
   width: calc(100vw - 310px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

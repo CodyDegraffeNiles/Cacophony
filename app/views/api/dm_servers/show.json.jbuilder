@@ -1,3 +1,4 @@
+#Users
 json.users do 
   @dm_server.members.each do |member|
     if member.id != @current_user.id
@@ -9,7 +10,7 @@ json.users do
   end
 end
 
-  # Messages of the first channel
+#Messages
 json.dms do 
   @dm_server.messages.each do |dm|
     json.set! dm.id do

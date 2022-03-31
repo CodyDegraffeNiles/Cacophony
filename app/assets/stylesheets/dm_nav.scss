@@ -33,6 +33,27 @@
 
 // Styling for Links to Dm Servers 
 
+#dm-nav-list{
+  height: 90%;
+  width: 90%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#dm-nav-list::-webkit-scrollbar {
+    width: 5px;
+}
+  
+#dm-nav-list::-webkit-scrollbar-thumb {
+    background: rgb(30, 35, 40);
+    border-radius: 5px;
+}
+  
+  #dm-nav-list::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgb(40, 45, 50)
+}
+
 #dm-nav-list a {
   border-radius: 5px;
   text-decoration: none;

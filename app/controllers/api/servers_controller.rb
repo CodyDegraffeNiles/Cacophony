@@ -3,7 +3,7 @@ class Api::ServersController < ApplicationController
   def index
     @servers = Server.all;
     @current_user = userid ? current_user : false;
-    @servers = @current_user.servers + @current_user.ownedServers if (@current_user)
+    @servers = @current_user.servers + @current_user.owned_servers if (@current_user)
     render :index
   end
   
