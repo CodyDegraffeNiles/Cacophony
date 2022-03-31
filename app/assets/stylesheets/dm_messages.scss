@@ -21,12 +21,11 @@
   padding-right: 10px;
 }
 
-
 #dm-actual-messages{
   height: calc(100vh - 140px);
   display: block;
   width: calc(100vw - 310px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
