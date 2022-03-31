@@ -26,7 +26,7 @@ class Channel < ApplicationRecord
     dependent: :destroy
 
   def create_welecome_post
-    Message.create(channel_id: self.id, author_id: 77876, 
-    body: "Welcome to #{self.name} Channel!")
+    Message.create(channel_id: self.id, author_id: 776, 
+    body: "Welcome to ##{self.name} channel!")
   end
 end

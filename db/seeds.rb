@@ -29,8 +29,8 @@
 
 #Discord_Bot
   discord_bot2 = User.create(
-    id: 77876,
-    email: "discordbot2@discord.com",
+    id: 776,
+    email: "discordbot@discord.com",
     username: "Cacophony Bot",
     password: "AdminOnly", 
     color_id: 1,
