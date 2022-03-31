@@ -27,16 +27,13 @@ class ChannelMessages extends React.Component{
   }
 
   unsubscribe(){
-    console.log('bye')
     this.subscription.unsubscribe()
   }
   subscribe(){
     // Set Up listening post/subscription once user mounts
-    console.log("up")
     let that = this;
     const handlers = {
       received(data){
-        console.log(that.state.messages)
         // If data coming in as message object itself, i.e., edit or update
         // Do the approriate actions.
         if (Object.values(data).length > 1) 
