@@ -2,13 +2,60 @@
 
 -----
 
-Cacophony is a Fullstack clone of the text portion of the popular communication App, Discord. Cacophony allows a user to make an account or sign in with an existing one in order to live message other users both in servers' channels as well as through direct messages. A user can either create their own server or join an existing public server to start messaging right away. While memebers of a server can live chat, with both editing and deleting functionality, a server's owner can also create/edit channels to give server messages a place to live as well as organize the many conversations happening between members. 
+Cacophony is a Fullstack clone of the text portion of the popular communication App, Discord. Cacophony allows a user to make an account or sign in with an existing one in order to live message other users both in servers' channels as well as through direct messages. A user can either create their own server or join an existing public server to start messaging right away. While memebers of a server can live chat a server's owner can also create/edit channels to give server messages a place to live as well as organize the many conversations happening between members. 
 
 [See what all the Cacophony is about!] (https://cacophony-1.herokuapp.com/#/)
 
-Cacophony achieves its functionality through the use of React, Redux, and Javascript on the frontend with a Ruby on Rails backend connected with a Postgres Database to give the user a seemless communication experince. To provide the live messaging services, Cacophony utilizes Rail's Action Cables in combination with redis. 
 
-### Action Cables
+### Key Features
+
+#### Live Chat
+
+Users can chat in real time through action cables.
+
+
+This is achieved by utilzing React lifc cycle methods and action cablesass. When a componet mounts, a cable subscription is set up, when the component is updated, the subscrpition is unsubscriped and then resubscried with the new params, and finally when the component unomunts the subscription is removed.
+
+```JavaScript
+  componentDidMount(){
+    this.props.fetchChannel(this.props.channelId);
+    this.subscribe()
+  }
+  
+ componentDidUpdate(prevProps){
+  // Conditions Checking if component did update
+  
+      this.unsubscribe();
+      this.subscribe();
+      // Refetch Channel to make sure the proper messages are displayed both on refresh of the page and 
+      // when channels are changed
+      this.props.fetchChannel(this.props.match.params.channelId)
+ }
+ 
+  componentWillUnmount(){
+    this.unsubscribe()
+  }
+  
+```
+#### Users can create servers to message
+
+The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push to the server's first channel. However, before you create the server, the app does know what  id of the server or its first channel's id are, so you cannot reroute effectively. To solve this problem, Cacophony uses a promise to wait until after the server is created and using the response data from that creation to then push the app to the right location.
+
+``` JavaScript
+
+   // In the server form compoennt. function handles the submitting of the form
+  handleSubmit(e){
+    e.preventDefault();
+    let that = this;
+    // action = create server
+    this.props.action(this.state).then(function(action){
+      let server  = action.server.server
+      return that.props.history.push(`/servers/${server.id}/${server.firstChannelId}`);
+    });
+  }
+
+
+```
 
 
 
@@ -26,11 +73,9 @@ Cacophony achieves its functionality through the use of React, Redux, and Javasc
 
 ### Planned Features
 ----
-* Increased Styling and User Interface
-* Increased efficency in backened database queries
 * Start a dm through seraching a username and number tag.
-* Group Dm Conversations
-
+* Group Dms
+* Search for Servers by Name
 
 ### Acknoledgments
 ----
