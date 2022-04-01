@@ -11,7 +11,7 @@ Cacophony is a Fullstack clone of the text portion of the popular communication 
 
 #### Live Chat
 
-Users can chat in real time through action cables. This is achieved by utilzing React Life Cycle Methods and Action Cables. When a componet mounts, a cable subscription is set up, when the component is updated, the subscription is unsubscribed and then resubscried with the new params, and finally when the component unmounts the subscription is removed.
+Users can chat in real time through websockets implemented by Action Cables. This is achieved by utilzing React Life Cycle Methods and Action Cables. When a componet mounts, a cable subscription is set up, when the component is updated, the subscription is unsubscribed and then resubscried with the new params, and finally when the component unmounts the subscription is removed.
 
 ```JavaScript
   // Inside a React Class Component
@@ -59,14 +59,18 @@ The trickiest part of creating servers was having the app land on the right page
 ### Technologies Implemented
 ---- 
 
-- FrontEnd
-
-* React and Redux for frontend state management and component rendering.
-    * CSS to provide the stlying necessary for the react components.
-* Javascript to provide the logic of the frontend.
-* Ruby on Rails for robust backend logic and database managment.
-* PostgreSQL for the database.
-* Heroku for hosting and production.
+* Frontend
+    * React and Redux for frontend state managment and component rendering
+    * HTML for creating the skeleton of the React Components and App as a whole
+    * CSS to provide intuitive and use friendly styling and interface
+    * JavaScript to provide the logic necessary for dynamically updating the frontend
+* Backend 
+    * Rails for a robust backend web application framework
+    * Ruby for handling backend and database updating logic 
+    * PostgresSQL for lightweight data storage and manipulation
+* FullStack
+    * Action Cables for live messaging
+    * Heroku for hosting and production
 
 ### Planned Features
 ----
