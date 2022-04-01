@@ -35,7 +35,7 @@ Users can chat in real time through action cables. This is achieved by utilzing 
   
 ```
 
-#### Users can create servers to message
+#### Users can create servers
 
 The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push to the server's first channel. However, before the backend creates the server, the frontend cannot reroute properlby as it does know the id of the new server nor the id  of the server's first channel. To solve this problem, Cacophony utlizes the promise of the createServer function to wait until after the server is created to properly push the frontend with the reponse data from the server creation.
 
