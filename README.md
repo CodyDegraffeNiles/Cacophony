@@ -6,8 +6,7 @@ Cacophony is a Fullstack clone of the text portion of the popular communication 
 
 [See what all the Cacophony is about!](https://cacophony-1.herokuapp.com/#/)
 
-img_url(app/assets/images/readme_splash.png)
-
+![Splash](https://github.com/CodyDegraffeNiles/Cacophony/blob/main/app/assets/images/readme_splash.png)
 
 ### Key Features
 
