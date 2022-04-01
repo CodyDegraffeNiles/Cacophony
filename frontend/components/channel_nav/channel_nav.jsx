@@ -73,7 +73,7 @@ class ChannelNav extends React.Component{
   renderChannelCreateForm(){
     if(this.state.channelCreate){
       return (<div>
-      <div id="double-modal-container" onSubmit = {() => this.closeForm("channelCreate")}> 
+      <div id="double-channel-modal-container" onSubmit = {() => this.closeForm("channelCreate")}> 
       <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
       <div> </div>
       (<CreateChannelFormContainer
@@ -111,7 +111,7 @@ class ChannelNav extends React.Component{
     if(this.state.channelEdit){
       return (
       <div>
-      <div id="double-modal-container" onSubmit = {() => this.closeForm("channelEdit")}> 
+      <div id="double-channel-modal-container" onSubmit = {() => this.closeForm("channelEdit")}> 
       <div className="channel-edit-modal" onClick={() => this.closeForm("channelEdit")}> </div> 
       <EditChannelFormContainer 
       channelId = {this.state.channelId}

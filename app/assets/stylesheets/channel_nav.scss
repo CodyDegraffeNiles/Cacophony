@@ -163,9 +163,18 @@
   height: 100vh;
   width: 100vw;
   background-color: rgba(10, 10, 10, .9);
-  transform: translate(-75px, 0px)
 }
 
+#double-channel-modal-container {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  transform: translate(-75px, 0px)
+}
 // Channel Edit Form
 #channel-form{
   position: absolute;
