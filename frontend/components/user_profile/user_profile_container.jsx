@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import UserProfile from "./user_profile";
 import {elminateCurrentUser, logout, updateUser} from '../../actions/session_actions'
-
+import { withRouter } from "react-router";
 
 const mapStateToProps = (state, ownProps) => {
   return{
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserProfile))
