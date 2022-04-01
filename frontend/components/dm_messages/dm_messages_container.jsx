@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     currentUserId: state.session.id,
     dmMessagesIds: Object.keys(state.entities.dmMessages),
     otherUser: state.entities.users[ownProps.match.params.otherUserId],
-    possibleAuthors: state.entities.users
+    members: state.entities.users
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
