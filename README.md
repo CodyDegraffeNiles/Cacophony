@@ -4,7 +4,7 @@
 
 Cacophony is a Fullstack clone of the text portion of the popular communication App, Discord. Cacophony allows a user to make an account or sign in with an existing one in order to live message other users both in servers' channels as well as through direct messages. A user can either create their own server or join an existing public server to start messaging right away. While memebers of a server can live chat a server's owner can also create/edit channels to give server messages a place to live as well as organize the many conversations happening between members. 
 
-[See what all the Cacophony is about!] (https://cacophony-1.herokuapp.com/#/)
+[See what all the Cacophony is about!](https://cacophony-1.herokuapp.com/#/)
 
 
 ### Key Features
