@@ -159,11 +159,18 @@ class ChannelMessages extends React.Component{
         <br/>
         <ul id="channel-actual-messages"> 
         {this.state.messages.map( (message) => {
+          // Fail Safe Check
+          let that = this
+          let colorId = 1
+          if(this.props.members[message.authorId]){
+            colorId = that.props.members[message.authorId].colorId
+          }
           return(
             <Message 
             key = {message.id}
             message = {message}
             currentUserId = {this.props.currentUserId}
+            colorId = {colorId}
             dM = {false}
             />
           )

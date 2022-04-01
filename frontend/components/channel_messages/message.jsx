@@ -52,13 +52,18 @@ class Message extends React.Component{
 
     return(
     <li className="server-message">
-      <p className="message-author"> {this.props.message.authorName} 
-      <span className="message-timestamp"> {this.props.message.createdAt}</span>
-      </p>
-      <div className="message-body">
-      <span>{this.props.message.body} </span>
-      {editIcon}
-      {this.renderMessageEdit()}
+      <div className={`message-icon color-${this.props.colorId}`}><i className="fa-brands fa-discord"/></div>
+        <div className="message-info">
+          <div className="user-info">
+            <p className="message-author"> {this.props.message.authorName} 
+              <span className="message-timestamp"> {this.props.message.createdAt}</span>  
+            </p>
+          </div>
+          <div className="message-body">
+            <span>{this.props.message.body} </span>
+            {editIcon}
+            {this.renderMessageEdit()}
+          </div>
       </div>
 
     </li>

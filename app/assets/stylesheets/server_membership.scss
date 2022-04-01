@@ -34,6 +34,17 @@
   border-radius: 50%;
 }
 
+.message-icon{
+  font-size: 20px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 .user-icon i{
   padding-top: 6px;
   padding-left: 3.5px;
