@@ -11,10 +11,7 @@ Cacophony is a Fullstack clone of the text portion of the popular communication 
 
 #### Live Chat
 
-Users can chat in real time through action cables.
-
-
-This is achieved by utilzing React lifc cycle methods and action cablesass. When a componet mounts, a cable subscription is set up, when the component is updated, the subscrpition is unsubscriped and then resubscried with the new params, and finally when the component unomunts the subscription is removed.
+Users can chat in real time through action cables. This is achieved by utilzing React lifc cycle methods and action cablesass. When a componet mounts, a cable subscription is set up, when the component is updated, the subscrpition is unsubscriped and then resubscried with the new params, and finally when the component unomunts the subscription is removed.
 
 ```JavaScript
   componentDidMount(){
@@ -37,13 +34,15 @@ This is achieved by utilzing React lifc cycle methods and action cablesass. When
   }
   
 ```
+
 #### Users can create servers to message
 
-The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push to the server's first channel. However, before you create the server, the app does know what  id of the server or its first channel's id are, so you cannot reroute effectively. To solve this problem, Cacophony uses a promise to wait until after the server is created and using the response data from that creation to then push the app to the right location.
+The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push to the server's first channel. However, before the backend creates the server, the frontend cannot reroute properlby as it does know the id of the new server nor the id  of the server's first channel. To solve this problem, Cacophony utlizes the promise of the createServer function to wait until after the server is created to properly push the frontend with the reponse data from the server creation.
+
 
 ``` JavaScript
 
-   // In the server form compoennt. function handles the submitting of the form
+   // In the server form component. function handles the submitting of the form
   handleSubmit(e){
     e.preventDefault();
     let that = this;
@@ -54,12 +53,7 @@ The trickiest part of creating servers was having the app land on the right page
     });
   }
 
-
 ```
-
-
-
-
 
 
 ### Technologies Implemented
