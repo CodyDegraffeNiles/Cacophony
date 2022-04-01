@@ -1,12 +1,12 @@
-# README
+# Cacophony
 
 -----
 
-Cacophony is a full-stack clone of text-portion of Discord, the popular messaging application. Cacophony allows a user to make an account or sign in with an existing one in order to live message other users both in servers' channels as well as direct messagining. A user can either create their own server or join an existing public server to start messaging right away. While memebers of a server can live chat, with both editing and deleting functionality, a server's owner can also create channels and edit them to give those messages a place to live. Furthermore, a user can add any user who is part of a server with them to begin live direct messaging them.
+Cacophony is a full-stack clone of the text-portion of Discord, the popular messaging application. Cacophony allows a user to make an account or sign in with an existing one in order to live message other users both in servers' channels as well as direct messagining. A user can either create their own server or join an existing public server to start messaging right away. While memebers of a server can live chat, with both editing and deleting functionality, a server's owner can also create/edit channels to give server messages a place to live. Furthermore, a user can live direct message any other user who shares a server with them
 
 [See what all the Cacophony is about!] (https://cacophony-1.herokuapp.com/#/)
 
-Cacophony achieves its functionality through the use of React, Redux, and Javascript on the front end with a Ruby on Rails backend supported by a Postgres Database to give the user a seemless communication experince. To provide the live messaging services, Cacophony utilizes Rail's Action Cables in combination with Redis.
+Cacophony achieves its functionality through the use of React, Redux, and Javascript on the frontend with a Ruby on Rails backend connected with a Postgres Database to give the user a seemless communication experince. To provide the live messaging services, Cacophony utilizes Rail's Action Cables in combination with Redis.
 
 
 
@@ -15,18 +15,19 @@ Cacophony achieves its functionality through the use of React, Redux, and Javasc
 
 ### Technologies
 ---- 
-* React and Redux for FrontEnd state management and rendering
-* Javascript to provide the logic of the FrontEnd.
+* React and Redux for frontend state management and component rendering
+* CSS to provide the stlying necessary for the react components.
+* Javascript to provide the logic of the frontend.
 * Ruby on Rails for robust backend logic and datbase management
 * Postgres for the database itself
-* Webpack and npm to bundle the Javascript Code and manage project dependencies
+* Webpack to bundle the Javascript Code and manage project dependencies
 
 
 ### Planned Features
 ----
-* Increased Styling
-* Increased User Friendliness
-* Increased efficienty in backened data calls
+* Increased Styling and User Interface
+* Increased efficency in backened database queries
+* Start a dm through seraching a username and number tag.
 
 
 ### Acknoledgments
