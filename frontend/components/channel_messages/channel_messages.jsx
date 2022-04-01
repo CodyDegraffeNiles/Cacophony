@@ -17,7 +17,7 @@ class ChannelMessages extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchChannel();
+    this.props.fetchChannel(this.props.channelId);
     this.subscribe()
   }
 
@@ -90,7 +90,7 @@ class ChannelMessages extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    // Update props if they reiceve a new message or channel changes with different message length
+    // Update props if they reiceve a new message
     if (prevProps.messages.length !== this.props.messages.length)
       { 
         let messages = this.props.messages;
@@ -99,9 +99,11 @@ class ChannelMessages extends React.Component{
         this.setState({messageIds})
       };
     // If channel changes or messages length changes, refetch channel
-    if (prevProps.messages.length > 0 && this.props.messages.length > 0){
+    if (prevProps.messages.length > 0 && this.props.messages.length > 0 && 
+      prevProps.match.params.channelId === this.props.match.params.channelId)
+    {
       if(prevProps.messages[0].id !== this.props.messages[0].id) {
-        this.props.fetchChannel();
+        this.props.fetchChannel(this.props.match.params.channelId);
         this.unsubscribe();
         this.subscribe();
         let messages = this.props.messages;
@@ -118,14 +120,13 @@ class ChannelMessages extends React.Component{
       newMessage.channel_id = this.props.match.params.channelId
       this.setState({newMessage})
       // Reset subscription 
-      this.props.fetchChannel();
+      this.props.fetchChannel(this.props.match.params.channelId);
       this.unsubscribe();
       this.subscribe();
       let messages = this.props.messages;
       let messageIds = this.props.messageIds;
       this.setState({messages});
       this.setState({messageIds})
-    
     } 
   }
 

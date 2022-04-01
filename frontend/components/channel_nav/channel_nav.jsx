@@ -149,6 +149,8 @@ class ChannelNav extends React.Component{
     </div>
     <ul id="channel-nav-list"> 
         {this.props.channels.map((channel) => {
+          // Fail Safe for rouge channels running around
+          if (channel.serverId === this.props.server.id) {
           return (
           <li 
           onClick={ () => this.setChannelId(channel.id, channel.name)}
@@ -164,7 +166,7 @@ class ChannelNav extends React.Component{
           {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
           </li>
           )
-        })}
+        }})}
       </ul>
       {/* Can Render Create Channel Form out here as you do not need any channel params */}
       {this.renderChannelCreateForm()}

@@ -22,13 +22,14 @@ const mapStateToProps = (state, ownProps) => {
     messages: Object.values(state.entities.messages),
     members: state.entities.users,
     currentUserId: state.session.id,
-    messageIds: Object.keys(state.entities.messages)
+    messageIds: Object.keys(state.entities.messages),
+    channelId : ownProps.match.params.channelId
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
-    fetchChannel: () => {dispatch(fetchChannel(ownProps.match.params.channelId))},
+    fetchChannel: (channelId) => {dispatch(fetchChannel(channelId))},
     action: (message) => {dispatch(createMessage(message))}
   }
 }

@@ -22,9 +22,10 @@ class Api::ChannelsController < ApplicationController
   end
 
   def update
-    ## Questionable like ServerMembership BeCareful!!!
     @channel = Channel.find_by(id: params[:id])
     if @channel.update(channel_params)
+      @welcome_message = @channel.messages.first
+      @welcome_message.update(body: "Welcome to #{@channel.name} channel!")
       render :show
     else  
       render json: @channel.errors.full_messages, status: 400
