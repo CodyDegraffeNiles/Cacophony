@@ -14,18 +14,18 @@ Cacophony is a Fullstack clone of the text portion of the popular communication 
 Users can chat in real time through action cables. This is achieved by utilzing React Life Cycle Methods and Action Cables. When a componet mounts, a cable subscription is set up, when the component is updated, the subscription is unsubscribed and then resubscried with the new params, and finally when the component unmounts the subscription is removed.
 
 ```JavaScript
+  // Inside a React Class Component
   componentDidMount(){
     this.props.fetchChannel(this.props.channelId);
     this.subscribe()
   }
   
  componentDidUpdate(prevProps){
-  // Conditions Checking if component did update
+  // if(PrevProps !== this.props)
       if(PrevProps !== this.props{
       this.unsubscribe();
       this.subscribe();
-      // Refetch Channel to make sure the proper messages are displayed both on refresh of the page and 
-      // when channels are changed
+      // Refetch Channel to make sure the proper messages are displayed
       this.props.fetchChannel(this.props.match.params.channelId)
      }
  }
@@ -38,13 +38,12 @@ Users can chat in real time through action cables. This is achieved by utilzing 
 
 #### Creating Servers
 
-The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push the route to the server's first channel. However, before the backend creates the server (and in turn the server's first channel), the frontend cannot reroute properlyy as it does not know the id of the new server nor the id of the server's first channel. To solve this problem, Cacophony waits for the promise of the createServerFunction to properly push the frontend with the response data from the server creation.
+The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push the route to the server's first channel. However, before the backend creates the server (and in turn the server's first channel), the frontend cannot reroute properly as it does not know the id of the new server nor the id of the server's first channel. To solve this problem, Cacophony waits for the promise of the createServerFunction to properly push the frontend with the response data from the server creation.
 
 
 ``` JavaScript
 
-   // In the server form component. function handles the submitting of the form to create a server
-  handleSubmit(e){
+   // In the server form component. function handles the submitting of server creation form
     e.preventDefault();
     let that = this;
     // action = create server
@@ -59,8 +58,11 @@ The trickiest part of creating servers was having the app land on the right page
 
 ### Technologies Implemented
 ---- 
+
+- FrontEnd
+
 * React and Redux for frontend state management and component rendering.
-* CSS to provide the stlying necessary for the react components.
+    * CSS to provide the stlying necessary for the react components.
 * Javascript to provide the logic of the frontend.
 * Ruby on Rails for robust backend logic and database managment.
 * PostgreSQL for the database.
@@ -79,4 +81,5 @@ The author would like to acknowledge that the following were invaluable to under
 * [Utilizing Action Cables](https://javascript.plainenglish.io/building-a-simple-live-chat-in-react-with-action-cable-8c2abf7a25b5)
 * [Deploying Action Cables to Heroku](https://medium.com/swlh/deploying-a-rails-react-app-with-actioncable-to-heroku-cb5d42f41a2a)
 * Images used were from Discord and used for educational purposes
-* My friends who live tested Cacophony and gave valuable user feedback.
+* All my friends who live tested Cacophony and gave valuable user feedback.
+* A special thanks goes out to Jonathan W and Nick P for the author sane during development and always being down to help squash some bugs.
