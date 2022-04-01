@@ -26,7 +26,7 @@ class MessageEdit extends React.Component{
         type = "text"
         value = {this.state.body}
         onChange={this.handleBody()}
-        className="server-message-input"
+        className="edit-message-input"
         placeholder={`${this.state.body}`}
         />
         <button type="submit" className="server-message-submit-button"> <i className="fa-solid fa-paper-plane fa-xl edit-paper-plane"/></button>

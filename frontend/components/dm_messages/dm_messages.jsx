@@ -55,7 +55,7 @@ class DmMessages extends React.Component{
           } else {
             // Create a new message for the state
             // Get Authors' name in the state's users
-            data.authorName = that.props.possibleAuthors[data.author_id].username
+            data.authorName = that.props.members[data.author_id].username
             // rename so that edit pencil will appear
             data.authorId  = data.author_id
             // Mutate time stamp to match time stamps from backend
@@ -155,12 +155,19 @@ class DmMessages extends React.Component{
         <br/> 
         <ul id="dm-actual-messages"> 
           {this.state.dmMessages.map( (message) => {
+            // Fail Safe Check
+              let that = this
+              let colorId = 1
+              if(this.props.members[message.authorId]){
+                colorId = that.props.members[message.authorId].colorId
+              }
             return (
               <Message
                 key = {message.id}
                 message = {message}
                 currentUserId = {this.props.currentUserId}
                 dm={true}
+                colorId = {colorId}
                 />
                 )
             })

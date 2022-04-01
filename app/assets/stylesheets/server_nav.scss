@@ -22,6 +22,7 @@
 }
 
 #server-nav-list{
+  margin-top: 5px;
   height: 95vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -96,16 +97,17 @@
   transform: translate(calc(50vw - 150px), calc(40vh - 150px));
   width: 400px;
   height: 400px;
-  background: white;
   border: 1px solid black;
   border-radius: 5px;
   color: black; 
+  background: white;
   z-index: 10;
 }
 
 #server-form{
   text-align: center;
 }
+
 
 #server-form h4{
   font-size: 25px;
@@ -187,14 +189,15 @@
 #searched-servers li {
   font-size: 20px;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #searched-servers li button{
   color: black;
   font-size: 14px;
 }
-
-
 
 #searched-servers button{
   text-align: center;
@@ -207,8 +210,15 @@
   cursor: pointer;
 }
 
-#searched-servers span {
-  margin-right: 20px;
+.server-credentials{
+  display: flex;
+}
+
+#server-search-header{
+  font-size: 22px;
+  font-weight: bolder;
+  padding-top: 15px;
+  padding: 10px;
 }
 
 
@@ -238,6 +248,18 @@
   height: 100vh;
   width: 100vw;
   background-color: transparent;
+}
+
+.server-search-inital{
+  display: flex;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(56,57,62);
+  color: rgb(225, 225, 225); 
+  margin-right: 5px;
 }
 
 // Line Across top of the screen

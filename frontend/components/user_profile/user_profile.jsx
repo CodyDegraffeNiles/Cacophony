@@ -13,6 +13,8 @@ class UserProfile extends React.Component{
     e.stopPropagation();
     if(this.props.user.email === "KoalaDemo2@caveman.com") {return}
     this.props.update(this.state);
+    // Send back to homepag 
+    this.props.history.push("/servers/@me")
   }
 
   handleChange(type){
@@ -37,8 +39,10 @@ class UserProfile extends React.Component{
           <div id="user-top"> 
           <h3> My Account</h3>
             <div id="esacpe"> 
+            <div id="user-exit-x"> 
               <Link id="home-link" to="/servers/@me"><i className="fa-solid fa-xmark"/></Link> 
-              <p>ESC</p>
+              </div>
+              <p id="esc">ESC</p>
             </div>
           </div>
           <form id="user-update" onSubmit={this.handleSubmit}> 
@@ -56,7 +60,7 @@ class UserProfile extends React.Component{
         </form>
         <div id = "leave-buttons">
         {deleteButton}
-        <button onClick={() => this.props.logout()}> LogOut</button>
+        <button id ="logout-button" onClick={() => this.props.logout()}> Log Out <i className="fa-solid fa-arrow-right"></i></button>
         </div>
         </div>
       </div>

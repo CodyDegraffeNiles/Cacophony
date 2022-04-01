@@ -43,13 +43,16 @@ class ServerSearch extends React.Component{
     if (this.props.show){
       return(
       <div id="server-search">
-        <h5> Public Servers Avaliable for You to Join!</h5>
+        <h5 id="server-search-header"> Public Servers Avaliable for You to Join!</h5>
         <ul id ="searched-servers"> 
           {serverArray.map((server) => {
             return (<li
             key = {server.id}
             >
+            <div className="server-credentials">
+            <div className="server-search-inital"><span>{server.name.charAt(0)} </span></div>
             <span>{server.name}</span>
+            </div>
             <button onClick={() => this.handleJoin(server.id, server.firstChannelId)}>
               Join</button>
             </li>)

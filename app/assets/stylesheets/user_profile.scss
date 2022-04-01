@@ -8,17 +8,10 @@
   background-color: rgb(56, 57, 62) ;
   display: flex;
   justify-content: space-between;
-  padding-top: 5px;
-}
-
-#home-link{
-  border: 1px solid lightgrey;
-  border-radius: 50%;
-  text-align: right;
-  text-decoration: none;
-  color: white;
+  align-items: center;
   padding: 5px;
 }
+
 
 #user-top h3{
   font-size: 18px;
@@ -30,7 +23,25 @@
   padding-top: 5px;
 }
 
-#escape p{
+#user-exit-x{
+  display: flex;
+  width: 30px; 
+  height: 30px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(186,186,186);
+  color: white;
+}
+
+#home-link{
+  text-decoration: none;
+  color: white;
+}
+
+
+#esc{
+  margin-left: 4px;
   color: lightgrey;
   font-size: 14px;
 }
@@ -51,11 +62,14 @@
 }
 
 #user-update input {
-  color: Black;
-  background-color: lightgrey;
+  color: rgb(225, 225, 225);
+  background-color: transparent;
   width: 80%
 }
 
+#user-update input:focus{
+  outline: none;
+}
 #update-user-button {
   text-align: center;
   width: 100%;
@@ -73,7 +87,6 @@
   filter: brightness(85%);
 }
 
-
 #delete-user{
   background-color: transparent;
   color: red;
@@ -81,7 +94,30 @@
   cursor: pointer;
 }
 
+#delete-user:hover{
+  background-color: rgb(238, 65, 65);
+  color: white;
+}
+
 #leave-buttons{
   display: flex;
   justify-content: space-between;
+  padding-top: 15px;
+}
+
+#logout-button{
+  background-color: transparent;
+  color: rgb(225,225,225);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#logout-button:hover{
+  filter: brightness(90%)
+}
+
+.fa-arrow-right{
+  background-color: rgb(225, 225, 225);
+  color: rgb(56,57,62)
 }

@@ -93,10 +93,21 @@
 
 .server-message-input{
   width: calc(100vw - 604px);
+  color:rgb(215, 215, 215);
+}
+
+.edit-message-input{
+  width: calc(100vw - 670px);
+  color:rgb(215, 215, 215);
+}
+
+.edit-message-input:focus{
+  outline: none;
 }
 
 .dm-message-input{
   width: calc(100vw - 540px);
+  color:rgb(215, 215, 215);
 }
 
 .server-message-input:focus, .dm-message-input:focus{
