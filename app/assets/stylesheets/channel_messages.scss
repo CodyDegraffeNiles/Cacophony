@@ -97,8 +97,12 @@
 }
 
 .edit-message-input{
-  width: calc(100vw - 700px);
+  width: calc(100vw - 670px);
   color:rgb(215, 215, 215);
+}
+
+.edit-message-input:focus{
+  outline: none;
 }
 
 .dm-message-input{
