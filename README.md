@@ -42,7 +42,7 @@ The trickiest part of creating servers was having the app land on the right page
 
 ``` JavaScript
 
-   // In the server form component. function handles the submitting of the form
+   // In the server form component. function handles the submitting of the form to create a server
   handleSubmit(e){
     e.preventDefault();
     let that = this;
