@@ -32,7 +32,9 @@ class DmNav extends React.Component{
       <div> 
         <div id="edit-modal-container" onClick = {() => this.closeSearch()}> 
           <UserSearchContainer/>
-          <button id="user-search-exit-x" onClick={() => this.closeSearch()}><i className="fa-solid fa-xmark"/></button>
+          <button id="user-search-exit-x" onClick={() => this.closeSearch()}>
+            <i className="fa-solid fa-xmark"/>
+          </button>
         </div>
       </div>
       )
@@ -42,8 +44,7 @@ class DmNav extends React.Component{
   render(){
     return(
       <div id="dm-nav">
-        <div id="simiulate-nav-bar"> 
-        </div>
+        <div id="simiulate-nav-bar"/> 
         <br/> 
         <div className="list-header">
           <h6> Direct Messages</h6>
@@ -60,12 +61,12 @@ class DmNav extends React.Component{
             key={member.id}
             to={`/servers/@me/${member.id}/${member.dmId}`}
             > 
-            <li
-              className="dm-member-item"
-            >
-              <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
-              <h5 className='member-username'> {member.username} </h5>
-            </li>
+              <li className="dm-member-item">
+                <div className={`user-icon color-${member.colorId}`}>
+                  <i className="fa-brands fa-discord"/>
+                </div>
+                <h5 className='member-username'> {member.username} </h5>
+              </li>
             </Link>
                 )
               }

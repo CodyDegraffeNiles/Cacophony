@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     server: {
       owner_id: state.session.id,
       name: "",
-      public: false
+      public: true
     }
   }
 }

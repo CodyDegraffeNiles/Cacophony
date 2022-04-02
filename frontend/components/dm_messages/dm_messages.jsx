@@ -157,7 +157,7 @@ class DmMessages extends React.Component{
           {this.state.dmMessages.map( (message) => {
             // Fail Safe Check
               let that = this
-              let colorId = 1
+              let colorId = 1 // Default Color of Red if Member does not have colorId
               if(this.props.members[message.authorId]){
                 colorId = that.props.members[message.authorId].colorId
               }
@@ -184,7 +184,9 @@ class DmMessages extends React.Component{
             className="dm-message-input"
             placeholder={`Message @${otherUsername}`}
           />
-          <button className="dm-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
+            <button className="dm-message-submit-button"type="submit"> 
+              <i className="fa-solid fa-paper-plane fa-xl"/>
+            </button>
           </form>
         </div>
       </div>

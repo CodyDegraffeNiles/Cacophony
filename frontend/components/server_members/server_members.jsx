@@ -11,8 +11,7 @@ class ServerMembers extends React.Component{
   render(){
     return (
     <div id="server-member-show"> 
-      <div id= "mimic-nav-bar"> 
-      </div>
+      <div id= "mimic-nav-bar"> </div>
       <ul id = "server-members-list">
         <br/> 
         <p id="member-title"> Members - {this.props.members.length}</p>
@@ -21,16 +20,18 @@ class ServerMembers extends React.Component{
           <li
           key={member.id}
           className="server-member-item"
-        >
-          <div className={`user-icon color-${member.colorId}`}><i className="fa-brands fa-discord"/></div>
-          <h5 className='member-username'> {member.username} </h5>
-        </li>
+          >
+            <div className={`user-icon color-${member.colorId}`}>
+              <i className="fa-brands fa-discord"/>
+            </div>
+            <h5 className='member-username'> {member.username} </h5>
+          </li>
             )
           }
         )
       }
-    </ul>
-  </div>)
+      </ul>
+    </div>)
   }
 }
 

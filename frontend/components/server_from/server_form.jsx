@@ -40,9 +40,9 @@ class ServerForm extends React.Component{
   render(){
     // Conditionally show of the Server Form modal
     let submitButton = this.state.public ? <button id='create-server' type="submit">
-    Create A <span id="public-status"> Public </span> Server</button> : 
-    <button id='create-server' type="submit">
-    Create A <span id="public-status"> Private</span> Server</button>
+      Create A <span id="public-status"> Public </span> Server</button> : 
+      <button id='create-server' type="submit">
+      Create A <span id="public-status"> Private</span> Server</button>
 
     if (this.props.show){
     return (
@@ -51,17 +51,17 @@ class ServerForm extends React.Component{
         <h4> Tell Us More About Your Server </h4>
         <p> In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>
-          <div id="public-info"> 
+        <div id="public-info"> 
           <div onClick={this.handlePublic(false, "public")} > <p className='public-info-p'>For Me and My Friends</p></div>
           <div onClick={this.handlePublic(true, "public")}>  <p className='public-info-p'> For A Club or Community </p></div>
-          </div>
-          <h5 id="create-server-name"> Server Name</h5>
-          <input 
-          type="text"
-          value={this.state.name}
-          onChange={this.handleName("name")}
-          />
-          {submitButton}
+        </div>
+        <h5 id="create-server-name"> Server Name</h5>
+        <input 
+        type="text"
+        value={this.state.name}
+        onChange={this.handleName("name")}
+        />
+        {submitButton}
       </form>
     </div>
     )

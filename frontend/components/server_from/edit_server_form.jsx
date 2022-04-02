@@ -75,7 +75,7 @@ class EditServerForm extends React.Component{
       <button id="delete-server" onClick={() => this.handleDelete()}>Delete Server</button>
     </div>
     )
-    } //Member
+    } // Member
     else {
       let membership = {
         member_id: this.props.currentUser.id,
@@ -83,7 +83,8 @@ class EditServerForm extends React.Component{
       }
       return(
       <div id="edit-server-form"> 
-      <button  id="leave-server" onClick={ () => this.handleLeave(membership)}>Leave Server</button>
+        <button  id="leave-server" onClick={ () => this.handleLeave(membership)}>Leave Server
+        </button>
     </div>
       )
     }
