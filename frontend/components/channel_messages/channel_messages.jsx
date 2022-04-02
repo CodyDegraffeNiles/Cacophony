@@ -133,6 +133,8 @@ class ChannelMessages extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     e.stopPropagation();
+    // Make sure body has a length. No error message to mimic mimics discord
+    if(this.state.newMessage.body.length === 0){return}
     this.props.action(this.state["newMessage"]);
     // Clear Input after Submission
     let newMessage = this.state.newMessage;
