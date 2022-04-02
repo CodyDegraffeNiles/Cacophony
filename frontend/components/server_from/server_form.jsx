@@ -15,9 +15,8 @@ class ServerForm extends React.Component{
   
   handleSubmit(e){
     e.preventDefault();
+    let that = this; 
     // Create new Server and then push to the new server's first/general channel
-    let that = this;
-    if(this.state.name.length === 0) {return}
     this.props.action(this.state).then(function(action){
       let server  = action.server.server
       return that.props.history.push(`/servers/${server.id}/${server.firstChannelId}`);
@@ -46,9 +45,14 @@ class ServerForm extends React.Component{
 
     // Header for the Server Name that changes based on if an error was thrown 
     // in creation
-    let serverName =  //this.props.errors.includes ("monkeyMan") ? <h5 id="error-server-name"> 
-      //</h5>
+    let serverName = this.props.errors.includes("Name has already been taken") ? 
+    <h5 id="error-server-name"> Server Name: You already have a server of this name</h5> :
       <h5 id="create-server-name"> Server Name</h5>
+
+    // if ServerName is empty
+    if (this.props.errors.includes("Name can't be blank")){
+      serverName= <h5 id="error-server-name"> Server Name: Name cannot be blank </h5>
+    }
 
     if (this.props.show){
     return (

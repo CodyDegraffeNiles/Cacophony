@@ -14,6 +14,7 @@ class ServerNav extends React.Component{
 
     this.toggleForm = this.toggleForm.bind(this) 
     this.closeForm = this.closeForm.bind(this)
+    this.handleCreateSubmit = this.handleCreateSubmit.bind(this)
   }
 
   componentDidMount(){
@@ -34,11 +35,17 @@ class ServerNav extends React.Component{
     this.setState({search: false})
   }
 
+  handleCreateSubmit(){
+    // setTimeout Mimics a promise across divs/components
+    let that = this;
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 100)
+  }
+
   renderCreate(){
     if (this.state.create){
       return (
       <div> 
-        <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
+        <div id="double-modal-container" onSubmit = {() => this.handleCreateSubmit()}> 
             <div id = "modal-container" onClick={() => this.closeForm()}> </div>
             <CreateServerFormContainer show={true}/>
             <button id="server-exit-x" onClick={() => this.closeForm()}>

@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
       owner_id: state.session.id,
       name: "",
       public: true
-    }
+    },
+    errors: state.errors.server,
   }
 }
 
