@@ -56,26 +56,28 @@ class SignUpForm extends React.Component{
 
     return(
       <div id= "login-background">
-      <div id ="login-form"> 
+        <div id ="login-form"> 
         <h3>{welcomeHeader} </h3>
-        <form onSubmit={this.handleSubmit}>
-        {email} <input 
-        type="text"
-        value = {this.state.email}
-        onChange ={this.handleChange('email')}/>
-        {username} <input  
-        type = "text"
-        value = {this.state.username}
-        onChange ={this.handleChange('username')}/>
-        {password}
-        <input 
-        type = "password"
-        value = {this.state.password}
-        onChange={this.handleChange('password')}
-        />
-        <button type="submit"> {buttonMessage} </button>
-        {link}
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            {email} 
+            <input 
+            type="text"
+            value = {this.state.email}
+            onChange ={this.handleChange('email')}/>
+            {username} 
+            <input  
+            type = "text"
+            value = {this.state.username}
+            onChange ={this.handleChange('username')}/>
+            {password}
+            <input 
+            type = "password"
+            value = {this.state.password}
+            onChange={this.handleChange('password')}
+            />
+            <button type="submit"> {buttonMessage} </button>
+            {link}
+          </form>
         </div>
       </div>
     )
