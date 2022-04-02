@@ -20,7 +20,7 @@ class MessageEdit extends React.Component{
   render(){
     return(
     <div id = "message-edit">
-    <form autoComplete="off" id= "server-message-edit-form" onSubmit={this.handleSubmit}> 
+      <form autoComplete="off" id= "server-message-edit-form" onSubmit={this.handleSubmit}> 
         <span className="server-message-input-padding">"</span>
         <input
         type = "text"
@@ -29,9 +29,13 @@ class MessageEdit extends React.Component{
         className="edit-message-input"
         placeholder={`${this.state.body}`}
         />
-        <button type="submit" className="server-message-submit-button"> <i className="fa-solid fa-paper-plane fa-xl edit-paper-plane"/></button>
+        <button type="submit" className="server-message-submit-button"> 
+          <i className="fa-solid fa-paper-plane fa-xl edit-paper-plane"/>
+        </button>
         </form>
-      <button className="delete-message" onClick={() => (this.props.delete(this.props.message.id))}> Delete Message </button>
+      <button className="delete-message" 
+      onClick={() => (this.props.delete(this.props.message.id))}> Delete Message 
+      </button>
     </div>
     )
   }

@@ -42,7 +42,7 @@ class ChannelForm extends React.Component{
     let that = this;
     this.props.deleteChannel(channelId).then(
       function(response){
-        // Reroute to general channel and fetch if you are currently in deleted channel
+        // Reroute to general channel and fetch if you are currently in the deleted channel
         if(response.payload.toString() === that.props.currentChannelId){
           that.props.history.push(`/servers/${that.props.serverId}/${that.props.firstChannelId}`)
           that.props.fetchChannel(that.props.firstChannelId)
@@ -67,14 +67,14 @@ class ChannelForm extends React.Component{
       </div>
       : 
       <div id ="channel-form-header"> 
-      <h5>Create A Channel</h5>
-      <p> In {this.props.serverName}</p>
+        <h5>Create A Channel</h5>
+        <p> In {this.props.serverName}</p>
       </div>
     // Delete Button if Create Channel"
     const deleteButton = this.props.formType === "Update Channel" ?
     <form onSubmit={() => this.handleDelete(this.props.channelId)}>
       <button id="channel-delete-button" type="submit"> Delete Channel</button>
-      </form>
+    </form>
     : null;
     return (
     <div id="channel-form"> 
@@ -82,14 +82,14 @@ class ChannelForm extends React.Component{
         {formMessage}
           <p id="channel-form-name"> CHANNEL NAME</p>
           <div id ="channel-form-name-input-container">
-          <i className="fa-solid fa-hashtag fa-sm"></i>
-          <input 
-          type="text"
-          value={this.state.name}
-          onChange={this.handleName("name")}
-          id ="channel-form-name-input"
-          placeholder={placeholder}
-          />
+            <i className="fa-solid fa-hashtag fa-sm"></i>
+            <input 
+            type="text"
+            value={this.state.name}
+            onChange={this.handleName("name")}
+            id ="channel-form-name-input"
+            placeholder={placeholder}
+            />
           </div>
           <button id='channel-edit-submit' type="submit">{this.props.formType }</button>
       </form>
