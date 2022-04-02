@@ -67,12 +67,12 @@ class LoginForm extends React.Component{
 
     // Create Proper Headings for the Form;
     const email = this.props.errors.includes("Invalid Email/Password combination")
-    ? <h5 className ="login-error">  EMAIL - INVALID EMAIL/PASSWORD  </h5> : 
-    <h5 className="login-normal"> EMAIL </h5> 
+      ? <h5 className ="login-error">  EMAIL - INVALID EMAIL/PASSWORD  </h5> : 
+      <h5 className="login-normal"> EMAIL </h5> 
 
     const password = this.props.errors.includes("Invalid Email/Password combination") 
-    ? <h5 className ="login-error"> PASSWORD - INVALID EMAIL/PASSWORD</h5> : 
-    <h5 className="login-normal"> PASSWORD </h5>
+      ? <h5 className ="login-error"> PASSWORD - INVALID EMAIL/PASSWORD</h5> : 
+      <h5 className="login-normal"> PASSWORD </h5>
 
     return(
       <div id= "login-background">
