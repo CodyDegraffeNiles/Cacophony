@@ -37,7 +37,7 @@ class ChannelNav extends React.Component{
   handleSubmit(type){
     // setTimeout Mimics a promise across divs/components
     let that = this;
-    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm(type)}}, 250)
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm(type)}}, 50)
   }
 
   // Render Server Edits

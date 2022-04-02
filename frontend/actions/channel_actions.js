@@ -45,17 +45,21 @@ export const fetchChannel = (channelId) => (dispatch) => {
 
 export const createChannel = (channel) => (dispatch) => {
     return channelUtil.createChannel(channel)
-    .then((payload) => dispatch(recieveChannel(payload))
+    .then(function(payload){
+      dispatch(removeErrors())
+      return dispatch(recieveChannel(payload))}
     , (err) => {dispatch(receiveErrors(err.responseJSON)) })
 }
 
 export const deleteChannel = (channelId) => (dispatch) => {
   return channelUtil.deleteChannel(channelId)
-  . then(() => dispatch(removeChannel(channelId)))
+  . then(() => dispatch(removeChannel(channelId))) 
 }
 
 export const updateChannel = (channel) => (dispatch) => {
     return channelUtil.updateChannel(channel)
-    .then((payload) => dispatch(recieveChannel(payload))
+    .then(function(payload){
+      dispatch(removeErrors())
+      return dispatch(recieveChannel(payload))}
     , (err) => {dispatch(receiveErrors(err.responseJSON)) })
 }

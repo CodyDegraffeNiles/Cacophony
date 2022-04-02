@@ -55,7 +55,11 @@ export const fetchServer = (serverId) => (dispatch) => {
 
 export const createServer = (server) => (dispatch) => {
     return serverUtil.createServer(server)
-    .then(function(server){return dispatch(receiveServer(server))}
+    .then(function(server)
+    {
+    dispatch(removeServerErrors())
+    return dispatch(receiveServer(server))
+    }
     , (err) => dispatch(receiveServerErrors(err.responseJSON)) )
 }
 
