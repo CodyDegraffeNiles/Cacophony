@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import { fetchServers, fetchServer } from "../../actions/server_actions";
+import { fetchServers, fetchServer, removeServerErrors } from "../../actions/server_actions";
 import ServerNav from "./server_nav";
 import { withRouter } from "react-router";
 
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   return{
     fetchUsersServers : (userId) => {dispatch(fetchServers(userId))},
     fetchAllServers : () => {dispatch(fetchServers())},
-    fetchServer: (serverId) => dispatch(fetchServer(serverId))
+    fetchServer: (serverId) => dispatch(fetchServer(serverId)),
   }
 }
 

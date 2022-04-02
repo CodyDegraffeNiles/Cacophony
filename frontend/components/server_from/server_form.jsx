@@ -12,6 +12,11 @@ class ServerForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePublic = this.handlePublic.bind(this);
   }
+
+
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }  
   
   handleSubmit(e){
     e.preventDefault();

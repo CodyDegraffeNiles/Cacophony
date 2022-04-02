@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ServerForm from "./server_form";
-import { createServer } from "../../actions/server_actions";
+import { createServer, removeServerErrors } from "../../actions/server_actions";
 import { withRouter } from "react-router";
 
 
@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     action: function(server){return dispatch(createServer(server))},
+    removeErrors: () => dispatch(removeServerErrors())
   }
 }
 
