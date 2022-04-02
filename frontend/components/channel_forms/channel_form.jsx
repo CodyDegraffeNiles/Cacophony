@@ -17,6 +17,13 @@ class ChannelForm extends React.Component{
     if(this.props.formType === "Update Channel"){this.setState({['id']: this.props.channelId})}
   }
 
+  // removeErrors upon unmounting
+
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }  
+  
+
   handleSubmit(e){
     let that = this;
     e.preventDefault();
@@ -70,17 +77,28 @@ class ChannelForm extends React.Component{
         <h5>Create A Channel</h5>
         <p> In {this.props.serverName}</p>
       </div>
+
     // Delete Button if Create Channel"
     const deleteButton = this.props.formType === "Update Channel" ?
     <form onSubmit={() => this.handleDelete(this.props.channelId)}>
       <button id="channel-delete-button" type="submit"> Delete Channel</button>
     </form>
     : null;
+
+    // Channel Name is format based on if there are errors
+    let channelName = this.props.errors.includes("Name can't be blank") ? 
+          <p id="channel-error-name"> CHANNEL NAME: CANNOT BE BLANK</p> :
+          <p id="channel-form-name"> CHANNEL NAME</p>
+
+    // Change channelName  if channel name is already taken
+    if(this.props.errors.includes("Name has already been taken")){
+      channelName = <p id="channel-error-name"> CHANNEL NAME: NAME ALREADY IN USE</p>}
+
     return (
     <div id="channel-form"> 
       <form onSubmit={this.handleSubmit}>
         {formMessage}
-          <p id="channel-form-name"> CHANNEL NAME</p>
+          {channelName}
           <div id ="channel-form-name-input-container">
             <i className="fa-solid fa-hashtag fa-sm"></i>
             <input 

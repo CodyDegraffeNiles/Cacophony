@@ -1,17 +1,19 @@
 import { connect } from "react-redux";
 import ChannelForm from "./channel_form";
-import { createChannel } from "../../actions/channel_actions";
+import { createChannel, removeErrors } from "../../actions/channel_actions";
 import { withRouter } from "react-router";
 
-const mapStateToProps = (ownProps) => {
+const mapStateToProps = (state) => {
   return{
-    formType: "Create Channel"
+    formType: "Create Channel",
+    errors: state.errors.channel
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return{
     action: (channel) => dispatch(createChannel(channel)),
+    removeErrors: () => dispatch(removeErrors())
   }
 }
 

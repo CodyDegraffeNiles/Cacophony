@@ -17,6 +17,7 @@ class ChannelNav extends React.Component{
 
     this.toggleEdits = this.toggleEdits.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // Toggle edit bar on and off
@@ -31,6 +32,12 @@ class ChannelNav extends React.Component{
   closeForm(type){
     let that = this;
     this.setState({[type]: !that.state[type]})
+  }
+
+  handleSubmit(type){
+    // setTimeout Mimics a promise across divs/components
+    let that = this;
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm(type)}}, 250)
   }
 
   // Render Server Edits
@@ -74,7 +81,7 @@ class ChannelNav extends React.Component{
     if(this.state.channelCreate){
       return (
       <div>
-        <div id="double-channel-modal-container" onSubmit = {() => this.closeForm("channelCreate")}> 
+        <div id="double-channel-modal-container" onSubmit = {() => this.handleSubmit("channelCreate")}> 
           <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
           <div> </div>
           (<CreateChannelFormContainer
@@ -112,7 +119,7 @@ class ChannelNav extends React.Component{
     if(this.state.channelEdit){
       return (
       <div>
-        <div id="double-channel-modal-container" onSubmit = {() => this.closeForm("channelEdit")}> 
+        <div id="double-channel-modal-container" onSubmit = {() => this.handleSubmit("channelEdit")}> 
           <div className="channel-edit-modal" onClick={() => this.closeForm("channelEdit")}> </div> 
             <EditChannelFormContainer 
             channelId = {this.state.channelId}

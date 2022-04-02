@@ -11,8 +11,7 @@
 class Channel < ApplicationRecord
   ## Validations
   validates :server_id, :name, presence: true
-  validates :name, length: {minimum: 1}
-
+  validates :name, uniqueness: {scope: :server_id}
   after_create :create_welecome_post
 
   ## Assocations

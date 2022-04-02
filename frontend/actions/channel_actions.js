@@ -2,6 +2,8 @@ import * as channelUtil from "../util/channel_utils"
 
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
+export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS"
+export const REMOVE_CHANNEL_ERRORS = "REMOVE_CHANNEL_ERRORS"
 
 
 const recieveChannel = (payload) => {
@@ -20,8 +22,14 @@ const removeChannel = (payload) => {
 
 const receiveErrors = (errors) => {
     return{
-        type: RECEIVE_SESSION_ERRORS, 
+        type: RECEIVE_CHANNEL_ERRORS, 
         errors
+    }
+}
+
+export const removeErrors = () => {
+    return{
+        type: REMOVE_CHANNEL_ERRORS, 
     }
 }
 
