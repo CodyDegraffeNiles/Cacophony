@@ -57,18 +57,24 @@
   border-top: .15px solid lightgray
 }
 
+#server-update-error {
+  color: red;
+}
+
 #edit-server-name{
-  background-color: rgb(30,30,30);
+  color: white;
+}
+
+#edit-server-name, #server-update-error{
+  background-color: rgb(30, 30, 30);
   width: 190px;
   padding-left: 5px;
   // Padding to override style sheet.
   padding-top: 0.1px;
   padding-bottom: 0.1px;
   padding-right: 0.1px;
-  color: white;
   border-style:none;
   height: 30px;
-
 }
 
 #update-server-name{

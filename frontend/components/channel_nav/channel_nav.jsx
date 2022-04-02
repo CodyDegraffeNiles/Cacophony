@@ -18,6 +18,7 @@ class ChannelNav extends React.Component{
     this.toggleEdits = this.toggleEdits.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleServerEdit = this.handleServerEdit.bind(this);
   }
 
   // Toggle edit bar on and off
@@ -40,12 +41,19 @@ class ChannelNav extends React.Component{
     setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm(type)}}, 50)
   }
 
+  handleServerEdit(){
+    // setTimeout Mimics a promise across divs/components
+    let that = this;
+    console.log(this.props.serverErrors)
+    setTimeout(() => {if(this.props.serverErrors.length === 0) {that.closeForm("noShow")}}, 50)
+  }
+
   // Render Server Edits
   renderServerEdits(){
     if(!this.state.noShow && this.props.currentUserId === this.props.server.ownerId){
       return (
         <div>
-          <div id="edit-modal-container-submit" onSubmit={() => this.closeForm("noShow")}>
+          <div id="edit-modal-container-submit" onSubmit={() => this.handleServerEdit()}>
             <div id="edit-modal-container" onClick={() => this.closeForm("noShow")}> </div>
             <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
           </div> 

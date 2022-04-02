@@ -40,6 +40,7 @@ class ServerNav extends React.Component{
     let that = this;
     setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 50)
   }
+  
 
   renderCreate(){
     if (this.state.create){

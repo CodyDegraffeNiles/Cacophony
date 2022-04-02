@@ -18,6 +18,10 @@ class EditServerForm extends React.Component{
     this.props.fetchServer();
   }
 
+  componentWillUnmount(){
+    this.props.removeErrors();
+  }
+
   componentDidUpdate(prevProps){
     if (prevProps !== this.props){
       this.setState({["name"]: this.props.server.name})
@@ -58,18 +62,22 @@ class EditServerForm extends React.Component{
       return null
     }
 
+    const errorMessage  = this.props.errors.length > 0 ? <span id="server-update-error"> Invalid Server Name</span> :
+    null;
+
     // Create different edit forms for the owner and a member
     // Owner
     if (this.props.type === "owner"){ 
     return (
     <div id="edit-server-form"> 
+        {errorMessage}
       <form onSubmit={this.handleSubmit}>
           <input 
           id= "edit-server-name"
           type="text"
           value={this.state.name}
           onChange={this.handleName("name")}
-          />
+          /> 
           <button id="update-server-name"type="submit">Update Server Name</button>
       </form>
       <button id="delete-server" onClick={() => this.handleDelete()}>Delete Server</button>
