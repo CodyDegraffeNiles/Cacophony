@@ -62,8 +62,13 @@ class EditServerForm extends React.Component{
       return null
     }
 
-    const errorMessage  = this.props.errors.length > 0 ? <span id="server-update-error"> Invalid Server Name</span> :
+    let errorMessage  = this.props.errors.includes("Name can't be blank") ?
+      <span id="server-update-error"> Name cannot be blank</span> :
     null;
+
+    if (this.props.errors.includes("Name has already been taken")){
+      errorMessage = <span id="server-update-error"> Name already being used </span> 
+    }
 
     // Create different edit forms for the owner and a member
     // Owner

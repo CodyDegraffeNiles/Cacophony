@@ -39,7 +39,7 @@
   z-index: 10;
 }
 
-#delete-server, #leave-server, #update-server-name{
+#delete-server, #leave-server, #update-server-name, #server-update-error{
   background-color: rgb(30, 30, 30);
   width: 195px;
   text-align: left;
@@ -61,12 +61,10 @@
   color: red;
 }
 
-#edit-server-name{
-  color: white;
-}
 
-#edit-server-name, #server-update-error{
+#edit-server-name{
   background-color: rgb(30, 30, 30);
+  color: white;
   width: 190px;
   padding-left: 5px;
   // Padding to override style sheet.
