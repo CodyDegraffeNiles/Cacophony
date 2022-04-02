@@ -132,7 +132,7 @@ class DmMessages extends React.Component{
       that.setState({["newMessage"] : modMessage})
     }
   }
-
+  
   handleSubmit(e){
     e.preventDefault();
     e.stopPropagation();

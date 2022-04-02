@@ -43,7 +43,7 @@ class SignUpForm extends React.Component{
     const buttonMessage = "Continue"
 
     // Create Proper Headings for the Form;
-    const email = this.props.errors.includes("Email can't be blank") ? <h5 className ="login-error"> 
+    let email = this.props.errors.includes("Email can't be blank") ? <h5 className ="login-error"> 
       EMAIL - REQUIRED FIELD </h5> : <h5 className="login-normal"> EMAIL</h5> 
 
     const password = this.props.errors.includes("Password is too short (minimum is 6 characters)")
@@ -53,6 +53,12 @@ class SignUpForm extends React.Component{
     const username = this.props.errors.includes("Username can't be blank") ? 
     <h5 className ="login-error"> USERNAME - REQUIRED FIELD</h5> : 
     <h5 className="login-normal"> USERNAME </h5>
+
+    // Edit email header if email has already been taken
+    if(this.props.errors.includes("Email has already been taken")){
+      email = <h5 className ="login-error"> 
+      EMAIL HAS ALREADY BEEN TAKEN </h5>
+    }
 
     return(
       <div id= "login-background">
