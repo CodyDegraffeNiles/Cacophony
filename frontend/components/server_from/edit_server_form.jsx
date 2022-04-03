@@ -78,6 +78,7 @@ class EditServerForm extends React.Component{
         {errorMessage}
       <form onSubmit={this.handleSubmit}>
           <input 
+          autoFocus
           id= "edit-server-name"
           type="text"
           value={this.state.name}

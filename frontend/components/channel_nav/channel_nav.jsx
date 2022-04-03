@@ -44,7 +44,6 @@ class ChannelNav extends React.Component{
   handleServerEdit(){
     // setTimeout Mimics a promise across divs/components
     let that = this;
-    console.log(this.props.serverErrors)
     setTimeout(() => {if(this.props.serverErrors.length === 0) {that.closeForm("noShow")}}, 50)
   }
 

@@ -75,6 +75,10 @@
   height: 30px;
 }
 
+#edit-server-name:focus{
+  outline: none;
+}
+
 #update-server-name{
   color: rgb(186,187,190)
 }
