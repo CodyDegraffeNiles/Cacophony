@@ -102,6 +102,7 @@ class ChannelForm extends React.Component{
           <div id ="channel-form-name-input-container">
             <i className="fa-solid fa-hashtag fa-sm"></i>
             <input 
+            autoFocus
             type="text"
             value={this.state.name}
             onChange={this.handleName("name")}

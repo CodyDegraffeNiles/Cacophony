@@ -237,30 +237,32 @@
     width: 90%;
 }
 
+#channel-form-name-input:focus{
+  outline: none;
+}
+
 #channel-form-name-input-container{
   border: 0.75px solid black;
   font-family: 'Times New Roman', Times, serif;
   background-color: rgb(49, 51, 56);
-  height: 30px;
+  height: 28.5px;
   font-size: 15px;
   color: rgb(225, 225, 225);
   border-radius: 3px;
-  margin-left: 18px;
-  width: 90%;
+  width: 358.5px;
+  margin-left: 15px;
 }
 
 
 #channel-delete-button{
-  margin-left: 20px;
-  width: 90%;
+  margin-left: 15px;
+  width: 360px;
   background-color: transparent;
   color: rgb(238, 65, 65);
   outline: none;
   border: 1px solid black ;
   border-radius: 3px;
   height: 30px;
-  width: 380px;
-  margin: 10px;
 	background:none;
   cursor:pointer;
 }
@@ -276,8 +278,8 @@
 
 #channel-edit-submit{
   text-align: center;
-  margin: 10px;
-  width: 380px;
+  margin: 15px;
+  width: 360px;
   background-color: #5865F2;
   border: 0.75px solid #5865F2;
   border-radius: 3px;
