@@ -38,7 +38,7 @@ class ServerNav extends React.Component{
   handleCreateSubmit(){
     // setTimeout Mimics a promise across divs/components
     let that = this;
-    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 150)
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 200)
   }
   
 
