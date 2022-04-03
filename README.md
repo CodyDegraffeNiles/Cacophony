@@ -44,7 +44,7 @@ The trickiest part of creating servers was having the app land on the right page
 
 ``` JavaScript
 
-   // In the server form component. function handles the submitting of server creation form
+   // In the server form component, this function handles the submitting of server creation form
     e.preventDefault();
     let that = this;
     // action = create server
@@ -52,7 +52,6 @@ The trickiest part of creating servers was having the app land on the right page
       let server  = action.server.server
       return that.props.history.push(`/servers/${server.id}/${server.firstChannelId}`);
     });
-  }
 
 ```
 
@@ -87,4 +86,4 @@ The author would like to acknowledge that the following were invaluable to under
 * [Deploying Action Cables to Heroku](https://medium.com/swlh/deploying-a-rails-react-app-with-actioncable-to-heroku-cb5d42f41a2a)
 * Images used were from Discord and used for educational purposes
 * All my friends who live tested Cacophony and gave valuable user feedback.
-* A special thanks goes out to Jonathan W and Nick P for the author sane during development and always being down to help squash some bugs.
+* A special thanks goes out to Jonathan W and Nick P for keeping the author sane during development and always being down to help squash some bugs.

@@ -167,6 +167,12 @@
   color: rgb(78, 78, 78);
 }
 
+#error-server-name{
+  text-align: left;
+  padding-left: 10px;
+  color: rgb(162,45,47);
+}
+
 #server-exit-x{
   position: absolute;
   top: 0px;
@@ -261,6 +267,10 @@
   background-color: rgb(56,57,62);
   color: rgb(225, 225, 225); 
   margin-right: 5px;
+}
+
+#server-form-name:focus{
+  outline: none;
 }
 
 // Line Across top of the screen

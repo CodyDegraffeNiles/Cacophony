@@ -37,10 +37,12 @@ class UserProfile extends React.Component{
       <div id = "user-profile">
         <div id = "user-profile-content">
           <div id="user-top"> 
-          <h3> My Account</h3>
+            <h3> My Account</h3>
             <div id="esacpe"> 
-            <div id="user-exit-x"> 
-              <Link id="home-link" to="/servers/@me"><i className="fa-solid fa-xmark"/></Link> 
+              <div id="user-exit-x"> 
+                <Link id="home-link" to="/servers/@me">
+                  <i className="fa-solid fa-xmark"/>
+                </Link> 
               </div>
               <p id="esc">ESC</p>
             </div>
@@ -57,11 +59,13 @@ class UserProfile extends React.Component{
             value = {this.state.email}
             onChange ={this.handleChange('email')}/>
             <button type="submit" id="update-user-button">{updateMessage}</button>
-        </form>
-        <div id = "leave-buttons">
-        {deleteButton}
-        <button id ="logout-button" onClick={() => this.props.logout()}> Log Out <i className="fa-solid fa-arrow-right"></i></button>
-        </div>
+          </form>
+          <div id = "leave-buttons">
+            {deleteButton}
+            <button id ="logout-button" onClick={() => this.props.logout()}> Log Out 
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
       </div>
 

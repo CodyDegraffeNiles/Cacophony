@@ -77,10 +77,10 @@ class ChannelMessages extends React.Component{
       }
     }
     // Production Websocket:
-    const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
+    // const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
 
     // Development Websocket: 
-    // const cable = createConsumer("ws://localhost:3000/cable")
+    const cable = createConsumer("ws://localhost:3000/cable")
 
     const ParamsToSend = {
       channel: "ServerChannel",
@@ -133,6 +133,8 @@ class ChannelMessages extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     e.stopPropagation();
+    // Make sure body has a length. No error message to mimic mimics discord
+    if(this.state.newMessage.body.length === 0){return}
     this.props.action(this.state["newMessage"]);
     // Clear Input after Submission
     let newMessage = this.state.newMessage;
@@ -154,8 +156,8 @@ class ChannelMessages extends React.Component{
     return(
       <div id="channel-messages">
         <div id="channel-header"> 
-        <i className="fa-solid fa-hashtag fa-lg" id="channel-message-hashtag"></i>
-        <h5 id="channel-name">{this.props.channelName}</h5>
+          <i className="fa-solid fa-hashtag fa-lg" id="channel-message-hashtag"></i>
+          <h5 id="channel-name">{this.props.channelName}</h5>
         </div>
         <br/>
         <ul id="channel-actual-messages"> 
@@ -178,18 +180,20 @@ class ChannelMessages extends React.Component{
         })}
         
         </ul>
-        <div id = "channel-message-footer-bar">
-        <form autoComplete="off" id= "server-message-form" onSubmit={this.handleSubmit}> 
-        <span className="server-message-input-padding">"</span>
-        <input
-        type = "text"
-        value = {this.state.newMessage.body}
-        onChange={this.handleChange('body')}
-        className="server-message-input"
-        placeholder={`Message #${this.props.channelName}`}
-        />
-        <button className="server-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
-        </form>
+          <div id = "channel-message-footer-bar">
+          <form autoComplete="off" id= "server-message-form" onSubmit={this.handleSubmit}> 
+            <span className="server-message-input-padding">"</span>
+            <input
+            type = "text"
+            value = {this.state.newMessage.body}
+            onChange={this.handleChange('body')}
+            className="server-message-input"
+            placeholder={`Message #${this.props.channelName}`}
+            />
+            <button className="server-message-submit-button"type="submit"> 
+              <i className="fa-solid fa-paper-plane fa-xl"/> 
+            </button>
+          </form>
         </div>
       </div>
     )

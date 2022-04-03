@@ -3,7 +3,8 @@ import * as serverUtil from '../util/server_utils';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const REMOVE_SERVER = 'REMOVE_SERVER'
-export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
+export const REMOVE_SERVER_ERRORS = "REMOVE_SERVER_ERRORS"
 
 
 const receiveServers = (servers) => {
@@ -26,36 +27,46 @@ const removeServer = (serverId) => {
     })
 }
 
-const receiveErrors = (errors) => {
+const receiveServerErrors = (errors) => {
     return({
-        type: RECEIVE_SESSION_ERRORS, 
+        type: RECEIVE_SERVER_ERRORS, 
         errors
+    })
+}
+
+export const removeServerErrors = () => {
+    return({
+        type: REMOVE_SERVER_ERRORS
     })
 }
 
 export const fetchServers = (user) => (dispatch) => {
     return serverUtil.fetchServers(user)
     .then((servers) => {dispatch(receiveServers(servers))},
-    (err) => {dispatch(receiveErrors(err.responseJSON))} )
+    (err) => {dispatch(receiveServerErrors(err.responseJSON))} )
 }
 
 export const fetchServer = (serverId) => (dispatch) => {
     return serverUtil.fetchServer(serverId)
-    .then((server) => {dispatch(receiveServer(server))},
-    (err) => {dispatch(receiveErrors(err.responseJSON))} )
+    .then((server) => dispatch(receiveServer(server)))
 }
-
 
 export const createServer = (server) => (dispatch) => {
     return serverUtil.createServer(server)
-    .then(function(server){return dispatch(receiveServer(server))}
-    , (err) => {dispatch(receiveErrors(err.responseJSON)) })
+    .then(function(server)
+    {
+    dispatch(removeServerErrors())
+    return dispatch(receiveServer(server))
+    }
+    , (err) => dispatch(receiveServerErrors(err.responseJSON)) )
 }
 
 export const updateServer = (server) => (dispatch) => {
     return serverUtil.updateServer(server)
-    .then((server) => {dispatch(receiveServer(server))}
-    , (err) => {dispatch(receiveErrors(err.responseJSON)) })
+    .then(function(server){
+        dispatch(removeServerErrors())
+        return dispatch(receiveServer(server))}
+    , (err) => dispatch(receiveServerErrors(err.responseJSON)) )
 }
 
 export const deleteServer = (serverId) => (dispatch)  => {

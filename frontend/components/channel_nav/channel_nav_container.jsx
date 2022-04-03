@@ -9,7 +9,9 @@ const mapStateToProps = (state, ownProps) => {
     currentUserId : state.session.id,
     server: state.entities.servers[ownProps.match.params.serverId],
     channels: Object.values(state.entities.channels),
-    currentChannelId : ownProps.match.params.channelId
+    currentChannelId : ownProps.match.params.channelId,
+    errors: state.errors.channel,
+    serverErrors: state.errors.server
   }
 }
 

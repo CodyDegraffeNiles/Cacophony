@@ -67,33 +67,35 @@ class LoginForm extends React.Component{
 
     // Create Proper Headings for the Form;
     const email = this.props.errors.includes("Invalid Email/Password combination")
-    ? <h5 className ="login-error">  EMAIL - INVALID EMAIL/PASSWORD  </h5> : 
-    <h5 className="login-normal"> EMAIL </h5> 
+      ? <h5 className ="login-error">  EMAIL - INVALID EMAIL/PASSWORD  </h5> : 
+      <h5 className="login-normal"> EMAIL </h5> 
 
     const password = this.props.errors.includes("Invalid Email/Password combination") 
-    ? <h5 className ="login-error"> PASSWORD - INVALID EMAIL/PASSWORD</h5> : 
-    <h5 className="login-normal"> PASSWORD </h5>
+      ? <h5 className ="login-error"> PASSWORD - INVALID EMAIL/PASSWORD</h5> : 
+      <h5 className="login-normal"> PASSWORD </h5>
 
     return(
       <div id= "login-background">
-      <div id ="login-form"> 
-        <h3>{welcomeHeader} </h3>
-        <p>{messageHeader}</p>
-        <form onSubmit={this.handleSubmit}>
-        {email} <input 
-        type="text"
-        value = {this.state.email}
-        onChange ={this.handleChange('email')}/>
-        {password}
-        <input 
-        type = "password"
-        value = {this.state.password}
-        onChange={this.handleChange('password')}
-        />
-        <button type="submit"> {buttonMessage} </button>
-        {demo}
-        {footerMessage} {link}
-        </form>
+        <div id ="login-form"> 
+          <h3>{welcomeHeader} </h3>
+          <p>{messageHeader}</p>
+          <form onSubmit={this.handleSubmit}>
+          {email} 
+            <input 
+            type="text"
+            value = {this.state.email}
+            onChange ={this.handleChange('email')}
+            />
+            {password}
+            <input 
+            type = "password"
+            value = {this.state.password}
+            onChange={this.handleChange('password')}
+            />
+            <button type="submit"> {buttonMessage} </button>
+            {demo}
+            {footerMessage} {link}
+          </form>
         </div>
       </div>
     )

@@ -76,10 +76,10 @@ class DmMessages extends React.Component{
       }
     }
     // Production Websocket:
-    const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
+    // const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
 
     // Development Websocket: 
-    // const cable = createConsumer("ws://localhost:3000/cable")
+    const cable = createConsumer("ws://localhost:3000/cable")
 
     const ParamsToSend = {
       channel: "DmChannel",
@@ -132,10 +132,12 @@ class DmMessages extends React.Component{
       that.setState({["newMessage"] : modMessage})
     }
   }
-
+  
   handleSubmit(e){
     e.preventDefault();
     e.stopPropagation();
+    // Make sure body has a length. No error message to mimic mimics discord
+    if(this.state.newMessage.body.length === 0){return}
     this.props.action(this.state["newMessage"]);
     // Clear Input after Submission
     let newMessage = this.state.newMessage;
@@ -157,7 +159,7 @@ class DmMessages extends React.Component{
           {this.state.dmMessages.map( (message) => {
             // Fail Safe Check
               let that = this
-              let colorId = 1
+              let colorId = 1 // Default Color of Red if Member does not have colorId
               if(this.props.members[message.authorId]){
                 colorId = that.props.members[message.authorId].colorId
               }
@@ -184,7 +186,9 @@ class DmMessages extends React.Component{
             className="dm-message-input"
             placeholder={`Message @${otherUsername}`}
           />
-          <button className="dm-message-submit-button"type="submit"> <i className="fa-solid fa-paper-plane fa-xl"/></button>
+            <button className="dm-message-submit-button"type="submit"> 
+              <i className="fa-solid fa-paper-plane fa-xl"/>
+            </button>
           </form>
         </div>
       </div>

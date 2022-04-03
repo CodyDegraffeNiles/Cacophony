@@ -1,23 +1,27 @@
 import React from "react";
-import {Link} from "react-router-dom"
 
 class ServerForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       owner_id: this.props.currentUser.id,
-      name: this.props.server.name,
+      name: `${this.props.currentUser.username}'s Server`,
       public: this.props.server.public,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePublic = this.handlePublic.bind(this);
   }
+
+
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }  
   
   handleSubmit(e){
     e.preventDefault();
+    let that = this; 
     // Create new Server and then push to the new server's first/general channel
-    let that = this;
     this.props.action(this.state).then(function(action){
       let server  = action.server.server
       return that.props.history.push(`/servers/${server.id}/${server.firstChannelId}`);
@@ -40,9 +44,20 @@ class ServerForm extends React.Component{
   render(){
     // Conditionally show of the Server Form modal
     let submitButton = this.state.public ? <button id='create-server' type="submit">
-    Create A <span id="public-status"> Public </span> Server</button> : 
-    <button id='create-server' type="submit">
-    Create A <span id="public-status"> Private</span> Server</button>
+      Create A <span id="public-status"> Public </span> Server</button> : 
+      <button id='create-server' type="submit">
+      Create A <span id="public-status"> Private</span> Server</button>
+
+    // Header for the Server Name that changes based on if an error was thrown 
+    // in creation
+    let serverName = this.props.errors.includes("Name has already been taken") ? 
+    <h5 id="error-server-name"> Server Name: You already have a server of this name</h5> :
+      <h5 id="create-server-name"> Server Name</h5>
+
+    // if ServerName is empty
+    if (this.props.errors.includes("Name can't be blank")){
+      serverName= <h5 id="error-server-name"> Server Name: Name cannot be blank </h5>
+    }
 
     if (this.props.show){
     return (
@@ -51,17 +66,19 @@ class ServerForm extends React.Component{
         <h4> Tell Us More About Your Server </h4>
         <p> In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>
-          <div id="public-info"> 
+        <div id="public-info"> 
           <div onClick={this.handlePublic(false, "public")} > <p className='public-info-p'>For Me and My Friends</p></div>
           <div onClick={this.handlePublic(true, "public")}>  <p className='public-info-p'> For A Club or Community </p></div>
-          </div>
-          <h5 id="create-server-name"> Server Name</h5>
-          <input 
-          type="text"
-          value={this.state.name}
-          onChange={this.handleName("name")}
-          />
-          {submitButton}
+        </div>
+        {serverName}
+        <input 
+        autoFocus
+        type="text"
+        value={this.state.name}
+        onChange={this.handleName("name")}
+        id="server-form-name"
+        />
+        {submitButton}
       </form>
     </div>
     )

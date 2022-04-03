@@ -49,12 +49,15 @@ class ServerSearch extends React.Component{
             return (<li
             key = {server.id}
             >
-            <div className="server-credentials">
-            <div className="server-search-inital"><span>{server.name.charAt(0)} </span></div>
-            <span>{server.name}</span>
-            </div>
-            <button onClick={() => this.handleJoin(server.id, server.firstChannelId)}>
-              Join</button>
+              <div className="server-credentials">
+                <div className="server-search-inital">
+                  <span>{server.name.charAt(0)} </span>
+                </div>
+                <span>{server.name}</span>
+              </div>
+              <button onClick={() => this.handleJoin(server.id, server.firstChannelId)}>
+              Join 
+              </button>
             </li>)
           })}
         </ul>

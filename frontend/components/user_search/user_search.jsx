@@ -43,15 +43,16 @@ class UserSearch extends React.Component{
             return( <li 
               key = {user.id}
               className="user-list-item"
-            >
-              <div className="user-info"> 
-              <div className={`user-icon color-${user.colorId}`}><i className="fa-brands fa-discord"/></div>
-              <h5 className='dm-search-username'> {user.username} </h5>
-              <p className='user-name-with-tag'>{user.username}#{user.numberTag}</p>
-              </div>
-              <button className= "createDm" onClick={() => this.handleDmCreation(user.id)}> 
-              Create Dm
-              </button>
+              >
+                <div className="user-info"> 
+                  <div className={`user-icon color-${user.colorId}`}>
+                    <i className="fa-brands fa-discord"/>
+                  </div>
+                  <h5 className='dm-search-username'> {user.username} </h5>
+                  <p className='user-name-with-tag'>{user.username}#{user.numberTag}</p>
+                </div>
+                <button className= "createDm" onClick={() => this.handleDmCreation(user.id)}> 
+                Create Dm </button>
             </li>
             )
           })}

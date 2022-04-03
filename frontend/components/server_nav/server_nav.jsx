@@ -14,6 +14,7 @@ class ServerNav extends React.Component{
 
     this.toggleForm = this.toggleForm.bind(this) 
     this.closeForm = this.closeForm.bind(this)
+    this.handleCreateSubmit = this.handleCreateSubmit.bind(this)
   }
 
   componentDidMount(){
@@ -34,15 +35,23 @@ class ServerNav extends React.Component{
     this.setState({search: false})
   }
 
+  handleCreateSubmit(){
+    // setTimeout Mimics a promise across divs/components
+    let that = this;
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 50)
+  }
+  
+
   renderCreate(){
     if (this.state.create){
       return (
       <div> 
-      <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
-          <div id = "modal-container" onClick={() => this.closeForm()}> 
-          </div>
-          <CreateServerFormContainer show={true}/>
-          <button id="server-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
+        <div id="double-modal-container" onSubmit = {() => this.handleCreateSubmit()}> 
+            <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+            <CreateServerFormContainer show={true}/>
+            <button id="server-exit-x" onClick={() => this.closeForm()}>
+              <i className="fa-solid fa-xmark"/>
+            </button>
         </div>
       </div>
       )
@@ -53,9 +62,11 @@ class ServerNav extends React.Component{
     if (this.state.search){
       return (
       <div> 
-      <div id = "modal-container" onClick={() => this.closeForm()}> </div>
-      <ServerSearchContainer show={true}/>
-      <button id="server-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
+        <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+        <ServerSearchContainer show={true}/>
+        <button id="server-exit-x" onClick={() => this.closeForm()}>
+          <i className="fa-solid fa-xmark"/>
+        </button>
       </div>
       )
     }
@@ -64,20 +75,34 @@ class ServerNav extends React.Component{
   render(){
     return(
       <div id="server-nav"> 
-      <ul id = "server-nav-list">
-        <li key="home-bubble"> <Link to={`/servers/@me`}> <i className="fa-brands fa-discord home-bubble"/></Link> </li>
+        <ul id = "server-nav-list">
+          <li key="home-bubble"> 
+            <Link to={`/servers/@me`}> 
+              <i className="fa-brands fa-discord home-bubble"/>
+            </Link> 
+          </li>
         {this.props.servers.map((server, index) => {
           return (
           <li key={index}>
-          <Link 
-          to={`/servers/${server.id}/${server.firstChannelId}`} 
-          onClick={() => this.props.fetchServer(server.id)}
-          > <p className="server-inital"> {server.name.charAt(0)} </p> </Link>
+            <Link 
+            to={`/servers/${server.id}/${server.firstChannelId}`} 
+            onClick={() => this.props.fetchServer(server.id)}
+          > 
+              <p className="server-inital"> {server.name.charAt(0)} </p> 
+            </Link>
           </li>
           )
         })}
-        <li key="createServer"> <button id="create-servers" onClick={this.toggleForm("create", "search")}><i className="fa-solid fa-plus"/> </button></li>
-        <li key="searchServer"> <button id="search-servers" onClick={this.toggleForm("search","create")}> <i className="fa-solid fa-compass"/> </button></li>
+        <li key="createServer"> 
+          <button id="create-servers" onClick={this.toggleForm("create", "search")}>
+              <i className="fa-solid fa-plus"/> 
+          </button>
+        </li>
+        <li key="searchServer"> 
+          <button id="search-servers" onClick={this.toggleForm("search","create")}> 
+            <i className="fa-solid fa-compass"/> 
+          </button> 
+        </li>
       </ul>
       {this.renderCreate()}
       {this.renderSearch()}
