@@ -5,7 +5,7 @@ class ServerForm extends React.Component{
     super(props)
     this.state = {
       owner_id: this.props.currentUser.id,
-      name: this.props.server.name,
+      name: `${this.props.currentUser.username}'s Server`,
       public: this.props.server.public,
     }
 
@@ -72,9 +72,11 @@ class ServerForm extends React.Component{
         </div>
         {serverName}
         <input 
+        autoFocus
         type="text"
         value={this.state.name}
         onChange={this.handleName("name")}
+        id="server-form-name"
         />
         {submitButton}
       </form>
