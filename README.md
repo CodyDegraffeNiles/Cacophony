@@ -15,7 +15,7 @@ Cacophony is a Fullstack clone of the text portion of the popular communication 
 Users can chat in real time through websockets implemented by Action Cables. This is achieved by utilzing React Life Cycle Methods and Action Cables. When a componet mounts, a cable subscription is set up, when the component is updated, the subscription is unsubscribed and then resubscried with the new params, and finally when the component unmounts the subscription is removed.
 
 ```JavaScript
-  // Inside a React Class Component
+  // Inside a React Class Component containing a channel's messages or dms
   componentDidMount(){
     this.props.fetchChannel(this.props.channelId);
     this.subscribe()
@@ -36,6 +36,7 @@ Users can chat in real time through websockets implemented by Action Cables. Thi
   }
   
 ```
+![Live Chat Demo](https://media.giphy.com/media/V6DyDC42BUjarnCtEd/giphy.gif)
 
 #### Creating Servers
 
