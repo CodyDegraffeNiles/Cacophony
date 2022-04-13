@@ -55,7 +55,7 @@ The trickiest part of creating servers was having the app land on the right page
 
 ```
 
-
+![Server Creation](https://media.giphy.com/media/PdpmA5takWDnUFNW3c/giphy.gif)
 ### Technologies Implemented
 ---- 
 
