@@ -36,7 +36,13 @@
   padding-left: 10px;
   width: 90px;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
+}
+
+#user-text::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background-color: rgb(40,42,46);
 }
 
 #username p{
