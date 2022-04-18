@@ -167,21 +167,23 @@ class ChannelNav extends React.Component{
           // Fail Safe for rouge channels running around
           if (channel.serverId === this.props.server.id) {
           return (
-          <li 
-          onClick={ () => this.setChannelId(channel.id, channel.name)}
-          key={channel.id} 
-          className="channel-nav-item">
-            <div>
-              <Link 
+          <Link 
               to={`/servers/${this.props.server.id}/${channel.id}`} 
               onClick={() => this.props.fetchChannel(channel.id)}
-              >
-                <i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}
-              </Link>
-            </div>
-            {this.renderChannelEditButton()}
-          {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
-          </li>
+              className="channel-nav-link"
+          >
+            <li 
+              onClick={ () => this.setChannelId(channel.id, channel.name)}
+              key={channel.id} 
+              className="channel-nav-item">
+              <div>
+                <i className="fa-solid fa-hashtag fa-sm"/>
+                {channel.name}
+              </div>
+              {this.renderChannelEditButton()}
+            {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
+            </li>
+          </Link>
           )
         }})}
         </ul>
