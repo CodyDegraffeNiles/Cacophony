@@ -148,6 +148,7 @@ class ChannelNav extends React.Component{
     if (this.props.server) {
     return (
       <div id="channel-nav"> 
+      <div id="channel-line-across-top"/> 
         <div id="channel-nav-server-name">
           <h5>{this.props.server.name}</h5> 
           <i className="fa-solid fa-chevron-down"

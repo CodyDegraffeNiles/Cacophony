@@ -8,7 +8,8 @@
   width: 225px;
   padding-left: 5px;
   padding-right: 5px;
-  transform: translate(75px, 0px)
+  transform: translate(75px, 0px);
+  z-index: 1;
 }
 
 #channel-nav h5{
@@ -165,6 +166,7 @@
 // Modals for Channel Edit
 
 .channel-edit-modal{
+  z-index: 3;
   position: absolute;
   top: 0;
   left: 0;
@@ -174,7 +176,7 @@
 }
 
 #double-channel-modal-container {
-  z-index: 3;
+  z-index: 4;
   position: absolute;
   top: 0;
   left: 0;
