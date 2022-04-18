@@ -1,6 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import CreateServerFormContainer from "../server_from/create_server_form_container";
+import CreateServerFormContainer from "../server_form/create_server_form_container";
 import ServerSearchContainer from "../server_search/server_search_container";
 
 class ServerNav extends React.Component{

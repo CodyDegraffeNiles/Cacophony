@@ -1,5 +1,5 @@
 import React from 'react'
-import EditServerFormContainer from '../server_from/edit_server_form_container';
+import EditServerFormContainer from '../server_form/edit_server_form_container';
 import CreateChannelFormContainer from '../channel_forms/create_channel_form_container';
 import EditChannelFormContainer from '../channel_forms/edit_channel_form_container'
 import { Link} from "react-router-dom";
