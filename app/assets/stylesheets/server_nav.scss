@@ -36,9 +36,10 @@
 }
 
 #server-nav-list li{
-  padding: 5px;
-  padding-top: 15px;
-  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-bubble{
