@@ -15,7 +15,9 @@
   font-weight: bold;
   height: 50px; 
   width: 50px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   text-align: center;
   transition: 0.4s;
@@ -39,12 +41,7 @@
   text-align: center;
 }
 
-.server-inital{
-  padding-top: 10px;
-}
-
 .home-bubble{
-  padding-top: 12px;
   font-size: 25px;
 }
 
@@ -74,11 +71,14 @@
   font-weight: bold;
   height: 50px; 
   width: 50px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   text-align: center;
   transition: 0.4s;
-  color:rgb(60,163,92)
+  color:rgb(60,163,92);
+  padding: 0;
 }
 
 #create-servers:hover, #search-servers:hover{
