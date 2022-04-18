@@ -295,3 +295,14 @@
   background-color: rgb(35, 36, 40);
   transform: translate(0px, 50px);
 }
+
+// grey seperator between Home nav and rest of server nav.
+
+#server-nav-seperator{
+    width: 37.5px;
+    height: 2px;
+    text-align: center;
+    background-color: #383a3f;
+    margin: auto;
+    border-radius: 5px;
+}

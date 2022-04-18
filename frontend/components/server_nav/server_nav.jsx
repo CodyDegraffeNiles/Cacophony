@@ -81,6 +81,7 @@ class ServerNav extends React.Component{
               <i className="fa-brands fa-discord home-bubble"/>
             </Link> 
           </li>
+        <div id="server-nav-seperator"/>
         {this.props.servers.map((server, index) => {
           return (
           <li key={index}>
