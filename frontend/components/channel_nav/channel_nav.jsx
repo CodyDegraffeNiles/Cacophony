@@ -90,7 +90,6 @@ class ChannelNav extends React.Component{
       <div>
         <div id="double-channel-modal-container" onSubmit = {() => this.handleSubmit("channelCreate")}> 
           <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
-          <div> </div>
           (<CreateChannelFormContainer
           channelName = {""} 
           serverId = {this.props.server.id}

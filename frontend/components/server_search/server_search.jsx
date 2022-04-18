@@ -43,7 +43,7 @@ class ServerSearch extends React.Component{
     if (this.props.show){
       return(
       <div id="server-search">
-        <h5 id="server-search-header"> Public Servers Avaliable for You to Join!</h5>
+        <h5 id="server-search-header"> Public Servers Avaliabe to Join!</h5>
         <ul id ="searched-servers"> 
           {serverArray.map((server) => {
             return (<li
