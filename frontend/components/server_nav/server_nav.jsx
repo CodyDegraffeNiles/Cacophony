@@ -84,7 +84,8 @@ class ServerNav extends React.Component{
         <div id="server-nav-seperator"/>
         {this.props.servers.map((server, index) => {
           return (
-          <li key={index}>
+          <li 
+          key={index}>
             <Link 
             to={`/servers/${server.id}/${server.firstChannelId}`} 
             onClick={() => this.props.fetchServer(server.id)}
