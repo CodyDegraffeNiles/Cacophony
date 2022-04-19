@@ -13,7 +13,7 @@ const HomeBody = () => {
           Where just you and a handful of friends can spend time together. 
           A place that makes it easy to talk every day and hang out more often.
           </p>
-          <Link to="/signup"> Don't Just Imagine. Signup!</Link>
+          <Link to="/signup">Don't Just Imagine. Signup!</Link>
         </div>
       </div>
       <div className="white-div">
@@ -48,9 +48,9 @@ const HomeBody = () => {
         </div> 
       </div>
       <div className="grey-sign-up-div">
-        <div> 
+        <div id="sign-up-items"> 
           <h2 className="white-div-header"> Ready to start your journey?</h2>
-          <Link to="/signup"> Begin Today!</Link>
+          <Link to="/signup"> Open Cacophony in the Browser!</Link>
         </div>
       </div>
     </div>

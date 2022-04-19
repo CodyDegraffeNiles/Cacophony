@@ -85,8 +85,7 @@
   padding-bottom: 20px;
 }
 
-#imagine-message a{
-  background-color: white;
+#imagine-message a, #sign-up-items a{
   padding: 12px;
   border: 1px solid white;
   border-radius: 40px;
@@ -94,13 +93,27 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 20px;
+  width: 270px;
+}
+
+#imagine-message a{
+  background-color: white;
 }
 
 #imagine-message a:hover{
   color: #5865F2;
 }
 
-// White Div CSS
+#sign-up-items a{
+  background-color: #5865F2;
+  color: white
+}
+
+#sign-up-items a:hover {
+  filter: brightness(125%);
+}
+
+// White/Grey divs CSS
 
 .white-div, .grey-div{
   height: 100vh;
@@ -169,6 +182,14 @@
   font-size: 20px;
 }
 
+#sign-up-items{
+  padding-top: 50px;
+  text-align: center;
+}
+
+#sign-up-items h2{
+  padding-bottom: 50px;
+}
 
 // Footer CSS
 #footer{
@@ -220,7 +241,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 
