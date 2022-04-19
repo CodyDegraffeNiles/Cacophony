@@ -19,7 +19,7 @@ const HomeBody = () => {
       <div className="white-div">
         <img className="white-div-image-one"/> 
         <div className="white-div-message"> 
-          <h2 className="white-div-header"> Create an invite-only place where you belong</h2>
+          <h2 className="white-div-header">Create a place where you belong</h2>
           <p className="white-div-body">
             Cacophony servers are organized into topic-based channels where you can 
             collaborate, share, and just talk about your day without clogging 
@@ -31,9 +31,9 @@ const HomeBody = () => {
         <div className="white-div-message"> 
           <h2 className="white-div-header"> Where hanging out is easy</h2>
           <p className="white-div-body">
-            Grab a seat in a voice channel when you're free. 
-            Friends in your server can see you're around and instantly pop in to
-            talk without having to call.
+            Real time messasging both in servers and direct messages. You 
+            can both serach for servers to join as well as add server memebers
+            to your diret messages with a click of a button.
           </p>
         </div> 
         <img className="grey-div-image-one"/> 
@@ -43,10 +43,15 @@ const HomeBody = () => {
         <div className="white-div-message"> 
           <h2 className="white-div-header"> From few to a fandom</h2>
           <p className="white-div-body">
-            Get any community running with moderation tools and custom member access. 
-            Give members special powers, set up private channels, and more.
+            Get any community up an running with public or private servers.
           </p>
         </div> 
+      </div>
+      <div className="grey-sign-up-div">
+        <div> 
+          <h2 className="white-div-header"> Ready to start your journey?</h2>
+          <Link to="/signup"> Begin Today!</Link>
+        </div>
       </div>
     </div>
   )

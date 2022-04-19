@@ -36,6 +36,10 @@ const Footer = () => {
           <i className="fa-brands fa-discord fa-xl"/>
           <span id="site-name"> Cacophony </span>
         </div>
+        <div id= "disclaimer">
+          <p> All images used are property of Discord.</p>
+          <p> Used under Fair Use </p>
+        </div>
         <div id = "singup-footer">
         <Link to ="/signup">Sign Up</Link>
         </div>
