@@ -6,6 +6,7 @@ class ServerSearch extends React.Component{
     this.state = {
       servers: "",
     }
+    this.handleJoin = this.handleJoin.bind(this)
   }
 
   componentDidMount(){
@@ -55,9 +56,9 @@ class ServerSearch extends React.Component{
                 </div>
                 <span>{server.name}</span>
               </div>
-              <button onClick={() => this.handleJoin(server.id, server.firstChannelId)}>
-              Join 
-              </button>
+              <form onSubmit={() => this.handleJoin(server.id, server.firstChannelId)}>
+                <button className="server-join-button" type="submit">Join</button>
+              </form>
             </li>)
           })}
         </ul>
