@@ -85,6 +85,7 @@ class ServerNav extends React.Component{
         {this.props.servers.map((server, index) => {
           return (
           <li 
+          className= "server-bubble"
           key={index}>
             <Link 
             to={`/servers/${server.id}/${server.firstChannelId}`} 
@@ -92,6 +93,7 @@ class ServerNav extends React.Component{
           > 
               <p className="server-inital"> {server.name.charAt(0)} </p> 
             </Link>
+            <div className="server-tool-name">{server.name}</div>
           </li>
           )
         })}
