@@ -180,9 +180,9 @@
   background: rgb(40, 45, 50);
 }
 
-// Modals for Channel Edit
+// Modals for Channel Edit and server name edit
 
-.channel-edit-modal{
+.channel-edit-modal, #server-edit-modal{
   z-index: 3;
   position: absolute;
   top: 0;
@@ -202,6 +202,11 @@
   background-color: transparent;
   transform: translate(-75px, 0px)
 }
+// Server Edit Form
+#server-edit-modal{
+  transform: translate(-80px, -84px);
+}
+
 // Channel Edit Form
 #channel-form{
   position: absolute;

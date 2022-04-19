@@ -62,8 +62,8 @@ class EditServerForm extends React.Component{
   renderServerNameEdit(){
     if(!this.state.serverName){
       return (
-        <div id="double-channel-modal-container" onSubmit={() => this.handleServerEdit()}>
-          <div id="channel-edit-modal" onClick={() => this.closeForm()}/> 
+        <div id="double-server-modal-container" onSubmit={() => this.handleServerEdit()}>
+          <div id="server-edit-modal" onClick={() => this.closeForm()}> </div> 
           <EditServerNameFormContainer
           server = {this.props.server}
           />
