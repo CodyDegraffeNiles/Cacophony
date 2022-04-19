@@ -111,14 +111,22 @@ class ChannelNav extends React.Component{
 
   // Render Channel Edit Button
 
-  renderChannelEditButton(channel){
-      if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
+  renderChannelEditButton(channelName){
+
+      if(this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName !== "general"){
         return(
         <i className="fa-solid fa-gear fa-2xs"
         onClick ={this.toggleEdits("channelEdit")}
         ></i>
         )
-    }  else {return(null)}
+    } else if ((this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName === "general")){
+      return (<i className="fa-solid fa-gear fa-2xs"
+        onClick ={() => {alert("Update Disabled for General Channel")}}
+        ></i>
+        )
+    }else {
+      return(null)
+    }
   }
 
   renderChannelEditForm(){
@@ -135,6 +143,7 @@ class ChannelNav extends React.Component{
             firstChannelId= {this.props.server.firstChannelId}
             currentChannelId = {this.props.currentChannelId}
             />
+          <button id="channel-exit-x" onClick={() => this.closeForm("channelEdit")}><i className="fa-solid fa-xmark"/></button>
         </div>
       </div>
       )
@@ -171,21 +180,22 @@ class ChannelNav extends React.Component{
               to={`/servers/${this.props.server.id}/${channel.id}`} 
               onClick={() => this.props.fetchChannel(channel.id)}
               className="channel-nav-link"
+              key = {channel.id}
           >
             <li 
               onClick={ () => this.setChannelId(channel.id, channel.name)}
-              key={channel.id} 
               className="channel-nav-item">
               <div>
                 <i className="fa-solid fa-hashtag fa-sm"/>
                 {channel.name}
               </div>
-              {this.renderChannelEditButton()}
+            {this.renderChannelEditButton(channel.name)}
             {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
             </li>
           </Link>
           )
-        }})}
+        }
+        })}
         </ul>
         {/* Can Render Create Channel Form out here as you do not need any channel params */}
         {this.renderChannelCreateForm()}
