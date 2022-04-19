@@ -100,9 +100,9 @@
   color: #5865F2;
 }
 
-// Second Div CSS
+// White Div CSS
 
-#second-div{
+.white-div{
   height: 100vh;
   width: 90vw;
   max-height: 600px;
@@ -114,34 +114,41 @@
   align-items: center;
 }
 
-#second-div-image{
-  content: image_url("div2.png")
+.white-div-image-one{
+  content: image_url("white1.svg")
 }
 
-@media only screen and (max-width: 950px) {
-  #second-div-image {
+.white-div-image-two{
+  content: image_url("white2.svg")
+}
+
+@media only screen and (max-width: 1015px) {
+  .white-div-image-one{
     display: none;
   }
-  #second-div-message, #second-div-header {
+  .white-div-image-two{
+    display: none
+  }
+  .white-div-message, .white-div-header {
     width: 80vw
   }
-  #second-div {
+  .white-div {
   display: block;
   }
 }
 
-#second-div-message{
+.white-div-message{
   width: 35%;
 }
 
-#second-div-header{
+.white-div-header{
   color: black;
   font-weight: bolder; 
   font-size: 48px;
   padding-bottom: 25px;
 }
 
-#second-div-body{
+.white-div-body{
   font-size: 20px;
 }
 

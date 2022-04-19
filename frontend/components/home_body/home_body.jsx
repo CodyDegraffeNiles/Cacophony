@@ -16,14 +16,24 @@ const HomeBody = () => {
           <Link to="/signup"> Don't Just Imagine. Signup!</Link>
         </div>
       </div>
-      <div id= "second-div">
-        <img id="second-div-image"/> 
-        <div id="second-div-message"> 
-          <h2 id="second-div-header"> Create an invite-only place where you belong</h2>
-          <p id="second-div-body">
+      <div className="white-div">
+        <img className="white-div-image-one"/> 
+        <div className="white-div-message"> 
+          <h2 className="white-div-header"> Create an invite-only place where you belong</h2>
+          <p className="white-div-body">
             Cacophony servers are organized into topic-based channels where you can 
             collaborate, share, and just talk about your day without clogging 
             up a group chat.
+          </p>
+        </div> 
+      </div>
+      <div className="white-div"> 
+        <img className="white-div-image-two"/> 
+        <div className="white-div-message"> 
+          <h2 className="white-div-header"> From few to a fandom</h2>
+          <p className="white-div-body">
+            Get any community running with moderation tools and custom member access. 
+            Give members special powers, set up private channels, and more.
           </p>
         </div> 
       </div>
