@@ -1,7 +1,7 @@
 import React from "react";
 import HomeNav from "../home_nav/home_nav";
 import HomeBody from "../home_body/home_body"
-import FooterNav from "../footer_nav/footer_nav"
+import Footer from "../footer_nav/footer_nav"
 
 
 class HomePage extends React.Component{
@@ -14,7 +14,7 @@ class HomePage extends React.Component{
       <div>
         <HomeNav/> 
         <HomeBody/>
-        <FooterNav/>
+        <Footer/>
       </div>
     )
   }

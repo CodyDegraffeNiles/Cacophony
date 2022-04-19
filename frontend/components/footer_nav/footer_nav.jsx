@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 
-const FooterNav = () => {
+const Footer = () => {
   return(
     <div id= "footer">
       <div id="footer-body"> 
@@ -46,4 +46,4 @@ const FooterNav = () => {
 
 
 
-export default FooterNav
+export default Footer
