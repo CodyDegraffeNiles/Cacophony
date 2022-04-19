@@ -45,7 +45,6 @@ class EditServerForm extends React.Component{
 
   openForm(){
     this.setState({["serverName"]: true})
-    console.log(this.state.serverName)
   }
 
   closeForm(){
@@ -60,7 +59,7 @@ class EditServerForm extends React.Component{
 
 
   renderServerNameEdit(){
-    if(!this.state.serverName){
+    if(this.state.serverName){
       return (
         <div id="double-server-modal-container" onSubmit={() => this.handleServerEdit()}>
           <div id="server-edit-modal" onClick={() => this.closeForm()}> </div> 

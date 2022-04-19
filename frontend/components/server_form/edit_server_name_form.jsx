@@ -41,29 +41,31 @@ class EditServerNameForm extends React.Component{
     }
 
     let serverName  = this.props.errors.includes("Name can't be blank") ?
-      <span id="server-update-error"> Name cannot be blank</span> :
-    "Name";
+      <p id="channel-error-name"> Name cannot be blank</p> :
+    <p id="channel-form-name"> Name </p>  ;
 
     if (this.props.errors.includes("Name has already been taken")){
-      serverName = <span id="server-update-error"> Name already being used </span> 
+      serverName = <p id="channel-error-name"> Name already being used </p> 
     }
 
     // Create different edit forms for the owner and a member
     return (
-      <div id="channel-form">
+      <div id="server-name-form">
         <form onSubmit={this.handleSubmit}>
           <div id ="channel-form-header"> 
-          <h5>Edit Server</h5>
+            <h5>Edit Server</h5>
           </div>
           {serverName}
-          <input 
-          autoFocus
-          id= "edit-server-name"
-          type="text"
-          value={this.state.name}
-          onChange={this.handleName("name")}
-          /> 
-        <button type="submit"> Update Server Name </button>
+          <div id ="channel-form-name-input-container">
+            <input 
+            autoFocus
+            type="text"
+            value={this.state.name}
+            onChange={this.handleName("name")}
+            id ="channel-form-name-input"
+            />
+          </div>
+          <button type="submit" id="channel-edit-submit"> Update Server Name </button>
         </form>
       </div>
     )

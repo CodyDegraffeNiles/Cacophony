@@ -192,6 +192,14 @@
   background-color: rgba(10, 10, 10, .9);
 }
 
+#server-edit-modal {
+  transform: translate(-80px, -84px);
+}
+
+
+
+
+
 #double-channel-modal-container {
   z-index: 4;
   position: absolute;
@@ -202,24 +210,27 @@
   background-color: transparent;
   transform: translate(-75px, 0px)
 }
-// Server Edit Form
-#server-edit-modal{
-  transform: translate(-80px, -84px);
-}
 
-// Channel Edit Form
-#channel-form{
+// Channel Edit Form and Server Name Form
+#channel-form, #server-name-form{
   position: absolute;
   top: 0px;
   left: 0px;
   transform: translate(calc(50vw - 200px), calc(40vh - 100px));
   width: 400px;
-  height: 300px;
   background: rgb(55,57,62);
   border: 1px solid rgb(55,57,62);
   border-radius: 5px;
   color: black; 
   z-index: 10;
+}
+
+#channel-form {
+  height: 300px;
+}
+
+#server-name-form {
+  height: 200px;
 }
 
 // Channel Edit Form Components

@@ -96,7 +96,7 @@ class ChannelForm extends React.Component{
       channelName = <p id="channel-error-name"> CHANNEL NAME: NAME ALREADY IN USE</p>}
 
     // Button Message 
-    let submitButton = <button id='channel-edit-submit' type="submit">{this.props.formType}</button>
+    let submitButton = <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
 
     return (
     <div id="channel-form"> 
