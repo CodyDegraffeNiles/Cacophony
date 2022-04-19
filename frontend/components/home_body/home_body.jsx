@@ -27,6 +27,17 @@ const HomeBody = () => {
           </p>
         </div> 
       </div>
+      <div className="grey-div"> 
+        <div className="white-div-message"> 
+          <h2 className="white-div-header"> Where hanging out is easy</h2>
+          <p className="white-div-body">
+            Grab a seat in a voice channel when you're free. 
+            Friends in your server can see you're around and instantly pop in to
+            talk without having to call.
+          </p>
+        </div> 
+        <img className="grey-div-image-one"/> 
+      </div>
       <div className="white-div"> 
         <img className="white-div-image-two"/> 
         <div className="white-div-message"> 
