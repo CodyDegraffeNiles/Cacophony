@@ -4,6 +4,42 @@
   background-color: rgb(56, 57, 62);
 }
 
+
+#user-side-nav{
+  position: absolute;
+  height: 100vh;
+  width: 225px;
+  background-color: rgb(48,49,54);
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(186, 186, 186)
+}
+
+.user-side-nav-item{
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.user-side-nav-item:hover{
+  color: rgb(225,225,225);
+  background-color:rgb(56, 57, 62);
+  border-radius: 5px;
+}
+
+#user-side-nav-list a{
+  text-decoration: none;
+  color: rgb(186, 186, 186)
+}
+.fa-arrow-right {
+  background-color: rgb(186, 186, 186);
+  color: rgb(56, 57, 62);
+  position: relative;
+  transform: translate(125px, 0px);
+}
+
+
 #user-top{
   background-color: rgb(56, 57, 62) ;
   display: flex;
@@ -11,7 +47,6 @@
   align-items: center;
   padding: 5px;
 }
-
 
 #user-top h3{
   font-size: 18px;
@@ -116,9 +151,4 @@
 
 #logout-button:hover{
   filter: brightness(90%)
-}
-
-.fa-arrow-right{
-  background-color: rgb(225, 225, 225);
-  color: rgb(56,57,62)
 }

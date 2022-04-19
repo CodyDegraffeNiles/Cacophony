@@ -13,7 +13,7 @@ class UserProfile extends React.Component{
     e.stopPropagation();
     if(this.props.user.email === "KoalaDemo2@caveman.com") {return}
     this.props.update(this.state);
-    // Send back to homepag 
+    // Send back to homepage
     this.props.history.push("/servers/@me")
   }
 
@@ -35,6 +35,21 @@ class UserProfile extends React.Component{
     "Update Button(Disabled for Demo)" : "Update User"
     return(
       <div id = "user-profile">
+      <div id="user-side-nav"> 
+        <ul id="user-side-nav-list">
+          <Link to={`/users/${this.props.user.id}`}> 
+            <li className = "user-side-nav-item"> My Account </li>
+          </Link>
+          <Link to={`/servers/@me`}> 
+            <li className = "user-side-nav-item"> My Direct Messages</li>
+          </Link>
+          <li className = "user-side-nav-item" onClick={() => this.props.logout()}> 
+            <span>Log Out</span>
+              <i className="fa-solid fa-arrow-right"></i>
+          </li>
+        </ul>
+
+      </div>
         <div id = "user-profile-content">
           <div id="user-top"> 
             <h3> My Account</h3>
@@ -62,9 +77,6 @@ class UserProfile extends React.Component{
           </form>
           <div id = "leave-buttons">
             {deleteButton}
-            <button id ="logout-button" onClick={() => this.props.logout()}> Log Out 
-              <i className="fa-solid fa-arrow-right"></i>
-            </button>
           </div>
         </div>
       </div>
