@@ -2,14 +2,15 @@
 #home-nav{
   display: flex;
   justify-content: space-between;
-  padding-left: 5%;
-  padding-right: 5%;
   background-color: rgb(64, 78, 237);
   color: white;
   padding-top: 25px;
   padding-bottom: 25px;
+  padding-right: 5vw;
+  padding-left: 5vw;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  width: calc(90vw);
 }
 
 #site-name{
@@ -21,8 +22,7 @@
   justify-content: space-evenly;
 }
 
-
-#home-nav-links .link {
+.link{
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -30,44 +30,47 @@
   font-size: 16px;
 }
 
-#home-nav a:hover{
+#home-nav a:hover, .footer-list a:hover{
   text-decoration: underline;
 }
 
 #login a{
   background-color: white;
-  padding: 12px;
   border: 1px solid white;
   border-radius: 40px;
   color: black;
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
+  padding: 12px;
 }
 
 #login a:hover{
   color: #5865F2;
-}
-
-#first-home-image{
-  content: image_url('home2.png');
-  width: 100%;
-  height: 100%;
+  text-decoration: none;
 }
 
 #first-div {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  max-height: 600px;
   color: white;
+  background-image: image_url('home2.png');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #imagine-message{
-  position: absolute;
+  position: relative;
+  text-align: center;
+  width: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-45%, -80%);
 }
 
 #imagine-header{
@@ -82,8 +85,7 @@
   padding-bottom: 20px;
 }
 
-#imagine-message a{
-  background-color: white;
+#imagine-message a, #sign-up-items a{
   padding: 12px;
   border: 1px solid white;
   border-radius: 40px;
@@ -91,9 +93,174 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 20px;
+  width: 270px;
+}
+
+#imagine-message a{
+  background-color: white;
 }
 
 #imagine-message a:hover{
   color: #5865F2;
 }
 
+#sign-up-items a{
+  background-color: #5865F2;
+  color: white
+}
+
+#sign-up-items a:hover {
+  filter: brightness(125%);
+}
+
+// White/Grey divs CSS
+
+.white-div, .grey-div{
+  height: 100vh;
+  width: 90vw;
+  max-height: 600px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grey-sign-up-div{
+  height: 100vh;
+  width: 90vw;
+  max-height: 300px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.white-div{
+  background-color: white;
+}
+
+.grey-div, .grey-sign-up-div{
+  background-color: rgb(246,246,246) ;
+}
+
+.white-div-image-one{
+  content: image_url("white1.svg")
+}
+
+.white-div-image-two{
+  content: image_url("white2.svg")
+}
+
+.grey-div-image-one{
+  content: image_url("grey1.svg")
+}
+
+@media only screen and (max-width: 1015px) {
+  .white-div-image-one, .white-div-image-two, .grey-div-image-one{
+    display: none;
+  }
+
+  .white-div-message, .white-div-header {
+    width: 80vw
+  }
+  .white-div {
+  display: block;
+  }
+}
+
+.white-div-message{
+  width: 35%;
+}
+
+.white-div-header{
+  color: black;
+  font-weight: bolder; 
+  font-size: 48px;
+  padding-bottom: 25px;
+}
+
+.white-div-body{
+  font-size: 20px;
+}
+
+#sign-up-items{
+  padding-top: 50px;
+  text-align: center;
+}
+
+#sign-up-items h2{
+  padding-bottom: 50px;
+}
+
+// Footer CSS
+#footer{
+  height: 30vw;
+  min-height: 400px;
+  width: 90vw;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  background-color: rgb(35,39,42);
+  color: white;
+}
+
+#footer-body{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-bottom: 5vw;
+  padding-top: 5vw;
+  border-bottom: 1px solid #5865F2
+}
+
+#footer-message{
+  color: #5865F2;
+  font-weight: 900;
+  font-size: 32px;
+  width: 200px;
+}
+
+#footer-nav{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-top: 20px;
+}
+
+#singup-footer a{
+  background-color: #5865F2;
+  border: 1px solid #5865F2;
+  border-radius: 40px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 12px;
+}
+
+#singup-footer a:hover {
+  filter: brightness(125%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.footer-list {
+  color: #5865F2
+}
+
+.footer-list li{
+  padding-top: 15px;
+}
+
+#disclaimer{
+  text-align: center;
+}
+
+#disclaimer p
+
+.sign-up-div-header{
+  color: black;
+  font-weight: bold;
+  font-size: 32px;
+  padding-bottom: 25px;
+}
