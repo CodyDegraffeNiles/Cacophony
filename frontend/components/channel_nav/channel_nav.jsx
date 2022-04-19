@@ -121,7 +121,7 @@ class ChannelNav extends React.Component{
         )
     } else if ((this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName === "general")){
       return (<i className="fa-solid fa-gear fa-2xs"
-        onClick ={() => {alert("Update Disabled for General Channel")}}
+        onClick ={() => {alert("Update disabled for the general channel")}}
         ></i>
         )
     }else {
