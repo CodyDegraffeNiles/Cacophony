@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CreateServerForm from "../server_from/create_server_form_container";
+import CreateServerForm from "../server_form/create_server_form_container";
 
 class UserNav extends React.Component{
   constructor(props){

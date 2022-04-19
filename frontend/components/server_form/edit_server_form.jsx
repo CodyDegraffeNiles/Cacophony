@@ -1,4 +1,5 @@
 import React from "react";
+import EditServerNameFormContainer from "./edit_server_name_form_container";
 
 class EditServerForm extends React.Component{
   constructor(props){
@@ -7,19 +8,18 @@ class EditServerForm extends React.Component{
       id: this.props.server.id,
       name: this.props.server.name,
       owner_id: this.props.server.owner_id,
-      public: this.props.server.public
+      public: this.props.server.public,
+      serverName: false,
+
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.openForm = this.openForm.bind(this)
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchServer();
-  }
-
-  componentWillUnmount(){
-    this.props.removeErrors();
   }
 
   componentDidUpdate(prevProps){
@@ -29,19 +29,6 @@ class EditServerForm extends React.Component{
       this.setState({["owner_id"]: this.props.server.owner_id})
       this.setState({["public"]: this.props.server.public})
     }
-  }
-
-  // Handle Submission of the from for name edit
-
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.action(this.state);
-  }
-
-  // Handle changes in the name state
-
-  handleName(type){
-    return (e) => {this.setState({[type]: e.currentTarget.value})}
   }
 
   // handle proper redirect after deletion of a server - Push to user homepage
@@ -55,6 +42,37 @@ class EditServerForm extends React.Component{
     this.props.deleteMembership(membership);
     this.props.history.push('/servers/@me');
   }
+
+  openForm(){
+    this.setState({["serverName"]: true})
+  }
+
+  closeForm(){
+    this.setState({["serverName"]: false})
+  }
+
+  handleServerEdit(){
+    // setTimeout Mimics a promise across divs/components
+    let that = this;
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 200)
+  }
+
+
+  renderServerNameEdit(){
+    if(this.state.serverName){
+      return (
+        <div id="double-server-modal-container" onSubmit={() => this.handleServerEdit()}>
+          <div id="server-edit-modal" onClick={() => this.closeForm()}> </div> 
+          <EditServerNameFormContainer
+          server = {this.props.server}
+          />
+          <button id="channel-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
+      </div>
+
+      )
+    }
+  }
+
   
   render(){
     // Only render when user clicks the drop down menu next to server name
@@ -62,31 +80,14 @@ class EditServerForm extends React.Component{
       return null
     }
 
-    let errorMessage  = this.props.errors.includes("Name can't be blank") ?
-      <span id="server-update-error"> Name cannot be blank</span> :
-    null;
-
-    if (this.props.errors.includes("Name has already been taken")){
-      errorMessage = <span id="server-update-error"> Name already being used </span> 
-    }
-
     // Create different edit forms for the owner and a member
     // Owner
     if (this.props.type === "owner"){ 
     return (
     <div id="edit-server-form"> 
-        {errorMessage}
-      <form onSubmit={this.handleSubmit}>
-          <input 
-          autoFocus
-          id= "edit-server-name"
-          type="text"
-          value={this.state.name}
-          onChange={this.handleName("name")}
-          /> 
-          <button id="update-server-name"type="submit">Update Server Name</button>
-      </form>
+      <button id="update-server-name" onClick={() => this.openForm()}>Edit Server</button>
       <button id="delete-server" onClick={() => this.handleDelete()}>Delete Server</button>
+      {this.renderServerNameEdit()}
     </div>
     )
     } // Member

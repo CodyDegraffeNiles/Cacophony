@@ -1,6 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import CreateServerFormContainer from "../server_from/create_server_form_container";
+import CreateServerFormContainer from "../server_form/create_server_form_container";
 import ServerSearchContainer from "../server_search/server_search_container";
 
 class ServerNav extends React.Component{
@@ -62,11 +62,13 @@ class ServerNav extends React.Component{
     if (this.state.search){
       return (
       <div> 
-        <div id = "modal-container" onClick={() => this.closeForm()}> </div>
-        <ServerSearchContainer show={true}/>
-        <button id="server-exit-x" onClick={() => this.closeForm()}>
-          <i className="fa-solid fa-xmark"/>
-        </button>
+        <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
+          <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+          <ServerSearchContainer show={true}/>
+          <button id="server-exit-x" onClick={() => this.closeForm()}>
+            <i className="fa-solid fa-xmark"/>
+          </button>
+      </div>
       </div>
       )
     }
@@ -81,15 +83,19 @@ class ServerNav extends React.Component{
               <i className="fa-brands fa-discord home-bubble"/>
             </Link> 
           </li>
+        <div id="server-nav-seperator"/>
         {this.props.servers.map((server, index) => {
           return (
-          <li key={index}>
+          <li 
+          className= "server-bubble"
+          key={index}>
             <Link 
             to={`/servers/${server.id}/${server.firstChannelId}`} 
             onClick={() => this.props.fetchServer(server.id)}
           > 
               <p className="server-inital"> {server.name.charAt(0)} </p> 
             </Link>
+            <div className="server-tool-name">{server.name}</div>
           </li>
           )
         })}

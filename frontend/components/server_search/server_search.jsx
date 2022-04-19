@@ -6,6 +6,7 @@ class ServerSearch extends React.Component{
     this.state = {
       servers: "",
     }
+    this.handleJoin = this.handleJoin.bind(this)
   }
 
   componentDidMount(){
@@ -43,7 +44,7 @@ class ServerSearch extends React.Component{
     if (this.props.show){
       return(
       <div id="server-search">
-        <h5 id="server-search-header"> Public Servers Avaliable for You to Join!</h5>
+        <h5 id="server-search-header"> Public Servers Avaliabe to Join!</h5>
         <ul id ="searched-servers"> 
           {serverArray.map((server) => {
             return (<li
@@ -55,9 +56,9 @@ class ServerSearch extends React.Component{
                 </div>
                 <span>{server.name}</span>
               </div>
-              <button onClick={() => this.handleJoin(server.id, server.firstChannelId)}>
-              Join 
-              </button>
+              <form onSubmit={() => this.handleJoin(server.id, server.firstChannelId)}>
+                <button className="server-join-button" type="submit">Join</button>
+              </form>
             </li>)
           })}
         </ul>

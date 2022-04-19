@@ -1,5 +1,5 @@
 import React from 'react'
-import EditServerFormContainer from '../server_from/edit_server_form_container';
+import EditServerFormContainer from '../server_form/edit_server_form_container';
 import CreateChannelFormContainer from '../channel_forms/create_channel_form_container';
 import EditChannelFormContainer from '../channel_forms/edit_channel_form_container'
 import { Link} from "react-router-dom";
@@ -52,21 +52,20 @@ class ChannelNav extends React.Component{
     if(!this.state.noShow && this.props.currentUserId === this.props.server.ownerId){
       return (
         <div>
-          <div id="edit-modal-container-submit" onSubmit={() => this.handleServerEdit()}>
-            <div id="edit-modal-container" onClick={() => this.closeForm("noShow")}> </div>
-            <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
-          </div> 
-      </div>)
+            <div onSubmit={() => this.closeForm("noShow")}> 
+              <div id="edit-modal-container" onClick={() => this.closeForm("noShow")}/> 
+              <EditServerFormContainer noShow = {this.state.noShow} type = "owner"/>
+            </div>
+        </div>)
     } else if (this.state.noShow){
       return null;
     } else {
       return (
       <div> 
-          <div id="edit-modal-container" onSubmit={() => this.closeForm("noShow")}>
             <div id="edit-modal-container" onClick={() => this.closeForm("noShow")}> </div>
           <EditServerFormContainer noShow = {this.state.noShow} type = "member"/>
-        </div>
-      </div>)
+      </div>
+      )
     }
   }
   // Render Channel button
@@ -90,7 +89,6 @@ class ChannelNav extends React.Component{
       <div>
         <div id="double-channel-modal-container" onSubmit = {() => this.handleSubmit("channelCreate")}> 
           <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
-          <div> </div>
           (<CreateChannelFormContainer
           channelName = {""} 
           serverId = {this.props.server.id}
@@ -112,14 +110,22 @@ class ChannelNav extends React.Component{
 
   // Render Channel Edit Button
 
-  renderChannelEditButton(channel){
-      if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
+  renderChannelEditButton(channelName){
+
+      if(this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName !== "general"){
         return(
         <i className="fa-solid fa-gear fa-2xs"
         onClick ={this.toggleEdits("channelEdit")}
         ></i>
         )
-    }  else {return(null)}
+    } else if ((this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName === "general")){
+      return (<i className="fa-solid fa-gear fa-2xs"
+        onClick ={() => {alert("Update disabled for the general channel")}}
+        ></i>
+        )
+    }else {
+      return(null)
+    }
   }
 
   renderChannelEditForm(){
@@ -136,6 +142,7 @@ class ChannelNav extends React.Component{
             firstChannelId= {this.props.server.firstChannelId}
             currentChannelId = {this.props.currentChannelId}
             />
+          <button id="channel-exit-x" onClick={() => this.closeForm("channelEdit")}><i className="fa-solid fa-xmark"/></button>
         </div>
       </div>
       )
@@ -149,6 +156,7 @@ class ChannelNav extends React.Component{
     if (this.props.server) {
     return (
       <div id="channel-nav"> 
+      <div id="channel-line-across-top"/> 
         <div id="channel-nav-server-name">
           <h5>{this.props.server.name}</h5> 
           <i className="fa-solid fa-chevron-down"
@@ -167,23 +175,26 @@ class ChannelNav extends React.Component{
           // Fail Safe for rouge channels running around
           if (channel.serverId === this.props.server.id) {
           return (
-          <li 
-          onClick={ () => this.setChannelId(channel.id, channel.name)}
-          key={channel.id} 
-          className="channel-nav-item">
-            <div>
-              <Link 
+          <Link 
               to={`/servers/${this.props.server.id}/${channel.id}`} 
               onClick={() => this.props.fetchChannel(channel.id)}
-              >
-                <i className="fa-solid fa-hashtag fa-sm"></i>{channel.name}
-              </Link>
-            </div>
-            {this.renderChannelEditButton()}
-          {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
-          </li>
+              className="channel-nav-link"
+              key = {channel.id}
+          >
+            <li 
+              onClick={ () => this.setChannelId(channel.id, channel.name)}
+              className="channel-nav-item">
+              <div>
+                <i className="fa-solid fa-hashtag fa-sm"/>
+                {channel.name}
+              </div>
+            {this.renderChannelEditButton(channel.name)}
+            {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
+            </li>
+          </Link>
           )
-        }})}
+        }
+        })}
         </ul>
         {/* Can Render Create Channel Form out here as you do not need any channel params */}
         {this.renderChannelCreateForm()}

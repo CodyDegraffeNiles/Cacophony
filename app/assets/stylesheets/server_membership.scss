@@ -80,3 +80,22 @@
   background-color: rgb(60, 165, 92);
 }
 
+
+#server-members-list{
+  overflow-y: auto;
+  height: calc(100vh - 80px)
+}
+
+#server-members-list::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+#server-members-list::-webkit-scrollbar-thumb {
+  background: rgb(30, 35, 40);
+  border-radius: 5px;
+}
+
+#server-members-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgb(40, 45, 50);
+}

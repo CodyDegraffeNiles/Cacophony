@@ -8,7 +8,8 @@
   width: 225px;
   padding-left: 5px;
   padding-right: 5px;
-  transform: translate(75px, 0px)
+  transform: translate(75px, 0px);
+  z-index: 1;
 }
 
 #channel-nav h5{
@@ -49,11 +50,7 @@
   cursor: pointer;
 }
 
-#leave-server{
-  transform: translate(80px, 25px);
-}
-
-#delete-server, #update-server-name{
+#delete-server {
   border-top: .15px solid lightgray
 }
 
@@ -138,13 +135,11 @@
   background-color: rgb(58, 60, 67);
 }
 
-.channel-nav-item a{
+.channel-nav-link{
   border-radius: 5px;
   text-decoration: none;
   color: rgb(145,145,145);
 }
-
-
 
 // Padding for Font Asweome Icons
 .fa-plus { 
@@ -162,9 +157,29 @@
   padding-right: 10px;
 }
 
-// Modals for Channel Edit
+#channel-nav-list{
+  overflow-y: auto;
+  height: calc(100vh - 175px)
+}
 
-.channel-edit-modal{
+#channel-nav-list::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+#channel-nav-list::-webkit-scrollbar-thumb {
+  background: rgb(30, 35, 40);
+  border-radius: 5px;
+}
+
+#channel-nav-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgb(40, 45, 50);
+}
+
+// Modals for Channel Edit and server name edit
+
+.channel-edit-modal, #server-edit-modal{
+  z-index: 3;
   position: absolute;
   top: 0;
   left: 0;
@@ -173,8 +188,16 @@
   background-color: rgba(10, 10, 10, .9);
 }
 
+#server-edit-modal {
+  transform: translate(-80px, -84px);
+}
+
+
+
+
+
 #double-channel-modal-container {
-  z-index: 3;
+  z-index: 4;
   position: absolute;
   top: 0;
   left: 0;
@@ -183,19 +206,27 @@
   background-color: transparent;
   transform: translate(-75px, 0px)
 }
-// Channel Edit Form
-#channel-form{
+
+// Channel Edit Form and Server Name Form
+#channel-form, #server-name-form{
   position: absolute;
   top: 0px;
   left: 0px;
   transform: translate(calc(50vw - 200px), calc(40vh - 100px));
   width: 400px;
-  height: 300px;
   background: rgb(55,57,62);
   border: 1px solid rgb(55,57,62);
   border-radius: 5px;
   color: black; 
   z-index: 10;
+}
+
+#channel-form {
+  height: 300px;
+}
+
+#server-name-form {
+  height: 200px;
 }
 
 // Channel Edit Form Components
@@ -301,4 +332,5 @@
   border: none;
   font-size: 20px;
   background-color: transparent;
+  cursor: pointer;
 }
