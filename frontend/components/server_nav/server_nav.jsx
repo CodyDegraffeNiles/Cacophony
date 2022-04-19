@@ -62,11 +62,13 @@ class ServerNav extends React.Component{
     if (this.state.search){
       return (
       <div> 
-        <div id = "modal-container" onClick={() => this.closeForm()}> </div>
-        <ServerSearchContainer show={true}/>
-        <button id="server-exit-x" onClick={() => this.closeForm()}>
-          <i className="fa-solid fa-xmark"/>
-        </button>
+        <div id="double-modal-container" onSubmit = {() => this.closeForm()}> 
+          <div id = "modal-container" onClick={() => this.closeForm()}> </div>
+          <ServerSearchContainer show={true}/>
+          <button id="server-exit-x" onClick={() => this.closeForm()}>
+            <i className="fa-solid fa-xmark"/>
+          </button>
+      </div>
       </div>
       )
     }
