@@ -37,9 +37,7 @@
 
 #server-nav-list li{
   padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 50px;
 }
 
 .home-bubble{
@@ -311,13 +309,12 @@
 // Server Nav Tool tip for server name
 .server-bubble .server-tool-name{
   visibility: hidden;
-  position: absolute;
+  position: relative;
   background-color: rgb(25,25,25);
   color: rgb(255,255,255);
   border-radius: 5px;
   width: 75px;
   text-align: left;
-  transform: translate(90px, 0px);
   padding: 5px;
   z-index: 2;
   font-weight: bolder;
