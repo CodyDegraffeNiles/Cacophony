@@ -11,13 +11,13 @@ const HomeNav = () => {
         <span id="site-name"> Cacophony </span>
       </div>
       <div id="home-nav-links"> 
-        <a className = "link" href="https://github.com/CodyDegraffeNiles"  
+        <a className="link" href="https://github.com/CodyDegraffeNiles"  
           target="_blank"> Github </a>
-        <a  className = "link" href="https://www.linkedin.com/in/cody-degraffe-niles-366310235/" 
+        <a  className="link" href="https://www.linkedin.com/in/cody-degraffe-niles-366310235/" 
           target="_blank"> LinkedIn  </a>
-        <a className ="link" href="https://angel.co/u/cody-degraffe-niles" target="_blank"> 
+        <a className="link" href="https://angel.co/u/cody-degraffe-niles" target="_blank"> 
           AngelList </a>
-        <a className ="link" href="https://codydegraffeniles.github.io/CodyDegraffeNiles.github.io-/" target="_blank"> 
+        <a className="link" href="https://codydegraffeniles.github.io/CodyDegraffeNiles.github.io-/" target="_blank"> 
           Portfolio </a>
       </div>
       <div id = "login">

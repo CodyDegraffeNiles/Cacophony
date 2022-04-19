@@ -14,7 +14,7 @@ class HomePage extends React.Component{
       <div>
         <HomeNav/> 
         <HomeBody/>
-        {/* <FooterNav/> */}
+        <FooterNav/>
       </div>
     )
   }
