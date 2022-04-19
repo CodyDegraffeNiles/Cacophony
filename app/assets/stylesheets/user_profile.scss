@@ -4,7 +4,6 @@
   background-color: rgb(56, 57, 62);
 }
 
-
 #user-side-nav{
   position: absolute;
   height: 100vh;
@@ -32,30 +31,12 @@
   text-decoration: none;
   color: rgb(186, 186, 186)
 }
+
 .fa-arrow-right {
   background-color: rgb(186, 186, 186);
   color: rgb(56, 57, 62);
   position: relative;
   transform: translate(125px, 0px);
-}
-
-
-#user-top{
-  background-color: rgb(56, 57, 62) ;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-}
-
-#user-top h3{
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-}
-
-#escape{
-  padding-top: 5px;
 }
 
 #user-exit-x{
@@ -71,30 +52,47 @@
 }
 
 #home-link{
-  text-decoration: none;
+  position: relative;
+  transform: translate(650px, -100px);
   color: white;
+  font-size: 20px;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgb(186,186,186);
+  text-align: center;
 }
 
-
-#esc{
-  margin-left: 4px;
+#esc-link{
+  text-decoration: none;
   color: lightgrey;
+  font-size: 18px;
+}
+
+#esc {
   font-size: 14px;
 }
-
 
 #user-profile-content { 
   background-color: rgb(47, 49, 54);
   border: 0.75px solid rgb(47, 49, 54);
   border-radius: 3px;
   color: lightgray;
-  width: 400px;
-  height: 300px;
-  padding: 10px;
+  width: 660px;
+  height: 400px;
   top: 0;
   left: 0;
   position: absolute;
   transform: translate(30vw, 30vh);
+}
+
+#my-account{
+  position: relative;
+  transform: translate(0px, -75px);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #user-update input {
@@ -125,7 +123,7 @@
 
 #delete-user{
   background-color: transparent;
-  color: red;
+  color: white;
   border: 1px solid red;
   cursor: pointer;
 }

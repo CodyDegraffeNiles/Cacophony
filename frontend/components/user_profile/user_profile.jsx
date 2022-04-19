@@ -38,29 +38,24 @@ class UserProfile extends React.Component{
       <div id="user-side-nav"> 
         <ul id="user-side-nav-list">
           <Link to={`/users/${this.props.user.id}`}> 
-            <li className = "user-side-nav-item"> My Account </li>
+            <li className = "user-side-nav-item">My Account</li>
           </Link>
           <Link to={`/servers/@me`}> 
-            <li className = "user-side-nav-item"> My Direct Messages</li>
+            <li className = "user-side-nav-item">My Direct Messages</li>
           </Link>
           <li className = "user-side-nav-item" onClick={() => this.props.logout()}> 
             <span>Log Out</span>
               <i className="fa-solid fa-arrow-right"></i>
           </li>
         </ul>
-
       </div>
         <div id = "user-profile-content">
-          <div id="user-top"> 
-            <h3> My Account</h3>
-            <div id="esacpe"> 
-              <div id="user-exit-x"> 
-                <Link id="home-link" to="/servers/@me">
-                  <i className="fa-solid fa-xmark"/>
-                </Link> 
-              </div>
+          <h3 id="my-account">My Account</h3>
+          <div id="home-link">
+          <Link id="esc-link" to="/servers/@me">
+              <i className="fa-solid fa-xmark"/>
               <p id="esc">ESC</p>
-            </div>
+            </Link> 
           </div>
           <form id="user-update" onSubmit={this.handleSubmit}> 
             <p>Username </p>  
