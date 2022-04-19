@@ -52,8 +52,6 @@
 }
 
 #home-link{
-  position: relative;
-  transform: translate(650px, -100px);
   color: white;
   font-size: 20px;
   font-weight: bold;
@@ -87,12 +85,26 @@
   transform: translate(30vw, 30vh);
 }
 
+#user-profile-header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(30vw, calc(30vh - 75px));
+  width: 665px;
+  display: flex;
+  justify-content: space-between;
+}
+
 #my-account{
-  position: relative;
-  transform: translate(0px, -75px);
   color: white;
   font-size: 20px;
   font-weight: bold;
+}
+
+
+#user-profile-dark-top{
+  width: 100%;
+  height: 100px;
 }
 
 #user-update input {

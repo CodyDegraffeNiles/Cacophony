@@ -49,14 +49,17 @@ class UserProfile extends React.Component{
           </li>
         </ul>
       </div>
-        <div id = "user-profile-content">
-          <h3 id="my-account">My Account</h3>
+        <div id="user-profile-header"> 
+        <h3 id="my-account">My Account</h3>
           <div id="home-link">
-          <Link id="esc-link" to="/servers/@me">
-              <i className="fa-solid fa-xmark"/>
-              <p id="esc">ESC</p>
+            <Link id="esc-link" to="/servers/@me">
+                <i className="fa-solid fa-xmark"/>
+                <p id="esc">ESC</p>
             </Link> 
           </div>
+        </div>
+        <div id = "user-profile-content">
+          <div id ="user-profile-dark-top"/> 
           <form id="user-update" onSubmit={this.handleSubmit}> 
             <p>Username </p>  
             <input  
