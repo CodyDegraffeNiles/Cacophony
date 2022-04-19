@@ -228,8 +228,6 @@
   padding: 10px;
 }
 
-
-
 // Create a hover effect for my buttons in the create server and 
 // Search server forms
 #searched-servers button:hover, #create-server:hover, 
@@ -298,12 +296,17 @@
 // grey seperator between Home nav and rest of server nav.
 
 #server-nav-seperator{
-    width: 37.5px;
-    height: 2px;
-    text-align: center;
-    background-color: #383a3f;
-    margin: auto;
-    border-radius: 5px;
+  width: 37.5px;
+  height: 2px;
+  background-color: #383a3f;
+  border-radius: 5px;
+  margin-right: 20px;
+  margin-left: 17.5px;
+}
+
+#seperator-container{
+  width: 75px;
+  height: 2px;
 }
 
 // Server Nav Tool tip for server name
@@ -316,9 +319,9 @@
   width: 75px;
   text-align: left;
   padding: 5px;
-  z-index: 1;
-  top: 45%;
-  left: 120%;
+  z-index: 5;
+  top: -50px;
+  left: 75px;
   font-weight: bolder;
 }
 
