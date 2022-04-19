@@ -37,8 +37,12 @@ const Footer = () => {
           <span id="site-name"> Cacophony </span>
         </div>
         <div id= "disclaimer">
+          <div> 
+            <span>Cacophony built by </span>
+              <a className="link" href="https://codydegraffeniles.github.io/CodyDegraffeNiles.github.io-/" target="_blank"> 
+              Cody Degraffe-Niles.</a>
+          </div>
           <p> All images used are property of Discord.</p>
-          <p> Used under Fair Use </p>
         </div>
         <div id = "singup-footer">
         <Link to ="/signup">Sign Up</Link>

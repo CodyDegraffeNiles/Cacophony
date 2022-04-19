@@ -31,9 +31,8 @@ const HomeBody = () => {
         <div className="white-div-message"> 
           <h2 className="white-div-header"> Where hanging out is easy</h2>
           <p className="white-div-body">
-            Real time messasging both in servers and direct messages. You 
-            can both serach for servers to join as well as add server memebers
-            to your diret messages with a click of a button.
+            Real time messasging both in servers and direct messages. You can message
+            any fellow server member with a click of a button. 
           </p>
         </div> 
         <img className="grey-div-image-one"/> 
@@ -43,13 +42,14 @@ const HomeBody = () => {
         <div className="white-div-message"> 
           <h2 className="white-div-header"> From few to a fandom</h2>
           <p className="white-div-body">
-            Get any community up an running with public or private servers.
+            Get any community up and running with public or private servers as well 
+            as search public servers for the perfect fit.
           </p>
         </div> 
       </div>
       <div className="grey-sign-up-div">
         <div id="sign-up-items"> 
-          <h2 className="white-div-header"> Ready to start your journey?</h2>
+          <h2 className="sign-up-div-header"> Ready to start your journey?</h2>
           <Link to="/signup"> Open Cacophony in the Browser!</Link>
         </div>
       </div>
