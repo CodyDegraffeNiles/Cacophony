@@ -2,14 +2,15 @@
 #home-nav{
   display: flex;
   justify-content: space-between;
-  padding-left: 5%;
-  padding-right: 5%;
   background-color: rgb(64, 78, 237);
   color: white;
   padding-top: 25px;
   padding-bottom: 25px;
+  padding-right: 5vw;
+  padding-left: 5vw;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  width: calc(90vw);
 }
 
 #site-name{
@@ -36,38 +37,37 @@
 
 #login a{
   background-color: white;
-  padding: 12px;
   border: 1px solid white;
   border-radius: 40px;
   color: black;
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
+  padding: 12px;
 }
 
 #login a:hover{
   color: #5865F2;
 }
 
-#first-home-image{
-  content: image_url('home2.png');
-  width: 100%;
-  height: 100%;
-}
-
 #first-div {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
   color: white;
+  background-image: image_url('home2.png');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #imagine-message{
-  position: absolute;
+  position: relative;
+  text-align: center;
+  width: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-45%, -80%);
 }
 
 #imagine-header{

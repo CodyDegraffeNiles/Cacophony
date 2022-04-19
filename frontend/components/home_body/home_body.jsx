@@ -5,7 +5,7 @@ const HomeBody = () => {
   return(
     <div>
       <div id="first-div"> 
-        <img id="first-home-image"></img>
+        {/* <img id="first-home-image"></img> */}
         <div id="imagine-message">
           <h1 id="imagine-header">IMAGINE A PLACE...</h1>
           <p id="imagine-text">...where you can belong to a school club, a gaming group, 
