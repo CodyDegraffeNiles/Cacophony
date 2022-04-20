@@ -48,8 +48,7 @@
   height: 100vh;
   transform: translate(310px, 0px);
   background-color: rgb(55, 57, 62);
-  // z-index down due some bug with it override modals
-  z-index: -1;
+  z-index: 0;
 }
 
 
