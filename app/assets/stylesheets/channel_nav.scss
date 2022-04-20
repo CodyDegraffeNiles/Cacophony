@@ -178,7 +178,7 @@
 
 // Modals for Channel Edit and server name edit
 
-.channel-edit-modal, #server-edit-modal{
+.channel-edit-modal, #server-edit-modal, .user-edit-modal{
   z-index: 3;
   position: absolute;
   top: 0;
@@ -191,8 +191,6 @@
 #server-edit-modal {
   transform: translate(-80px, -84px);
 }
-
-
 
 
 

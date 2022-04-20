@@ -82,7 +82,7 @@ class ChannelNav extends React.Component{
     }
   };
 
-  // Render Channel Create Form()
+  // Render Channel Create Form
   renderChannelCreateForm(){
     if(this.state.channelCreate){
       return (
