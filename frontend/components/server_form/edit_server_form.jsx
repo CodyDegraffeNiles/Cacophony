@@ -53,15 +53,15 @@ class EditServerForm extends React.Component{
 
   handleServerEdit(){
     // setTimeout Mimics a promise across divs/components
-    let that = this;
-    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 200)
+    // let that = this;
+    // setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 200)
   }
 
 
   renderServerNameEdit(){
     if(this.state.serverName){
       return (
-        <div id="double-server-modal-container" onSubmit={() => this.handleServerEdit()}>
+        <div id="double-server-modal-container">
           <div id="server-edit-modal" onClick={() => this.closeForm()}> </div> 
           <EditServerNameFormContainer
           server = {this.props.server}
