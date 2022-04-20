@@ -14,21 +14,30 @@ class ChannelMessages extends React.Component{
     this.subscription = ""
     this.subscribe = this.subscribe.bind(this)
     this.unsubscribe = this.unsubscribe.bind(this)
+    this.scrollAuto = true;
   }
 
   componentDidMount(){
     this.props.fetchChannel(this.props.channelId);
-    this.subscribe()
+    this.subscribe();
   }
+
+  scrollToBottom = () => {
+    // Fail safe check to make sure placeholder is set.
+    if(this.placeholder){ 
+      this.placeholder.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
 
   // Remove listening post/subscription
   componentWillUnmount(){
-    this.unsubscribe()
+    this.unsubscribe();
   }
 
   // Remove listening post/subscription
   unsubscribe(){
-    this.subscription.unsubscribe()
+    this.subscription.unsubscribe();
   }
 
   // Set Up listening post/subscription 
@@ -126,7 +135,7 @@ class ChannelMessages extends React.Component{
       let messages = this.props.messages;
       let messageIds = this.props.messageIds;
       this.setState({messages});
-      this.setState({messageIds})
+      this.setState({messageIds});
     } 
   }
 
@@ -177,7 +186,8 @@ class ChannelMessages extends React.Component{
             />
           )
         })}
-        
+        <div id="message-placeholder" ref={el=>this.placeholder=el}/>
+        {this.scrollToBottom()}
         </ul>
           <div id = "channel-message-footer-bar">
           <form autoComplete="off" id= "server-message-form" onSubmit={this.handleSubmit}> 

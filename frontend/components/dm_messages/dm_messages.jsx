@@ -23,6 +23,13 @@ class DmMessages extends React.Component{
     this.subscribe()
   }
 
+  scrollToBottom = () => {
+    // Fail safe check to make sure placeholder is set.
+    if(this.placeholder){ 
+      this.placeholder.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   // Remove listening post/subscription
   componentWillUnmount(){
     this.unsubscribe()
@@ -174,6 +181,8 @@ class DmMessages extends React.Component{
                 )
             })
           }
+          <div id="message-placeholder" ref={el=>this.placeholder=el}/>
+          {this.scrollToBottom()}
         </ul>
 
         <div id= "dm-message-footer-bar">
