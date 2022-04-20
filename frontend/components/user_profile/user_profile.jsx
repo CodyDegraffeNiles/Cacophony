@@ -58,9 +58,21 @@ class UserProfile extends React.Component{
             </Link> 
           </div>
         </div>
-        <div id = "user-profile-content">
-          <div id ="user-profile-dark-top"/> 
-          <form id="user-update" onSubmit={this.handleSubmit}> 
+        <div id="user-profile-content">
+          <div id="user-profile-dark-top"/> 
+
+          <div id ="user-info"> 
+            <div className={`user-icon-profile color-${this.props.user.colorId}`}>
+              <i className="fa-brands fa-discord"/>
+              </div>
+            <div id="user-fullname"> 
+              <h4>{this.props.user.username}</h4> 
+              <span>#{this.props.user.numberTag}</span>
+            </div>
+          </div>
+          
+          
+          {/* <form id="user-update" onSubmit={this.handleSubmit}> 
             <p>Username </p>  
             <input  
             type = "text"
@@ -74,8 +86,8 @@ class UserProfile extends React.Component{
             <button type="submit" id="update-user-button">{updateMessage}</button>
           </form>
           <div id = "leave-buttons">
-            {deleteButton}
-          </div>
+            {deleteButton} */}
+          {/* </div> */}
         </div>
       </div>
 
