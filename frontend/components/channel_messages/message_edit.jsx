@@ -1,4 +1,6 @@
 import React from 'react'
+import autosize from 'autosize';
+
 
 
 class MessageEdit extends React.Component{
@@ -6,6 +8,10 @@ class MessageEdit extends React.Component{
     super(props);
     this.state = this.props.message;
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    autosize(this.textarea);
   }
 
   handleBody(){
@@ -25,6 +31,7 @@ class MessageEdit extends React.Component{
         <textarea
         value = {this.state.body}
         onChange={this.handleBody()}
+        ref={c=>this.textarea=c}
         className="edit-message-input"
         placeholder={`${this.state.body}`}
         />
