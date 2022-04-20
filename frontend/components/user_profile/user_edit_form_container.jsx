@@ -2,11 +2,10 @@ import { connect } from "react-redux";
 import UserEditForm from "./user_edit_form";
 import {updateUser, removeErrors } from "../../actions/session_actions";
 
-const mapStateToProps = (state) => {
-  console.log(Object.values(state.entities.users)[0])
+const mapStateToProps = (state, ownProps) => {
   return{
     errors: state.errors.session,
-    user: Object.values(state.entities.users)[0]
+    user: state.entities.users[ownProps.id]
   }
 }
 

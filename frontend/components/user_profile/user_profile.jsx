@@ -38,7 +38,7 @@ class UserProfile extends React.Component{
       <div>
           <div className="user-edit-modal" onClick={() => this.closeForm()}/>
           <div onSubmit={() => this.handleSubmit()}> 
-          <UserEditFormContainer/>
+          <UserEditFormContainer id = {this.state.user.id}/>
           </div>
           <button id="channel-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
       </div>
