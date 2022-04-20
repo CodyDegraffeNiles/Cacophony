@@ -27,15 +27,27 @@ class MessageEdit extends React.Component{
 
   handleSubmit(e){
     if(this.escape){return}
-    e.preventDefault();
     if(this.state.body === ""){return}
     this.props.action(this.state);
+  }
+
+  submitOnEnter = (e) => {
+    if(e.keyCode === 13 && e.shiftKey === false) {
+      e.preventDefault();
+      this.form.submit();
+      this.handleSubmit(e);
+    }
   }
 
   render(){
     return(
     <div id = "message-edit">
-      <form autoComplete="off" id="server-message-edit-form" onSubmit={this.handleSubmit}> 
+      <form 
+        autoComplete="off" 
+        id="server-message-edit-form" 
+        onSubmit={this.handleSubmit}
+        ref={el=>this.form=el}
+        > 
         <span className="server-message-input-padding">"</span>
         <textarea
         value = {this.state.body}
@@ -43,6 +55,7 @@ class MessageEdit extends React.Component{
         ref={c=>this.textarea=c}
         className="edit-message-input"
         placeholder={`${this.state.body}`}
+        onKeyDown={this.submitOnEnter}
         />
         {/* Edit controls to hijack form submision */}
         <div className="edit-controls"> 

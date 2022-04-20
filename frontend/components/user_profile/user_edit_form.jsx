@@ -43,7 +43,7 @@ class UserEditForm extends React.Component{
 
     return (
       <div id="channel-form"> 
-        <form onSubmit={this.handleSubmit}>
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <h5 id="user-edit-form-header">Edit User Credentials</h5>
           {userName}
             <div id ="channel-form-name-input-container">

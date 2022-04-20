@@ -15,11 +15,17 @@ class Message extends React.Component{
     this.window = ""
   }
 
-  setEscapeListener(){
+  setEscapeSaveListeners(){
     let that = this
     window.addEventListener("keydown", function(e) {
-        console.log("hi")
         if (e.key === "Escape" && that.state.showEdit){
+          that.setState({["showEdit"]: false})
+        }
+      }
+    )
+    window.addEventListener("keydown", function(e) {
+        console.log(e.key)
+        if (e.key === "Enter" && e.shiftKey === false && that.state.showEdit){
           that.setState({["showEdit"]: false})
         }
       }
@@ -28,8 +34,13 @@ class Message extends React.Component{
 
   componentWillUnmount(){
     window.removeEventListener("keydown", function(e) {
-        console.log("hi")
         if (e.key === "Escape" && that.state.showEdit){
+          that.setState({["showEdit"]: false})
+        }
+      }
+    )
+    window.removeEventListener("keydown", function(e) {
+        if (e.key === "Enter" && e.shiftKey == false &&that.state.showEdit){
           that.setState({["showEdit"]: false})
         }
       }
@@ -53,12 +64,12 @@ class Message extends React.Component{
     let messageBody = this.state.showEdit && this.state.dM 
       ? <div id ="message-edit" className={this.props.message.id} onSubmit = {this.toggleEdits("showEdit")}>
           <DmEditContainer message = {this.props.message}/>
-          {this.setEscapeListener()}
+          {this.setEscapeSaveListeners()}
         </div>
       : this.state.showEdit && !this.state.dM
       ? <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
           <MessageEditContainer message = {this.props.message} className={this.props.message.id}/>
-          {this.setEscapeListener()}
+          {this.setEscapeSaveListeners()}
         </div>
       : <span> {this.props.message.body} </span>
 
