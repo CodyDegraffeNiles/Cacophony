@@ -51,13 +51,6 @@ class EditServerForm extends React.Component{
     this.setState({["serverName"]: false})
   }
 
-  handleServerEdit(){
-    // setTimeout Mimics a promise across divs/components
-    // let that = this;
-    // setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 200)
-  }
-
-
   renderServerNameEdit(){
     if(this.state.serverName){
       return (
