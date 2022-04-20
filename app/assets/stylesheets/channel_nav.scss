@@ -228,12 +228,13 @@
 }
 
 // Channel Edit Form Components
-#channel-form-header h5{
+#channel-form-header h5, #user-edit-form-header{
   text-align: center;
   font-size: 25px;
   font-weight: bolder;
   padding-top: 10px;
   padding-bottom: 5px;
+  color: white;
 }
 
 #channel-form-header p{
@@ -309,7 +310,7 @@
   filter: brightness(80%);
 }
 
-#channel-edit-submit{
+#channel-edit-submit, #user-edit-submit{
   text-align: center;
   margin: 15px;
   width: 360px;
@@ -320,6 +321,7 @@
   height: 30px;
   cursor: pointer;
 }
+
 
 #channel-exit-x{
   position: absolute;

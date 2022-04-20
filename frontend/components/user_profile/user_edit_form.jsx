@@ -10,6 +10,10 @@ class UserEditForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount(){
+    
+  }
+
   componentWillUnmount(){
     this.props.removeErrors()
   }
@@ -23,11 +27,25 @@ class UserEditForm extends React.Component{
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
+
+
   render(){
+    // Set Username based on if errors exist
+    let userName = this.props.errors.includes("Username can't be blank") ?
+      <p id="channel-error-name"> USERNAME: CANNOT BE BLANK</p> :
+      <p id="channel-form-name"> USERNAME</p>
+
+    let email = this.props.errors.includes("Email can't be blank") ? 
+      <p id ="channel-error-name"> EMAIL: CANNOT BE BLANK </p> 
+      : this.props.errors.includes("Email has already been taken") 
+      ? <p id ="channel-error-name"> EMAIL: HAS ALREADY BEEN TAKEN </p>
+      :  <p id="channel-form-name"> EMAIL</p> 
+
     return (
       <div id="channel-form"> 
         <form onSubmit={this.handleSubmit}>
-          <h3>Edit User Credentials</h3>
+          <h5 id="user-edit-form-header">Edit User Credentials</h5>
+          {userName}
             <div id ="channel-form-name-input-container">
               <input 
               autoFocus
@@ -37,6 +55,8 @@ class UserEditForm extends React.Component{
               id ="channel-form-name-input"
               />
             </div>
+          <br/>
+          {email}
             <div id ="channel-form-name-input-container">
               <input 
               autoFocus
@@ -46,7 +66,7 @@ class UserEditForm extends React.Component{
               id ="channel-form-name-input"
               />
             </div>
-          <button type="submit">Done</button>
+          <button type="submit" id="user-edit-submit">Done</button>
         </form>
       </div>
     )

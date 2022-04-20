@@ -36,12 +36,13 @@ class UserProfile extends React.Component{
     if(this.state.userEdit){
       return (
       <div>
-        {/* <div id="double-channel-modal-container" onSubmit = {() => this.handleSubmit()}>  */}
           <div className="user-edit-modal" onClick={() => this.closeForm()}/>
-          <UserEditFormContainer user = {this.state.user}/>
+          <div onSubmit={() => this.handleSubmit()}> 
+          <UserEditFormContainer/>
+          </div>
           <button id="channel-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
-        </div>)
-      // </div>)
+      </div>
+      )
     }
     else {
       return null;
