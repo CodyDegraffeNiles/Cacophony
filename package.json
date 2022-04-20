@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@rails/actioncable": "^6.1.5",
+    "autosize": "^5.0.1",
     "redux-devtools-extension": "^2.13.9"
   }
 }

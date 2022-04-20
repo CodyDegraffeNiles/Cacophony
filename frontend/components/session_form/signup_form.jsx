@@ -64,7 +64,7 @@ class SignUpForm extends React.Component{
       <div id= "login-background">
         <div id ="login-form"> 
         <h3>{welcomeHeader} </h3>
-          <form onSubmit={this.handleSubmit}>
+          <form autoComplete="off" onSubmit={this.handleSubmit}>
             {email} 
             <input 
             type="text"

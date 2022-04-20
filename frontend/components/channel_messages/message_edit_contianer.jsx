@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { updateMessage, deleteMessage } from "../../actions/message_actions";
 import MessageEdit from "./message_edit";
-import {updateDm} from "../../actions/dm_messages_actions"
 
 
 

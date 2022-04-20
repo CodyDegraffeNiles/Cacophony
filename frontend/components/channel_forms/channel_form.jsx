@@ -100,7 +100,7 @@ class ChannelForm extends React.Component{
 
     return (
     <div id="channel-form"> 
-      <form onSubmit={this.handleSubmit}>
+      <form autoComplete="off" onSubmit={this.handleSubmit}>
         {formMessage}
           {channelName}
           <div id ="channel-form-name-input-container">

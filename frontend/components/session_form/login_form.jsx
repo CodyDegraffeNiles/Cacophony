@@ -79,7 +79,7 @@ class LoginForm extends React.Component{
         <div id ="login-form"> 
           <h3>{welcomeHeader} </h3>
           <p>{messageHeader}</p>
-          <form onSubmit={this.handleSubmit}>
+          <form autoComplete="off" onSubmit={this.handleSubmit}>
           {email} 
             <input 
             type="text"

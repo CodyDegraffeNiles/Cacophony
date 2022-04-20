@@ -62,7 +62,7 @@ class ServerForm extends React.Component{
     if (this.props.show){
     return (
     <div id="server-form"> 
-      <form onSubmit={this.handleSubmit}>
+      <form autoComplete="off" onSubmit={this.handleSubmit}>
         <h4> Tell Us More About Your Server </h4>
         <p> In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>

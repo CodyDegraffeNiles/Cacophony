@@ -3,7 +3,6 @@ import DmEditContainer from './dm_edit_container';
 import MessageEditContainer from "./message_edit_contianer"
 
 
-
 class Message extends React.Component{  
   constructor(props){
     super(props)
@@ -13,6 +12,26 @@ class Message extends React.Component{
       dM: this.props.dm
     }
     this.toggleEdits = this.toggleEdits.bind(this)
+    this.window = ""
+  }
+
+  setEscapeSaveListeners(){
+    let that = this
+    window.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && that.state.showEdit){
+          that.setState({["showEdit"]: false})
+        }
+      }
+    )
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("keydown", function(e) {
+        if (e.key === "Escape" && that.state.showEdit){
+          that.setState({["showEdit"]: false})
+        }
+      }
+    )
   }
 
   toggleEdits(type){
@@ -22,53 +41,44 @@ class Message extends React.Component{
     }
   }
 
-
-
-  renderMessageEdit(){
-    // Return Dm Edit
-    if(this.state.showEdit && this.state.dM){
-      return (
-      <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
-      <DmEditContainer
-        message = {this.props.message}
-      />
-      </div>)
-    }
-    // Return Message Edit
-    if(this.state.showEdit){
-      return(
-        <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
-        <MessageEditContainer
-          message = {this.props.message}
-        />
-        </div>
-      )
-    }
-  }
-
   render(){
-    let editIcon = this.props.currentUserId === this.props.message.authorId ? 
-    <i className="fa-solid fa-pencil fa-xs" onClick={this.toggleEdits("showEdit")}/> : null;
+    let editIcon = this.props.currentUserId === this.props.message.authorId 
+      && !this.state.showEdit ? <i className="fa-solid fa-pencil fa-xs" 
+      onClick={this.toggleEdits("showEdit")}/> 
+      : null;
+
+    // Return different message body based on if  edit form and/or dm
+    let messageBody = this.state.showEdit && this.state.dM 
+      ? <div id ="message-edit" className={this.props.message.id} onSubmit = {this.toggleEdits("showEdit")}>
+          <DmEditContainer message = {this.props.message}/>
+          {this.setEscapeSaveListeners()}
+        </div>
+      : this.state.showEdit && !this.state.dM
+      ? <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
+          <MessageEditContainer message = {this.props.message} className={this.props.message.id}/>
+          {this.setEscapeSaveListeners()}
+        </div>
+      : <span> {this.props.message.body} </span>
 
     return(
-    <li className="server-message">
-      <div className={`message-icon color-${this.props.colorId}`}><i className="fa-brands fa-discord"/></div>
-        <div className="message-info">
-          <div className="user-info">
-            <p className="message-author"> {this.props.message.authorName} 
-              <span className="message-timestamp"> {this.props.message.createdAt}</span>  
-            </p>
-          </div>
-          <div className="message-body">
-            <span>{this.props.message.body} </span>
+      <li className="server-message">
+        <div className={`message-icon color-${this.props.colorId}`}><i className="fa-brands fa-discord"/></div>
+          <div className="message-info">
+            <div className="user-info">
+              <p className="message-author"> {this.props.message.authorName} 
+                <span className="message-timestamp"> {this.props.message.createdAt}</span>  
+              </p>
+            </div>
+            <div className="message-body"> 
+            {messageBody}
             {editIcon}
-            {this.renderMessageEdit()}
-          </div>
-      </div>
+            </div>
+        </div>
 
-    </li>
-  )
-    }
+      </li>
+    )
+  }
 }
+
 
 export default Message;

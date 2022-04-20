@@ -51,7 +51,7 @@ class EditServerNameForm extends React.Component{
     // Create different edit forms for the owner and a member
     return (
       <div id="server-name-form">
-        <form onSubmit={this.handleSubmit}>
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div id ="channel-form-header"> 
             <h5>Edit Server</h5>
           </div>
