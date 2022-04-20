@@ -25,6 +25,11 @@ class MessageEdit extends React.Component{
     this.escape = true;
   }
 
+  deleteAndLeave(){
+    this.leave()
+    this.props.delete(this.props.message.id)
+  }
+
   handleSubmit(e){
     if(this.escape){return}
     if(this.state.body === ""){return}
@@ -34,8 +39,7 @@ class MessageEdit extends React.Component{
   submitOnEnter = (e) => {
     if(e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
-      this.form.submit();
-      this.handleSubmit(e);
+      this.form.requestSubmit();
     }
   }
 
@@ -71,7 +75,7 @@ class MessageEdit extends React.Component{
           </p>
         </div>
         <button className="delete-message" 
-          onClick={() => (this.props.delete(this.props.message.id))}> Delete Message 
+          onClick={() => this.deleteAndLeave()}> Delete Message 
         </button>
         </div>
       </form>

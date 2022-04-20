@@ -23,24 +23,11 @@ class Message extends React.Component{
         }
       }
     )
-    window.addEventListener("keydown", function(e) {
-        console.log(e.key)
-        if (e.key === "Enter" && e.shiftKey === false && that.state.showEdit){
-          that.setState({["showEdit"]: false})
-        }
-      }
-    )
   }
 
   componentWillUnmount(){
     window.removeEventListener("keydown", function(e) {
         if (e.key === "Escape" && that.state.showEdit){
-          that.setState({["showEdit"]: false})
-        }
-      }
-    )
-    window.removeEventListener("keydown", function(e) {
-        if (e.key === "Enter" && e.shiftKey == false &&that.state.showEdit){
           that.setState({["showEdit"]: false})
         }
       }
