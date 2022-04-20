@@ -17,7 +17,6 @@
   width: calc(100% - 35px);
   font-size:16px;
   display: flex;
-  align-items: center;
 }
 
 .server-message:hover{
@@ -44,8 +43,54 @@
   position: relative;
 }
 
+.edit-controls{
+  position: relative;
+  display: flex;
+  transform: translate(0px, -5px);
+  font-size: 10px;
+  color: rgb(215,215,215);
+}
+
+
+.enter-cancel-edits{
+  display: flex;
+}
+
+// .enter-cancel-edits span{
+//   color: rgb(33,152,210); 
+// }
+
+// .enter-cancel-edits p{
+//   padding-right: 7px;
+// }
+
+.escape-button, .edit-button {
+  font-size: 10px;
+  color: rgb(40, 152, 220);
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  padding-left: 3px;
+}
+
+.enter-cancel-edits button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.fa-circle{
+  font-size: 4px;
+}
+
+.circle-container{
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
 .delete-message{
+  // padding-left: 15px;
   color: rgb(238, 65, 65);
   border-top: .15px solid lightgray
 }
@@ -56,18 +101,16 @@
 }
 
 .delete-message{
-  position: relative;
   background-color: rgb(30, 30, 30);
   width: 115px;
   margin-right: 15px;
   margin-left: 15px;
   padding-left: 5px;
   text-align: left;
-  font-size: 10px;
   height: 15px;
   border-style: none;
   cursor: pointer;
-  transform: translate(-10px, -10px);
+  font-size: 10px;
 }
 
 .edit-message-submit-button{
@@ -81,3 +124,4 @@
 .message-info{
   padding-left: 10px;
 }
+

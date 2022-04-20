@@ -8,18 +8,26 @@ class MessageEdit extends React.Component{
     super(props);
     this.state = this.props.message;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.escape = false;
   }
 
   componentDidMount(){
     autosize(this.textarea);
+    this.escape = false;
   }
 
   handleBody(){
     return (e) => {this.setState({["body"]: e.currentTarget.value})}
   }
 
+  leave(){
+    this.escape = true;
+  }
+
   handleSubmit(e){
+    if(this.escape){return}
     e.preventDefault();
+    if(this.state.body === ""){return}
     this.props.action(this.state);
   }
 
@@ -35,13 +43,24 @@ class MessageEdit extends React.Component{
         className="edit-message-input"
         placeholder={`${this.state.body}`}
         />
-        <button type="submit" className="server-message-submit-button"> 
-          <i className="fa-solid fa-paper-plane fa-xl edit-paper-plane"/>
+        {/* Edit controls to hijack form submision */}
+        <div className="edit-controls"> 
+          <div className="enter-cancel-edits">
+          <p> escape to 
+              <button onClick={() => this.leave()} type="submit" className="escape-button">cancel</button> 
+          </p>
+          <div className = "circle-container"> 
+            <i className="fa-solid fa-circle"/> 
+          </div>
+          <p> enter to 
+            <button type="submit" className ="edit-button"> save </button> 
+          </p>
+        </div>
+        <button className="delete-message" 
+          onClick={() => (this.props.delete(this.props.message.id))}> Delete Message 
         </button>
-        </form>
-      <button className="delete-message" 
-      onClick={() => (this.props.delete(this.props.message.id))}> Delete Message 
-      </button>
+        </div>
+      </form>
     </div>
     )
   }

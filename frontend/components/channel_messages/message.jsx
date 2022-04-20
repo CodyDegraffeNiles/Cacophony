@@ -21,28 +21,6 @@ class Message extends React.Component{
     }
   }
 
-  // renderMessageEdit(){
-  //   // Return Dm Edit
-  //   if(this.state.showEdit && this.state.dM){
-  //     return (
-  //     <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
-  //     <DmEditContainer
-  //       message = {this.props.message}
-  //     />
-  //     </div>)
-  //   }
-  //   // Return Message Edit
-  //   if(this.state.showEdit){
-  //     return(
-  //       <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
-  //       <MessageEditContainer
-  //         message = {this.props.message}
-  //       />
-  //       </div>
-  //     )
-  //   }
-  // }
-
   render(){
     let editIcon = this.props.currentUserId === this.props.message.authorId 
       && !this.state.showEdit ? <i className="fa-solid fa-pencil fa-xs" 
