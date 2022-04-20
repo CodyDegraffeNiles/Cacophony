@@ -4,23 +4,39 @@
   background-color: rgb(56, 57, 62);
 }
 
-#user-top{
-  background-color: rgb(56, 57, 62) ;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#user-side-nav{
+  position: absolute;
+  height: 100vh;
+  width: 225px;
+  background-color: rgb(48,49,54);
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(186, 186, 186)
+}
+
+.user-side-nav-item{
+  margin: 10px;
   padding: 5px;
+  cursor: pointer;
 }
 
-
-#user-top h3{
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
+.user-side-nav-item:hover{
+  color: rgb(225,225,225);
+  background-color:rgb(56, 57, 62);
+  border-radius: 5px;
 }
 
-#escape{
-  padding-top: 5px;
+#user-side-nav-list a{
+  text-decoration: none;
+  color: rgb(186, 186, 186)
+}
+
+.fa-arrow-right {
+  background-color: rgb(186, 186, 186);
+  color: rgb(56, 57, 62);
+  position: relative;
+  transform: translate(125px, 0px);
 }
 
 #user-exit-x{
@@ -36,32 +52,116 @@
 }
 
 #home-link{
-  text-decoration: none;
   color: white;
+  font-size: 20px;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgb(186,186,186);
+  text-align: center;
 }
 
-
-#esc{
-  margin-left: 4px;
+#esc-link{
+  text-decoration: none;
   color: lightgrey;
+  font-size: 18px;
+}
+
+#esc {
   font-size: 14px;
 }
 
-
 #user-profile-content { 
-  background-color: rgb(47, 49, 54);
-  border: 0.75px solid rgb(47, 49, 54);
+  background-color: rgb(32, 34, 37);
+  border: 0.75px solid rgb(32, 34, 37);
   border-radius: 3px;
   color: lightgray;
-  width: 400px;
-  height: 300px;
-  padding: 10px;
+  width: 660px;
+  height: 400px;
   top: 0;
   left: 0;
   position: absolute;
   transform: translate(30vw, 30vh);
 }
 
+#user-profile-header{
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(30vw, calc(30vh - 75px));
+  width: 665px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#my-account{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+#user-profile-dark-top{
+  width: 100%;
+  height: 100px;
+  background-color: rgb(20,18,10);
+}
+
+#user-top-info{
+  display: flex;
+  justify-content: left;
+  padding-left: 25px;
+}
+
+#user-fullname{
+  padding-top: 5px;
+  padding-left: 10px;
+  display: flex;
+}
+
+#user-fullname h4{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#user-fullname span{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#user-info {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(47, 49, 54);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#user-username, #user-email{
+  padding-left: 15px;
+}
+
+#user-username{
+  padding-bottom: 15px;
+}
+
+#actual-info{
+  display: flex;
+  color: white;
+  font-size: 16px;
+}
+
+#actual-info span{
+  color: rgb(186,186,186)
+}
+
+
+
+// Form css
 #user-update input {
   color: rgb(225, 225, 225);
   background-color: transparent;
@@ -71,16 +171,15 @@
 #user-update input:focus{
   outline: none;
 }
+
 #update-user-button {
   text-align: center;
-  width: 100%;
+  width: 35%;
   background-color: #5865F2;
   border: 0.75px solid #5865F2;
   border-radius: 3px;
   color: white;
   height: 40px;
-  margin-top: 15px;
-  margin-bottom: 5px;
   cursor: pointer;
 }
 
@@ -90,9 +189,10 @@
 
 #delete-user{
   background-color: transparent;
-  color: red;
+  color: white;
   border: 1px solid red;
   cursor: pointer;
+  width: 35%;
 }
 
 #delete-user:hover{
@@ -118,7 +218,41 @@
   filter: brightness(90%)
 }
 
-.fa-arrow-right{
-  background-color: rgb(225, 225, 225);
-  color: rgb(56,57,62)
+#user-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 25px;
+}
+
+
+.user-icon-profile {
+  font-size: 40px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  transform: translate(0px, -25px);
+}
+
+.user-icon-profile i{
+  color: white;
+}
+
+
+// Reactivity to window changes
+
+@media only screen and (max-width: 1015px) {
+  #user-profile-content {
+    width: 330px;
+    height: 400px;
+  }
+
+  #user-profile-header {
+    width: 330px;
+  }
 }
