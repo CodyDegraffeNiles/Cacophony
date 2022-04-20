@@ -86,7 +86,7 @@
 }
 
 #user-profile-header{
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   transform: translate(30vw, calc(30vh - 75px));
@@ -158,14 +158,6 @@
 #actual-info span{
   color: rgb(186,186,186)
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -249,4 +241,18 @@
 
 .user-icon-profile i{
   color: white;
+}
+
+
+// Reactivity to window changes
+
+@media only screen and (max-width: 1015px) {
+  #user-profile-content {
+    width: 330px;
+    height: 400px;
+  }
+
+  #user-profile-header {
+    width: 330px;
+  }
 }
