@@ -108,7 +108,7 @@
   background-color: rgb(20,18,10);
 }
 
-#user-info{
+#user-top-info{
   display: flex;
   justify-content: left;
   padding-left: 25px;
@@ -131,6 +131,45 @@
   font-weight: bold;
 }
 
+#user-info {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(47, 49, 54);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#user-username, #user-email{
+  padding-left: 15px;
+}
+
+#user-username{
+  padding-bottom: 15px;
+}
+
+#actual-info{
+  display: flex;
+  color: white;
+  font-size: 16px;
+}
+
+#actual-info span{
+  color: rgb(186,186,186)
+}
+
+
+
+
+
+
+
+
+
+
+
+// Form css
 #user-update input {
   color: rgb(225, 225, 225);
   background-color: transparent;
@@ -143,14 +182,12 @@
 
 #update-user-button {
   text-align: center;
-  width: 100%;
+  width: 35%;
   background-color: #5865F2;
   border: 0.75px solid #5865F2;
   border-radius: 3px;
   color: white;
   height: 40px;
-  margin-top: 15px;
-  margin-bottom: 5px;
   cursor: pointer;
 }
 
@@ -163,6 +200,7 @@
   color: white;
   border: 1px solid red;
   cursor: pointer;
+  width: 35%;
 }
 
 #delete-user:hover{
@@ -186,6 +224,13 @@
 
 #logout-button:hover{
   filter: brightness(90%)
+}
+
+#user-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 25px;
 }
 
 

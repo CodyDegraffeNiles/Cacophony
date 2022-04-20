@@ -27,12 +27,12 @@ class UserProfile extends React.Component{
   render(){
    // Modify delete button to do nothing if demo-user is loged in"
     const deleteButton = this.props.user.email === "KoalaDemo2@caveman.com" ? <button id ="delete-user"> 
-      Delete Account(Disabled for Demo)</button> : 
+      Delete Account (Disabled for Demo)</button> : 
     <button id ="delete-user" onClick={() => this.props.delete(this.props.user.id)}>Delete Account</button>
   
     // modify message on button for demo-user i
     const updateMessage = this.props.user.email === "KoalaDemo2@caveman.com" ? 
-    "Update Button(Disabled for Demo)" : "Update User"
+    "Update User (Disabled for Demo)" : "Update User"
     return(
       <div id = "user-profile">
       <div id="user-side-nav"> 
@@ -61,7 +61,7 @@ class UserProfile extends React.Component{
         <div id="user-profile-content">
           <div id="user-profile-dark-top"/> 
 
-          <div id ="user-info"> 
+          <div id ="user-top-info"> 
             <div className={`user-icon-profile color-${this.props.user.colorId}`}>
               <i className="fa-brands fa-discord"/>
               </div>
@@ -69,6 +69,26 @@ class UserProfile extends React.Component{
               <h4>{this.props.user.username}</h4> 
               <span>#{this.props.user.numberTag}</span>
             </div>
+          </div>
+
+          <div id="user-info"> 
+            <div id="user-username"> 
+              <p> Username </p> 
+              <div id="actual-info"> 
+                <p>{this.props.user.username}</p> 
+                <span>#{this.props.user.numberTag}</span>
+              </div>
+            </div>
+            <div id="user-email"> 
+              <p>Email</p>
+              <div id="actual-info">
+                <p>{this.props.user.email}</p>
+              </div>
+            </div>
+          </div>
+          <div id="user-buttons">  
+            <button id="update-user-button"> {updateMessage}</button>
+            {deleteButton}
           </div>
           
           
