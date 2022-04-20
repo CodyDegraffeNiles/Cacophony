@@ -1,9 +1,5 @@
 import React from "react"
 
-
-
-
-
 class emptyDmMessages extends React.Component{
 
   render(){

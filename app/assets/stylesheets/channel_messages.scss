@@ -96,8 +96,12 @@
 }
 
 .edit-message-input{
-  width: calc(100vw - 670px);
+  // width: calc(100vw - 670px);
+  border: 1px solid #40444b;
+  border-radius: 5px;
   color:rgb(215, 215, 215);
+  background-color: #40444b;
+  height: fit-content;
 }
 
 .edit-message-input:focus{

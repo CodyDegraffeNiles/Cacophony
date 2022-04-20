@@ -22,8 +22,7 @@ class MessageEdit extends React.Component{
     <div id = "message-edit">
       <form autoComplete="off" id= "server-message-edit-form" onSubmit={this.handleSubmit}> 
         <span className="server-message-input-padding">"</span>
-        <input
-        type = "text"
+        <textarea
         value = {this.state.body}
         onChange={this.handleBody()}
         className="edit-message-input"
