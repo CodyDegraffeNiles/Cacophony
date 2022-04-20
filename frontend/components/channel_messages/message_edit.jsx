@@ -14,6 +14,7 @@ class MessageEdit extends React.Component{
   componentDidMount(){
     autosize(this.textarea);
     this.escape = false;
+
   }
 
   handleBody(){
@@ -34,7 +35,7 @@ class MessageEdit extends React.Component{
   render(){
     return(
     <div id = "message-edit">
-      <form autoComplete="off" id= "server-message-edit-form" onSubmit={this.handleSubmit}> 
+      <form autoComplete="off" id="server-message-edit-form" onSubmit={this.handleSubmit}> 
         <span className="server-message-input-padding">"</span>
         <textarea
         value = {this.state.body}

@@ -12,6 +12,28 @@ class Message extends React.Component{
       dM: this.props.dm
     }
     this.toggleEdits = this.toggleEdits.bind(this)
+    this.window = ""
+  }
+
+  setEscapeListener(){
+    let that = this
+    window.addEventListener("keydown", function(e) {
+        console.log("hi")
+        if (e.key === "Escape" && that.state.showEdit){
+          that.setState({["showEdit"]: false})
+        }
+      }
+    )
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("keydown", function(e) {
+        console.log("hi")
+        if (e.key === "Escape" && that.state.showEdit){
+          that.setState({["showEdit"]: false})
+        }
+      }
+    )
   }
 
   toggleEdits(type){
@@ -27,14 +49,16 @@ class Message extends React.Component{
       onClick={this.toggleEdits("showEdit")}/> 
       : null;
 
-    // Return different message body based on if on edit form and/or dm
+    // Return different message body based on if  edit form and/or dm
     let messageBody = this.state.showEdit && this.state.dM 
-      ? <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
+      ? <div id ="message-edit" className={this.props.message.id} onSubmit = {this.toggleEdits("showEdit")}>
           <DmEditContainer message = {this.props.message}/>
+          {this.setEscapeListener()}
         </div>
       : this.state.showEdit && !this.state.dM
       ? <div id ="message-edit" onSubmit = {this.toggleEdits("showEdit")}>
-          <MessageEditContainer message = {this.props.message}/>
+          <MessageEditContainer message = {this.props.message} className={this.props.message.id}/>
+          {this.setEscapeListener()}
         </div>
       : <span> {this.props.message.body} </span>
 
