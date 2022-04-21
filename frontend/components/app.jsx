@@ -46,14 +46,9 @@ const App = () => (
         <ProtectedRoute path="/servers/@me" component={emptyDmMessages}/>
       </Switch>
 
-      
       <Switch>
         <ProtectedRoute path="/servers" component={LineAcrossTop}/>
         <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
-        {/*Catch invalid Protected Routes*/}
-        {/*Works by sending it back up into an Auth route so its rerouted to 
-          @servers/me if logging in or homepage if not logged in*/ }
-        <Redirect to="/"/>
       </Switch>
   </div>
 );
