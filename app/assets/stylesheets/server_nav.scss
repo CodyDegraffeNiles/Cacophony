@@ -335,9 +335,12 @@
   top: -50px;
   left: 75px;
   font-weight: bolder;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .server-bubble:hover .server-tool-name{
   visibility: visible;
   z-index:5;
 }
+
