@@ -41,7 +41,7 @@
 }
 
 #delete-server, #leave-server, #update-server-name, #server-update-error{
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(25, 25, 28);
   width: 195px;
   text-align: left;
   font-size: 15px;
@@ -60,7 +60,7 @@
 
 
 #edit-server-name{
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(25, 25, 28);
   color: white;
   width: 190px;
   padding-left: 5px;
@@ -193,8 +193,6 @@
   transform: translate(-80px, -84px);
 }
 
-
-
 #double-channel-modal-container {
   z-index: 4;
   position: absolute;
@@ -323,7 +321,6 @@
   cursor: pointer;
 }
 
-
 #channel-exit-x{
   position: absolute;
   top: 0px;
@@ -334,4 +331,36 @@
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
+  color: rgb(145,145,145)
 }
+
+#create-tool-tip{
+  visibility: hidden;
+  font-size: 13px;
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  background-color: rgb(25, 25, 28);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-45px, -65px)
+}
+
+.create-channel-div:hover #create-tool-tip{
+  visibility: visible;
+}
+
+#create-tool-tip::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(25,25,28) transparent transparent transparent;
+}
+
+

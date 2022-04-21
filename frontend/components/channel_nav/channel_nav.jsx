@@ -72,9 +72,14 @@ class ChannelNav extends React.Component{
   renderChannelCreateButton(){
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
       return(
-      <i className="fa-solid fa-plus" 
-      onClick={this.toggleEdits("channelCreate")}></i>
-      )
+      <div className="create-channel-div"> 
+        <i className="fa-solid fa-plus"  
+          onClick={this.toggleEdits("channelCreate")}/> 
+          <div id="create-tool-tip"> 
+            <span> Create Channel</span>
+          </div>
+      </div>
+        )
     } else {
       return(
         null
