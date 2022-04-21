@@ -26,7 +26,7 @@ const App = () => (
         <AuthRoute exact path="/" component={HomePageContainer}/> 
       </Switch>
 
-      <ProtectedRoute path="/servers" component={ServerNavContainer} />
+      <ProtectedRoute path="/servers/:serverId" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       {/* Render either dm Nav or channel nav up */}
       <Switch>

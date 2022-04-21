@@ -75,12 +75,15 @@ class ServerNav extends React.Component{
   }
 
   render(){
+
+    let homeClass = this.props.serverId === "@me" 
+      ? "selected-server" : "non-selected-server";
     return(
       <div id="server-nav"> 
         <ul id = "server-nav-list">
           <li key="home-bubble"
             className="server-bubble"> 
-            <Link to={`/servers/@me`}> 
+            <Link className={homeClass} to={`/servers/@me`}> 
               <i className="fa-brands fa-discord home-bubble"/>
             </Link> 
               <div className="server-tool-name">Home</div>
@@ -89,18 +92,22 @@ class ServerNav extends React.Component{
           <div id="server-nav-seperator"/>
         </div>
         {this.props.servers.map((server, index) => {
+          // Light up selected Server
+          let navClass = this.props.serverId === server.id.toString()
+            ? "selected-server" : "non-selected-server";
           return (
-          <li 
-          className= "server-bubble"
-          key={index}>
-            <Link 
-            to={`/servers/${server.id}/${server.firstChannelId}`} 
-            onClick={() => this.props.fetchServer(server.id)}
-          > 
-              <p className="server-inital"> {server.name.charAt(0)} </p> 
-            </Link>
-            <div className="server-tool-name">{server.name}</div>
-          </li>
+            <li 
+              className= "server-bubble"
+              key={index}>
+              <Link 
+                to={`/servers/${server.id}/${server.firstChannelId}`} 
+                onClick={() => this.props.fetchServer(server.id)}
+                className={navClass}
+              > 
+                <p className="server-inital"> {server.name.charAt(0)} </p> 
+              </Link>
+              <div className="server-tool-name">{server.name}</div>
+            </li>
           )
         })}
         <li key="createServer"> 
