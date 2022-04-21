@@ -25,7 +25,7 @@ class ChannelMessages extends React.Component{
   scrollToBottom = () => {
     // Fail safe check to make sure placeholder is set.
     if(this.placeholder){ 
-      this.placeholder.scrollIntoView({ behavior: "smooth" });
+      this.placeholder.scrollIntoView({ behavior: "auto" });
     }
   }
 
