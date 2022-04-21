@@ -13,7 +13,6 @@ class ServerForm extends React.Component{
     this.handlePublic = this.handlePublic.bind(this);
   }
 
-
   componentWillUnmount() {
     this.props.removeErrors();
   }  
@@ -64,8 +63,6 @@ class ServerForm extends React.Component{
       serverName= <h5 id="error-server-name"> Server Name: Name cannot be blank </h5>
     }
 
-
-
     if (this.props.show){
     return (
     <div id="server-form"> 
@@ -104,8 +101,6 @@ class ServerForm extends React.Component{
       return null;
     }
   }
-
 }
-
 
 export default ServerForm;
