@@ -6,9 +6,8 @@
   position: absolute;
 }
 
-#server-nav a{
+.non-selected-server, .selected-server{
   text-decoration: none;
-  background-color: rgb(56,57,62);
   color: rgb(221,221,221);
   cursor: pointer;
   font-size: 20px;
@@ -18,9 +17,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   text-align: center;
   transition: 0.4s;
+}
+
+.non-selected-server {
+  background-color: rgb(56, 57, 62);
+  border-radius: 50%;
+}
+
+.selected-server {
+  background-color: #5865F2;
+  border-radius: 30%;
 }
 
 #server-nav-list{
@@ -34,6 +42,7 @@
   background-color: #5865F2;
   border-radius: 30%;
 }
+
 
 #server-nav-list li{
   padding: 10px;
@@ -283,6 +292,10 @@
   outline: none;
 }
 
+.selected {
+  filter: brightness(90%);
+}
+
 // Line Across top of the screen
 
 #line-across-top-of-screen{
@@ -328,16 +341,20 @@
   background-color: rgb(25,25,25);
   color: rgb(255,255,255);
   border-radius: 5px;
-  width: 75px;
+  width: fit-content;
+  max-width: 75px;
   text-align: left;
   padding: 5px;
   z-index: 5;
   top: -50px;
   left: 75px;
   font-weight: bolder;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .server-bubble:hover .server-tool-name{
   visibility: visible;
   z-index:5;
 }
+

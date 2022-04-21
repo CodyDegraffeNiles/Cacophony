@@ -17,6 +17,18 @@
   font-size: 16px;
   font-weight: bolder;
   text-align: center;
+  overflow: auto;
+  height: 35px;
+}
+
+#channel-nav h5::-webkit-scrollbar {
+  width: 0.5px;
+  height: 0.5px;
+  background-color: transparent
+}
+
+#channel-nav h5::-webkit-scrollbar-corner{
+  background-color: transparent;
 }
 
 #channel-nav-server-name{
@@ -141,7 +153,12 @@
   color: rgb(145,145,145);
 }
 
-// Padding for Font Asweome Icons
+.selected-channel{
+  background-color: rgb(58, 60, 67);
+  color: white;
+}
+
+// Padding for Font Awesome Icons
 .fa-plus { 
   padding-top: 2px;
   cursor: pointer;
@@ -156,6 +173,7 @@
 #channel-nav-list .fa-hashtag{
   padding-left: 10px; 
   padding-right: 10px;
+  color: rgb(145, 145, 145)
 }
 
 #channel-nav-list{

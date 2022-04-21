@@ -13,7 +13,6 @@ class ServerForm extends React.Component{
     this.handlePublic = this.handlePublic.bind(this);
   }
 
-
   componentWillUnmount() {
     this.props.removeErrors();
   }  
@@ -33,6 +32,7 @@ class ServerForm extends React.Component{
   }
 
   handlePublic(value, type){
+
     let that = this;
     return function(e){
       e.preventDefault();
@@ -42,11 +42,15 @@ class ServerForm extends React.Component{
   }
 
   render(){
-    // Conditionally show of the Server Form modal
+    // Change button message based on state's public property
     let submitButton = this.state.public ? <button id='create-server' type="submit">
       Create A <span id="public-status"> Public </span> Server</button> : 
       <button id='create-server' type="submit">
       Create A <span id="public-status"> Private</span> Server</button>
+
+    // Change background color of divs based on state's public property
+    let privateDivClass = this.state.public ? "not-selected" : "selected"
+    let publicDivClass = this.state.public ? "selected" : "not-selected" 
 
     // Header for the Server Name that changes based on if an error was thrown 
     // in creation
@@ -67,8 +71,18 @@ class ServerForm extends React.Component{
         <p> In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>
         <div id="public-info"> 
-          <div onClick={this.handlePublic(false, "public")} > <p className='public-info-p'>For Me and My Friends</p></div>
-          <div onClick={this.handlePublic(true, "public")}>  <p className='public-info-p'> For A Club or Community </p></div>
+          <div 
+            onClick={this.handlePublic(false, "public")}
+            className = {privateDivClass}
+            > 
+            <p className='public-info-p'>For Me and My Friends</p>
+          </div>
+          <div 
+            onClick={this.handlePublic(true, "public")}
+            className = {publicDivClass}
+          >  
+            <p className='public-info-p'> For A Club or Community </p>
+          </div>
         </div>
         {serverName}
         <input 
@@ -87,8 +101,6 @@ class ServerForm extends React.Component{
       return null;
     }
   }
-
 }
-
 
 export default ServerForm;

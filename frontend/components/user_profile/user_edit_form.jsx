@@ -35,6 +35,11 @@ class UserEditForm extends React.Component{
       ? <p id ="channel-error-name"> EMAIL: HAS ALREADY BEEN TAKEN </p>
       :  <p id="channel-form-name"> EMAIL</p> 
 
+      // Disable for Demo User
+    let submitButton =  this.props.user.email === "KoalaDemo2@caveman.com" ? 
+      <button type ="button" id="user-edit-submit"> Done (Disabled for Demo)</button> 
+      :  <button type="submit" id="user-edit-submit">Done</button>
+
     return (
       <div id="channel-form"> 
         <form autoComplete="off" onSubmit={this.handleSubmit}>
@@ -60,7 +65,7 @@ class UserEditForm extends React.Component{
               id ="channel-form-name-input"
               />
             </div>
-          <button type="submit" id="user-edit-submit">Done</button>
+          {submitButton}
         </form>
       </div>
     )

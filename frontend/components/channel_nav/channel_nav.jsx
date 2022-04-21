@@ -172,6 +172,8 @@ class ChannelNav extends React.Component{
         <ul id="channel-nav-list"> 
           {this.props.channels.map((channel) => {
           // Fail Safe for rouge channels running around
+          let selectedChannel = this.props.currentChannelId === channel.id.toString()
+            ? "selected-channel" : " "
           if (channel.serverId === this.props.server.id) {
           return (
           <Link 
@@ -182,7 +184,7 @@ class ChannelNav extends React.Component{
           >
             <li 
               onClick={ () => this.setChannelId(channel.id, channel.name)}
-              className="channel-nav-item">
+              className={`channel-nav-item ${selectedChannel}`}>
               <div>
                 <i className="fa-solid fa-hashtag fa-sm"/>
                 {channel.name}

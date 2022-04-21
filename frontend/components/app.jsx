@@ -26,11 +26,12 @@ const App = () => (
         <AuthRoute exact path="/" component={HomePageContainer}/> 
       </Switch>
 
-      <ProtectedRoute path="/servers" component={ServerNavContainer} />
+      <ProtectedRoute path="/servers/:serverId" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       {/* Render either dm Nav or channel nav up */}
       <Switch>
-      <ProtectedRoute path="/servers/@me" component={DmNavContainer}/>
+      <ProtectedRoute path="/servers/@me/:otherUserId" component={DmNavContainer}/>
+      <ProtectedRoute path="/servers/@me/" component={DmNavContainer}/>
       <ProtectedRoute path="/servers/:serverId/:channelId" component={ChannelNavContainer}/>
       </Switch>
       {/* Rerender the least intenstive Component as a check */}

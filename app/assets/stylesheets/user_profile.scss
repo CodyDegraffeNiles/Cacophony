@@ -125,6 +125,7 @@
   display: flex;
   justify-content: left;
   padding-left: 25px;
+  padding-right: 25px;
 }
 
 #user-fullname{
@@ -187,13 +188,16 @@
 
 #update-user-button {
   text-align: center;
-  width: 35%;
+  width: 135px;
   background-color: #5865F2;
   border: 0.75px solid #5865F2;
   border-radius: 3px;
   color: white;
-  height: 40px;
+  height: 30px;
   cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  transform: translate(185px, 0px)
 }
 
 #update-user-button:hover{
@@ -241,6 +245,8 @@
 .invading-div{
   height: 100px;
   width: 100px;
+  min-width: 100px;
+  min-height: 100px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -276,4 +282,10 @@
   #user-profile-header {
     width: 380px;
   }
+
+  #update-user-button{
+    transform: translate(-135px, 40px);
+    min-width: 135px;
+  }
+
 }

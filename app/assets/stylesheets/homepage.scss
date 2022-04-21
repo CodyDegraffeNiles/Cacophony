@@ -54,6 +54,7 @@
   height: 100vh;
   width: 100vw;
   max-height: 600px;
+  min-height: 400px;
   color: white;
   background-image: image_url('home2.png');
   background-attachment: fixed;
@@ -119,6 +120,7 @@
   height: 100vh;
   width: 90vw;
   max-height: 600px;
+  min-height: 400px;
   padding-left: 5vw;
   padding-right: 5vw;
   display: flex;
@@ -130,6 +132,7 @@
   height: 100vh;
   width: 90vw;
   max-height: 300px;
+  min-height: 100px;
   padding-left: 5vw;
   padding-right: 5vw;
 }
@@ -154,6 +157,7 @@
   content: image_url("grey1.svg")
 }
 
+// Reactability to smaller screen sizes.
 @media only screen and (max-width: 1015px) {
   .white-div-image-one, .white-div-image-two, .grey-div-image-one{
     display: none;
@@ -162,8 +166,35 @@
   .white-div-message, .white-div-header {
     width: 80vw
   }
+
   .white-div {
   display: block;
+  }
+
+  #imagine-message{
+    transform: translate(-45%, -60%)
+  }
+
+  #imagine-header {
+    font-size: 48px;
+  }
+
+  #imagine-text {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  #singup-footer a{
+    display: none;
+  }
+
+  #imagine-message a:after {
+    content: "Signup";
+  }
+  
+  #signup-inner-text {
+    display: none;
   }
 }
 
