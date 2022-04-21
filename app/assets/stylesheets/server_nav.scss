@@ -176,7 +176,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  transform: translate(calc(50vw + 227px), calc(40vh - 150px));
+  transform: translate(calc(50vw + 230px), calc(40vh - 150px));
   z-index: 12;
   border: none;
   font-size: 20px;
@@ -189,6 +189,10 @@
 #server-search{
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+#server-search::-webkit-scrollbar {
+  width: 1px;
 }
 #server-search h5 {
   text-align: center;
