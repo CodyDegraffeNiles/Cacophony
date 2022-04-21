@@ -5,10 +5,11 @@ import DmNav from "./dm_nav";
 
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return{
     currentUser: state.entities.users[state.session.id],
-    dmUsers: Object.values(state.entities.users)
+    dmUsers: Object.values(state.entities.users),
+    otherUserId: ownProps.match.params.otherUserId
   }
 }
 

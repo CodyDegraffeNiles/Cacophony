@@ -60,13 +60,15 @@ class DmNav extends React.Component{
         {this.renderSearch()}
         <ul id="dm-nav-list"> 
           {this.props.dmUsers.map((member) => {
+          let selectedDm = this.props.otherUserId === member.id.toString()
+            ? "selected-dm" : " ";
           if (member.id !== this.props.currentUser.id)
           return(
             <Link
             key={member.id}
             to={`/servers/@me/${member.id}/${member.dmId}`}
             > 
-              <li className="dm-member-item">
+              <li className={`dm-member-item ${selectedDm}`}>
                 <div className={`user-icon color-${member.colorId}`}>
                   <i className="fa-brands fa-discord"/>
                 </div>
