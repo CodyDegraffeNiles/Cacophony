@@ -89,7 +89,7 @@ class ChannelMessages extends React.Component{
     // const cable = createConsumer("wss://cacophony-1.herokuapp.com/cable")
 
     // Development Websocket: 
-    // const cable = createConsumer("ws://localhost:3000/cable")
+    const cable = createConsumer("ws://localhost:3000/cable")
 
     const ParamsToSend = {
       channel: "ServerChannel",

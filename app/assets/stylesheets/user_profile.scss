@@ -51,25 +51,38 @@
   cursor: pointer;
 }
 
+#to-home{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #home-link{
-  color: white;
-  font-size: 20px;
+  color: rgb(186, 186, 186);
+  font-size: 18px;
   font-weight: bold;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: 2px solid rgb(186,186,186);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-#esc-link{
-  text-decoration: none;
-  color: lightgrey;
-  font-size: 18px;
+#home-link:hover{
+  filter: brightness(110%);
+  background-color: rgba(56, 57, 62, .9);
 }
+
+
 
 #esc {
-  font-size: 14px;
+  font-size: 12px;
+  color: lightgrey;
 }
 
 #user-profile-content { 
@@ -90,7 +103,7 @@
   top: 0;
   left: 0;
   transform: translate(30vw, calc(30vh - 75px));
-  width: 665px;
+  width: 715px;
   display: flex;
   justify-content: space-between;
 }
@@ -225,6 +238,18 @@
   padding-top: 25px;
 }
 
+.invading-div{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  transform: translate(0px, -30px);
+  background-color: rgb(32,34,37);
+}
 
 .user-icon-profile {
   font-size: 40px;
@@ -234,15 +259,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  position: relative;
-  transform: translate(0px, -25px);
 }
 
 .user-icon-profile i{
   color: white;
 }
-
 
 // Reactivity to window changes
 
@@ -253,6 +274,6 @@
   }
 
   #user-profile-header {
-    width: 330px;
+    width: 380px;
   }
 }
