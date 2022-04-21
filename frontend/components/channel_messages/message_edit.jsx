@@ -8,6 +8,7 @@ class MessageEdit extends React.Component{
     super(props);
     this.state = this.props.message;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.submitOnEnter = this.submitOnEnter.bind(this);
     this.escape = false;
   }
 
@@ -33,13 +34,15 @@ class MessageEdit extends React.Component{
   handleSubmit(e){
     if(this.escape){return}
     if(this.state.body === ""){return}
+    e.preventDefault();
     this.props.action(this.state);
   }
 
-  submitOnEnter = (e) => {
+  submitOnEnter(e){
+    console.log(this.submitButton)
     if(e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
-      this.form.requestSubmit();
+      this.submitButton.click();
     }
   }
 
@@ -56,7 +59,7 @@ class MessageEdit extends React.Component{
         <textarea
         value = {this.state.body}
         onChange={this.handleBody()}
-        ref={c=>this.textarea=c}
+        ref={el=>this.textarea=el}
         className="edit-message-input"
         placeholder={`${this.state.body}`}
         onKeyDown={this.submitOnEnter}
@@ -71,7 +74,11 @@ class MessageEdit extends React.Component{
             <i className="fa-solid fa-circle"/> 
           </div>
           <p> enter to 
-            <button type="submit" className ="edit-button"> save </button> 
+            <button 
+              type="submit" 
+              className ="edit-button"
+              ref={el=>this.submitButton=el}
+              > save </button> 
           </p>
         </div>
         <button className="delete-message" 
