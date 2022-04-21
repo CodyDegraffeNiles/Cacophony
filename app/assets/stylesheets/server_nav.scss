@@ -283,6 +283,10 @@
   outline: none;
 }
 
+.selected {
+  filter: brightness(90%);
+}
+
 // Line Across top of the screen
 
 #line-across-top-of-screen{
@@ -328,7 +332,8 @@
   background-color: rgb(25,25,25);
   color: rgb(255,255,255);
   border-radius: 5px;
-  width: 75px;
+  width: fit-content;
+  max-width: 75px;
   text-align: left;
   padding: 5px;
   z-index: 5;

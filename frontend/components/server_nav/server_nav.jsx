@@ -78,10 +78,12 @@ class ServerNav extends React.Component{
     return(
       <div id="server-nav"> 
         <ul id = "server-nav-list">
-          <li key="home-bubble"> 
+          <li key="home-bubble"
+            className="server-bubble"> 
             <Link to={`/servers/@me`}> 
               <i className="fa-brands fa-discord home-bubble"/>
             </Link> 
+              <div className="server-tool-name">Home</div>
           </li>
           <div id="seperator-container"> 
           <div id="server-nav-seperator"/>
