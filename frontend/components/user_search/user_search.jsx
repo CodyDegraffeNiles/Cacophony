@@ -48,7 +48,6 @@ class UserSearch extends React.Component{
   }
 
   render(){
-    console.log
     return(
       <div id= "user-search">
         <h5 id="user-search-header"> Select a User and Start a DM With Them!</h5>
