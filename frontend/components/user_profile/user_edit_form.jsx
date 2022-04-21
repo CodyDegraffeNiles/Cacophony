@@ -10,10 +10,6 @@ class UserEditForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount(){
-    
-  }
-
   componentWillUnmount(){
     this.props.removeErrors()
   }
@@ -26,8 +22,6 @@ class UserEditForm extends React.Component{
   handleChange(type){
     return (e) => {this.setState({[type] : e.target.value})}
   }
-
-
 
   render(){
     // Set Username based on if errors exist

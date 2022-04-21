@@ -14,21 +14,30 @@ class ChannelMessages extends React.Component{
     this.subscription = ""
     this.subscribe = this.subscribe.bind(this)
     this.unsubscribe = this.unsubscribe.bind(this)
+    this.scrollAuto = true;
   }
 
   componentDidMount(){
     this.props.fetchChannel(this.props.channelId);
-    this.subscribe()
+    this.subscribe();
   }
+
+  scrollToBottom = (speed) => {
+    // Fail safe check to make sure placeholder is set.
+    if(this.placeholder){ 
+      this.placeholder.scrollIntoView({ behavior: speed });
+    }
+  }
+
 
   // Remove listening post/subscription
   componentWillUnmount(){
-    this.unsubscribe()
+    this.unsubscribe();
   }
 
   // Remove listening post/subscription
   unsubscribe(){
-    this.subscription.unsubscribe()
+    this.subscription.unsubscribe();
   }
 
   // Set Up listening post/subscription 
@@ -89,14 +98,24 @@ class ChannelMessages extends React.Component{
     this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps, prevState){
+    // Scroll to the bottom with auto speed when entering a channel
+    if(prevProps.messages[0] !== this.props.messages[0]) {
+      this.scrollToBottom("auto");
+    } 
+
+    //Scroll to the bottom with smooth speed when a message is added
+    if(prevState.messages.length < this.state.messages.length){
+      this.scrollToBottom("smooth")
+    }
+
     // Update props if they reiceve a new message
     if (prevProps.messages.length !== this.props.messages.length)
       { 
         let messages = this.props.messages;
         let messageIds = this.props.messageIds;
         this.setState({messages});
-        this.setState({messageIds})
+        this.setState({messageIds});
       };
     // If channel changes or messages length changes, refetch channel
     if (prevProps.messages.length > 0 && this.props.messages.length > 0 && 
@@ -126,7 +145,7 @@ class ChannelMessages extends React.Component{
       let messages = this.props.messages;
       let messageIds = this.props.messageIds;
       this.setState({messages});
-      this.setState({messageIds})
+      this.setState({messageIds});
     } 
   }
 
@@ -177,7 +196,7 @@ class ChannelMessages extends React.Component{
             />
           )
         })}
-        
+        <div id="message-placeholder" ref={el=>this.placeholder=el}/>
         </ul>
           <div id = "channel-message-footer-bar">
           <form autoComplete="off" id= "server-message-form" onSubmit={this.handleSubmit}> 

@@ -34,11 +34,26 @@ class UserSearch extends React.Component{
     
   }
 
+  // Display message if there are no users that someone can search for
+  renderDmMessage(){
+    if (this.state?.users?.length === 0) {
+      return (
+        <li className="user-list-item"> You currently have no one to add to your DM's. 
+        Join a public server (through the compass button on the left-hand nav) 
+        to find friends!
+      </li>
+      )
+    }
+    return null;
+  }
+
   render(){
+    console.log
     return(
       <div id= "user-search">
         <h5 id="user-search-header"> Select a User and Start a DM With Them!</h5>
         <ul id="user-search-list"> 
+          {this.renderDmMessage()}
           {this.state.users.map((user) => {
             return( <li 
               key = {user.id}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch } from "react-router";
+import { Redirect } from "react-router";
 import UserNavContainer from "./user_nav/user_nav_container"; 
 import SignupFormContainer from "./session_form/signup_form_container";
 import LoginFormContainer from "./session_form/login_form_container";
@@ -17,7 +18,14 @@ import emptyDmMessages from "./dm_messages/empty_dm_messages";
 
 const App = () => (
   <div>
-      <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
+
+     {/* Auth Routes */}
+      <Switch> 
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} /> 
+        <AuthRoute exact path="/" component={HomePageContainer}/> 
+      </Switch>
+
       <ProtectedRoute path="/servers" component={ServerNavContainer} />
       <ProtectedRoute path ="/servers" component = {UserNavContainer}/>
       {/* Render either dm Nav or channel nav up */}
@@ -25,8 +33,8 @@ const App = () => (
       <ProtectedRoute path="/servers/@me" component={DmNavContainer}/>
       <ProtectedRoute path="/servers/:serverId/:channelId" component={ChannelNavContainer}/>
       </Switch>
+      {/* Rerender the least intenstive Component as a check */}
       <Switch> 
-          {/* Rerender the least intenstive Component as a check */}
         <ProtectedRoute path ="/servers/@me" component = {UserNavContainer}/>
         <ProtectedRoute path="/servers/:serverId" component={ServerMemeberContainer}/>
       </Switch>
@@ -38,13 +46,15 @@ const App = () => (
         <ProtectedRoute path="/servers/@me" component={emptyDmMessages}/>
       </Switch>
 
-      <ProtectedRoute path="/servers" component={LineAcrossTop}/>
-
-
-      {/* Auth Routes */}
-      <AuthRoute exact path="/" component={HomePageContainer}/>
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} /> 
+      
+      <Switch>
+        <ProtectedRoute path="/servers" component={LineAcrossTop}/>
+        <ProtectedRoute path="/users/:userId" component={UserProfileContainer}/>
+        {/*Catch invalid Protected Routes*/}
+        {/*Works by sending it back up into an Auth route so its rerouted to 
+          @servers/me if logging in or homepage if not logged in*/ }
+        <Redirect to="/"/>
+      </Switch>
   </div>
 );
 

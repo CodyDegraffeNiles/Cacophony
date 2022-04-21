@@ -11,16 +11,7 @@ class EditServerNameForm extends React.Component{
   componentWillUnmount(){
     this.props.removeErrors();
   }
-
-  componentDidUpdate(prevProps){
-    if (prevProps !== this.props){
-      this.setState({["name"]: this.props.server.name})
-      this.setState({["id"]: this.props.server.id})
-      this.setState({["owner_id"]: this.props.server.owner_id})
-      this.setState({["public"]: this.props.server.public})
-    }
-  }
-
+  
   // Handle Submission of the from for name edit
 
   handleSubmit(e){

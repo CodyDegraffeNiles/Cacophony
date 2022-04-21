@@ -26,6 +26,7 @@ class Message extends React.Component{
   }
 
   componentWillUnmount(){
+    let that = this;
     window.removeEventListener("keydown", function(e) {
         if (e.key === "Escape" && that.state.showEdit){
           that.setState({["showEdit"]: false})

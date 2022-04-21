@@ -23,6 +23,13 @@ class DmMessages extends React.Component{
     this.subscribe()
   }
 
+  scrollToBottom = (speed) => {
+    // Fail safe check to make sure placeholder is set.
+    if(this.placeholder){ 
+      this.placeholder.scrollIntoView({ behavior: speed });
+    }
+  }
+
   // Remove listening post/subscription
   componentWillUnmount(){
     this.unsubscribe()
@@ -89,15 +96,25 @@ class DmMessages extends React.Component{
     this.subscription = cable.subscriptions.create(ParamsToSend, handlers)
   }
 
-  componentDidUpdate(prevProps){
-    // Update props if the receive a new message or dmServer changes with different message length
-  if (prevProps.dmMessagesIds.length !== this.props.dmMessagesIds.length)
-    {
-      let dmMessages = this.props.dmMessages;
-      let dmMessagesIds = this.props.dmMessagesIds;
-      this.setState({dmMessages})
-      this.setState({dmMessagesIds})
+  componentDidUpdate(prevProps, prevState){
+    // Scroll to the bottom with auto speed when entering a new dm
+    if(prevProps.dmMessages[0] !== this.props.dmMessages[0]) {
+      this.scrollToBottom("auto");
     }
+
+    //Scroll to the bottom with smooth speed when a new dm is added
+    if(prevState.dmMessages.length < this.state.dmMessages.length){
+      this.scrollToBottom("smooth")
+    }
+
+    // Update props if the receive a new message or dmServer changes with different message length
+    if (prevProps.dmMessagesIds.length !== this.props.dmMessagesIds.length)
+      {
+        let dmMessages = this.props.dmMessages;
+        let dmMessagesIds = this.props.dmMessagesIds;
+        this.setState({dmMessages})
+        this.setState({dmMessagesIds})
+      }
     // If Dm server changes with same amount of messages, refect channel 
     if (prevProps.dmMessagesIds.length > 0 && this.props.dmMessagesIds.length > 0){
       if(prevProps.dmMessages[0].id !== this.props.dmMessages[0].id) {
@@ -174,6 +191,7 @@ class DmMessages extends React.Component{
                 )
             })
           }
+          <div id="message-placeholder" ref={el=>this.placeholder=el}/>
         </ul>
 
         <div id= "dm-message-footer-bar">

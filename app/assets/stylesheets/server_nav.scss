@@ -176,7 +176,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  transform: translate(calc(50vw - 150px + 377px), calc(40vh - 150px));
+  transform: translate(calc(50vw + 230px), calc(40vh - 150px));
   z-index: 12;
   border: none;
   font-size: 20px;
@@ -190,15 +190,27 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+#server-search::-webkit-scrollbar {
+  width: 1px;
+}
 #server-search h5 {
   text-align: center;
 }
 #searched-servers li {
   font-size: 20px;
   padding: 10px;
+  margin-left: 5px; 
+  margin-right: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+#searched-servers li:hover {
+  background-color: lightgrey;
 }
 
 #searched-servers li button{
