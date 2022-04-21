@@ -153,6 +153,11 @@
   color: rgb(145,145,145);
 }
 
+.selected-channel{
+  background-color: rgb(58, 60, 67);
+  color: white;
+}
+
 // Padding for Font Asweome Icons
 .fa-plus { 
   padding-top: 2px;
@@ -168,6 +173,7 @@
 #channel-nav-list .fa-hashtag{
   padding-left: 10px; 
   padding-right: 10px;
+  color: rgb(145, 145, 145)
 }
 
 #channel-nav-list{
