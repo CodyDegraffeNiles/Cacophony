@@ -72,9 +72,14 @@ class ChannelNav extends React.Component{
   renderChannelCreateButton(){
     if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
       return(
-      <i className="fa-solid fa-plus" 
-      onClick={this.toggleEdits("channelCreate")}></i>
-      )
+      <div className="create-channel-div"> 
+        <i className="fa-solid fa-plus"  
+          onClick={this.toggleEdits("channelCreate")}/> 
+          <div id="create-tool-tip"> 
+            <span> Create Channel</span>
+          </div>
+      </div>
+        )
     } else {
       return(
         null
@@ -110,20 +115,14 @@ class ChannelNav extends React.Component{
 
   // Render Channel Edit Button
 
-  renderChannelEditButton(channelName){
-
-      if(this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName !== "general"){
+  renderChannelEditButton(){
+      if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
         return(
         <i className="fa-solid fa-gear fa-2xs"
         onClick ={this.toggleEdits("channelEdit")}
         ></i>
         )
-    } else if ((this.props.server && this.props.currentUserId === this.props.server.ownerId && channelName === "general")){
-      return (<i className="fa-solid fa-gear fa-2xs"
-        onClick ={() => {alert("Update disabled for the general channel")}}
-        ></i>
-        )
-    }else {
+    } else {
       return(null)
     }
   }
@@ -188,7 +187,7 @@ class ChannelNav extends React.Component{
                 <i className="fa-solid fa-hashtag fa-sm"/>
                 {channel.name}
               </div>
-            {this.renderChannelEditButton(channel.name)}
+            {this.renderChannelEditButton()}
             {/* Have to Render Channel Edit Form here so that you have access to ChannelId */}
             </li>
           </Link>

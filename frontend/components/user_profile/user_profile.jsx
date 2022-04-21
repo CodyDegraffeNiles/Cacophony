@@ -80,20 +80,22 @@ class UserProfile extends React.Component{
       </div>
         <div id="user-profile-header"> 
         <h3 id="my-account">My Account</h3>
-          <div id="home-link">
-            <Link id="esc-link" to="/servers/@me">
+          <div id="to-home"> 
+            <Link id="home-link" to="/servers/@me">
                 <i className="fa-solid fa-xmark"/>
-                <p id="esc">ESC</p>
             </Link> 
+            <p id="esc">ESC</p>
           </div>
         </div>
         <div id="user-profile-content">
           <div id="user-profile-dark-top"/> 
 
           <div id ="user-top-info"> 
-            <div className={`user-icon-profile color-${this.props.user.colorId}`}>
-              <i className="fa-brands fa-discord"/>
-              </div>
+            <div className={"invading-div"}>
+              <div className={`user-icon-profile color-${this.props.user.colorId}`}>
+                <i className="fa-brands fa-discord"/>
+                </div>
+            </div>
             <div id="user-fullname"> 
               <h4>{this.props.user.username}</h4> 
               <span>#{this.props.user.numberTag}</span>

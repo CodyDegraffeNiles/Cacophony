@@ -79,12 +79,15 @@ class ChannelForm extends React.Component{
         <p> In {this.props.serverName}</p>
       </div>
 
-    // Delete Button if Create Channel"
-    let deleteButton = this.props.formType === "Update Channel" ?
-    <form onSubmit={() => this.handleDelete(this.props.channelId)}>
-      <button id="channel-delete-button" type="submit"> Delete Channel</button>
-    </form>
-    : null;
+    // Delete Button if Update Channel"
+    let deleteButton = this.props.formType === "Update Channel" && this.props?.channelName === "general" 
+      ?  <button id="channel-delete-button" type="button"> Delete Channel 
+        (Disabled for general)</button>
+      : this.props.formType === "Update Channel" 
+      ? <form onSubmit={() => this.handleDelete(this.props.channelId)}>
+          <button id="channel-delete-button" type="submit"> Delete Channel</button>
+        </form>
+      : null;
 
     // Channel Name is format based on if there are errors
     let channelName = this.props.errors.includes("Name can't be blank") ? 
@@ -95,8 +98,11 @@ class ChannelForm extends React.Component{
     if(this.props.errors.includes("Name has already been taken")){
       channelName = <p id="channel-error-name"> CHANNEL NAME: NAME ALREADY IN USE</p>}
 
-    // Button Message 
-    let submitButton = <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
+    // Button (Disabled for general) 
+    let submitButton = this.props?.channelName === "general" 
+      ? <button id="channel-edit-submit" type="button">Update Channel
+        (Disabled for general) </button>
+      : <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
 
     return (
     <div id="channel-form"> 

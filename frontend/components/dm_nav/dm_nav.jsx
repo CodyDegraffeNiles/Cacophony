@@ -45,12 +45,17 @@ class DmNav extends React.Component{
     return(
       <div id="dm-nav">
         <div id="simiulate-nav-bar"/> 
+        <div id="channel-line-across-top"/> 
         <br/> 
         <div className="list-header">
           <h6> Direct Messages</h6>
-          <i className="fa-solid fa-plus" 
-          onClick={this.toggleSearch}
-          ></i>
+          <div className="create-channel-div"> 
+            <i className="fa-solid fa-plus"  
+              onClick={() => this.toggleSearch()}/> 
+              <div id="create-tool-tip"> 
+                <span>Create DM</span>
+            </div>
+          </div>
         </div>
         {this.renderSearch()}
         <ul id="dm-nav-list"> 
