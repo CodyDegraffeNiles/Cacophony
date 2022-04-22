@@ -1,9 +1,11 @@
 class Api::ServersController < ApplicationController
 
   def index
-    @servers = Server.all;
+    ## Would never need to search private servers by themselves so general index
+    ## will only be public servers.
+    @servers = Server.where("servers.public = true")
     @current_user = userid ? current_user : false;
-    @servers = @current_user.servers + @current_user.owned_servers if (@current_user)
+    @servers = @current_user.servers if (@current_user)
     render :index
   end
   

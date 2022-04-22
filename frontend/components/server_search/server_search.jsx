@@ -4,7 +4,7 @@ class ServerSearch extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      servers: "",
+      publicServers: "",
     }
     this.handleJoin = this.handleJoin.bind(this)
   }
@@ -16,7 +16,7 @@ class ServerSearch extends React.Component{
     // overall state.
     this.props.fetchAllServers().then( 
       function(response){
-        return that.setState({servers: response})
+        return that.setState({publicServers: response})
       }
     )
   }
@@ -30,16 +30,9 @@ class ServerSearch extends React.Component{
   }
 
   render(){
-    // Conditional show for Server Search Modal
-    let initalServerArray = (Object.values(this.state.servers))
-    let serverIds = this.props.servers.map((server)=> {return server.id})
-    // Filter correct server data(Hotfix - should probably fitler data in the backend rather than the front
-    // Do to scalling issues.)
-
-    // No duplications from the Users already joined/owned servers
-    let serverArray = initalServerArray.filter((server) => !serverIds.includes(server.id))
-    // Only private servers.
-    serverArray = serverArray.filter((server) => server.public)
+    // Filter out servers a user is already a part of as noted in this.props.servers.
+    let publicServers = Object.values(this.state.publicServers)
+    let serverArray = publicServers.filter((server) => !(this.props.servers.hasOwnProperty(server.id)))
 
     if (this.props.show){
       return(

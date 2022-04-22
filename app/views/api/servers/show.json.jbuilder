@@ -5,10 +5,6 @@ json.server do
 end
 
 json.users do 
-    json.set! @server.owner.id do
-      json.extract! @server.owner, :id, :username, :email, :number_tag, :color_id
-  end
-
   @server.members.each do |member|
     json.set! member.id do
       json.extract! member, :id, :username, :email, :number_tag, :color_id

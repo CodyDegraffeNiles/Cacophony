@@ -51,4 +51,5 @@ class Server < ApplicationRecord
   def create_owner_membership
     ServerMembership.create(member_id: self.owner_id, server_id: self.id)
   end
+
 end
