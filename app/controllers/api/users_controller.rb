@@ -31,10 +31,13 @@ class Api::UsersController < ApplicationController
 
   # Used to show associated users who are not in a dm with you already, so 
   # Uses Current User Id to filter.
+  # Use a hash to store dm_partner ids to reduce lookup time from O(n^2) to O(n)
   def index 
-    server_peers = current_user.server_fellows
+    dm_partner_hash = Hash.new(0)
     dm_partners = current_user.dm_partners
-    @users = server_peers.reject {|fellow| dm_partners.include?(fellow)}
+    dm_partners.each{|user| dm_partner_hash[user.id] += 1}
+    server_peers = current_user.server_fellows
+    @users = server_peers.reject {|user| dm_partner_hash.has_key?(user.id)}
     render :index;
   end
   
