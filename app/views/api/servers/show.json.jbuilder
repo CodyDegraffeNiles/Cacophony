@@ -22,7 +22,8 @@ end
 
   # Messages of the first channel
 json.messages do 
-  @server.channels.first.messages.each do |message|
+  messages = @server.channels.first.messages.includes(:author)
+  messages.each do |message|
     json.set! message.id do
       est = Time.zone.utc_to_local(message.created_at)
       # Handle utc conversion issues to get actual EST

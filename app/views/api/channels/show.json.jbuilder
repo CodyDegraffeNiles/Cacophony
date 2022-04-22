@@ -3,7 +3,8 @@ json.channel do
 end
 
 json.messages do 
-  @channel.messages.each do |message|
+  messages = @channel.messages.includes(:author)
+  messages.each do |message|
     json.set! message.id do
       est = Time.zone.utc_to_local(message.created_at)
       # Handle utc conversion issues to get actual EST

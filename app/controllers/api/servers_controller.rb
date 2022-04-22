@@ -3,9 +3,9 @@ class Api::ServersController < ApplicationController
   def index
     ## Would never need to search private servers by themselves so general index
     ## will only be public servers.
-    @servers = Server.where("servers.public = true")
+    @servers = Server.where("servers.public = true").includes(:channels)
     @current_user = userid ? current_user : false;
-    @servers = @current_user.servers if (@current_user)
+    @servers = @current_user.servers.includes(:channels) if (@current_user)
     render :index
   end
   
@@ -19,12 +19,14 @@ class Api::ServersController < ApplicationController
   end
 
   def show
-    @server = Server.find_by(id: params[:id])
+    # Use where instead of find by to not use N+1 queries)
+    @server = Server.where("id = #{params[:id]}").includes(:channels).first
     render :show
   end
 
   def update
-    @server = Server.find_by(id: params[:id])
+    # Use where instead of find to avoid use N+1 queries)
+    @server = Server.where("id = #{params[:id]}").includes(:channels).first
     if @server.update(server_params)
       render :show
     else 
