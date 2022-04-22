@@ -110,15 +110,17 @@ class ServerNav extends React.Component{
             </li>
           )
         })}
-        <li key="createServer"> 
+        <li className= "server-bubble" key="createServer"> 
           <button id="create-servers" onClick={this.toggleForm("create", "search")}>
               <i className="fa-solid fa-plus"/> 
           </button>
+          <div className="server-tool-name">Add a Server</div>
         </li>
-        <li key="searchServer"> 
+        <li className= "server-bubble" key="searchServer"> 
           <button id="search-servers" onClick={this.toggleForm("search","create")}> 
             <i className="fa-solid fa-compass"/> 
           </button> 
+          <div className="server-tool-name">Explore Public Servers</div>
         </li>
       </ul>
       {this.renderCreate()}

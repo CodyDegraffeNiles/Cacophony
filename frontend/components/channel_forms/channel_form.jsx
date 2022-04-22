@@ -47,20 +47,23 @@ class ChannelForm extends React.Component{
   }
 
   handleDelete(channelId){
-    let that = this;
-    this.props.deleteChannel(channelId).then(
-      function(response){
-        // Reroute to general channel and fetch if you are currently in the deleted channel
-        if(response.payload.toString() === that.props.currentChannelId){
-          that.props.history.push(`/servers/${that.props.serverId}/${that.props.firstChannelId}`)
-          that.props.fetchChannel(that.props.firstChannelId)
+    if (confirm("Are you sure you with to delete this channel? This action is irreversible."))
+      { 
+        let that = this;
+        this.props.deleteChannel(channelId).then(
+        function(response){
+          // Reroute to general channel and fetch if you are currently in the deleted channel
+          if(response.payload.toString() === that.props.currentChannelId){
+            that.props.history.push(`/servers/${that.props.serverId}/${that.props.firstChannelId}`)
+            that.props.fetchChannel(that.props.firstChannelId)
+          }
+          // Else fetch current channel
+          else {
+            that.props.fetchChannel(that.props.currentChannelId)
+          }
         }
-        // Else fetch current channel
-        else {
-          that.props.fetchChannel(that.props.currentChannelId)
-        }
-      }
-    )
+      )
+    }
   }
 
   render(){
