@@ -14,22 +14,35 @@ class ServerMembers extends React.Component{
       <div id= "mimic-nav-bar"> </div>
       <ul id = "server-members-list">
         <br/> 
-        <p id="member-title"> Members - {this.props.members.length}</p>
-        {this.props.members.map((member) => {
-          return ( 
+        <p className="member-title"> OWNER </p>
           <li
-          key={member.id}
-          className="server-member-item"
-          >
-            <div className={`user-icon color-${member.colorId}`}>
-              <i className="fa-brands fa-discord"/>
+              key={this.props.owner?.id}
+              className="server-member-item"
+              >
+            <div className={`user-icon color-${this.props.owner?.colorId}`}>
+            <i className="fa-brands fa-discord"/>
             </div>
-            <h5 className='member-username'> {member.username} </h5>
+            <h5 className='member-username'> {this.props.owner?.username} </h5>
           </li>
-            )
-          }
-        )
-      }
+        <br/>
+        <p className="member-title"> MEMBERS - {this.props.members.length}</p>
+        {this.props.members.map((member) => {
+          if(member.id !== this.props.owner?.id) 
+            {
+              return ( 
+                <li
+                key={member.id}
+                className="server-member-item"
+                >
+                  <div className={`user-icon color-${member.colorId}`}>
+                    <i className="fa-brands fa-discord"/>
+                  </div>
+                  <h5 className='member-username'> {member.username} </h5>
+                </li>
+              )
+            }
+          })
+        }
       </ul>
     </div>)
   }
