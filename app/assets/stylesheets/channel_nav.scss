@@ -354,7 +354,7 @@
   color: rgb(145,145,145)
 }
 
-#create-tool-tip{
+.create-tool-tip{
   visibility: hidden;
   font-size: 13px;
   width: 100px;
@@ -365,14 +365,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-45px, -65px)
+  transform: translate(-45px, -65px);
+  color: rgb(225, 225, 225);
 }
 
-.create-channel-div:hover #create-tool-tip{
+.create-channel-div:hover .create-tool-tip{
   visibility: visible;
 }
 
-#create-tool-tip::after {
+.create-tool-tip::after {
   content: " ";
   position: absolute;
   top: 100%;

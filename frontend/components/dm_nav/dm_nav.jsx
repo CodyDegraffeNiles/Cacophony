@@ -52,7 +52,7 @@ class DmNav extends React.Component{
           <div className="create-channel-div"> 
             <i className="fa-solid fa-plus"  
               onClick={() => this.toggleSearch()}/> 
-              <div id="create-tool-tip"> 
+              <div className="create-tool-tip"> 
                 <span>Create DM</span>
             </div>
           </div>
