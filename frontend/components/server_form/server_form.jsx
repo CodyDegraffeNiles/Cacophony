@@ -75,12 +75,14 @@ class ServerForm extends React.Component{
             onClick={this.handlePublic(false, "public")}
             className = {privateDivClass}
             > 
+            <img id="private-server-svg"/>
             <p className='public-info-p'>For Me and My Friends</p>
           </div>
           <div 
             onClick={this.handlePublic(true, "public")}
             className = {publicDivClass}
           >  
+            <img id="public-server-svg"/>
             <p className='public-info-p'> For A Club or Community </p>
           </div>
         </div>
