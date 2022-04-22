@@ -110,6 +110,7 @@ class ChannelForm extends React.Component{
         {formMessage}
           {channelName}
           <div id ="channel-form-name-input-container">
+            <span className="server-message-input-padding">"</span>
             <i className="fa-solid fa-hashtag fa-sm"></i>
             <input 
             autoFocus
