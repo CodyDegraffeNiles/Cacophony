@@ -83,14 +83,16 @@ class ServerNav extends React.Component{
         <ul id = "server-nav-list">
           <li key="home-bubble"
             className="server-bubble"> 
-            <Link className={homeClass} to={`/servers/@me`}> 
-              <i className="fa-brands fa-discord home-bubble"/>
-            </Link> 
+            <div className="server-nav-a">
+              <Link className={homeClass} to={`/servers/@me`}> 
+                <i className="fa-brands fa-discord home-bubble"/>
+              </Link> 
+            </div> 
               <div className="server-tool-name">Home</div>
           </li>
           <div id="seperator-container"> 
-          <div id="server-nav-seperator"/>
-        </div>
+            <div id="server-nav-seperator"/>
+          </div>
         {this.props.servers.map((server, index) => {
           // Light up selected Server
           let navClass = this.props.serverId === server.id.toString()
@@ -99,27 +101,33 @@ class ServerNav extends React.Component{
             <li 
               className= "server-bubble"
               key={index}>
-              <Link 
-                to={`/servers/${server.id}/${server.firstChannelId}`} 
-                onClick={() => this.props.fetchServer(server.id)}
-                className={navClass}
-              > 
-                <p className="server-inital"> {server.name.charAt(0)} </p> 
-              </Link>
+              <div className="server-nav-a">
+                <Link 
+                  to={`/servers/${server.id}/${server.firstChannelId}`} 
+                  onClick={() => this.props.fetchServer(server.id)}
+                  className={navClass}
+                > 
+                  <p className="server-inital"> {server.name.charAt(0)} </p> 
+                </Link>
+              </div>
               <div className="server-tool-name">{server.name}</div>
             </li>
           )
         })}
         <li className= "server-bubble" key="createServer"> 
-          <button id="create-servers" onClick={this.toggleForm("create", "search")}>
+          <div className="server-nav-a">
+            <button id="create-servers" onClick={this.toggleForm("create", "search")}>
               <i className="fa-solid fa-plus"/> 
-          </button>
+            </button>
+          </div>
           <div className="server-tool-name">Add a Server</div>
         </li>
         <li className= "server-bubble" key="searchServer"> 
-          <button id="search-servers" onClick={this.toggleForm("search","create")}> 
-            <i className="fa-solid fa-compass"/> 
-          </button> 
+          <div className="server-nav-a">
+            <button id="search-servers" onClick={this.toggleForm("search","create")}> 
+              <i className="fa-solid fa-compass"/> 
+            </button> 
+          </div>
           <div className="server-tool-name">Explore Public Servers</div>
         </li>
       </ul>
