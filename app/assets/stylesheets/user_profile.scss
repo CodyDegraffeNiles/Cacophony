@@ -6,25 +6,26 @@
 
 #user-side-nav{
   position: absolute;
-  height: 100vh;
-  width: 225px;
+  height: 90vh;
+  width: 25vw;
   background-color: rgb(48,49,54);
   display: flex; 
   flex-direction: column;
-  justify-content: center;
-  color: rgb(186, 186, 186)
+  align-items: end;
+  color: rgb(186, 186, 186);
+  padding-top: 10vh;
 }
 
 .user-side-nav-item{
   margin: 10px;
   padding: 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .user-side-nav-item:hover{
-  color: rgb(225,225,225);
-  background-color:rgb(56, 57, 62);
-  border-radius: 5px;
+  color: rgb(212,212,212);
+  background-color:rgb(61, 63, 68);
 }
 
 #user-side-nav-list a{
@@ -36,7 +37,7 @@
   background-color: rgb(186, 186, 186);
   color: rgb(56, 57, 62);
   position: relative;
-  transform: translate(125px, 0px);
+  transform: translate(75px, 0px);
 }
 
 #user-exit-x{
@@ -95,17 +96,18 @@
   top: 0;
   left: 0;
   position: absolute;
-  transform: translate(30vw, 30vh);
+  transform: translate(30vw, 15vh);
 }
 
 #user-profile-header{
   position: relative;
   top: 0;
   left: 0;
-  transform: translate(30vw, calc(30vh - 75px));
+  transform: translate(30vw, calc(15vh - 65px));
   width: 715px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #my-account{
@@ -210,6 +212,7 @@
   border: 1px solid red;
   cursor: pointer;
   width: 35%;
+  min-width: 160px;
 }
 
 #delete-user:hover{
@@ -288,4 +291,10 @@
     min-width: 135px;
   }
 
+}
+
+@media only screen and (max-width: 500px){
+    #user-profile-header {
+        width: 330px;
+  }
 }

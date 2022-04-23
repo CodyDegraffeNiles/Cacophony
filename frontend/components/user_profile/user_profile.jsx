@@ -77,7 +77,7 @@ class UserProfile extends React.Component{
         <div id="user-side-nav"> 
           <ul id="user-side-nav-list">
             <Link to={`/users/${this.props.user.id}`}> 
-              <li className = "user-side-nav-item">My Account</li>
+              <li className = "user-side-nav-item selected-dm">My Account</li>
             </Link>
             <Link to={`/servers/@me`}> 
               <li className = "user-side-nav-item">My Direct Messages</li>
