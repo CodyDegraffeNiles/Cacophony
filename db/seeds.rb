@@ -218,7 +218,7 @@
   aaTas = Server.create(
     owner_id: demo_user.id,
     name: "The Best TAs",
-    public: false,
+    public: true,
   )
 
   cohort = Server.create(
@@ -286,7 +286,7 @@
   ServerMembership.create(server_id: aaTas.id, member_id: brandon.id)
   ServerMembership.create(server_id: aaTas.id, member_id: chris.id)
   ServerMembership.create(server_id: aaTas.id, member_id: mike.id)
-  ServerMembership.create(server_id: cohort.id, member_id:  brandon.id)
+  ServerMembership.create(server_id: cohort.id, member_id: brandon.id)
   ServerMembership.create(server_id: cohort.id, member_id: jwong.id)
   ServerMembership.create(server_id: cohort.id, member_id: mikey.id)
   ServerMembership.create(server_id: cohort.id, member_id: mike.id)
