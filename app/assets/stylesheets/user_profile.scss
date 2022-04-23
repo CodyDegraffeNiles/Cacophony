@@ -138,10 +138,15 @@
   display: flex;
   font-size: 20px;
   font-family: "Ginto";
+  width: 195px;
 }
 
 #user-fullname h4{
   color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 135px;
 }
 
 #user-info {
