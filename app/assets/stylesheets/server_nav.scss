@@ -33,7 +33,7 @@
 
 #server-nav-list{
   margin-top: 5px;
-  height: 95vh;
+  height: calc(100vh - 55px);
   overflow-y: auto;
   overflow-x: hidden;
 }
