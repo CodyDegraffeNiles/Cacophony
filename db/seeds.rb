@@ -332,14 +332,14 @@
   Message.create(channel_id: assualt.id, author_id: dorn.id, body: "Fortify!")
   Message.create(channel_id: assualt.id, author_id: dias.id, body: "Never Yield!")
   Message.create(channel_id: assualt.id, author_id: sigismund.id, body: "Purge the Hertic!")
-  Message.create(channel_id: assualt.id, author_id: dorn.id, body: "Clam down Sigismund.")
+  Message.create(channel_id: assualt.id, author_id: dorn.id, body: "Calm down Sigismund.")
 
   Message.create(channel_id: censure.id, author_id: dorn.id, body: "Why do you hestiate in your duty, Sigismund.")
   Message.create(channel_id: censure.id, author_id: sigismund.id, body: "The pysker told me so.")
   Message.create(channel_id: censure.id, author_id: archamus.id, body: "And you believed her?")
   Message.create(channel_id: censure.id , author_id: sigismund.id, body: "I did and I still do.")
-  Message.create(channel_id: censure.id, author_id: dorn.id, body: "You will be censured from hear till you are redem yourself in a crusade.")
-  Message.create(channel_id: censure.id, author_id: sigismund.id, body: "As you will, it my primarch.")
+  Message.create(channel_id: censure.id, author_id: dorn.id, body: "You will be censured till you redem yourself in a crusade.")
+  Message.create(channel_id: censure.id, author_id: sigismund.id, body: "As you will it, my primarch.")
 
   Message.create(channel_id: defenses.id, author_id: khan.id, body: "I want to ride out and fight them.")
   Message.create(channel_id: defenses.id, author_id: perturabo.id, body: "That it a great idea.")
@@ -362,14 +362,15 @@
   Message.create(channel_id: projects.id, author_id: mikey.id, body: "Can I have some help with debugging?")
   Message.create(channel_id: projects.id, author_id: nick.id, body: "Sure, lets hope into chat.")
   Message.create(channel_id: projects.id, author_id: mikey.id, body: "Stuck with my state not updating.")
-  Message.create(channel_id: projects.id, author_id: nick.id, body: "I think you misspeled your state variable.")
+  Message.create(channel_id: projects.id, author_id: nick.id, body: "I think you misspelled your state variable.")
   Message.create(channel_id: projects.id, author_id: mikey.id, body: "That was it! Thanks!")
-  Message.create(channel_id: projects.id, author_id: nick.id, body: "No Problem! Good Luck with the rest of your Project.")
+  Message.create(channel_id: projects.id, author_id: nick.id, body: "No problem! Good Luck with the rest of your project.")
 
   Message.create(channel_id: announcements.id, author_id: jwong.id, body: "Remember guys - Check in is at 9:00 AM, 1:30PM, and 4:00 PM.")
   Message.create(channel_id: announcements.id, author_id: demo_user.id, body: "The Ta's said to focus on studying today instead of doing homework.")
   
   Message.create(channel_id: tribunal.id, author_id: demo_user.id, body: "This channel is for roasting our friends.")
+
   Message.create(channel_id: league.id, author_id:derek.id, body: "Whose wants to play an ARAM?")
   Message.create(channel_id: league.id, author_id:paul.id, body: "I am if sammy is.")
   Message.create(channel_id: league.id, author_id:sammy.id, body: "You know I, RichGameBuddy - the master of ARAM, is am always down for an ARAM.")
@@ -389,13 +390,13 @@
   Message.create(channel_id: imperial_fists.channels.first.id, author_id:sigismund.id, body: "Let them taste my blade.")
   Message.create(channel_id: imperial_fists.channels.first.id, author_id:dias.id, body: "Selective Shots.")
 
-  Message.create(channel_id: terra.channels.first.id, author_id:dorn.id, body: "Why must you persit this foolishness")
-  Message.create(channel_id: terra.channels.first.id, author_id:perturabo.id, body: "I am coming for you brother")
-  Message.create(channel_id: terra.channels.first.id, author_id:dorn.id, body: "My sons will defend terra with their life")
-  Message.create(channel_id: terra.channels.first.id, author_id:perturabo.id, body: "I will break you")
-  Message.create(channel_id: terra.channels.first.id, author_id:dorn.id, body: "You will try")
-  Message.create(channel_id: terra.channels.first.id, author_id:russ.id, body: "My sons will execute you Perturato for your treason")
-  Message.create(channel_id: terra.channels.first.id, author_id:perturabo.id, body: "You will not harm you, you are the lap dog of father")
+  Message.create(channel_id: terra.channels.first.id, author_id:dorn.id, body: "Why must you persit this foolishness.")
+  Message.create(channel_id: terra.channels.first.id, author_id:perturabo.id, body: "I am coming for you brother.")
+  Message.create(channel_id: terra.channels.first.id, author_id:dorn.id, body: "My sons will defend terra with their life.")
+  Message.create(channel_id: terra.channels.first.id, author_id:perturabo.id, body: "I will break you.")
+  Message.create(channel_id: terra.channels.first.id, author_id:dorn.id, body: "You will try.")
+  Message.create(channel_id: terra.channels.first.id, author_id:russ.id, body: "My sons will execute you for your treason!")
+  Message.create(channel_id: terra.channels.first.id, author_id:perturabo.id, body: "You will not harm me, you are the lap dog of father")
   Message.create(channel_id: terra.channels.first.id, author_id:alpharius.id, body: "I am Alpharius - or am I :)")
 
   Message.create(channel_id: aaTas.channels.first.id, author_id: mike.id, body: "Make sure to check on your advisees projects!")
@@ -407,7 +408,7 @@
   Message.create(channel_id: cohort.channels.first.id, author_id: anna.id, body: "Really exicted to go through this cohort with ya'll!")
   Message.create(channel_id: cohort.channels.first.id, author_id: nick.id, body: "Its going to be a blast.")
   Message.create(channel_id: cohort.channels.first.id, author_id: mikey.id, body: "We should make study groups for the tests!")
-  Message.create(channel_id: cohort.channels.first.id, author_id: demo_user.id, body: "Great Idea!")
+  Message.create(channel_id: cohort.channels.first.id, author_id: demo_user.id, body: "Great idea!")
   Message.create(channel_id: cohort.channels.first.id, author_id: brandon.id, body: "Anyone want to order laptops?")
   Message.create(channel_id: cohort.channels.first.id, author_id: jwong.id, body: "Bro who let this man in?")
 
@@ -421,19 +422,19 @@
   Message.create(channel_id: public1.channels.first.id, author_id: monkey_man.id, body: "I hope you like climbing trees as much as me.")
 
   Message.create(channel_id: public2.channels.first.id, author_id: monkey_man.id, body: "The best server seeding data!")
-  Message.create(channel_id: public2.channels.first.id, author_id: monkey_man.id, body: "Day 5 of seeding data - send Help")
+  Message.create(channel_id: public2.channels.first.id, author_id: monkey_man.id, body: "Day 5 of seeding data - send help!")
 
 
   Message.create(channel_id: public3.channels.first.id, author_id: monkey_man.id, body: "The best server for algorithim study")
   Message.create(channel_id: public3.channels.first.id, author_id: monkey_man.id, body: "Algos are what get you the job!")
   Message.create(channel_id: public3.channels.first.id, author_id: monkey_man.id, body: "Make sure to study binary search and merge sort!")
 
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Omegon")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Ingo Pech")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Sheed Ranko")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Silonius")
-  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius")
+  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius.")
+  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Omegon.")
+  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Ingo Pech.")
+  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Sheed Ranko.")
+  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Silonius.")
+  Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "I am Alpharius.")
   Message.create(channel_id: public4.channels.first.id, author_id: demo_user.id, body: "I am YOU!")
   Message.create(channel_id: public4.channels.first.id, author_id: alpharius.id, body: "But truley, I am Alpharius!")
 
@@ -466,19 +467,19 @@
 
 
   #Dm with Jian
-  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: jian.id, body:"You Should Apply to App Academy. You would be a great Software engineer." )
-  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: demo_user.id, body:"Will do Thanks for the advice and motivation." )
-  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: demo_user.id, body:"Just Wanted to update you. I have finished App Academy. It was hard, but fun. Thanks for all the support man." )
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: jian.id, body:"You should apply to App Academy. You would be a great software engineer." )
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: demo_user.id, body:"Will do. Thanks for the advice and motivation." )
+  DmMessage.create(dm_server_id: demo_dm_1.id, author_id: demo_user.id, body:"Just wanted to update you. I have finished App Academy. It was hard, but fun. Thanks for all the support man." )
   DmMessage.create(dm_server_id: demo_dm_1.id, author_id: jian.id, body:"Congrats!" )
 
   #Dm wtih Spencer 
-  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body:"Remember to study hard this weekend/" )
+  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body:"Remember to study hard this weekend." )
   DmMessage.create(dm_server_id: demo_dm_2.id, author_id: demo_user.id, body:"But I have a free fail haha" )
   DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body: "This is the most imporant material of the course." )
-  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body: "Time to put the foot on the Gas." )
+  DmMessage.create(dm_server_id: demo_dm_2.id, author_id: spencer.id, body: "Time to put the foot on the gas." )
 
   #Dm with Kestros
-  DmMessage.create(dm_server_id: demo_dm_3.id, author_id: demo_user.id, body:"What is your name, Sergant." )
+  DmMessage.create(dm_server_id: demo_dm_3.id, author_id: demo_user.id, body:"What is your name, sergeant." )
   DmMessage.create(dm_server_id: demo_dm_3.id, author_id: kestros.id, body: "It is Kestros." )
   DmMessage.create(dm_server_id: demo_dm_3.id, author_id: demo_user.id, body: "I am Demo. Nice to meet you!")
   DmMessage.create(dm_server_id: demo_dm_3.id, author_id: kestros.id, body: "Likewise ")
@@ -492,7 +493,7 @@
   #DM with Perturabo
   DmMessage.create(dm_server_id: demo_dm_5.id, author_id: perturabo.id , body: "IRON WITHIN!")
   DmMessage.create(dm_server_id: demo_dm_5.id, author_id: perturabo.id , body: "IRON WITHOUT!")
-  DmMessage.create(dm_server_id: demo_dm_5.id, author_id: demo_user.id, body: "You got to stop with the recruting slogans haha" )
+  DmMessage.create(dm_server_id: demo_dm_5.id, author_id: demo_user.id, body: "You got to stop with the recruting slogans" )
   DmMessage.create(dm_server_id: demo_dm_5.id, author_id: perturabo.id , body: "From Iron cometh Strength!
                                                 From Strength cometh Will! 
                                                 From Will cometh Faith! 
