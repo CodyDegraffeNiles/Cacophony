@@ -22,14 +22,14 @@ const removeChannel = (payload) => {
 
 const receiveErrors = (errors) => {
     return{
-        type: RECEIVE_CHANNEL_ERRORS, 
-        errors
+      type: RECEIVE_CHANNEL_ERRORS, 
+      errors
     }
 }
 
 export const removeErrors = () => {
     return{
-        type: REMOVE_CHANNEL_ERRORS, 
+      type: REMOVE_CHANNEL_ERRORS, 
     }
 }
 

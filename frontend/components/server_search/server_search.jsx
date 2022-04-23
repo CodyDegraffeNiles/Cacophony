@@ -11,7 +11,7 @@ class ServerSearch extends React.Component{
 
   componentDidMount(){
     let that = this;
-    // Grab all the Servers from the database and attach them to the state
+    // Grab all the servers from the database and attach them to the state
     // of the react component, not to muddy the waters of the servers in the 
     // overall state.
     this.props.fetchAllServers().then( 
@@ -37,7 +37,7 @@ class ServerSearch extends React.Component{
     if (this.props.show){
       return(
       <div id="server-search">
-        <h5 id="server-search-header"> Public Servers Available to Join!</h5>
+        <h5 id="server-search-header">Public Servers Available to Join!</h5>
         <ul id ="searched-servers"> 
           {serverArray.map((server) => {
             return (<li

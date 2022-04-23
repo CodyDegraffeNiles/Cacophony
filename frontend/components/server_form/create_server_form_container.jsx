@@ -3,7 +3,6 @@ import ServerForm from "./server_form";
 import { createServer, removeServerErrors } from "../../actions/server_actions";
 import { withRouter } from "react-router";
 
-
 const mapStateToProps = (state) => {
   return{
     currentUser: state.entities.users[state.session.id],

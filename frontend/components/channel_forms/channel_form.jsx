@@ -30,9 +30,9 @@ class ChannelForm extends React.Component{
     e.preventDefault();
     // Push to New Channel
     if(this.props.formType === "Create Channel"){
-    this.props.action(this.state).then(function(action){
-      let channel = action.payload.channel
-      return that.props.history.push(`/servers/${that.state.server_id}/${channel.id}`)
+      this.props.action(this.state).then(function(action){
+        let channel = action.payload.channel
+        return that.props.history.push(`/servers/${that.state.server_id}/${channel.id}`)
       })
     } else {
       // Stay at current location for simply updating a channel.
@@ -70,7 +70,7 @@ class ChannelForm extends React.Component{
     // Placeholder based on form
     const placeholder = this.props.formType === "Update Channel" ? 
     this.props.name : "new-channel"
-    // Form Message Based on Create or Editing Channel
+    // Form Message based on creating or editing Channel
     let formMessage = this.props.formType === "Update Channel" ? 
       <div id ="channel-form-header"> 
         <h5>Edit Channel</h5>
@@ -117,11 +117,11 @@ class ChannelForm extends React.Component{
             <i className="fa-solid fa-hashtag fa-sm"></i>
             <input 
             autoFocus
-            type="text"
-            value={this.state.name}
-            onChange={this.handleName("name")}
-            id ="channel-form-name-input"
-            placeholder={placeholder}
+              type="text"
+              value={this.state.name}
+              onChange={this.handleName("name")}
+              id ="channel-form-name-input"
+              placeholder={placeholder}
             />
           </div>
           {submitButton}

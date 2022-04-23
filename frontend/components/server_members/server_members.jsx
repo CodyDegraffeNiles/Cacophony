@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class ServerMembers extends React.Component{
 
   componentDidMount(){

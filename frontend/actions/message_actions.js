@@ -20,8 +20,8 @@ const removeMessage = (payload) => {
 
 const receiveErrors = (errors) => {
     return{
-        type: RECEIVE_SESSION_ERRORS, 
-        errors
+      type: RECEIVE_SESSION_ERRORS, 
+      errors
     }
 }
 

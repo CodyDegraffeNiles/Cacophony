@@ -1,8 +1,6 @@
 import React from "react"
 import { Link} from "react-router-dom"
 
-
-
 const HomeNav = () => {
   return(
     <div id="home-nav">

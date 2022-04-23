@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
     if @user.nil?
       render json: ["Invalid Email/Password combination"], status: 401
     else
-    # Log them in and redirect them if we find them
+    #Log them in and redirect them if we find them
       login(@user)
       render 'api/users/show';
     end

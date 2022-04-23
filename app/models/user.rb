@@ -13,7 +13,7 @@
 #  color_id        :integer          not null
 #
 class User < ApplicationRecord
-  ## Validations
+  # Validations
 
   validates :email, :session_token, presence: true, uniqueness: true
   validates :username, :number_tag, :password_digest, presence: true
@@ -25,9 +25,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  ## Associations
+  # Associations
 
-  ## Belongs to/Has Many
+  # Belongs to/Has Many
   has_many :owned_servers,
     foreign_key: :owner_id,
     class_name: :Server,
@@ -43,7 +43,7 @@ class User < ApplicationRecord
     class_name: :Message,
     dependent: :destroy
 
-  ## Has many through
+  # Has many through
   has_many :servers,
     through: :server_memberships, 
     source: :server
@@ -78,7 +78,7 @@ class User < ApplicationRecord
     through: :dm_servers, 
     source: :members
 
-  # those in shared servers
+  #Those in shared servers
   has_many :server_fellows, 
     through: :servers, 
     source: :members

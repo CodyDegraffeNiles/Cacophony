@@ -1,4 +1,3 @@
-
 json.server do 
   json.first_channel_id @server.channels.first.id
   json.extract! @server, :id, :name, :owner_id, :public

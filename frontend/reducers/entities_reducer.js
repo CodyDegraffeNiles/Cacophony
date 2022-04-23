@@ -5,7 +5,6 @@ import channelReducer from "./channel_reducer";
 import messageReducer from "./message_reducer";
 import dmMessageReducer from "./dm_messages_reducer";
 
-
 const entitiesReducer = combineReducers({
   users: usersReducer,
   servers: serversReducer,

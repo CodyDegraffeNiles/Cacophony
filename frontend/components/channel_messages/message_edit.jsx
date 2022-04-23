@@ -1,8 +1,6 @@
 import React from 'react'
 import autosize from 'autosize';
 
-
-
 class MessageEdit extends React.Component{
   constructor(props){
     super(props);
@@ -39,7 +37,6 @@ class MessageEdit extends React.Component{
   }
 
   submitOnEnter(e){
-    console.log(this.submitButton)
     if(e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       this.submitButton.click();

@@ -37,8 +37,7 @@ export const deleteUser = (userId) => {
   })
 }
 
-// Used to find all the users associated with a current_user, but not in a dm
-// Already 
+// Used to find users associated with the current_user but not in a dm with them
 
 export const fetchUsers = () => {
   return $.ajax({

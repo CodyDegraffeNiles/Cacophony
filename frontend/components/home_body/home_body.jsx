@@ -5,7 +5,6 @@ const HomeBody = () => {
   return(
     <div id="home">
       <div id="first-div"> 
-        {/* <img id="first-home-image"></img> */}
         <div id="imagine-message">
           <h2 id="imagine-header">IMAGINE A PLACE...</h2>
           <p id="imagine-text">...where you can belong to a school club, a gaming group, 
@@ -19,7 +18,7 @@ const HomeBody = () => {
       <div className="white-div">
         <img className="white-div-image-one"/> 
         <div className="white-div-message"> 
-          <h2 className="white-div-header">Create a place where you belong</h2>
+          <h3 className="white-div-header">Create a place where you belong</h3>
           <p className="white-div-body">
             Cacophony servers are organized into topic-based channels where you can 
             collaborate, share, and just talk about your day without clogging 
@@ -29,7 +28,7 @@ const HomeBody = () => {
       </div>
       <div className="grey-div"> 
         <div className="white-div-message"> 
-          <h2 className="white-div-header"> Where hanging out is easy</h2>
+          <h3 className="white-div-header"> Where hanging out is easy</h3>
           <p className="white-div-body">
             Real time messasging both in servers and direct messages. You can message
             any fellow server member with a click of a button. 
@@ -40,7 +39,7 @@ const HomeBody = () => {
       <div className="white-div"> 
         <img className="white-div-image-two"/> 
         <div className="white-div-message"> 
-          <h2 className="white-div-header"> From few to a fandom</h2>
+          <h3 className="white-div-header"> From few to a fandom</h3>
           <p className="white-div-body">
             Get any community up and running with public or private servers as well 
             as search public servers for the perfect fit.
@@ -49,7 +48,7 @@ const HomeBody = () => {
       </div>
       <div className="grey-sign-up-div">
         <div id="sign-up-items"> 
-          <h2 className="sign-up-div-header"> Ready to start your journey?</h2>
+          <h3 className="sign-up-div-header"> Ready to start your journey?</h3>
           <Link to="/signup"> Open Cacophony in the Browser!</Link>
         </div>
       </div>

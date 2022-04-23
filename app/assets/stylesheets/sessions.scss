@@ -24,16 +24,19 @@
 
 #login-form h3 {
   color: white;
-  font-size: 26px;
-  font-weight: bolder;
+  font-size: 24px;
+  font-weight: 500;
   padding-bottom: 8px;
   text-align: center;
+  font-family: "Ginto"
 }
 
 #login-form h5 {
-  font-size: 14px;
+  font-size: 12px;
   padding-bottom: 5px;
   margin-top: 15px;
+  font-family: "Ginto";
+  font-weight: 500;
 }
 
 #login-form p {
@@ -54,14 +57,17 @@
 }
 
 #login-form input{
-  border: 0.75px solid black;
-  font-family: 'Times New Roman', Times, serif;
-  background-color: transparent;
+  border: 0.75px solid rgb(32, 34, 37);
+  background-color: rgb(32, 34, 37);
   height: 30px;
-  font-size: 15px;
+  font-size: 16px;
   color: white;
   border-radius: 3px;
   width: 100%;
+}
+
+#login-form input:focus{
+  outline: none;
 }
 
 #login-form button{

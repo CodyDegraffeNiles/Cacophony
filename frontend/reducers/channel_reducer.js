@@ -2,7 +2,6 @@ import {RECEIVE_SERVER, REMOVE_SERVER} from "../actions/server_actions";
 import {RECEIVE_CHANNEL, REMOVE_CHANNEL} from "../actions/channel_actions";
 import { RECEIVE_MEMBERSHIP, REMOVE_MEMBERSHIP } from "../actions/server_membership_actions";
 
-
 const channelReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state)

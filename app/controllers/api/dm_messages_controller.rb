@@ -15,7 +15,7 @@ class Api::DmMessagesController < ApplicationController
     @dm = DmMessage.find_by(id: params[:id])
     @dm_server = DmServer.find_by(id: @dm[:dm_server_id])
     @dm.destroy
-      DmChannel.broadcast_to(@dm_server, @dm.id)
+    DmChannel.broadcast_to(@dm_server, @dm.id)
     render :show
   end
 
@@ -34,5 +34,4 @@ class Api::DmMessagesController < ApplicationController
   def dm_params
     params.require(:dm).permit(:dm_server_id, :author_id, :body)
   end
-
 end

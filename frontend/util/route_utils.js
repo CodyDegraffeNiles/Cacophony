@@ -18,7 +18,7 @@ const Protected = ({loggedIn, path, component: Component}) => {
     <Route
     path ={path}
     render ={props => (
-      // Either render the Component or redirect to login. Login chosen over 
+      // Either render the component or redirect to login. Login chosen over 
       // signup as most users of a website are repeat users to going to login
       // makes it more user friendly for our the average user.
       loggedIn ? <Component {...props}/> : <Redirect to="/login"/>

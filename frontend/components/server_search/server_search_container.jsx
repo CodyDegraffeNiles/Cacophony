@@ -4,7 +4,6 @@ import ServerSearch from "./server_search"
 import {createServerMembership} from "../../actions/server_membership_actions"
 import { withRouter } from "react-router";
 
-
 const mapStateToProps = (state) => {
   return{
     currentUser: state.entities.users[state.session.id],

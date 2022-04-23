@@ -1,8 +1,8 @@
 class Api::ServersController < ApplicationController
 
   def index
-    ## Would never need to search private servers by themselves so general index
-    ## will only be public servers.
+    # Would never need to search private servers by themselves so general index
+    # will only be public servers.
     @servers = Server.where("servers.public = true").includes(:channels)
     @current_user = userid ? current_user : false;
     @servers = @current_user.servers.includes(:channels) if (@current_user)

@@ -26,14 +26,13 @@ class LoginForm extends React.Component{
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
-  // Clear Session Errors upon redirection
+  // Clear session errors upon redirection
 
   componentWillUnmount() {
     this.props.removeErrors();
   }  
 
-
-  // Demo User Login
+  // Demo user login
   demoLogin(){
     let demoUser = {
       email: "KoalaDemo2@caveman.com",
@@ -48,7 +47,7 @@ class LoginForm extends React.Component{
 
     // Creates a demo login button 
     const demo =  <button type ="submit" 
-    onClick= {() => this.demoLogin()} > Demo Login
+      onClick= {() => this.demoLogin()} > Demo Login
     </button> 
 
     // Create link to the opposite form
@@ -82,15 +81,15 @@ class LoginForm extends React.Component{
           <form autoComplete="off" onSubmit={this.handleSubmit}>
           {email} 
             <input 
-            type="text"
-            value = {this.state.email}
-            onChange ={this.handleChange('email')}
+              type="email"
+              value = {this.state.email}
+              onChange ={this.handleChange('email')}
             />
             {password}
             <input 
-            type = "password"
-            value = {this.state.password}
-            onChange={this.handleChange('password')}
+              type = "password"
+              value = {this.state.password}
+              onChange={this.handleChange('password')}
             />
             <button type="submit"> {buttonMessage} </button>
             {demo}

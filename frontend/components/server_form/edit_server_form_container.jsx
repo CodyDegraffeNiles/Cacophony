@@ -4,7 +4,6 @@ import EditServerForm from "./edit_server_form";
 import { withRouter } from "react-router";
 import {deleteMembership} from "../../actions/server_membership_actions";
 
-
 const mapStateToProps = (state, ownProps) => {
   return{
     currentUser: state.entities.users[state.session.id],

@@ -10,14 +10,13 @@
 #  updated_at :datetime         not null
 #
 class Message < ApplicationRecord
-  ## Validations
+  # Validations
 
   validates :channel_id, :author_id, :body, presence: true
   validates :body, length: {minimum: 1}
 
-
-  ## Assocaitions
-
+  # Assocaitions
+  
   belongs_to :author,
     foreign_key: :author_id,
     class_name: :User

@@ -8,15 +8,15 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 const receiveDmServers = (dmServers) => {
     return{ 
-    type: RECEIVE_DM_SERVERS,
-    dmServers
+        type: RECEIVE_DM_SERVERS,
+        dmServers
     }
 };
 
 const receiveDmServer = (dmServer) => {
     return{ 
-    type: RECEIVE_DM_SERVER,
-    dmServer
+        type: RECEIVE_DM_SERVER,
+        dmServer
     }
 };
 const removeDmServer = (dmServerId) => {
