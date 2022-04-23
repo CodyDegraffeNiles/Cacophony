@@ -61,12 +61,17 @@ input {
 
 @font-face {
 	font-family: "Whitney";
-	src: asset-url("WhitneyBook.otf")
+	src: asset-url("WhitneyMedium.otf")
 }
 
 @font-face{
 	font-family: "Ginto Normal";
 	src: asset-url("GintoNormal.otf")
+}
+
+@font-face{
+	font-family: "Ginto";
+	src: asset-url("Ginto.otf")
 }
 
 * {

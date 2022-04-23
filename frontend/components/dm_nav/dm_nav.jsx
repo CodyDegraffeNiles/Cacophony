@@ -48,7 +48,7 @@ class DmNav extends React.Component{
         <div id="channel-line-across-top"/> 
         <br/> 
         <div className="list-header">
-          <h6> Direct Messages</h6>
+          <h6>DIRECT MESSAGES</h6>
           <div className="create-channel-div"> 
             <i className="fa-solid fa-plus"  
               onClick={() => this.toggleSearch()}/> 

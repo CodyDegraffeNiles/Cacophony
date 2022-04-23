@@ -14,8 +14,9 @@
 
 #channel-nav h5{
   color: white;
-  font-size: 16px;
-  font-weight: bolder;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Ginto";
   text-align: center;
   overflow: auto;
   height: 35px;
@@ -34,7 +35,7 @@
 #channel-nav-server-name{
   display: flex;
   justify-content: space-between;
-  align-items: right;
+  align-items: baseline;
   padding-left: 5px;
   padding-top: 10px;
 }
@@ -110,12 +111,15 @@
 .list-header {
   display: flex;
   text-align: left;
-  color: lightgrey; 
+  color: rgb(150, 152, 157);
   padding-left: 5px;
   padding-bottom: 10px;
   padding-right: 10px;
-
   justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Ginto";
+
 }
 
 .channel-nav-item {
@@ -125,6 +129,7 @@
   padding-right: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
+  font-weight: 500;
 }
 
 #edit-modal-container{
@@ -150,7 +155,7 @@
 .channel-nav-link{
   border-radius: 5px;
   text-decoration: none;
-  color: rgb(145,145,145);
+  color: rgb(151, 152, 157);
 }
 
 .selected-channel{
@@ -173,7 +178,7 @@
 #channel-nav-list .fa-hashtag{
   padding-left: 10px; 
   padding-right: 10px;
-  color: rgb(145, 145, 145)
+  color: rgb(151, 152, 157);
 }
 
 #channel-nav-list{
@@ -351,7 +356,7 @@
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
-  color: rgb(145,145,145)
+  color: rgb(151, 152, 157);
 }
 
 .create-tool-tip{
