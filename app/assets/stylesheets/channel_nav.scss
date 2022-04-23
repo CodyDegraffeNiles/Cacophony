@@ -49,7 +49,7 @@
 
 #edit-server-form {
   position: absolute;
-  transform: translate(0px, 50px);
+  transform: translate(5px, 25px);
   z-index: 10;
 }
 
@@ -164,15 +164,11 @@
 }
 
 // Padding for Font Awesome Icons
-.fa-plus { 
-  padding-top: 2px;
+.fa-plus, .fa-chevron-down { 
   cursor: pointer;
 }
 .channel-nav-item .fa-gear{
-  padding-top: 10px;
-  padding-right: 6px;
-  padding-left: 0px;
-  padding-bottom: 0px;
+  padding-right: 3.5px;
 }
 
 #channel-nav-list .fa-hashtag{
@@ -361,7 +357,7 @@
 
 .create-tool-tip{
   visibility: hidden;
-  font-size: 13px;
+  font-size: 12px;
   width: 100px;
   height: 30px;
   position: absolute;
@@ -370,8 +366,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-45px, -65px);
+  transform: translate(-45px, -55px);
   color: rgb(225, 225, 225);
+}
+
+.edit-translate{
+  transform: translate(-39px, -55px,)
 }
 
 .create-channel-div:hover .create-tool-tip{

@@ -68,7 +68,8 @@ class ServerForm extends React.Component{
     <div id="server-form"> 
       <form autoComplete="off" onSubmit={this.handleSubmit}>
         <h4> Tell Us More About Your Server </h4>
-        <p> In order to help you set up, is it for a few friends (Private) or larger
+        <p id="server-form-message"> 
+          In order to help you set up, is it for a few friends (Private) or larger
           community (Public)? </p>
         <div id="public-info"> 
           <div 

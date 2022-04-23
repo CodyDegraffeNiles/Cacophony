@@ -123,7 +123,7 @@ class ChannelNav extends React.Component{
           <i className="fa-solid fa-gear fa-2xs"
           onClick ={this.toggleEdits("channelEdit")}
           ></i>
-            <div className="create-tool-tip"> 
+            <div className="create-tool-tip edit-translate"> 
               <span> Edit Channel</span>
             </div>
         </div> 
