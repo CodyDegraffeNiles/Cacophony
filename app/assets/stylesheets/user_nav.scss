@@ -10,6 +10,11 @@
   transform: translate(75px, calc(100vh - 50px));
 }
 
+// z-index rises when you hover so tool-tips can be shown properly.
+#user-nav:hover{
+  z-index: 3;
+}
+
 .fa-microphone, .fa-headphones{
   color: lightgrey;
   padding: 8px;
@@ -55,6 +60,18 @@
   width: 16px;
 }
 
-#setting-icons a:hover{
-  filter: brightness(85%);
+#setting-icons a:hover .fa-gear{
+  filter: brightness(150%);
+}
+
+.user-tool-tip{
+  transform: translate(24px, -65px);  
+  width: 100px;
+  height: 30px;
+  font-family: "Ginto";
+  font-weight: 500;
+}
+
+#setting-icons a:hover .user-tool-tip{
+  visibility: visible;
 }
