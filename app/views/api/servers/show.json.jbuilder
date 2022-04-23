@@ -5,10 +5,6 @@ json.server do
 end
 
 json.users do 
-    json.set! @server.owner.id do
-      json.extract! @server.owner, :id, :username, :email, :number_tag, :color_id
-  end
-
   @server.members.each do |member|
     json.set! member.id do
       json.extract! member, :id, :username, :email, :number_tag, :color_id
@@ -26,7 +22,8 @@ end
 
   # Messages of the first channel
 json.messages do 
-  @server.channels.first.messages.each do |message|
+  messages = @server.channels.first.messages.includes(:author)
+  messages.each do |message|
     json.set! message.id do
       est = Time.zone.utc_to_local(message.created_at)
       # Handle utc conversion issues to get actual EST

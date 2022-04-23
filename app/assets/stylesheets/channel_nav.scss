@@ -14,11 +14,14 @@
 
 #channel-nav h5{
   color: white;
-  font-size: 16px;
-  font-weight: bolder;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Ginto";
   text-align: center;
-  overflow: auto;
   height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #channel-nav h5::-webkit-scrollbar {
@@ -34,7 +37,7 @@
 #channel-nav-server-name{
   display: flex;
   justify-content: space-between;
-  align-items: right;
+  align-items: baseline;
   padding-left: 5px;
   padding-top: 10px;
 }
@@ -48,7 +51,7 @@
 
 #edit-server-form {
   position: absolute;
-  transform: translate(0px, 50px);
+  transform: translate(5px, 25px);
   z-index: 10;
 }
 
@@ -110,12 +113,15 @@
 .list-header {
   display: flex;
   text-align: left;
-  color: lightgrey; 
+  color: rgb(150, 152, 157);
   padding-left: 5px;
   padding-bottom: 10px;
   padding-right: 10px;
-
   justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Ginto";
+
 }
 
 .channel-nav-item {
@@ -125,6 +131,7 @@
   padding-right: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
+  font-weight: 500;
 }
 
 #edit-modal-container{
@@ -150,7 +157,7 @@
 .channel-nav-link{
   border-radius: 5px;
   text-decoration: none;
-  color: rgb(145,145,145);
+  color: rgb(151, 152, 157);
 }
 
 .selected-channel{
@@ -159,21 +166,17 @@
 }
 
 // Padding for Font Awesome Icons
-.fa-plus { 
-  padding-top: 2px;
+.fa-plus, .fa-chevron-down { 
   cursor: pointer;
 }
 .channel-nav-item .fa-gear{
-  padding-top: 10px;
-  padding-right: 6px;
-  padding-left: 0px;
-  padding-bottom: 0px;
+  padding-right: 3.5px;
 }
 
 #channel-nav-list .fa-hashtag{
   padding-left: 10px; 
   padding-right: 10px;
-  color: rgb(145, 145, 145)
+  color: rgb(151, 152, 157);
 }
 
 #channel-nav-list{
@@ -264,7 +267,7 @@
 #channel-form-name, #channel-error-name{
   font-size: 14px;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 15px;
   padding-bottom: 10px;
   font-weight: bold;
   text-align: left;
@@ -351,12 +354,12 @@
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
-  color: rgb(145,145,145)
+  color: rgb(151, 152, 157);
 }
 
-#create-tool-tip{
+.create-tool-tip{
   visibility: hidden;
-  font-size: 13px;
+  font-size: 12px;
   width: 100px;
   height: 30px;
   position: absolute;
@@ -365,14 +368,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-45px, -65px)
+  transform: translate(-45px, -55px);
+  color: rgb(225, 225, 225);
 }
 
-.create-channel-div:hover #create-tool-tip{
+.edit-translate{
+  transform: translate(-39px, -55px,)
+}
+
+.create-channel-div:hover .create-tool-tip{
   visibility: visible;
 }
 
-#create-tool-tip::after {
+.create-tool-tip::after {
   content: " ";
   position: absolute;
   top: 100%;

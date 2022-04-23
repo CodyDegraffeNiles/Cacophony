@@ -82,16 +82,7 @@ class User < ApplicationRecord
   has_many :server_fellows, 
     through: :servers, 
     source: :members
-  
-  # those in owned servers
-  has_many :server_followers,
-    through: :owned_servers,
-    source: :members
-
-  # owners of serers you are in
-  has_many :server_owners,
-    through: :servers, 
-    source: :owner
+    
   #SPIRE
 
   def self.find_by_credentials(email, password)

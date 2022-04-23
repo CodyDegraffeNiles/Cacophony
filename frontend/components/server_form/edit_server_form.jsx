@@ -33,8 +33,10 @@ class EditServerForm extends React.Component{
 
   // handle proper redirect after deletion of a server - Push to user homepage
   handleDelete(){
-    this.props.deleteServer();
-    this.props.history.push(`/servers/@me`)
+    if (confirm("Are you sure you with to delete this server? This action is irreversible."))
+      {this.props.deleteServer(); 
+      this.props.history.push(`/servers/@me`)
+      }
   }
 
   // Handles Leaving a server

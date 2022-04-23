@@ -3,9 +3,11 @@ import ServerMembers from "./server_members";
 import {fetchServer } from "../../actions/server_actions";
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  let ownerId = state.entities.servers[ownProps.match.params.serverId]?.ownerId
   return{
-    members: Object.values(state.entities.users)
+    members: Object.values(state.entities.users),
+    owner: state.entities.users[ownerId]
   }
 }
 

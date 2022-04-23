@@ -26,7 +26,8 @@ class ChannelNav extends React.Component{
   toggleEdits(type){
     let that = this;
     return function(e){
-      that.setState({[type]: !that.state[type]})
+      e.preventDefault();
+      that.setState({[type]: !that.state[type]});
     }
   }
 
@@ -75,7 +76,7 @@ class ChannelNav extends React.Component{
       <div className="create-channel-div"> 
         <i className="fa-solid fa-plus"  
           onClick={this.toggleEdits("channelCreate")}/> 
-          <div id="create-tool-tip"> 
+          <div className="create-tool-tip"> 
             <span> Create Channel</span>
           </div>
       </div>
@@ -118,9 +119,14 @@ class ChannelNav extends React.Component{
   renderChannelEditButton(){
       if(this.props.server && this.props.currentUserId === this.props.server.ownerId){
         return(
-        <i className="fa-solid fa-gear fa-2xs"
-        onClick ={this.toggleEdits("channelEdit")}
-        ></i>
+        <div className="create-channel-div"> 
+          <i className="fa-solid fa-gear fa-2xs"
+          onClick ={this.toggleEdits("channelEdit")}
+          ></i>
+            <div className="create-tool-tip edit-translate"> 
+              <span> Edit Channel</span>
+            </div>
+        </div> 
         )
     } else {
       return(null)
@@ -164,9 +170,8 @@ class ChannelNav extends React.Component{
         </div>
         {this.renderServerEdits()}
         <br/> 
-        <br/>
         <div className="list-header"> 
-          <h6>Channels</h6>
+          <h6>CHANNELS</h6>
           {this.renderChannelCreateButton()}
         </div>
         <ul id="channel-nav-list"> 

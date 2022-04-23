@@ -53,8 +53,29 @@ input {
 	background:none;
 }
 
+
+@font-face {
+	font-family: "Ginto Nord";
+	src: asset-url("GintoNord.otf");
+}
+
+@font-face {
+	font-family: "Whitney";
+	src: asset-url("WhitneyMedium.otf")
+}
+
+@font-face{
+	font-family: "Ginto Normal";
+	src: asset-url("GintoNormal.otf")
+}
+
+@font-face{
+	font-family: "Ginto";
+	src: asset-url("GitnoMedium.otf")
+}
+
 * {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: "Whitney", Helvetica, Arial, sans-serif;
 	font-size: 16px;
-	font-weight: 350;
+	font-weight: 400;
 }

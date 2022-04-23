@@ -1,6 +1,5 @@
 class Api::DmMessagesController < ApplicationController
 
-  # Commented out material for live - messaging when ready.
   def create
     @dm = DmMessage.new(dm_params)
     @dm_server = DmServer.find_by(id: @dm[:dm_server_id])

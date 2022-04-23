@@ -16,6 +16,7 @@ class Server < ApplicationRecord
   validates :public, inclusion: {in:[true, false]}
 
   after_create :create_general
+  after_create :create_owner_membership
 
 
   ## Assocations
@@ -45,4 +46,10 @@ class Server < ApplicationRecord
   def create_general 
     Channel.create(server_id: self.id, name: "general")
   end
+
+  #Ensure owner has a membership to his own server
+  def create_owner_membership
+    ServerMembership.create(member_id: self.owner_id, server_id: self.id)
+  end
+
 end

@@ -8,7 +8,8 @@ import { withRouter } from "react-router";
 const mapStateToProps = (state) => {
   return{
     currentUser: state.entities.users[state.session.id],
-    servers: Object.values(state.entities.servers)
+    // Keep servers in a hash form to increase lookup time of filter in render
+    servers: state.entities.servers
   }
 }
 

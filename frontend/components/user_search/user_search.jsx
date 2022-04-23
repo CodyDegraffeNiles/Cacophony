@@ -29,9 +29,7 @@ class UserSearch extends React.Component{
         that.props.createDmMembership({dm_server_id: dmServerId, member_id: that.props.currentUser.id})
         that.props.history.push(`/servers/@me/${userId}/${dmServerId}`)
       }
-      
     )
-    
   }
 
   // Display message if there are no users that someone can search for

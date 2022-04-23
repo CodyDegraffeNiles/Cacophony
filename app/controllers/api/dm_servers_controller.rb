@@ -1,9 +1,10 @@
 class Api::DmServersController < ApplicationController
 
   def index
-    @dm_servers = DmServer.all;
+    # This should never be run without being logged in, so current_user should
+    # always exist.
     @current_user = current_user;
-    @dm_servers = @current_user.dm_servers if (@current_user)
+    @dm_servers = @current_user.dm_servers.includes(:members)
     render :index
   end
 
@@ -30,9 +31,6 @@ class Api::DmServersController < ApplicationController
   end
 
   private
-  # def dm_server_params
-  #   params.require(:dm_server).permit(:owner_id, :id)
-  # end
 
   def userid
     params[:user]

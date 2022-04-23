@@ -13,23 +13,10 @@
   z-index: 2;
 }
 
-#dm-list-header{
-  color: red;
-}
 
 #simiulate-nav-bar{
   height: 50px;
   width: 225px;
-}
-
-#dm-list-header {
-  display: flex;
-  text-align: left;
-  color: lightgrey; 
-  padding-left: 5px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  justify-content: space-between
 }
 
 // Styling for Links to Dm Servers 
@@ -58,7 +45,7 @@
 #dm-nav-list a {
   border-radius: 5px;
   text-decoration: none;
-  color: rgb(145,145,145);
+  color: rgb(151, 152, 157);
 }
 
 .dm-member-item {

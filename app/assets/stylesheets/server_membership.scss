@@ -17,14 +17,18 @@
   background-color: rgb(56,57,62);
 }
 
-#member-title{
+.member-title{
   padding-left: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Ginto"
 }
 
 .server-member-item {
   display: flex;
   padding-top: 15px;
   padding-left: 15px;
+  font-weight: 500;
 }
 
 .user-icon{

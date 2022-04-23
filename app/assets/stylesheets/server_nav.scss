@@ -45,7 +45,8 @@
 
 
 #server-nav-list li{
-  padding: 10px;
+  padding: 5px;
+  margin-left: 5px;
   height: 50px;
 }
 
@@ -118,15 +119,20 @@
 
 
 #server-form h4{
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Ginto"
+
 }
 
 #server-form p{
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: black;
+}
+
+#server-form-message{
+  color: rgb(79, 86, 96)
 }
 
 #server-form span{
@@ -149,6 +155,7 @@
 .public-info-p {
   margin: 0px;
   color: black;
+  font-weight: 700;
 }
 
 #private-server-svg{
@@ -359,15 +366,17 @@
   color: rgb(255,255,255);
   border-radius: 5px;
   width: fit-content;
-  max-width: 75px;
+  max-width: 115px;
   text-align: left;
   padding: 5px;
   z-index: 5;
   top: -50px;
-  left: 75px;
-  font-weight: bolder;
+  left: 70px;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Ginto";
 }
 
 .server-bubble:hover .server-tool-name{
