@@ -1,7 +1,5 @@
 import {RECEIVE_CHANNEL_ERRORS, REMOVE_CHANNEL_ERRORS } from "../actions/channel_actions";
 
-
-
 const channelErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {

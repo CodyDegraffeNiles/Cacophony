@@ -1,7 +1,5 @@
 import {RECEIVE_SERVER_ERRORS, REMOVE_SERVER_ERRORS } from "../actions/server_actions";
 
-
-
 const serverErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {

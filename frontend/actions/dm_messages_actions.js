@@ -20,8 +20,8 @@ const removeDmMessage = (payload) => {
 
 const receiveErrors = (errors) => {
     return{
-        type: RECEIVE_SESSION_ERRORS, 
-        errors
+      type: RECEIVE_SESSION_ERRORS, 
+      errors
     }
 }
 export const createDmMessage = (dm) => (dispatch) => {

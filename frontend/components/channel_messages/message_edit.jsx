@@ -39,7 +39,6 @@ class MessageEdit extends React.Component{
   }
 
   submitOnEnter(e){
-    console.log(this.submitButton)
     if(e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       this.submitButton.click();

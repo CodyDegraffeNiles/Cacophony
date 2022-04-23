@@ -9,15 +9,15 @@ export const REMOVE_SERVER_ERRORS = "REMOVE_SERVER_ERRORS"
 
 const receiveServers = (servers) => {
     return{ 
-    type: RECEIVE_SERVERS,
-    servers
+        type: RECEIVE_SERVERS,
+        servers
     }
 };
 
 const receiveServer = (server) => {
     return{ 
-    type: RECEIVE_SERVER,
-    server
+        type: RECEIVE_SERVER,
+        server
     }
 };
 const removeServer = (serverId) => {
@@ -53,10 +53,9 @@ export const fetchServer = (serverId) => (dispatch) => {
 
 export const createServer = (server) => (dispatch) => {
     return serverUtil.createServer(server)
-    .then(function(server)
-    {
-    dispatch(removeServerErrors())
-    return dispatch(receiveServer(server))
+    .then(function(server){
+        dispatch(removeServerErrors())
+        return dispatch(receiveServer(server))
     }
     , (err) => dispatch(receiveServerErrors(err.responseJSON)) )
 }

@@ -7,10 +7,10 @@ const messageReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state)
   switch (action.type) {
-    case RECEIVE_MESSAGE: 
-      // Don't need anymore as the websockets are taking care of this now.
+    // Legacy code as the websockets are taking care of this now.
+    // case RECEIVE_MESSAGE: 
       // newState[action.payload.id] = action.payload
-      return newState;
+      //return newState;
     case REMOVE_MESSAGE:
       delete newState[action.payload.id];
       return newState

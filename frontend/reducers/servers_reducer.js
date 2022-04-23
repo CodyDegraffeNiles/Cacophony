@@ -2,7 +2,6 @@ import { RECEIVE_SERVER, RECEIVE_SERVERS, REMOVE_SERVER } from "../actions/serve
 import { LOGOUT_CURRENT_USER} from "../actions/session_actions";
 import { RECEIVE_MEMBERSHIP, REMOVE_MEMBERSHIP } from "../actions/server_membership_actions";
 
-
 const serversReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state)
