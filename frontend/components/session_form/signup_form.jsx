@@ -66,7 +66,7 @@ class SignUpForm extends React.Component{
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             {email} 
             <input 
-              type="text"
+              type="email"
               value = {this.state.email}
               onChange ={this.handleChange('email')}/>
             {username} 

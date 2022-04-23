@@ -373,7 +373,9 @@
 }
 
 .edit-translate{
-  transform: translate(-39px, -55px,)
+  transform: translate(-39px, -55px);
+  font-family: "Ginto";
+  font-weight: 500;
 }
 
 .create-channel-div:hover .create-tool-tip{
