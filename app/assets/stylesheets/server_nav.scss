@@ -372,9 +372,11 @@
   z-index: 5;
   top: -50px;
   left: 70px;
-  font-weight: bolder;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Ginto";
 }
 
 .server-bubble:hover .server-tool-name{

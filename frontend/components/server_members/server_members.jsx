@@ -25,7 +25,7 @@ class ServerMembers extends React.Component{
             <h5 className='member-username'> {this.props.owner?.username} </h5>
           </li>
         <br/>
-        <p className="member-title"> MEMBERS - {this.props.members.length}</p>
+        <p className="member-title"> MEMBERS - {this.props.members.length - 1}</p>
         {this.props.members.map((member) => {
           if(member.id !== this.props.owner?.id) 
             {
