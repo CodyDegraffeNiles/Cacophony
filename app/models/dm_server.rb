@@ -9,6 +9,8 @@
 #
 class DmServer < ApplicationRecord
 
+  #Associations
+  
   has_many :messages,
     foreign_key: :dm_server_id, 
     class_name: :DmMessage,

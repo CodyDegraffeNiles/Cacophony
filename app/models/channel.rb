@@ -9,12 +9,14 @@
 #  updated_at :datetime         not null
 #
 class Channel < ApplicationRecord
-  ## Validations
+  # Validations
+
   validates :server_id, :name, presence: true
   validates :name, uniqueness: {scope: :server_id}
   after_create :create_welecome_post
 
-  ## Assocations
+  # Assocations
+
   belongs_to :server,
     foreign_key: :server_id,
     class_name: :Server
@@ -26,6 +28,6 @@ class Channel < ApplicationRecord
 
   def create_welecome_post
     Message.create(channel_id: self.id, author_id: 776, 
-    body: "Welcome to #{self.name} channel!")
+      body: "Welcome to #{self.name} channel!")
   end
 end

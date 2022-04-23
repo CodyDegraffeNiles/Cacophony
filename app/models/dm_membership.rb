@@ -10,8 +10,10 @@
 #
 class DmMembership < ApplicationRecord
 
+  #Validations
   validates :member_id, uniqueness: {scope: :dm_server_id}
 
+  #Associations
   belongs_to :dm_server,
     foreign_key: :dm_server_id,
     class_name: :DmServer

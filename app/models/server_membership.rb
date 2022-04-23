@@ -9,7 +9,12 @@
 #  updated_at :datetime         not null
 #
 class ServerMembership < ApplicationRecord
+
+  #Validations
+  
   validates :member_id, uniqueness: {scope: :server_id}
+
+  #Associations
 
   belongs_to :server,
     foreign_key: :server_id,

@@ -11,7 +11,7 @@
 #
 class DmMessage < ApplicationRecord
 
-  # Validations
+  #Validations
 
   validates :dm_server_id, :author_id, :body, presence: true
   validates :body, length: {minimum: 1}
