@@ -52,13 +52,13 @@ class ServerForm extends React.Component{
     let privateDivClass = this.state.public ? "not-selected" : "selected"
     let publicDivClass = this.state.public ? "selected" : "not-selected" 
 
-    // Header for the Server Name that changes based on if an error was thrown 
+    // Header for the server name changes based on if an error was thrown 
     // in creation
     let serverName = this.props.errors.includes("Name has already been taken") ? 
     <h5 id="error-server-name"> Server Name: You already have a server of this name</h5> :
       <h5 id="create-server-name"> Server Name</h5>
 
-    // if ServerName is empty
+    // Empty server name error 
     if (this.props.errors.includes("Name can't be blank")){
       serverName= <h5 id="error-server-name"> Server Name: Name cannot be blank </h5>
     }
@@ -89,11 +89,11 @@ class ServerForm extends React.Component{
         </div>
         {serverName}
         <input 
-        autoFocus
-        type="text"
-        value={this.state.name}
-        onChange={this.handleName("name")}
-        id="server-form-name"
+            autoFocus
+            type="text"
+            value={this.state.name}
+            onChange={this.handleName("name")}
+            id="server-form-name"
         />
         {submitButton}
       </form>

@@ -16,7 +16,7 @@ class UserNav extends React.Component{
             <i className="fa-brands fa-discord"/>
           </div>
           <div id="user-text">
-            <h2>{this.props.currentUser.username}</h2>
+            <h3>{this.props.currentUser.username}</h3>
             <p>#{this.props.currentUser.numberTag}</p>
           </div>
         </div>

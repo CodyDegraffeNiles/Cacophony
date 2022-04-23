@@ -3,7 +3,6 @@ import { fetchServers, fetchServer, removeServerErrors } from "../../actions/ser
 import ServerNav from "./server_nav";
 import { withRouter } from "react-router";
 
-
 const mapStateToProps = (state, ownProps) => {
   return{
     currentUser: state.entities.users[state.session.id],
@@ -20,7 +19,5 @@ const mapDispatchToProps = (dispatch) => {
     fetchServer: (serverId) => dispatch(fetchServer(serverId)),
   }
 }
-
-
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServerNav));

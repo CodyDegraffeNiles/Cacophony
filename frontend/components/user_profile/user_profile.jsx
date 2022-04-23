@@ -2,7 +2,6 @@ import React from "react"
 import {Link} from 'react-router-dom'
 import UserEditFormContainer from "./user_edit_form_container"
 
-
 class UserProfile extends React.Component{
   constructor(props){
     super(props)

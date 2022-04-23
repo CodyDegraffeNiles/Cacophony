@@ -93,7 +93,8 @@ class EditServerForm extends React.Component{
       }
       return(
       <div id="edit-server-form"> 
-        <button  id="leave-server" onClick={ () => this.handleLeave(membership)}>Leave Server
+        <button  id="leave-server" onClick={ () => this.handleLeave(membership)}>
+          Leave Server
         </button>
     </div>
       )

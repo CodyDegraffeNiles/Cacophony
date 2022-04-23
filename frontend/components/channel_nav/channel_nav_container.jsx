@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-        fetchChannel: (channelId) => {dispatch(fetchChannel(channelId))},
+    fetchChannel: (channelId) => {dispatch(fetchChannel(channelId))},
   }
 }
 

@@ -1,6 +1,5 @@
 import {connect} from "react-redux";
 import DmMessasges from "./dm_messages"
-import { withRouter } from "react-router";
 import {fetchDmServer} from "../../actions/dm_server_actions";
 import {createDmMessage} from "../../actions/dm_messages_actions";
 

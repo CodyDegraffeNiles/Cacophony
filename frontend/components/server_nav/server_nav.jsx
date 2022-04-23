@@ -68,7 +68,7 @@ class ServerNav extends React.Component{
           <button id="server-exit-x" onClick={() => this.closeForm()}>
             <i className="fa-solid fa-xmark"/>
           </button>
-      </div>
+        </div>
       </div>
       )
     }
@@ -88,7 +88,7 @@ class ServerNav extends React.Component{
                 <i className="fa-brands fa-discord home-bubble"/>
               </Link> 
             </div> 
-              <div className="server-tool-name">Home</div>
+            <div className="server-tool-name">Home</div>
           </li>
           <div id="seperator-container"> 
             <div id="server-nav-seperator"/>

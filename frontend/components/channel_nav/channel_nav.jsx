@@ -94,11 +94,11 @@ class ChannelNav extends React.Component{
       return (
       <div>
         <div id="double-channel-modal-container" onSubmit = {() => this.handleSubmit("channelCreate")}> 
-          <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}> </div> 
-          (<CreateChannelFormContainer
+          <div className="channel-edit-modal" onClick={() => this.closeForm("channelCreate")}></div> 
+          <CreateChannelFormContainer
           channelName = {""} 
           serverId = {this.props.server.id}
-          serverName = {this.props.server.name}/>)
+          serverName = {this.props.server.name}/>
           <button id="channel-exit-x" onClick={() => this.closeForm("channelCreate")}><i className="fa-solid fa-xmark"/></button>
         </div>
       </div>)
@@ -171,7 +171,7 @@ class ChannelNav extends React.Component{
         {this.renderServerEdits()}
         <br/> 
         <div className="list-header"> 
-          <h6>CHANNELS</h6>
+          <h4>CHANNELS</h4>
           {this.renderChannelCreateButton()}
         </div>
         <ul id="channel-nav-list"> 

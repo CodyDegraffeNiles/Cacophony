@@ -188,7 +188,7 @@ class DmMessages extends React.Component{
                 dm={true}
                 colorId = {colorId}
                 />
-                )
+              )
             })
           }
           <div id="message-placeholder" ref={el=>this.placeholder=el}/>

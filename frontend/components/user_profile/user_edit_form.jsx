@@ -47,22 +47,22 @@ class UserEditForm extends React.Component{
           {userName}
             <div id ="channel-form-name-input-container">
               <input 
-              autoFocus
-              type="text"
-              value={this.state.username}
-              onChange={this.handleChange("username")}
-              id ="channel-form-name-input"
+                autoFocus
+                type="text"
+                value={this.state.username}
+                onChange={this.handleChange("username")}
+                id ="channel-form-name-input"
               />
             </div>
           <br/>
           {email}
             <div id ="channel-form-name-input-container">
               <input 
-              autoFocus
-              type="text"
-              value={this.state.email}
-              onChange={this.handleChange("email")}
-              id ="channel-form-name-input"
+                autoFocus
+                type="text"
+                value={this.state.email}
+                onChange={this.handleChange("email")}
+                id ="channel-form-name-input"
               />
             </div>
           {submitButton}

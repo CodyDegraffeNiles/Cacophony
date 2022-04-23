@@ -1,6 +1,5 @@
 import React from "react";
 
-
 class EditServerNameForm extends React.Component{
   constructor(props){
     super(props)
@@ -13,14 +12,12 @@ class EditServerNameForm extends React.Component{
   }
   
   // Handle Submission of the from for name edit
-
   handleSubmit(e){
     e.preventDefault();
     this.props.update(this.state);
   }
 
   // Handle changes in the name state
-
   handleName(type){
     return (e) => {this.setState({[type]: e.currentTarget.value})}
   }
@@ -49,11 +46,11 @@ class EditServerNameForm extends React.Component{
           {serverName}
           <div id ="channel-form-name-input-container">
             <input 
-            autoFocus
-            type="text"
-            value={this.state.name}
-            onChange={this.handleName("name")}
-            id ="channel-form-name-input"
+              autoFocus
+              type="text"
+              value={this.state.name}
+              onChange={this.handleName("name")}
+              id ="channel-form-name-input"
             />
           </div>
           <button type="submit" id="channel-edit-submit"> Update Server Name </button>

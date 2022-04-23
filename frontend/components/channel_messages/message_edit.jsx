@@ -1,8 +1,6 @@
 import React from 'react'
 import autosize from 'autosize';
 
-
-
 class MessageEdit extends React.Component{
   constructor(props){
     super(props);

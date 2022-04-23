@@ -2,7 +2,6 @@ import React from 'react';
 import DmEditContainer from './dm_edit_container';
 import MessageEditContainer from "./message_edit_contianer"
 
-
 class Message extends React.Component{  
   constructor(props){
     super(props)
@@ -48,7 +47,7 @@ class Message extends React.Component{
       onClick={this.toggleEdits("showEdit")}/> 
       : null;
 
-    // Return different message body based on if  edit form and/or dm
+    // Return different message body based on if edit form and/or dm
     let messageBody = this.state.showEdit && this.state.dM 
       ? <div id ="message-edit" className={this.props.message.id} onSubmit = {this.toggleEdits("showEdit")}>
           <DmEditContainer message = {this.props.message}/>
@@ -75,7 +74,6 @@ class Message extends React.Component{
             {editIcon}
             </div>
         </div>
-
       </li>
     )
   }

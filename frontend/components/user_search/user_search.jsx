@@ -1,6 +1,5 @@
 import React from "react"
 
-
 class UserSearch extends React.Component{
   constructor(props){
     super(props);
@@ -37,9 +36,9 @@ class UserSearch extends React.Component{
     if (this.state?.users?.length === 0) {
       return (
         <li className="user-list-item"> You currently have no one to add to your DM's. 
-        Join a public server (through the compass button on the left-hand nav) 
-        to find friends!
-      </li>
+          Join a public server (through the compass button on the left-hand nav) 
+          to find friends!
+        </li>
       )
     }
     return null;
@@ -64,7 +63,7 @@ class UserSearch extends React.Component{
                   <p className='user-name-with-tag'>{user.username}#{user.numberTag}</p>
                 </div>
                 <button className= "createDm" onClick={() => this.handleDmCreation(user.id)}> 
-                Create Dm </button>
+                  Create Dm </button>
             </li>
             )
           })}

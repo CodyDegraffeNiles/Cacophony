@@ -13,7 +13,6 @@ class SignUpForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   // Handle change and submit events.
 
   handleSubmit(e) {
@@ -67,19 +66,19 @@ class SignUpForm extends React.Component{
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             {email} 
             <input 
-            type="text"
-            value = {this.state.email}
-            onChange ={this.handleChange('email')}/>
+              type="text"
+              value = {this.state.email}
+              onChange ={this.handleChange('email')}/>
             {username} 
             <input  
-            type = "text"
-            value = {this.state.username}
-            onChange ={this.handleChange('username')}/>
+              type = "text"
+              value = {this.state.username}
+              onChange ={this.handleChange('username')}/>
             {password}
             <input 
-            type = "password"
-            value = {this.state.password}
-            onChange={this.handleChange('password')}
+              type = "password"
+              value = {this.state.password}
+              onChange={this.handleChange('password')}
             />
             <button type="submit"> {buttonMessage} </button>
             {link}
