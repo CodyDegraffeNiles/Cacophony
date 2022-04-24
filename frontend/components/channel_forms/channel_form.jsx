@@ -50,6 +50,8 @@ class ChannelForm extends React.Component{
   handleDelete(channelId){
     if (confirm("Are you sure you with to delete this channel? This action is irreversible."))
       { 
+        // Hijack cancel button logic to esacpe modal while also deleting the channel
+        this.cancelButton.click()
         let that = this;
         this.props.deleteChannel(channelId).then(
         function(response){
@@ -88,9 +90,10 @@ class ChannelForm extends React.Component{
       ?  <button id="channel-delete-button" type="button"> Delete Channel 
         (Disabled for general)</button>
       : this.props.formType === "Update Channel" 
-      ? <form onSubmit={() => this.handleDelete(this.props.channelId)}>
-          <button id="channel-delete-button" type="submit"> Delete Channel</button>
-        </form>
+      ? 
+          <button id="channel-delete-button" type="button"
+            onClick={() => this.handleDelete(this.props.channelId)}
+          > Delete Channel</button>
       : null;
 
     // Channel Name is format based on if there are errors
@@ -109,7 +112,9 @@ class ChannelForm extends React.Component{
       : <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
 
     // Cancel Button
-      let cancelButton = <button id="cancel-form" type = "submit" 
+      let cancelButton = <button id="cancel-form" 
+        type = "submit"
+        ref={el=>this.cancelButton=el} 
         onClick={() => this.cancel = true}
         >Cancel</button>
 
@@ -134,10 +139,10 @@ class ChannelForm extends React.Component{
         </div>
           <div id="channel-form-bottom"> 
             {cancelButton}
+            {deleteButton}
             {submitButton}
           </div>
       </form>
-        {deleteButton}
     </div>)
   }
 }
