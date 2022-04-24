@@ -10,6 +10,7 @@ class ChannelForm extends React.Component{
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.cancel = false;
   }
 
   // Set Proper State for Edit Form
@@ -25,9 +26,10 @@ class ChannelForm extends React.Component{
   
 
   handleSubmit(e){
-    // Do not complete if update on general channel
-    let that = this;
     e.preventDefault();
+    // Do not complete if cancel button is clicked
+    if(this.cancel){return}
+    let that = this;
     // Push to New Channel
     if(this.props.formType === "Create Channel"){
       this.props.action(this.state).then(function(action){
@@ -40,7 +42,6 @@ class ChannelForm extends React.Component{
     }
     ;
   }
-
 
   handleName(type){
     return (e) => {this.setState({[type]: e.currentTarget.value})}
@@ -101,31 +102,38 @@ class ChannelForm extends React.Component{
     if(this.props.errors.includes("Name has already been taken")){
       channelName = <p id="channel-error-name"> CHANNEL NAME: NAME ALREADY IN USE</p>}
 
-    // Button (Disabled for general) 
+    // Submit Button (Disabled for general) 
     let submitButton = this.props?.channelName === "general" 
       ? <button id="channel-edit-submit" type="button">Update Channel
         (Disabled for general) </button>
       : <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
 
+    // Cancel Button
+      let cancelButton = <button id="cancel-form" type = "submit" 
+        onClick={() => this.cancel = true}
+        >Cancel</button>
+
     return (
     <div id="channel-form"> 
       <form autoComplete="off" onSubmit={this.handleSubmit}>
-        {formMessage}
-          {channelName}
-          <div id ="channel-form-name-input-container">
-            <span className="server-message-input-padding">"</span>
-            <i className="fa-solid fa-hashtag fa-sm"></i>
-            <input 
-            autoFocus
-              type="text"
-              value={this.state.name}
-              onChange={this.handleName("name")}
-              id ="channel-form-name-input"
-              placeholder={placeholder}
-            />
-          </div>
-          <div className="Test"> 
-            {/* {cancelButton} */}
+        <div id="channel-form-top"> 
+          {formMessage}
+            {channelName}
+            <div id ="channel-form-name-input-container">
+              <span className="server-message-input-padding">"</span>
+              <i className="fa-solid fa-hashtag fa-sm"></i>
+              <input 
+              autoFocus
+                type="text"
+                value={this.state.name}
+                onChange={this.handleName("name")}
+                id ="channel-form-name-input"
+                placeholder={placeholder}
+              />
+            </div>
+        </div>
+          <div id="channel-form-bottom"> 
+            {cancelButton}
             {submitButton}
           </div>
       </form>
