@@ -73,27 +73,29 @@ class ChannelForm extends React.Component{
     // Placeholder based on form
     const placeholder = this.props.formType === "Update Channel" ? 
     this.props.name : "new-channel"
-    // Form Message based on creating or editing Channel
-    let formMessage = this.props.formType === "Update Channel" ? 
-      <div id ="channel-form-header"> 
-        <h5>Edit Channel</h5>
-        <p> In {this.props.serverName}</p>
-      </div>
-      : 
-      <div id ="channel-form-header"> 
+    // Form Message based on creating or editing Channel and if it is the general channel.
+    let formMessage = this.props.formType === "Update Channel" && this.props?.channelName === "general" 
+      ? <div id ="channel-form-header"> 
+          <h5>Edit (Disabled for general)</h5>
+          <p> In {this.props.serverName}</p>
+        </div> 
+      : this.props.formType === "Update Channel"  
+      ? <div id ="channel-form-header"> 
+          <h5>Edit Channel</h5>
+          <p> In {this.props.serverName}</p>
+        </div> 
+      : <div id ="channel-form-header"> 
         <h5>Create A Channel</h5>
         <p> In {this.props.serverName}</p>
       </div>
 
     // Delete Button if Update Channel"
     let deleteButton = this.props.formType === "Update Channel" && this.props?.channelName === "general" 
-      ?  <button id="channel-delete-button" type="button"> Delete Channel 
-        (Disabled for general)</button>
+      ?  <button id="channel-delete-button" type="button"> Delete Channel </button>
       : this.props.formType === "Update Channel" 
-      ? 
-          <button id="channel-delete-button" type="button"
-            onClick={() => this.handleDelete(this.props.channelId)}
-          > Delete Channel</button>
+      ? <button id="channel-delete-button" type="button"
+          onClick={() => this.handleDelete(this.props.channelId)}> 
+          Delete Channel </button>
       : null;
 
     // Channel Name is format based on if there are errors
@@ -107,8 +109,7 @@ class ChannelForm extends React.Component{
 
     // Submit Button (Disabled for general) 
     let submitButton = this.props?.channelName === "general" 
-      ? <button id="channel-edit-submit" type="button">Update Channel
-        (Disabled for general) </button>
+      ? <button id="channel-edit-submit" type="button">Update Channel </button>
       : <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
 
     // Cancel Button
