@@ -113,11 +113,11 @@ class ChannelForm extends React.Component{
       : <button id="channel-edit-submit" type="submit">{this.props.formType}</button>
 
     // Cancel Button
-      let cancelButton = <button id="cancel-form" 
-        type = "submit"
-        ref={el=>this.cancelButton=el} 
-        onClick={() => this.cancel = true}
-        >Cancel</button>
+    let cancelButton = <button id="cancel-form" 
+      type = "submit"
+      ref={el=>this.cancelButton=el} 
+      onClick={() => this.cancel = true}
+      >Cancel</button>
 
     return (
     <div id="channel-form"> 
