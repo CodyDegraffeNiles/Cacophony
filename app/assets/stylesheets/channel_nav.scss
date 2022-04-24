@@ -307,9 +307,6 @@
   margin-left: 15px;
 }
 
-
-
-
 #channel-delete-button{
   margin-left: 15px;
   width: 360px;
@@ -357,7 +354,7 @@
   color: rgb(151, 152, 157);
 }
 
-.create-tool-tip{
+.create-tool-tip, .user-tool-tip{
   visibility: hidden;
   font-size: 12px;
   width: 100px;
@@ -382,7 +379,7 @@
   visibility: visible;
 }
 
-.create-tool-tip::after {
+.create-tool-tip::after, .user-tool-tip::after {
   content: " ";
   position: absolute;
   top: 100%;

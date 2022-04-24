@@ -25,6 +25,7 @@ class UserNav extends React.Component{
           <i className="fa-solid fa-headphones"> </i>
           <Link to={`/users/${this.props.currentUser.id}`}> 
             <i className="fa-solid fa-gear"/>
+            <div className="user-tool-tip">User Settings</div>
           </Link>
         </div>
       </div>
