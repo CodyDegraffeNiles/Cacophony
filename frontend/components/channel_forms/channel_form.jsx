@@ -124,7 +124,8 @@ class ChannelForm extends React.Component{
               placeholder={placeholder}
             />
           </div>
-          <div id="buttons"> 
+          <div className="Test"> 
+            {/* {cancelButton} */}
             {submitButton}
           </div>
       </form>
