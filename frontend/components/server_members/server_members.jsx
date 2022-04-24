@@ -28,12 +28,13 @@ class ServerMembers extends React.Component{
         {this.props.members.map((member) => {
           if(member.id !== this.props.owner?.id) 
             {
+              let colorId = member.colorId ? member.colorId : 1
               return ( 
                 <li
                 key={member.id}
                 className="server-member-item"
                 >
-                  <div className={`user-icon color-${member.colorId}`}>
+                  <div className={`user-icon color-${colorId}`}>
                     <i className="fa-brands fa-discord"/>
                   </div>
                   <h5 className='member-username'> {member.username} </h5>
