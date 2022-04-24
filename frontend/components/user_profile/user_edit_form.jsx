@@ -6,6 +6,7 @@ class UserEditForm extends React.Component{
   constructor(props){
     super(props)
     this.state = this.props.user
+    this.cancel = false;
 
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -16,6 +17,8 @@ class UserEditForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    // if cancel button clicked, do not submit anything and simply return
+    if(this.cancel){return}
     this.props.action(this.state)
   }
 
@@ -40,11 +43,17 @@ class UserEditForm extends React.Component{
       <button type ="button" id="user-edit-submit"> Done (Disabled for Demo)</button> 
       :  <button type="submit" id="user-edit-submit">Done</button>
 
+    let cancelButton = <button id="cancel-form" 
+      type = "submit"
+      onClick={() => this.cancel = true}
+      >Cancel</button>
+      
     return (
       <div id="channel-form"> 
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <h5 id="user-edit-form-header">Edit User Credentials</h5>
-          {userName}
+          <div id="channel-form-top"> 
+            <h5 id="user-edit-form-header">Edit User Credentials</h5>
+            {userName}
             <div id ="channel-form-name-input-container">
               <input 
                 autoFocus
@@ -54,8 +63,8 @@ class UserEditForm extends React.Component{
                 id ="channel-form-name-input"
               />
             </div>
-          <br/>
-          {email}
+            <br/>
+            {email}
             <div id ="channel-form-name-input-container">
               <input 
                 type="email"
@@ -64,7 +73,11 @@ class UserEditForm extends React.Component{
                 id ="channel-form-name-input"
               />
             </div>
-          {submitButton}
+          </div>
+          <div id="channel-form-bottom"> 
+            {cancelButton}
+            {submitButton}
+          </div>
         </form>
       </div>
     )
