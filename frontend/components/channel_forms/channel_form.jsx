@@ -124,9 +124,11 @@ class ChannelForm extends React.Component{
               placeholder={placeholder}
             />
           </div>
-          {submitButton}
+          <div id="buttons"> 
+            {submitButton}
+          </div>
       </form>
-      {deleteButton}
+        {deleteButton}
     </div>)
   }
 }
