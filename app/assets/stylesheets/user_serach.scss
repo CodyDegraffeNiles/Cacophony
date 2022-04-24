@@ -32,8 +32,9 @@
 
 #user-search-header{
   color: white;
-  font-size: 18px;
-  font-weight: bolder;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Ginto";
   padding: 10px;
   border-bottom: .5px solid rgb(41,43,46)
 }
@@ -66,26 +67,32 @@
 
 .user-info {
   display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: none;
+  text-overflow: ellipsis;
 }
 
 .dm-search-username {
+  padding-top: 1px;
   padding-left: 10px;
-  padding-top: 3px;
-  color: rgb(225,225,225)
+  padding-right: 3px;
+  color: rgb(225,225,225);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .user-name-with-tag{
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 500;
   color: rgb(120,120,120);
-  padding-top: 7px;
-  padding-left: 3px;
 }
 
 .createDm{
   background-color: rgb(89, 101, 242);
   color: white;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 5px;
   border-style: none;
   text-decoration: none;
