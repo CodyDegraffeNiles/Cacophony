@@ -230,21 +230,25 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  transform: translate(calc(50vw - 200px), calc(40vh - 100px));
   width: 400px;
   background: rgb(55,57,62);
   border: 1px solid rgb(55,57,62);
   border-radius: 5px;
   color: black; 
   z-index: 10;
+  height: 270px;
 }
 
-#channel-form {
-  height: 300px;
+#channel-form form, #server-name-form form{
+  height: 270px
 }
 
-#server-name-form {
-  height: 200px;
+#channel-form{
+  transform: translate(calc(50vw - 200px), calc(40vh - 100px));
+}
+
+#server-name-form{
+  transform: translate(calc(50vw - 200px), calc(40vh - 100px));
 }
 
 // Channel Edit Form Components
@@ -260,7 +264,7 @@
 #channel-form-header p{
   text-align: center;
   font-size: 14px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   color: rgb(180,180,180)
 }
 
@@ -297,7 +301,6 @@
 
 #channel-form-name-input-container{
   border: 0.75px solid rgb(32, 34, 37);
-  font-family: 'Times New Roman', Times, serif;
   background-color: rgb(32, 34, 37);
   height: 28.5px;
   font-size: 15px;
@@ -307,17 +310,33 @@
   margin-left: 15px;
 }
 
+#cancel-form{
+  background-color: transparent;
+  width: 98px;
+  height: 38px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#cancel-form:hover{
+  text-decoration: underline;
+}
+
 #channel-delete-button{
-  margin-left: 15px;
-  width: 360px;
+  margin: 15px;
+  width: 122px;
+  height: 38px;
   background-color: transparent;
   color: rgb(238, 65, 65);
   outline: none;
   border: 1px solid black ;
   border-radius: 3px;
-  height: 30px;
-	background:none;
   cursor:pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 #channel-delete-button:hover{
@@ -332,13 +351,15 @@
 #channel-edit-submit, #user-edit-submit{
   text-align: center;
   margin: 15px;
-  width: 360px;
+  width: 122px;
+  height: 38px;
   background-color: #5865F2;
-  border: 0.75px solid #5865F2;
+  border: 1px solid #5865F2;
   border-radius: 3px;
   color: white;
-  height: 30px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 #channel-exit-x{
@@ -375,6 +396,10 @@
   font-weight: 500;
 }
 
+.create-channel-div{
+  cursor: pointer;
+}
+
 .create-channel-div:hover .create-tool-tip{
   visibility: visible;
 }
@@ -390,4 +415,20 @@
   border-color: rgb(25,25,28) transparent transparent transparent;
 }
 
+#channel-form-bottom {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background-color: rgb(47, 49, 54);
+}
 
+#channel-form-top{
+  height: 200px;
+}
+
+#server-name-form-buffer{
+  width: 100%;
+  height: 41px;
+}

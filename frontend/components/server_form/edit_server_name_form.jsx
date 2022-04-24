@@ -5,6 +5,7 @@ class EditServerNameForm extends React.Component{
     super(props)
     this.state = this.props.server
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.cancel = false;
   }
 
   componentWillUnmount(){
@@ -14,6 +15,8 @@ class EditServerNameForm extends React.Component{
   // Handle Submission of the from for name edit
   handleSubmit(e){
     e.preventDefault();
+    // If cancel button is clicked execute a submit, but return nothing
+    if(this.cancel = true){return}
     this.props.update(this.state);
   }
 
@@ -36,24 +39,35 @@ class EditServerNameForm extends React.Component{
       serverName = <p id="channel-error-name"> Name already being used </p> 
     }
 
+  let cancelButton = <button id="cancel-form" 
+      type = "submit"
+      onClick={() => this.cancel = true}
+      >Cancel</button>
+
     // Create different edit forms for the owner and a member
     return (
       <div id="server-name-form">
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <div id ="channel-form-header"> 
-            <h5>Edit Server</h5>
+          <div id="channel-form-top"> 
+            <div id ="channel-form-header"> 
+              <h5>Edit Server</h5>
+            </div>
+            <div id="server-name-form-buffer"/>
+            {serverName}
+            <div id ="channel-form-name-input-container">
+              <input 
+                autoFocus
+                type="text"
+                value={this.state.name}
+                onChange={this.handleName("name")}
+                id ="channel-form-name-input"
+              />
+            </div>
           </div>
-          {serverName}
-          <div id ="channel-form-name-input-container">
-            <input 
-              autoFocus
-              type="text"
-              value={this.state.name}
-              onChange={this.handleName("name")}
-              id ="channel-form-name-input"
-            />
+          <div id="channel-form-bottom"> 
+            {cancelButton}
+            <button type="submit" id="channel-edit-submit"> Update Name </button>
           </div>
-          <button type="submit" id="channel-edit-submit"> Update Server Name </button>
         </form>
       </div>
     )
