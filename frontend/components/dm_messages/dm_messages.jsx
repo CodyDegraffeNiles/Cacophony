@@ -162,7 +162,6 @@ class DmMessages extends React.Component{
     this.setState({["newMessage"]: newMessage})
   }
 
-
   render(){
     let otherUsername = this.props.otherUser ? this.props.otherUser.username: null;
     return(
@@ -173,10 +172,14 @@ class DmMessages extends React.Component{
         </div>
         <br/> 
         <ul id="dm-actual-messages"> 
+          <li id="opening-dm-message">
+            This is the beginning of your direct history with 
+            <strong id="otheruser-name"> @{this.props?.otherUser?.username}</strong>.
+          </li>
           {this.state.dmMessages.map( (message) => {
             // Fail Safe Check
               let that = this
-              let colorId = 1 // Default Color of Red if Member does not have colorId
+              let colorId = 1 // Default Color of Red if member does not have colorId
               if(this.props.members[message.authorId]){
                 colorId = that.props.members[message.authorId].colorId
               }

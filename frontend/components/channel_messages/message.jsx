@@ -43,8 +43,10 @@ class Message extends React.Component{
 
   render(){
     let editIcon = this.props.currentUserId === this.props.message.authorId 
-      && !this.state.showEdit ? <i className="fa-solid fa-pencil fa-xs" 
-      onClick={this.toggleEdits("showEdit")}/> 
+      && !this.state.showEdit 
+      ? <div className="message-tool-tip" onClick={this.toggleEdits("showEdit")}> 
+          <i className="fa-solid fa-pencil fa-xs" /> 
+        </div>
       : null;
 
     // Return different message body based on if edit form and/or dm
@@ -62,7 +64,8 @@ class Message extends React.Component{
 
     return(
       <li className="server-message">
-        <div className={`message-icon color-${this.props.colorId}`}><i className="fa-brands fa-discord"/></div>
+        <div className="actual-message"> 
+          <div className={`message-icon color-${this.props.colorId}`}><i className="fa-brands fa-discord"/></div>
           <div className="message-info">
             <div className="user-info">
               <p className="message-author"> {this.props.message.authorName} 
@@ -70,10 +73,11 @@ class Message extends React.Component{
               </p>
             </div>
             <div className="message-body"> 
-            {messageBody}
-            {editIcon}
+              {messageBody}
             </div>
+          </div>
         </div>
+        {editIcon}
       </li>
     )
   }
