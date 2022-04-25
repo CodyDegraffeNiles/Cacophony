@@ -80,3 +80,7 @@ input {
 	font-weight: 400;
 }
 
+// Fixes issue on home page x overflow  but causes issues on modals. Non-Vi
+// #root {
+// 	overflow-x: hidden;
+// }

@@ -61,7 +61,6 @@ class EditServerForm extends React.Component{
           <EditServerNameFormContainer
           server = {this.props.server}
           />
-          <button id="channel-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
       </div>
 
       )
