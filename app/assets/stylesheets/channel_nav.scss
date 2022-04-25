@@ -211,7 +211,7 @@
 }
 
 #server-edit-modal {
-  transform: translate(-80px, -84px);
+  transform: translate(-85px, -72px);
 }
 
 #double-channel-modal-container {
@@ -247,8 +247,10 @@
   transform: translate(calc(50vw - 200px), calc(40vh - 100px));
 }
 
+// Add the extra starting position of the server edit form to the translate.
+// Starting position calcuated from the translate of the server edit modal.
 #server-name-form{
-  transform: translate(calc(50vw - 200px), calc(40vh - 100px));
+  transform: translate(calc(50vw - 285px), calc(40vh - 172px));
 }
 
 // Channel Edit Form Components
@@ -362,17 +364,26 @@
   font-weight: 500;
 }
 
-#channel-exit-x{
+#channel-exit-x, #server-name-exit-x{
   position: absolute;
   top: 0px;
   left: 0px;
-  transform: translate(calc(50vw + 180px), calc(40vh - 100px));
   z-index: 12;
   border: none;
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
   color: rgb(151, 152, 157);
+}
+
+#channel-exit-x {
+  transform: translate(calc(50vw + 180px), calc(40vh - 100px));
+}
+
+// Extra translate calucated due to server edit form position as calculated in 
+// server edit-modal transalte.
+#server-name-exit-x {
+  transform: translate(calc(50vw + 95px), calc(40vh - 172px));
 }
 
 .create-tool-tip, .user-tool-tip{
