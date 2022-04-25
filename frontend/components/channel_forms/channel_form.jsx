@@ -139,9 +139,10 @@ class ChannelForm extends React.Component{
             </div>
         </div>
           <div id="channel-form-bottom"> 
-            {cancelButton}
-            {deleteButton}
+          {/* normal submit button to handle enter properly */}
             {submitButton}
+            {deleteButton}
+            {cancelButton}
           </div>
       </form>
     </div>)

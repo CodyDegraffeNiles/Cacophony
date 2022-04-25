@@ -16,7 +16,7 @@ class EditServerNameForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     // If cancel button is clicked execute a submit, but return nothing
-    if(this.cancel = true){return}
+    if(this.cancel){return}
     this.props.update(this.state);
   }
 
@@ -65,8 +65,9 @@ class EditServerNameForm extends React.Component{
             </div>
           </div>
           <div id="channel-form-bottom"> 
-            {cancelButton}
+            {/* Put normal submit first for proper activity on enter */}
             <button type="submit" id="channel-edit-submit"> Update Name </button>
+            {cancelButton}
           </div>
           <button id="server-name-exit-x" onClick={() => this.cancel = true}><i className="fa-solid fa-xmark"/></button>
         </form>

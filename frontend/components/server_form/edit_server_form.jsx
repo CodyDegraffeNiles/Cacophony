@@ -19,7 +19,7 @@ class EditServerForm extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchServer();
+    // this.props.fetchServer();
   }
 
   componentDidUpdate(prevProps){
