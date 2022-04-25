@@ -101,7 +101,7 @@ Rails.application.configure do
 
   config.action_cable.url  = "wss://cacophony-1.herokuapp.com/cable" 
 
-  Allow Request Origins
+  # Allow Request Origins
   config.action_cable.allowed_request_origins = [
     'https://cacophony-1.herokuapp.com', 
     'http://cacophony-1.herokuapp.com']
