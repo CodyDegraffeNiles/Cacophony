@@ -68,6 +68,7 @@ class EditServerNameForm extends React.Component{
             {cancelButton}
             <button type="submit" id="channel-edit-submit"> Update Name </button>
           </div>
+          <button id="server-name-exit-x" onClick={() => this.cancel = true}><i className="fa-solid fa-xmark"/></button>
         </form>
       </div>
     )

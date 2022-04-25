@@ -379,11 +379,9 @@
 #channel-exit-x {
   transform: translate(calc(50vw + 180px), calc(40vh - 100px));
 }
-
-// Extra translate calucated due to server edit form position as calculated in 
-// server edit-modal transalte.
+// As it is built into the form itself translate is based on form width.
 #server-name-exit-x {
-  transform: translate(calc(50vw + 95px), calc(40vh - 172px));
+  transform: translate(380px, 0px)
 }
 
 .create-tool-tip, .user-tool-tip{
