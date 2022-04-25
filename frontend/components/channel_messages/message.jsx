@@ -45,7 +45,8 @@ class Message extends React.Component{
     let editIcon = this.props.currentUserId === this.props.message.authorId 
       && !this.state.showEdit 
       ? <div className="message-tool-tip" onClick={this.toggleEdits("showEdit")}> 
-          <i className="fa-solid fa-pencil fa-xs" /> 
+            <i className="fa-solid fa-pencil fa-xs" /> 
+            <div className="tool-tip-within-tool-tip">Edit</div>
         </div>
       : null;
 

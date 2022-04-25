@@ -173,7 +173,7 @@ class DmMessages extends React.Component{
         <br/> 
         <ul id="dm-actual-messages"> 
           <li id="opening-dm-message">
-            This is the beginning of your direct history with 
+            This is the beginning of your direct message history with 
             <strong id="otheruser-name"> @{this.props?.otherUser?.username}</strong>.
           </li>
           {this.state.dmMessages.map( (message) => {

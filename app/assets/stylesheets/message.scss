@@ -25,6 +25,7 @@
   color: rgb(185, 187, 190);
   display: block;
   font-weight: 400;
+  padding-bottom: 25px;
 }
 
 #otheruser-name{
@@ -144,7 +145,7 @@
   height: 30px;
   transform: translate(-10px, -20px);
   font-size: 18px;
-  // text-align: center;
+  cursor: pointer;
 }
 
 .fa-pencil{
@@ -155,10 +156,31 @@
   visibility: visible;
 }
 
-.message-tool-tip:hover{
+.message-tool-tip:hover {
   filter: brightness(120%)
 }
 
 .actual-message{
   display: flex;
 }
+
+.message-tool-tip:hover .tool-tip-within-tool-tip{
+  filter: brightness(80%);
+  visibility: visible;
+}
+
+.tool-tip-within-tool-tip{
+  visibility: hidden;
+  position: relative;
+  transform: translate(-10px, -65px);  
+  font-size: 12px;
+  width: 50px;
+  height: 30px;
+  background-color: rgb(25, 25, 28);
+  border-radius: 5px;
+  color: rgb(225, 225, 225);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

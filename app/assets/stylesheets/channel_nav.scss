@@ -404,7 +404,7 @@
   visibility: visible;
 }
 
-.create-tool-tip::after, .user-tool-tip::after {
+.create-tool-tip::after, .user-tool-tip::after, .tool-tip-within-tool-tip::after {
   content: " ";
   position: absolute;
   top: 100%;
