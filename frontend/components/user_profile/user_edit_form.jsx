@@ -1,6 +1,4 @@
-
 import React from "react"
-
 
 class UserEditForm extends React.Component{
   constructor(props){
@@ -75,8 +73,9 @@ class UserEditForm extends React.Component{
             </div>
           </div>
           <div id="channel-form-bottom"> 
-            {cancelButton}
+          {/* Submit button to allow enter to properly work */}
             {submitButton}
+            {cancelButton}
           </div>
         </form>
       </div>

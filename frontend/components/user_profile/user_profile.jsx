@@ -1,57 +1,77 @@
 import React from "react"
 import {Link} from 'react-router-dom'
 import UserEditFormContainer from "./user_edit_form_container"
+import UserDeleteForm from "./user_delete_form"
 
 class UserProfile extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       user: this.props.user,
-      userEdit: false 
+      userEdit: false,
+      deleteForm: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleDelete = this.handleDelete.bind(this)
   }
 
+
+  componentDidMount(){
+    this.mounted = true;
+  }
+
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   handleChange(type){
     return (e) => {this.setState({[type] : e.target.value})}
   }
 
-  openForm(){
-    this.setState({["userEdit"]: true})
+  openForm(type){
+    this.setState({[type]: true})
   }
 
-  closeForm(){
-    this.setState({["userEdit"]: false})
+  closeForm(type){
+    if(this.mounted){ 
+      this.setState({[type]: false})
+    }
   }
 
   handleSubmit(){
     // setTimeout Mimics a promise across divs/components
     let that = this;
-    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm()}}, 200)
+    setTimeout(() => {if(this.props.errors.length === 0) {that.closeForm("userEdit")}}, 200)
   }
-
-  // Ask for confirmation on deleting user profile
-
-  handleDelete(){
-    if (confirm("Are you sure you with to delete this account? This action is irreversible."))
-      {this.props.delete(this.props.user.id)}
-  }
-
 
   renderUserEdits(){
     if(this.state.userEdit){
       return (
       <div>
-          <div className="user-edit-modal" onClick={() => this.closeForm()}/>
+          <div className="user-edit-modal" onClick={() => this.closeForm("userEdit")}/>
           <div onSubmit={() => this.handleSubmit()}> 
-          <UserEditFormContainer id = {this.state.user.id}/>
+            <UserEditFormContainer id = {this.state.user.id}/>
           </div>
-          <button id="channel-exit-x" onClick={() => this.closeForm()}><i className="fa-solid fa-xmark"/></button>
+          <button id="channel-exit-x" onClick={() => this.closeForm("userEdit")}><i className="fa-solid fa-xmark"/></button>
       </div>
       )
     }
-    else {
+    return null;
+  }
+
+  renderDeleteForm(){
+    if (this.state.deleteForm){
+      return(
+        <div>
+          <div className="user-edit-modal" onClick={() => this.closeForm("deleteForm")}/>
+          <div onSubmit={() => this.closeForm("deleteForm")}> 
+            <UserDeleteForm 
+              user = {this.props.user}
+              deleteUser = {this.props.delete}
+            />
+          </div>
+          <button id="channel-exit-x" onClick={() => this.closeForm("deleteForm")}><i className="fa-solid fa-xmark"/></button>
+      </div>
+      )
+    } else{
       return null;
     }
   }
@@ -60,19 +80,17 @@ class UserProfile extends React.Component{
    // Modify delete button to do nothing if demo-user is logged in"
     const deleteButton = this.props.user.email === "KoalaDemo2@caveman.com" ? <button id ="delete-user"> 
       Delete Account (Disabled for Demo)</button> : 
-    <button id ="delete-user" onClick={() => this.handleDelete()}>Delete Account</button>
+    <button id ="delete-user" onClick={() => this.openForm("deleteForm")}>Delete Account</button>
   
     // Modify update button to do nothing if demo-user is logged in"
     const updateButton = 
-    // this.props.user.email === "KoalaDemo2@caveman.com" ? 
-    //   <button id="update-user-button"> Edit User Profile (Disabled for Demo)</button> 
-    //   : 
-      <button id="update-user-button" onClick= {() => this.openForm()}>
+      <button id="update-user-button" onClick= {() => this.openForm("userEdit")}>
         Edit User Profile </button> 
 
     return(
       <div id = "user-profile">
         {this.renderUserEdits()}
+        {this.renderDeleteForm()}
         <div id="user-side-nav"> 
           <ul id="user-side-nav-list">
             <Link to={`/users/${this.props.user.id}`}> 

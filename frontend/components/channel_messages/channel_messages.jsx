@@ -178,23 +178,26 @@ class ChannelMessages extends React.Component{
           <i className="fa-solid fa-hashtag fa-lg" id="channel-message-hashtag"></i>
           <h5 id="channel-name">{this.props.channelName}</h5>
         </div>
-        <br/>
+        <div id="break-div"/>
         <ul id="channel-actual-messages"> 
-        {this.state.messages.map( (message) => {
-          // Fail Safe Check
-          let that = this
-          let colorId = 1
-          if(this.props.members[message.authorId]){
-            colorId = that.props.members[message.authorId].colorId}
-          return(
-            <Message 
-            key = {message.id}
-            message = {message}
-            currentUserId = {this.props.currentUserId}
-            colorId = {colorId}
-            dM = {false}
-            />
-          )
+          <li id="opening-dm-message">
+              This is the start of the #{this.props?.channelName} channel.
+            </li>
+          {this.state.messages.map( (message) => {
+            // Fail Safe Check
+            let that = this
+            let colorId = 1
+            if(this.props.members[message.authorId]){
+              colorId = that.props.members[message.authorId].colorId}
+            return(
+              <Message 
+              key = {message.id}
+              message = {message}
+              currentUserId = {this.props.currentUserId}
+              colorId = {colorId}
+              dM = {false}
+              />
+            )
         })}
         <div id="message-placeholder" ref={el=>this.placeholder=el}/>
         </ul>

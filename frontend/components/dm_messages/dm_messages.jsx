@@ -170,7 +170,7 @@ class DmMessages extends React.Component{
           <i className="fa-solid fa-at fa-lg" id="dm-message-at"></i>
           <h5 id="channel-name">{otherUsername} </h5>
         </div>
-        <br/> 
+        <div id="break-div"/>
         <ul id="dm-actual-messages"> 
           <li id="opening-dm-message">
             This is the beginning of your direct message history with 

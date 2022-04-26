@@ -49,9 +49,8 @@ class DmNav extends React.Component{
         <br/> 
         <div className="list-header">
           <h4>DIRECT MESSAGES</h4>
-          <div className="create-channel-div"> 
-            <i className="fa-solid fa-plus"  
-              onClick={() => this.toggleSearch()}/> 
+          <div className="create-channel-div" onClick={() => this.toggleSearch()}> 
+            <i className="fa-solid fa-plus"/> 
               <div className="create-tool-tip"> 
                 <span>Create DM</span>
             </div>
