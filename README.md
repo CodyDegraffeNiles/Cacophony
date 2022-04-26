@@ -2,7 +2,7 @@
 
 -----
 
-Cacophony is a Fullstack clone of the text portion of the popular communication App, Discord. Cacophony allows a user to make an account or sign in with an existing one in order to live message other users both in servers' channels as well as through direct messages. A user can either create their own server or join an existing public server to start messaging right away. While memebers of a server can live chat, a server owner can also create/edit channels to organize the many conversations happening between members. 
+Cacophony is a FullStack clone of the text portion of Discord. Cacophony allows a user to make an account in order to live message other users both in servers' channels as well as through direct messages. A user can either create their own server or join an existing public server. Server owners can also create/edit channels to organize the many conversations happening between members. 
 
 [See what all the Cacophony is about!](https://cacophony-1.herokuapp.com/#/)
 
@@ -12,7 +12,7 @@ Cacophony is a Fullstack clone of the text portion of the popular communication 
 
 #### Live Chat
 
-Users can chat in real time through websockets implemented by Action Cables. This is achieved by utilzing React Life Cycle Methods and Action Cables. When a componet mounts, a cable subscription is set up, when the component is updated, the subscription is unsubscribed and then resubscried with the new params, and finally when the component unmounts the subscription is removed.
+Users can chat in real-time through WebSockets implemented by Action Cables. This is achieved by utilizing React life cycle methods and Action Cables. When a component mounts, a cable subscription is set up, when the component is updated, the subscription is unsubscribed and then resubscribed with the new params, and finally when the component unmounts the subscription is removed.
 
 ```JavaScript
   // Inside a React Class Component containing a channel's messages or dms
@@ -61,9 +61,9 @@ The trickiest part of creating servers was having the app land on the right page
 ---- 
 
 * Frontend
-    * React and Redux for frontend state managment and component rendering
+    * React and Redux for frontend state management and component rendering
     * HTML for creating the skeleton of the React Components and App as a whole
-    * CSS to provide intuitive and use friendly styling and interface
+    * CSS to provide intuitive and user-friendly styling and interface
     * JavaScript to provide the logic necessary for dynamically updating the frontend
 * Backend 
     * Rails for a robust backend web application framework
@@ -76,8 +76,7 @@ The trickiest part of creating servers was having the app land on the right page
 ### Planned Features
 ----
 * Start a dm through seraching a username and number tag.
-* Group Dms Conversations.
-* Search for Servers by Name.
+* Join servers by invite/name.
 
 ### Acknowledgments
 ----
@@ -85,6 +84,6 @@ The author would like to acknowledge that the following were invaluable to under
 
 * [Utilizing Action Cables](https://javascript.plainenglish.io/building-a-simple-live-chat-in-react-with-action-cable-8c2abf7a25b5)
 * [Deploying Action Cables to Heroku](https://medium.com/swlh/deploying-a-rails-react-app-with-actioncable-to-heroku-cb5d42f41a2a)
-* Images used were from Discord and used for educational purposes
+* All images used were from Discord and used for educational purposes
 * All my friends who live tested Cacophony and gave valuable user feedback.
 * A special thanks goes out to Jonathan W and Nick P for keeping the author sane during development and always being down to help squash some bugs.
