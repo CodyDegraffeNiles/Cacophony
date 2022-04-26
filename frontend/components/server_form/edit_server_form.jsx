@@ -58,8 +58,9 @@ class EditServerForm extends React.Component{
           server = {this.props.server}
           />
       </div>
-
       )
+    } else{
+      return null;
     }
   }
 
@@ -74,6 +75,8 @@ class EditServerForm extends React.Component{
           />
         </div>
       )
+    } else{
+      return null;
     }
   }
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-class DeleteServerForm extends React.Component{
+class UserDeleteForm extends React.Component{
   constructor(props){
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -12,8 +12,7 @@ class DeleteServerForm extends React.Component{
     e.preventDefault();
     // If cancel button is clicked execute a submit, but return nothing
     if(this.cancel){return}
-    this.props.history.push('/servers/@me')
-    this.props.deleteServer()
+    this.props.deleteUser(this.props.user.id)
   }
 
   render(){
@@ -23,16 +22,16 @@ class DeleteServerForm extends React.Component{
       >Cancel</button>
 
     let deleteButton =  <button id="server-delete-button" type="submit">
-          Delete Server </button>
+          Delete User </button>
 
     return (
-      <div id="server-name-form"> 
+      <div id="channel-form"> 
         <form autoComplete="off" onSubmit={this.handleSubmit}> 
           <div id="channel-form-top">
-            <h3 id="delete-server-header"> Delete '{this.props.server.name}' </h3>
+            <h3 id="delete-server-header"> Delete '{this.props.user.username}' </h3>
             <div id="delete-warning">
               <div> Are you sure you want to delete 
-                <strong id="delete-account"> {this.props.server.name}</strong>?
+                <strong id="delete-account"> {this.props.user.username}</strong>'s account?
                 This action cannot be undone.
               </div>
             </div>
@@ -49,4 +48,4 @@ class DeleteServerForm extends React.Component{
   }
 }
 
-export default DeleteServerForm
+export default UserDeleteForm;
