@@ -27,10 +27,7 @@ class EditServerNameForm extends React.Component{
   
   render(){
     // Only render when user clicks the drop down menu next to server name
-    if (this.props.noShow) {
-      return null
-    }
-
+  
     let serverName  = this.props.errors.includes("Name can't be blank") ?
       <p id="channel-error-name"> Name cannot be blank</p> :
     <p id="channel-form-name"> Name </p>  ;

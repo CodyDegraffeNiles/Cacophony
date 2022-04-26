@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteServerFormContainer from "./delete_server_form_container";
 import EditServerNameFormContainer from "./edit_server_name_form_container";
 
 class EditServerForm extends React.Component{
@@ -10,16 +11,11 @@ class EditServerForm extends React.Component{
       owner_id: this.props.server.owner_id,
       public: this.props.server.public,
       serverName: false,
-
+      deleteForm: false,
     }
 
-    this.handleDelete = this.handleDelete.bind(this);
     this.openForm = this.openForm.bind(this)
     this.closeForm = this.closeForm.bind(this);
-  }
-
-  componentDidMount(){
-    // this.props.fetchServer();
   }
 
   componentDidUpdate(prevProps){
@@ -31,13 +27,13 @@ class EditServerForm extends React.Component{
     }
   }
 
-  // handle proper redirect after deletion of a server - Push to user homepage
-  handleDelete(){
-    if (confirm("Are you sure you with to delete this server? This action is irreversible."))
-      {this.props.deleteServer(); 
-      this.props.history.push(`/servers/@me`)
-      }
-  }
+  // // handle proper redirect after deletion of a server - Push to user homepage
+  // handleDelete(){
+  //   if (confirm("Are you sure you with to delete this server? This action is irreversible."))
+  //     {this.props.deleteServer(); 
+  //     this.props.history.push(`/servers/@me`)
+  //     }
+  // }
 
   // Handles Leaving a server
   handleLeave(membership){
@@ -45,24 +41,38 @@ class EditServerForm extends React.Component{
     this.props.history.push('/servers/@me');
   }
 
-  openForm(){
-    this.setState({["serverName"]: true})
+  openForm(type){
+    this.setState({[type]: true})
   }
 
-  closeForm(){
-    this.setState({["serverName"]: false})
+  closeForm(type){
+    this.setState({[type]: false})
   }
 
   renderServerNameEdit(){
     if(this.state.serverName){
       return (
         <div id="double-server-modal-container">
-          <div id="server-edit-modal" onClick={() => this.closeForm()}> </div> 
+          <div id="server-edit-modal" onClick={() => this.closeForm("serverName")}> </div> 
           <EditServerNameFormContainer
           server = {this.props.server}
           />
       </div>
 
+      )
+    }
+  }
+
+  renderServerDeleteForm(){
+    if(this.state.deleteForm){
+      return(
+        <div id="double-server-modal-container">
+          <div id ="server-edit-modal" onClick={() => this.closeForm("deleteForm")}> </div>
+          <DeleteServerFormContainer
+            server = {this.props.server}
+            deleteServer = {this.props.deleteServer}
+          />
+        </div>
       )
     }
   }
@@ -79,9 +89,10 @@ class EditServerForm extends React.Component{
     if (this.props.type === "owner"){ 
     return (
     <div id="edit-server-form"> 
-      <button id="update-server-name" onClick={() => this.openForm()}>Edit Server</button>
-      <button id="delete-server" onClick={() => this.handleDelete()}>Delete Server</button>
+      <button id="update-server-name" onClick={() => this.openForm("serverName")}>Edit Server</button>
+      <button id="delete-server" onClick={() => this.openForm("deleteForm")}>Delete Server</button>
       {this.renderServerNameEdit()}
+      {this.renderServerDeleteForm()}
     </div>
     )
     } // Member

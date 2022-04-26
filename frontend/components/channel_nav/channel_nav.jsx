@@ -19,8 +19,17 @@ class ChannelNav extends React.Component{
     this.closeForm = this.closeForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleServerEdit = this.handleServerEdit.bind(this);
+    this.mounted = false;
   }
 
+
+  componentDidMount(){
+    this.mounted = true;
+  }
+
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   // Toggle edit bar on and off
 
   toggleEdits(type){
@@ -32,8 +41,10 @@ class ChannelNav extends React.Component{
   }
 
   closeForm(type){
-    let that = this;
-    this.setState({[type]: !that.state[type]})
+    if(this.mounted){
+      let that = this;
+      this.setState({[type]: !that.state[type]})
+    }
   }
 
   handleSubmit(type){
