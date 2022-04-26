@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
 
   # Used to show associated users who are not in a dm with you already, so 
   # Uses Current User Id to filter.
-  # Use a hash to store dm_partner ids to reduce lookup time from O(n^2) to O(n)
+  # Use a hash to store dm_partner ids to reduce overal lookup time from O(n^2) to O(n)
   def index 
     dm_partner_hash = Hash.new(0)
     dm_partners = current_user.dm_partners
