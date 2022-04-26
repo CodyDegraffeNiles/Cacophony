@@ -12,7 +12,7 @@ const HomeBody = () => {
           Where just you and a handful of friends can spend time together. 
           A place that makes it easy to talk every day and hang out more often.
           </p>
-          <Link to="/signup"><span id="signup-inner-text"> Don't Just Imagine. Signup! </span></Link>
+          <Link to="/signup"><span id="signup-inner-text">Don't Just Imagine. Signup! </span></Link>
         </div>
       </div>
       <div className="white-div">
@@ -28,7 +28,7 @@ const HomeBody = () => {
       </div>
       <div className="grey-div"> 
         <div className="white-div-message"> 
-          <h3 className="white-div-header"> Where hanging out is easy</h3>
+          <h3 className="white-div-header">Where hanging out is easy</h3>
           <p className="white-div-body">
             Real time messasging both in servers and direct messages. You can message
             any fellow server member with a click of a button. 
@@ -39,17 +39,17 @@ const HomeBody = () => {
       <div className="white-div"> 
         <img className="white-div-image-two"/> 
         <div className="white-div-message"> 
-          <h3 className="white-div-header"> From few to a fandom</h3>
+          <h3 className="white-div-header">From few to a fandom</h3>
           <p className="white-div-body">
-            Get any community up and running with public or private servers as well 
-            as search public servers for the perfect fit.
+            Get any community up and running with public or private servers or 
+            serach public servers for the perfect fit.
           </p>
         </div> 
       </div>
       <div className="grey-sign-up-div">
         <div id="sign-up-items"> 
-          <h3 className="sign-up-div-header"> Ready to start your journey?</h3>
-          <Link to="/signup"> Open Cacophony in the Browser!</Link>
+          <h3 className="sign-up-div-header">Ready to start your journey?</h3>
+          <Link to="/signup">Open Cacophony in the Browser!</Link>
         </div>
       </div>
     </div>
