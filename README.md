@@ -36,7 +36,7 @@ Users can chat in real-time through WebSockets implemented by Action Cables. Thi
   }
   
 ```
-![Live Chat Demo](https://media.giphy.com/media/V6DyDC42BUjarnCtEd/giphy.gif)
+![Live Chat Demo](https://media.giphy.com/media/WtYjnziHVpjVPHcxqS/giphy.gif)
 
 #### Creating Servers
 
@@ -56,7 +56,7 @@ The trickiest part of creating servers was having the app land on the right page
 
 ```
 
-![Server Creation](https://media.giphy.com/media/PdpmA5takWDnUFNW3c/giphy.gif)
+![Server Creation](https://media.giphy.com/media/nramPjT2afF2LDIgb9/giphy.gif)
 ### Technologies Implemented
 ---- 
 
