@@ -23,7 +23,7 @@ const Footer = () => {
                 AngelList </a>
             </li>
             <li> 
-              <a className="link" href="https://codydegraffeniles.github.io/CodyDegraffeNiles.github.io-/" target="_blank"> 
+              <a className="link" href="https://codydegraffeniles.github.io" target="_blank"> 
                   Portfolio </a>
             </li>
           </ul>
@@ -38,7 +38,7 @@ const Footer = () => {
         <div id= "disclaimer">
           <div> 
             <span>Cacophony built by </span>
-              <a className="link" href="https://codydegraffeniles.github.io/CodyDegraffeNiles.github.io-/" target="_blank"> 
+              <a className="link" href="https://codydegraffeniles.github.io" target="_blank"> 
               Cody Degraffe-Niles.</a>
           </div>
           <p> All images used are property of Discord.</p>

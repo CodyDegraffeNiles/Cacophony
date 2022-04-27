@@ -15,7 +15,7 @@ const HomeNav = () => {
           target="_blank"> LinkedIn  </a>
         <a className="link" href="https://angel.co/u/cody-degraffe-niles" target="_blank"> 
           AngelList </a>
-        <a className="link" href="https://codydegraffeniles.github.io/CodyDegraffeNiles.github.io-/" target="_blank"> 
+        <a className="link" href="https://codydegraffeniles.github.io" target="_blank"> 
           Portfolio </a>
       </div>
       <div id = "login">
