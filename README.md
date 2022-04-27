@@ -23,7 +23,7 @@ Users can chat in real-time through WebSockets implemented by Action Cables. Thi
   
  componentDidUpdate(prevProps){
   // if(PrevProps !== this.props)
-      if(PrevProps !== this.props{
+      if(PrevProps !== this.props){
       this.unsubscribe();
       this.subscribe();
       // Refetch Channel to make sure the proper messages are displayed
@@ -84,6 +84,6 @@ The author would like to acknowledge that the following were invaluable to under
 
 * [Utilizing Action Cables](https://javascript.plainenglish.io/building-a-simple-live-chat-in-react-with-action-cable-8c2abf7a25b5)
 * [Deploying Action Cables to Heroku](https://medium.com/swlh/deploying-a-rails-react-app-with-actioncable-to-heroku-cb5d42f41a2a)
-* All images used were from Discord and used for educational purposes
+* All images used were from Discord and used for educational purposes.
 * All my friends who live tested Cacophony and gave valuable user feedback.
 * A special thanks goes out to Jonathan W and Nick P for keeping the author sane during development and always being down to help squash some bugs.
