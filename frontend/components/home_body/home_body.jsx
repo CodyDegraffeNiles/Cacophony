@@ -30,7 +30,7 @@ const HomeBody = () => {
         <div className="white-div-message"> 
           <h3 className="white-div-header">Where hanging out is easy</h3>
           <p className="white-div-body">
-            Real time messasging both in servers and direct messages. You can message
+            Real time messaging both in servers and direct messages. You can message
             any fellow server member with a click of a button. 
           </p>
         </div> 
