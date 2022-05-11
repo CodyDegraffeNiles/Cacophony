@@ -39,7 +39,7 @@ Users can chat in real-time through WebSockets implemented by Action Cables. Thi
 
 #### Creating Servers
 
-The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push the route to the server's first channel. However, before the backend creates the server (and in turn the server's first channel), the frontend cannot reroute properly as it does not know the id of the new server nor the id of the server's first channel. To solve this problem, Cacophony waits for the promise of the createServerFunction to properly push the frontend with the response data from the server creation.
+The trickiest part of creating servers was having the app land on the right page after the server was created, i.e., push the route to the server's first channel. However, before the backend creates the server (and in turn the server's first channel), the frontend cannot reroute properly as it does not know the id of the new server nor the id of the server's first channel. To solve this problem, Cacophony waits for the promise of the createServer Function to properly push the frontend with the response data from the server creation.
 
 
 ``` JavaScript
