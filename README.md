@@ -47,7 +47,7 @@ The trickiest part of creating servers was having the app land on the right page
    // In the server form component, this function handles the submitting of server creation form
     e.preventDefault();
     let that = this;
-    // action = create server
+    // action = createServer function
     this.props.action(this.state).then(function(action){
       let server  = action.server.server
       return that.props.history.push(`/servers/${server.id}/${server.firstChannelId}`);
