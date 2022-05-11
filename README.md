@@ -22,7 +22,6 @@ Users can chat in real-time through WebSockets implemented by Action Cables. Thi
   }
   
  componentDidUpdate(prevProps){
-  // if(PrevProps !== this.props)
       if(PrevProps !== this.props){
       this.unsubscribe();
       this.subscribe();
