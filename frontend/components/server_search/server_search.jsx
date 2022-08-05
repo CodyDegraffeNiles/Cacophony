@@ -10,10 +10,7 @@ class ServerSearch extends React.Component{
   }
 
   componentDidMount(){
-    let that = this;
-    // Grab all the servers from the database and attach them to the state
-    // of the react component, not to muddy the waters of the servers in the 
-    // overall state.
+    let that = this;g
     this.props.fetchAllServers().then( 
       function(response){
         return that.setState({publicServers: response})
